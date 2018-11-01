@@ -13,4 +13,9 @@ class Products extends Model
         return $data;
     }
 
+    public function getProductById($id) 
+    {
+        return $this->db->sql("SELECT * FROM stockitems WHERE StockItemID = ${id}");
+    }
+
 }

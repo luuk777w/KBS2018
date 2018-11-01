@@ -5,19 +5,21 @@
         .image{
             width: 35rem;
             height: 26.25rem;
-            background-image: url("../../assets/img/milka.jpg");
+            /*background-image: url("../../assets/img/milka.jpg");*/
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
         }
 
         .smallImages{
-            border: 1px solid black;
             margin-top: 1rem;
             margin-left: 1rem;
             width: 8rem;
             height: 6rem;
             float: left;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
         .firstSmallImage{
@@ -39,12 +41,21 @@
             float: left;
         }
 
+        .stock{
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
         .inStock{
             border: solid #24A647 1px;
             color: #24A647;
             width: 7rem;
-            text-align: center;
-            margin-bottom: 5px;
+        }
+
+        .notInStock{
+            border: solid #DB3544 1px;
+            color: #DB3544;
+            width: 9rem;
         }
 
         .deliveryTime{
@@ -53,7 +64,6 @@
 
         .cooledProduct{
             color: #107BFD;
-            margin-bottom: 1.5rem;
         }
 
         .cooledProduct-icon{
@@ -79,23 +89,32 @@
 
     <br>
 
-    <h1>Milka OREO 100 gram</h1>
+    <h1><?php echo e($product->StockItemName); ?></h1>
 
     <div class="row">
         <div class="col-7" >
-            <div class="image"></div>
-            <div class="smallImages firstSmallImage"></div>
-            <div class="smallImages"></div>
-            <div class="smallImages"></div>
-            <div class="smallImages"></div>
+        
+        <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <div class="smallImages firstSmallImage" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
         </div>
         <div class="col-5" >
-            <h1>€1,50</h1>
-            <p class="inStock">Op voorraad</p>
-            <p class="deliveryTime">Voor 22:00 besteld, morgen in huis!</p>
-            <p class="cooledProduct"><i class="fas fa-snowflake cooledProduct-icon"></i>Let op! dit is een gekoeld product.</p>
+            <h1>€<?php echo e($product->UnitPrice); ?></h1>
+
+            <?php if(true): ?>
+                <p class="stock inStock">Op voorraad</p>
+                <p class="deliveryTime">Voor 22:00 besteld, morgen in huis!</p>
+            <?php else: ?>
+                <p class="stock notInStock">Niet op voorraad</p>
+            <?php endif; ?>
+
+            <?php if($product->IsChillerStock): ?> 
+                <p class="cooledProduct"><i class="fas fa-snowflake cooledProduct-icon"></i>Let op! dit is een gekoeld product.</p>
+            <?php endif; ?>
                 
-            <button class="btn btn-success cartWishList-button">
+            <button class="btn btn-success cartWishList-button" style="margin-top: 0.5rem;">
                 <i class="fas fa-shopping-cart fa-2x cartWishList-icon"></i>
                 <span class="cartWishList-text">In winkelwagen</span>
             </button>
@@ -120,9 +139,7 @@
 
         <div class="col-7" >
             <h2>Productinformatie</h2>
-            <p>Milka OREO 100 gram is een heerlijke chocolade reep voor jong en oud! <br>
-                Het is zachte Alpenmelkchocolade met vulling van gebroken Oreo Koekjes.                
-            </p>
+            <p><?php echo e($product->SearchDetails); ?></p>
         </div>
         <div class="col-5" >
     
