@@ -19,7 +19,6 @@ Class Routes
         'GET:home' => ['HomeController', 'index'],
         'GET:login' => ['LoginController', 'index'],
         'GET:products' => ['ProductController', 'index'],
-        'POST:products' => ['ProductController', 'getProducts'],
         'GET:product/{productId}' => ['ProductController', 'redirectToCorrectURL'],
         'GET:product/{productId}/{productName}' => ['ProductController', 'productPageIndex']
     ];
