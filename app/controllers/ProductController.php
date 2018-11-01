@@ -8,16 +8,13 @@ use App\Models\Products;
 
 class ProductController extends Controller
 {
-    public function index()
-    {
-        return $this->view->render("products");
-    }
 
-    public function getProducts(){
+    public function index(){
         $products = new Products();
         $products = $products->getProducts();
 
         return $this->view->render("products", compact("products"));
+
     }
 
     public function productPageIndex($productId, $productName)
