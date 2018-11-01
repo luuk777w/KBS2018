@@ -26,12 +26,12 @@
         <tr>
             <td><img src="https://res.cloudinary.com/teepublic/image/private/s--tM4JElmV--/t_Preview/b_rgb:191919,c_limit,f_auto,h_313,q_90,w_313/v1491250418/production/designs/1381795_1" class="img-thumbnail"></td>
             <td><h3><?php echo e($product->StockItemName); ?></h3><br>
-                <h6>Categorie </h6>
+                <b><h5>Categorie </h5></b>
                 <?php echo e($product->StockGroupName); ?>
 
                 <br>
                 <br>
-                <h6>Beschrijving</h6>
+                <b><h5>Beschrijving</h5></b>
                 <?php echo e($product->SearchDetails); ?></td>
             <td>
                 <a href="#<?php echo e($product->StockItemName); ?>" class="btn btn-primary" role="button" aria-pressed="true" target="_blank">Lees meer</a>
