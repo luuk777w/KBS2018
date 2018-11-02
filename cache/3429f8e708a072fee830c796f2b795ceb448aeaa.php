@@ -11,7 +11,7 @@
         }
     </style>
 
-    @yield('head')
+    <?php echo $__env->yieldContent('head'); ?>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
@@ -61,7 +61,7 @@
         </div>
     </nav>
 
-    @yield('body')
+    <?php echo $__env->yieldContent('body'); ?>
 
 
 
@@ -152,7 +152,7 @@
 
 
 
-@yield('scripts')
+<?php echo $__env->yieldContent('scripts'); ?>
 
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
