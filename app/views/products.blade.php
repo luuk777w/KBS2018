@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('head')
-    <head>
+
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Wide World Importers GANG</title>
-    </head>
+
 
     <style>
         
@@ -34,8 +34,8 @@
                     <br>
                     <h6 class="card-title">Categorie</h6>{{$product->StockGroupName}}
                     <br>
-                    <p class="card-text">{{$product->SearchDetails}}</p>
-                    <a href="/product/{{$product->StockItemID}}" style="position: absolute; bottom:10px " class="btn btn-primary">Go somewhere</a>
+                    <p class="card-text" style="overflow: hidden; max-height: 3rem">{{$product->SearchDetails}}</p>
+                    <a href="/product/{{$product->StockItemID}}" style="position: absolute; bottom:10px " class="btn btn-primary">Lees Meer</a>
 
                 </div>
 
