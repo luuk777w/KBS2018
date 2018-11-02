@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('head')
+<?php $__env->startSection('head'); ?>
 
     <style>
         
@@ -85,23 +83,23 @@
     
     </style>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('body')
+<?php $__env->startSection('body'); ?>
 
     <br>
 
-    <h1>{{$productDetails->StockItemName}}</h1>
+    <h1><?php echo e($productDetails->StockItemName); ?></h1>
 
     <div class="row">
         <div class="col-7" >
-        {{-- <img src="data:image/jpeg;base64,{{$blob}}" class="image"/> --}}
+        
 
-            @if($media[0]->MediaUrl !== NULL)
-                <div class="image" style="background-image: url('../../assets/img/{{$media[0]->MediaUrl}}');"></div>
-            @else
+            <?php if($media[0]->MediaUrl !== NULL): ?>
+                <div class="image" style="background-image: url('../../assets/img/<?php echo e($media[0]->MediaUrl); ?>');"></div>
+            <?php else: ?>
                 <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
-            @endif
+            <?php endif; ?>
 
             <div class="smallImages firstSmallImage" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
@@ -109,18 +107,18 @@
             <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
         </div>
         <div class="col-5" >
-            <h1>€{{$productDetails->UnitPrice}}</h1>
+            <h1>€<?php echo e($productDetails->UnitPrice); ?></h1>
 
-            @if (true)
+            <?php if(true): ?>
                 <p class="stock inStock">Op voorraad</p>
                 <p class="deliveryTime">Voor 22:00 besteld, morgen in huis!</p>
-            @else
+            <?php else: ?>
                 <p class="stock notInStock">Niet op voorraad</p>
-            @endif
+            <?php endif; ?>
 
-            @if ($productDetails->IsChillerStock)
+            <?php if($productDetails->IsChillerStock): ?>
                 <p class="cooledProduct"><i class="fas fa-snowflake cooledProduct-icon"></i>Let op! dit is een gekoeld product.</p>
-            @endif
+            <?php endif; ?>
                 
             <button class="btn btn-success cartWishList-button" style="margin-top: 0.5rem;">
                 <i class="fas fa-shopping-cart fa-2x cartWishList-icon"></i>
@@ -147,7 +145,7 @@
 
         <div class="col-7" >
             <h2>Productinformatie</h2>
-            <p>{{$productDetails->SearchDetails}}</p>
+            <p><?php echo e($productDetails->SearchDetails); ?></p>
         </div>
         <div class="col-5" >
     
@@ -156,4 +154,5 @@
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

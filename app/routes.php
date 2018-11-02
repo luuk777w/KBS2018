@@ -20,7 +20,11 @@ Class Routes
         'GET:login' => ['LoginController', 'index'],
         'GET:products' => ['ProductController', 'index'],
         'GET:product/{productId}' => ['ProductController', 'redirectToCorrectURL'],
-        'GET:product/{productId}/{productName}' => ['ProductController', 'productPageIndex']
+        'GET:product/{productId}/{productName}' => ['ProductController', 'productPageIndex'],
+        'GET:shoppingcart' => ['ShoppingCartController', 'index'],
+        'POST:shoppingcart' => ['ShoppingCartController', 'addToCart'],
+        'DELETE:shoppingcart/{id}' => ['ShoppingCartController', 'addToCart'],
+        'DELETE:shoppingcart' => ['ShoppingCartController', 'removeFromCart'],
     ];
 
 }
