@@ -20,7 +20,9 @@ Class Routes
         'GET:login' => ['LoginController', 'index'],
         'GET:products' => ['ProductController', 'index'],
         'GET:product/{productId}' => ['ProductController', 'redirectToCorrectURL'],
-        'GET:product/{productId}/{productName}' => ['ProductController', 'productPageIndex']
+        'GET:product/{productId}/{productName}' => ['ProductController', 'productPageIndex'],
+        'GET:categories' => ['CategoryController', 'index'],
+
     ];
 
 }
