@@ -26,7 +26,7 @@ if(isset($_POST["update"]))
 		{
 			if($cart_data[$keys]["item_id"] == $_POST["hidden_id"])
 			{
-				$cart_data[$keys]["item_quantity"] = $cart_data[$keys]["item_quantity"] + $_POST["quantity"];
+				$cart_data[$keys]["item_quantity"] = $_POST["quantity"];
 			}
 		}
 	}

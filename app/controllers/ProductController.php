@@ -44,6 +44,22 @@ class ProductController extends Controller
         return header("Location: /product/${productId}/". str_replace(' ', '-', $product->StockItemName));
     }
 
+    public function addToCart($productId)
+    {
+        $product = new Products();
+        $shoppingCartController = new ShoppingCartController();
+        $product = $product->getProductById($productId);
+
+        $_POST["hidden_id"] = $product->StockItemID;
+        $_POST["hidden_name"] = $product->StockItemName;
+        $_POST["hidden_price"] = $product->UnitPrice;
+        $_POST["quantity"] = 1;
+
+        $shoppingCartController->addToCart();
+
+        return header("location:/product/".$product->StockItemID);
+    }
+
     private function setImageFromAPI($term) 
     {
         $url = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
