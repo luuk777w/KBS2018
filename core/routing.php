@@ -43,7 +43,7 @@ class Routing
                 }
             }
         }
-        return ["GET", "ErrorController", "error404"];
+        return ["ErrorController", "error404"];
     }
 
     /**
