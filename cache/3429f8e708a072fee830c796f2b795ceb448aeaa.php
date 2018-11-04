@@ -51,6 +51,21 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item">
+                    <?php 
+                    foreach ($_COOKIE["shopping_cart"] as $key => $value){
+                        $aantalitems = 0;
+                        $aantalitems++;
+                    }
+                    if($aantalitems == 0){
+                        $aantalitems = 0;
+                    }
+                    print('<a href="shoppingcart.php"><button type="button" class="btn btn-primary">
+  Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
+</button></a>');
+                     ?>
+                </li>
+                <li>
+                    <li class="nav-item">
                     <a class="nav-link" href="/register">Registreer</a>
                 </li>
                 <li class="nav-item">
