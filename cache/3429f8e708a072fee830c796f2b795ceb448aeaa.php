@@ -28,23 +28,15 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">Wide World Importers</a>
+        <a class="navbar-brand" href="/">Wide World Importers</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/categories">Categorieën</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/products">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                    <a class="nav-link" href="/products">Producten</a>
                 </li>
             </ul>
 
@@ -58,9 +50,7 @@
                         foreach ($cart_data as $key => $value){
                             $aantalitems++;
                         }
-                        if($aantalitems == 0){
-                            $aantalitems = 0;
-                        }
+
                         print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
 Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
 </button></a>');
@@ -80,8 +70,7 @@ Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
 
     <?php echo $__env->yieldContent('body'); ?>
 
-
-
+<?php echo $__env->yieldContent('footer'); ?>
     <footer  class="page-footer font-small blue pt-4">
 
         <!-- Footer Links -->
