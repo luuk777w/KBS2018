@@ -30,8 +30,6 @@ class Routing
 
         foreach ($routes as $route => $value){
 
-            
-
             $explodedRoute = explode('/', explode(':', $route)[1]);
             $newRoute = $this->getNewRoute($explodedRoute);
             $compareRoute = $this->getCompareRoute($explodedOriginal, $explodedRoute);
@@ -45,7 +43,7 @@ class Routing
                 }
             }
         }
-        return ["GET", "ErrorController", "error404"];
+        return ["ErrorController", "error404"];
     }
 
     /**
@@ -58,6 +56,7 @@ class Routing
     private function getCompareRoute($explodedOriginal, $explodedRoute){
         $compareRoute = "";
         $i = 0;
+        $this->parameters = [];
 
         foreach ($explodedOriginal as $value){
 

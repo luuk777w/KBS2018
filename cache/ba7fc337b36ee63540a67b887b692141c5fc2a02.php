@@ -11,7 +11,7 @@
         }
     </style>
 
-    @yield('head')
+    <?php echo $__env->yieldContent('head'); ?>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
@@ -32,10 +32,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="kbs2018/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/products">Products</a>
+                    <a class="nav-link" href="kbs2018/products">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Features</a>
@@ -51,40 +51,34 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item">
-                    @php
+                    <?php 
                         $aantalitems = 0;
-                        if(isset($_COOKIE['shopping_cart'])) {
-                            $cookie_data = stripslashes($_COOKIE['shopping_cart']);
-                            $cart_data = json_decode($cookie_data, true);
-                            if($cart_data == NULL) {
-                                $cart_data = [];
-                            }
-                            foreach ($cart_data as $key => $value){
-                                $aantalitems++;
-                            }
-                            if($aantalitems == 0){
-                                $aantalitems = 0;
-                            }
+                        $cookie_data = stripslashes($_COOKIE['shopping_cart']);
+                        $cart_data = json_decode($cookie_data, true);
+                        foreach ($cart_data as $key => $value){
+                            $aantalitems++;
                         }
-
-                        print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
-                                Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
-                                </button></a>');
-                    @endphp
+                        if($aantalitems == 0){
+                            $aantalitems = 0;
+                        }
+                        print('<a href="kbs2018/shoppingcart"><button type="button" class="btn btn-primary">
+Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
+</button></a>');
+                     ?>
                 </li>
                 <li>
                     <li class="nav-item">
-                    <a class="nav-link" href="/register">Registreer</a>
+                    <a class="nav-link" href="kbs2018/register">Registreer</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
+                    <a class="nav-link" href="kbs2018/login">Login</a>
                 </li>
 
             </ul>
         </div>
     </nav>
 
-    @yield('body')
+    <?php echo $__env->yieldContent('body'); ?>
 
 
 
@@ -175,7 +169,7 @@
 
 
 
-@yield('scripts')
+<?php echo $__env->yieldContent('scripts'); ?>
 
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
