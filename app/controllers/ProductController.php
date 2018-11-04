@@ -14,17 +14,17 @@ class ProductController extends Controller
         $products = $products->getProducts();
 
         return $this->view->render("products", compact("products"));
-
     }
 
     public function productPageIndex($productId, $productName)
     {
         $product = new Products();
-        $product = $product->getProductById($productId);
+        $productDetails = $product->getProductById($productId);
+        $media = $product->getMediaById($productId);
 
-        if($productName !== str_replace(' ', '-', $product->StockItemName)) 
+        if($productName !== str_replace(' ', '-', $productDetails->StockItemName))
         {
-            return header("Location: /product/${productId}/". str_replace(' ', '-', $product->StockItemName));
+            return header("Location: /product/${productId}/". str_replace(' ', '-', $productDetails->StockItemName));
         }
 
         // $blob;
@@ -33,7 +33,7 @@ class ProductController extends Controller
         //     $blob = base64_encode($this->setImageFromAPI($product->StockItemName));
         // }
 
-        return $this->view->render("product", compact("product"));
+        return $this->view->render("product", compact("productDetails", "media"));
     }
 
     public function redirectToCorrectURL($productId)
@@ -42,6 +42,22 @@ class ProductController extends Controller
         $product = $product->getProductById($productId);
 
         return header("Location: /product/${productId}/". str_replace(' ', '-', $product->StockItemName));
+    }
+
+    public function addToCart($productId)
+    {
+        $product = new Products();
+        $shoppingCartController = new ShoppingCartController();
+        $product = $product->getProductById($productId);
+
+        $_POST["hidden_id"] = $product->StockItemID;
+        $_POST["hidden_name"] = $product->StockItemName;
+        $_POST["hidden_price"] = $product->UnitPrice;
+        $_POST["quantity"] = 1;
+
+        $shoppingCartController->addToCart();
+
+        return header("location:/product/".$product->StockItemID);
     }
 
     private function setImageFromAPI($term) 

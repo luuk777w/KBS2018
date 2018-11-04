@@ -12,17 +12,15 @@ class Products extends Model
 
         return $data;
     }
-    public function getProduct()
-    {
-        $data = $this->db->sql("SELECT * FROM stockitems WHERE StockItemName ='.$product.'");
-
-        return $data;
-    }
-
 
     public function getProductById($id) 
     {
         return $this->db->sql("SELECT * FROM stockitems WHERE StockItemID = ${id}");
+    }
+
+    public function getMediaById($id)
+    {
+        return $this->db->sql("SELECT * FROM stockitems_media WHERE StockItemID = ${id}");
     }
 
 }

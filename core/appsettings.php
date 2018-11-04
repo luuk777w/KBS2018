@@ -6,8 +6,9 @@ class Appsettings
 {
     function getConfigurationString($string) 
     {
-        $file = fread(fopen("./appsettings.json", "r"), filesize("./appsettings.json"));
-        fclose();
+        $open = fopen("./appsettings.json", "r");
+        $file = fread($open, filesize("./appsettings.json"));
+        fclose($open);
 
         $configString = json_decode($file)->{$string};
         return $configString;

@@ -91,19 +91,25 @@
 
     <br>
 
-    <h1>{{$product->StockItemName}}</h1>
+    <h1>{{$productDetails->StockItemName}}</h1>
 
     <div class="row">
         <div class="col-7" >
         {{-- <img src="data:image/jpeg;base64,{{$blob}}" class="image"/> --}}
-        <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+
+            @if($media !== NULL)
+                <div class="image" style="background-image: url('../../assets/img/{{$media[0]->MediaUrl}}');"></div>
+            @else
+                <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            @endif
+
             <div class="smallImages firstSmallImage" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
         </div>
         <div class="col-5" >
-            <h1>€{{$product->UnitPrice}}</h1>
+            <h1>€{{$productDetails->UnitPrice}}</h1>
 
             @if (true)
                 <p class="stock inStock">Op voorraad</p>
@@ -112,14 +118,16 @@
                 <p class="stock notInStock">Niet op voorraad</p>
             @endif
 
-            @if ($product->IsChillerStock) 
+            @if ($productDetails->IsChillerStock)
                 <p class="cooledProduct"><i class="fas fa-snowflake cooledProduct-icon"></i>Let op! dit is een gekoeld product.</p>
             @endif
-                
-            <button class="btn btn-success cartWishList-button" style="margin-top: 0.5rem;">
-                <i class="fas fa-shopping-cart fa-2x cartWishList-icon"></i>
-                <span class="cartWishList-text">In winkelwagen</span>
-            </button>
+
+            <form method="post" action="/product/addtocart/{{$productDetails->StockItemID}}">
+                <button class="btn btn-success cartWishList-button" style="margin-top: 0.5rem;">
+                    <i class="fas fa-shopping-cart fa-2x cartWishList-icon"></i>
+                    <span class="cartWishList-text">In winkelwagen</span>
+                </button>
+            </form>
 
             <button class="btn btn-outline-danger cartWishList-button">
                     <i class="fas fa-heart fa-2x cartWishList-icon"></i>
@@ -141,7 +149,7 @@
 
         <div class="col-7" >
             <h2>Productinformatie</h2>
-            <p>{{$product->SearchDetails}}</p>
+            <p>{{$productDetails->SearchDetails}}</p>
         </div>
         <div class="col-5" >
     

@@ -20,7 +20,15 @@ Class Routes
         'GET:login' => ['LoginController', 'index'],
         'GET:products' => ['ProductController', 'index'],
         'GET:product/{productId}' => ['ProductController', 'redirectToCorrectURL'],
-        'GET:product/{productId}/{productName}' => ['ProductController', 'productPageIndex']
+        'GET:product/{productId}/{productName}' => ['ProductController', 'productPageIndex'],
+        'POST:product/addtocart/{productId}' => ['ProductController', 'addToCart'],
+        'GET:shoppingcart' => ['ShoppingCartController', 'index'],
+        'GET:shoppingcart/test' => ['ShoppingCartController', 'test'],
+        'POST:shoppingcart/add' => ['ShoppingCartController', 'addToCart'],
+        'GET:shoppingcart/delete/{id}' => ['ShoppingCartController', 'removeFromCart'],
+        'GET:shoppingcart/clear' => ['ShoppingCartController', 'clearCart'],
+        'POST:shoppingcart/update' => ['ShoppingCartController', 'update'],
+        'GET:categories' => ['CategoryController', 'index'],
     ];
 
 }
