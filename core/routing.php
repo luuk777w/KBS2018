@@ -21,7 +21,7 @@ class Routing
         }
 
         $original = $_GET['r'];
-
+		
         if(substr($original, -1) == "/"){
             $original = rtrim($original, "/");
         }
