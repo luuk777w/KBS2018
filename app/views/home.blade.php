@@ -4,11 +4,9 @@
 
     <br>
 	
-<<<<<<< HEAD
 	<h1>Deploy Test 4</h1>
-=======
-	<h1>Deploy Test</h1>
->>>>>>> parent of 11b64ce... Deploy Test
+
+
 
     <div class="jumbotron">
         <h1 class="display-3">Hello, world!</h1>
