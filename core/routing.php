@@ -21,9 +21,13 @@ class Routing
         }
 
         $original = $_GET['r'];
-
+		
         if(substr($original, -1) == "/"){
             $original = rtrim($original, "/");
+        }
+		
+		if(substr($original, 0, 1) == "/"){
+            $original = ltrim($original, "/");
         }
 
         $explodedOriginal = explode('/', $original);
@@ -43,7 +47,7 @@ class Routing
                 }
             }
         }
-        return ["GET", "ErrorController", "error404"];
+        return ["ErrorController", "error404"];
     }
 
     /**

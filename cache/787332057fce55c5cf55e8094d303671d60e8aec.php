@@ -89,19 +89,25 @@
 
     <br>
 
-    <h1><?php echo e($product->StockItemName); ?></h1>
+    <h1><?php echo e($productDetails->StockItemName); ?></h1>
 
     <div class="row">
         <div class="col-7" >
         
-        <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+
+            <?php if($media !== NULL): ?>
+                <div class="image" style="background-image: url('../../assets/img/<?php echo e($media[0]->MediaUrl); ?>');"></div>
+            <?php else: ?>
+                <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <?php endif; ?>
+
             <div class="smallImages firstSmallImage" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
         </div>
         <div class="col-5" >
-            <h1>€<?php echo e($product->UnitPrice); ?></h1>
+            <h1>€<?php echo e($productDetails->UnitPrice); ?></h1>
 
             <?php if(true): ?>
                 <p class="stock inStock">Op voorraad</p>
@@ -110,14 +116,16 @@
                 <p class="stock notInStock">Niet op voorraad</p>
             <?php endif; ?>
 
-            <?php if($product->IsChillerStock): ?> 
+            <?php if($productDetails->IsChillerStock): ?>
                 <p class="cooledProduct"><i class="fas fa-snowflake cooledProduct-icon"></i>Let op! dit is een gekoeld product.</p>
             <?php endif; ?>
-                
-            <button class="btn btn-success cartWishList-button" style="margin-top: 0.5rem;">
-                <i class="fas fa-shopping-cart fa-2x cartWishList-icon"></i>
-                <span class="cartWishList-text">In winkelwagen</span>
-            </button>
+
+            <form method="post" action="/product/addtocart/<?php echo e($productDetails->StockItemID); ?>">
+                <button class="btn btn-success cartWishList-button" style="margin-top: 0.5rem;">
+                    <i class="fas fa-shopping-cart fa-2x cartWishList-icon"></i>
+                    <span class="cartWishList-text">In winkelwagen</span>
+                </button>
+            </form>
 
             <button class="btn btn-outline-danger cartWishList-button">
                     <i class="fas fa-heart fa-2x cartWishList-icon"></i>
@@ -139,7 +147,7 @@
 
         <div class="col-7" >
             <h2>Productinformatie</h2>
-            <p><?php echo e($product->SearchDetails); ?></p>
+            <p><?php echo e($productDetails->SearchDetails); ?></p>
         </div>
         <div class="col-5" >
     

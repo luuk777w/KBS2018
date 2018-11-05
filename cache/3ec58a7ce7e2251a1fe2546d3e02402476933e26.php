@@ -1,14 +1,9 @@
-@extends('layouts.app')
-
-@section('body')
+<?php $__env->startSection('body'); ?>
 
     <br>
 	
-<<<<<<< HEAD
-=======
-	<h1>Deploy Test 4</h1>
+	<h1>Deploy Test</h1>
 
->>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
     <div class="jumbotron">
         <h1 class="display-3">Hello, world!</h1>
         <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
@@ -19,4 +14,5 @@
         </p>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

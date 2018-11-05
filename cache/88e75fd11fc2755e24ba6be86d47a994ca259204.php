@@ -1,9 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Wide World Importers</title>
+    <style>
+        .footer_background {
+        "background-color: yellow"
+
+        }
+    </style>
 
     <?php echo $__env->yieldContent('head'); ?>
 
@@ -45,6 +51,29 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item">
+                    <?php 
+                        $aantalitems = 0;
+                        if(isset($_COOKIE['shopping_cart'])) {
+                            $cookie_data = stripslashes($_COOKIE['shopping_cart']);
+                            $cart_data = json_decode($cookie_data, true);
+                            if($cart_data == NULL) {
+                                $cart_data = [];
+                            }
+                            foreach ($cart_data as $key => $value){
+                                $aantalitems++;
+                            }
+                            if($aantalitems == 0){
+                                $aantalitems = 0;
+                            }
+                        }
+
+                        print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
+                                Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
+                                </button></a>');
+                     ?>
+                </li>
+                <li>
+                    <li class="nav-item">
                     <a class="nav-link" href="/register">Registreer</a>
                 </li>
                 <li class="nav-item">
@@ -57,7 +86,93 @@
 
     <?php echo $__env->yieldContent('body'); ?>
 
+
+
+    <footer  class="page-footer font-small blue pt-4">
+
+        <!-- Footer Links -->
+        <div  class="container-fluid text-center text-md-left">
+
+            <!-- Grid row -->
+            <div class="row ">
+
+                <!-- Grid column -->
+                <div  class="col-md-6 mt-md-0 mt-3 bg-light">
+
+                    <!-- Content -->
+                    <h5 class="text-uppercase">Contactgegevens</h5>
+                    <p>Email: <br>
+                    Telefoon: <br>
+                    Adres: </p>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none pb-3 bg-light">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3 bg-light">
+
+                    <!-- Links -->
+                    <h5 class="text-uppercase">Links</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 3</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 4</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3 bg-light">
+
+                    <!-- Links -->
+                    <h5 class="text-uppercase">Links</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 3</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 4</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 bg-light">© 2018 Copyright:
+            <a style="text-decoration: none; color: black" href="https://youtu.be/9Mq6u6zc7qU?t=18"> WWI</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
 </div>
+
 
 
 <?php echo $__env->yieldContent('scripts'); ?>
@@ -67,3 +182,5 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+

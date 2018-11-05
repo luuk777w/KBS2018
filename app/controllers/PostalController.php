@@ -6,7 +6,7 @@ namespace App\Controllers;
 use Core\Auth;
 use Core\Controller;
 
-class PostalControllerontroller
+class PostalController
 {
 
  function PostalCheck($code, $num){

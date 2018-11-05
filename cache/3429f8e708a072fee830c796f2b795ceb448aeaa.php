@@ -28,29 +28,57 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">Wide World Importers</a>
+        <a class="navbar-brand" href="/">Wide World Importers</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/categories">Categorieën</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/products">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                    <a class="nav-link" href="/products">Producten</a>
                 </li>
             </ul>
 
             <ul class="navbar-nav">
 
                 <li class="nav-item">
+                    <?php 
+                        $aantalitems = 0;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                        $cookie_data = stripslashes($_COOKIE['shopping_cart']);
+                        $cart_data = json_decode($cookie_data, true);
+                        foreach ($cart_data as $key => $value){
+                            $aantalitems++;
+=======
+>>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+                        if(isset($_COOKIE['shopping_cart'])) {
+                            $cookie_data = stripslashes($_COOKIE['shopping_cart']);
+                            $cart_data = json_decode($cookie_data, true);
+                            if($cart_data == NULL) {
+                                $cart_data = [];
+                            }
+                            foreach ($cart_data as $key => $value){
+                                $aantalitems++;
+                            }
+                            if($aantalitems == 0){
+                                $aantalitems = 0;
+                            }
+<<<<<<< HEAD
+=======
+>>>>>>> 29ec776466f6f41afc6de58d74100749769cf443
+>>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+                        }
+
+                        print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
+                                Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
+                                </button></a>');
+                     ?>
+                </li>
+                <li>
+                    <li class="nav-item">
                     <a class="nav-link" href="/register">Registreer</a>
                 </li>
                 <li class="nav-item">
@@ -63,8 +91,7 @@
 
     <?php echo $__env->yieldContent('body'); ?>
 
-
-
+<?php echo $__env->yieldContent('footer'); ?>
     <footer  class="page-footer font-small blue pt-4">
 
         <!-- Footer Links -->

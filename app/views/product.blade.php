@@ -97,7 +97,7 @@
         <div class="col-7" >
         {{-- <img src="data:image/jpeg;base64,{{$blob}}" class="image"/> --}}
 
-            @if($media[0]->MediaUrl !== NULL)
+            @if($media !== NULL)
                 <div class="image" style="background-image: url('../../assets/img/{{$media[0]->MediaUrl}}');"></div>
             @else
                 <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
@@ -121,11 +121,13 @@
             @if ($productDetails->IsChillerStock)
                 <p class="cooledProduct"><i class="fas fa-snowflake cooledProduct-icon"></i>Let op! dit is een gekoeld product.</p>
             @endif
-                
-            <button class="btn btn-success cartWishList-button" style="margin-top: 0.5rem;">
-                <i class="fas fa-shopping-cart fa-2x cartWishList-icon"></i>
-                <span class="cartWishList-text">In winkelwagen</span>
-            </button>
+
+            <form method="post" action="/product/addtocart/{{$productDetails->StockItemID}}">
+                <button class="btn btn-success cartWishList-button" style="margin-top: 0.5rem;">
+                    <i class="fas fa-shopping-cart fa-2x cartWishList-icon"></i>
+                    <span class="cartWishList-text">In winkelwagen</span>
+                </button>
+            </form>
 
             <button class="btn btn-outline-danger cartWishList-button">
                     <i class="fas fa-heart fa-2x cartWishList-icon"></i>

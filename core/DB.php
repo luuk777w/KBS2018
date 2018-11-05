@@ -27,6 +27,9 @@ class DB
             if(count($data) > 1) {
                 return $data;
             } else {
+                if($data == NULL)
+                    return NULL;
+
                 return $data[0];
             }
         } else {
