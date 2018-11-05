@@ -45,15 +45,19 @@
                 <li class="nav-item">
                     <?php 
                         $aantalitems = 0;
-                        $cookie_data = stripslashes($_COOKIE['shopping_cart']);
-                        $cart_data = json_decode($cookie_data, true);
-                        foreach ($cart_data as $key => $value){
-                            $aantalitems++;
-                        }
+                       $cookie_data = stripslashes($_COOKIE['shopping_cart']);
+                       $cart_data = json_decode($cookie_data, true);
+                       foreach ($cart_data as $key => $value){
+                           $aantalitems++;
+                       }
+                       if($aantalitems == 0){
+                           $aantalitems = 0;
 
-                        print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
-Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
-</button></a>');
+                       }
+
+                       print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
+                               Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
+                               </button></a>');
                      ?>
                 </li>
                 <li>

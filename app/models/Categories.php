@@ -13,4 +13,6 @@ class Categories extends Model
         return $data;
     }
 
+
+
 }

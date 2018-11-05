@@ -23,4 +23,6 @@ class Products extends Model
         return $this->db->sql("SELECT * FROM stockitems_media WHERE StockItemID = ${id}");
     }
 
+
+
 }

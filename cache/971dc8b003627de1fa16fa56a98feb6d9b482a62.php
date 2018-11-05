@@ -24,7 +24,7 @@
                 <img class="card-img-top" src="https://res.cloudinary.com/teepublic/image/private/s--tM4JElmV--/t_Preview/b_rgb:191919,c_limit,f_auto,h_313,q_90,w_313/v1491250418/production/designs/1381795_1" class="img-thumbnail" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo e($category->StockGroupName); ?></h5>
-                    <a href="/product/" style="position: absolute; bottom:10px " class="btn btn-primary">Bekijk Meer</a>
+                    <a href="/categories/<?php echo e($category->StockGroupID); ?>" style="position: absolute; bottom:10px " class="btn btn-primary">Bekijk Meer</a>
 
                 </div>
 
