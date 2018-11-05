@@ -51,6 +51,29 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item">
+                    <?php 
+                        $aantalitems = 0;
+                        if(isset($_COOKIE['shopping_cart'])) {
+                            $cookie_data = stripslashes($_COOKIE['shopping_cart']);
+                            $cart_data = json_decode($cookie_data, true);
+                            if($cart_data == NULL) {
+                                $cart_data = [];
+                            }
+                            foreach ($cart_data as $key => $value){
+                                $aantalitems++;
+                            }
+                            if($aantalitems == 0){
+                                $aantalitems = 0;
+                            }
+                        }
+
+                        print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
+                                Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
+                                </button></a>');
+                     ?>
+                </li>
+                <li>
+                    <li class="nav-item">
                     <a class="nav-link" href="/register">Registreer</a>
                 </li>
                 <li class="nav-item">
