@@ -25,6 +25,10 @@ class Routing
         if(substr($original, -1) == "/"){
             $original = rtrim($original, "/");
         }
+		
+		if(substr($original, 0, 1) == "/"){
+            $original = ltrim($original, "/");
+        }
 
         $explodedOriginal = explode('/', $original);
 
