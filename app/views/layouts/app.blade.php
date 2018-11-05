@@ -44,13 +44,7 @@
 
                 <li class="nav-item">
                     @php
-                        $aantalitems = 0;
-<<<<<<< HEAD
-                        $cookie_data = stripslashes($_COOKIE['shopping_cart']);
-                        $cart_data = json_decode($cookie_data, true);
-                        foreach ($cart_data as $key => $value){
-                            $aantalitems++;
-=======
+
                         if(isset($_COOKIE['shopping_cart'])) {
                             $cookie_data = stripslashes($_COOKIE['shopping_cart']);
                             $cart_data = json_decode($cookie_data, true);
@@ -63,7 +57,7 @@
                             if($aantalitems == 0){
                                 $aantalitems = 0;
                             }
->>>>>>> 29ec776466f6f41afc6de58d74100749769cf443
+
                         }
 
                         print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
