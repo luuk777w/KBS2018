@@ -16,7 +16,7 @@
 
 <?php $__env->startSection('body'); ?>
 
-        <div style="margin: auto; width: 58rem">
+        <div style="margin: auto; width: 58rem; overflow: auto;">
     <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 
