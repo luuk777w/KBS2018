@@ -11,8 +11,8 @@ class Products extends Model
         return $this->db->sql("SELECT * FROM stockitems SI
         JOIN ( SELECT StockItemID, MIN(StockGroupId) AS StockGroupId
                 FROM  stockitemstockgroups
-                GROUP BY StockItemID) SG on SI.StockItemID=SG.StockitemID 
-        JOIN stockgroups sgg on SG.stockgroupid=sgg.stockgroupid
+                GROUP BY StockItemID) SG ON SI.StockItemID=SG.StockitemID 
+        JOIN stockgroups sgg ON SG.stockgroupid=sgg.stockgroupid
         LEFT JOIN ( SELECT StockItemID, MediaURL AS PrimaryMediaURL
                     FROM stockitems_media sm 
                     WHERE sm.Primary = 1) m ON SI.StockItemID = m.StockItemID");//No remove PLS is voor category naam
