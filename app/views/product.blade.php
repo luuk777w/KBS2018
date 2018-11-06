@@ -149,7 +149,6 @@
 
         <div class="col-7" >
             <h2>Productinformatie</h2>
-<<<<<<< HEAD
             <p>{{$productDetails->SearchDetails}}
                 <br>
                 <br>
@@ -159,13 +158,6 @@
                     Houdbaarheid: {{json_decode($productDetails->CustomFields)->ShelfLife}}
                 @endif
             </p>
-=======
-            <p>{{$productDetails->SearchDetails}}</p>
-            <h2>Productinformatie</h2>
-
-
-
->>>>>>> 908071411f3a0c250c3cf7da4ae1d72c9e2875d2
         </div>
         <div class="col-5" >
 
