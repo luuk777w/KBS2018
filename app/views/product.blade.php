@@ -102,6 +102,7 @@
             @else
                 <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             @endif
+<<<<<<< HEAD
         @php
             $count= {{$media[0]->MediaID}};
 
@@ -115,7 +116,13 @@
               @endphp
               @endforeach
 
+=======
+>>>>>>> 9a4bbd6f4e20e46a260defb73b2d73eef3321bf6
 
+            <div class="smallImages firstSmallImage" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
         </div>
         <div class="col-5" >
             <h1>€{{$productDetails->UnitPrice}}</h1>

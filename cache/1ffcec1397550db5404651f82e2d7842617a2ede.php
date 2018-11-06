@@ -100,6 +100,7 @@
             <?php else: ?>
                 <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             <?php endif; ?>
+<<<<<<< HEAD
         <?php 
             $count= <?php echo e($media[0]->MediaID); ?>;
 
@@ -113,7 +114,13 @@
                ?>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
+=======
+>>>>>>> 9a4bbd6f4e20e46a260defb73b2d73eef3321bf6
 
+            <div class="smallImages firstSmallImage" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
         </div>
         <div class="col-5" >
             <h1>€<?php echo e($productDetails->UnitPrice); ?></h1>
