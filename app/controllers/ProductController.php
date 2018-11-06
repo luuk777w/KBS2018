@@ -16,6 +16,8 @@ class ProductController extends Controller
         return $this->view->render("products", compact("products"));
     }
 
+
+
     public function productPageIndex($productId, $productName)
     {
         $product = new Products();

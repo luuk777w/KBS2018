@@ -19,9 +19,6 @@
         <div style="margin: auto; width: 58rem">
     <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-    <?php 
-        $url = "/product/". $product->StockItemID ."/". str_replace(' ', '-', $product->StockItemName);
-     ?>
 
 
             <div class="card" style="width: 18rem; height:40rem;float:left;margin:10px">
@@ -36,8 +33,6 @@
                     <br>
                     <p class="card-text" style="overflow: hidden; max-height: 3rem"><?php echo e($product->SearchDetails); ?></p>
                     <a href="/product/<?php echo e($product->StockItemID); ?>" style="position: absolute; bottom:10px " class="btn btn-primary">Lees Meer</a>
-
-
 
                 </div>
 

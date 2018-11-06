@@ -47,6 +47,7 @@
 <<<<<<< HEAD
                         $aantalitems = 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
                         $cookie_data = stripslashes($_COOKIE['shopping_cart']);
@@ -83,6 +84,21 @@
                         print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
                                 Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
                                 </button></a>');
+=======
+                       $cookie_data = stripslashes($_COOKIE['shopping_cart']);
+                       $cart_data = json_decode($cookie_data, true);
+                       foreach ($cart_data as $key => $value){
+                           $aantalitems++;
+                       }
+                       if($aantalitems == 0){
+                           $aantalitems = 0;
+
+                       }
+
+                       print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
+                               Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
+                               </button></a>');
+>>>>>>> 1721fa4df2c2363beee30f7bd6bf791d719ddc13
                      ?>
                 </li>
                 <li>
