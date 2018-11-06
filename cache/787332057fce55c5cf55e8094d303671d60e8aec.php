@@ -96,7 +96,7 @@
         
 
             <?php if($media !== NULL): ?>
-                <div class="image" style="background-image: url('../../assets/img/<?php echo e($media[0]->MediaUrl); ?>');"></div>
+                <div class="image" style="background-image: url('../../assets/img/<?php echo e($media[0]->MediaUrl); ?>');"></div>\
             <?php else: ?>
                 <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             <?php endif; ?>

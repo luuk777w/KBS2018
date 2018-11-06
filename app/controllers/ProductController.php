@@ -32,6 +32,10 @@ class ProductController extends Controller
         //     $blob = base64_encode($this->setImageFromAPI($product->StockItemName));
         // }
 
+        if(!is_array($media)) {
+            $media = [$media];
+        }
+
         return $this->view->render("product", compact("productDetails", "media"));
     }
 
