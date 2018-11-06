@@ -100,16 +100,17 @@
             <?php else: ?>
                 <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             <?php endif; ?>
-        <?php
-            $count= 0;
+        <?php 
+            $count= <?php echo e($media[0]->MediaID); ?>;
 
-            ?>
+             ?>
 
-          <?php $__currentLoopData = $media; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="smallImages" style="background-image: url('../../assets/img/<?php echo e($media[$count]->MediaUrl); ?>');"></div>
-        <?php
-                    $count++;
-              ?>
+          <?php $__currentLoopData = $media; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="smallImages" style="background-image: url('../../assets/img/<?php echo e($media[$key]->MediaUrl); ?>');"></div>
+                <?php 
+
+                $count++;
+               ?>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 

@@ -102,16 +102,17 @@
             @else
                 <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             @endif
-        <?php
-            $count= 0;
+        @php
+            $count= {{$media[0]->MediaID}};
 
-            ?>
+            @endphp
 
-          @foreach($media as $key)
-                    <div class="smallImages" style="background-image: url('../../assets/img/{{$media[$count]->MediaUrl}}');"></div>
-        <?php
-                    $count++;
-              ?>
+          @foreach($media as $key => $value)
+                    <div class="smallImage s" style="background-image: url('../../assets/img/{{$media[$key]->MediaUrl}}');"></div>
+                @php
+
+                $count++;
+              @endphp
               @endforeach
 
 
