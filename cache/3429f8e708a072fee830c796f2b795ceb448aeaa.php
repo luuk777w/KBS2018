@@ -44,7 +44,60 @@
 
                 <li class="nav-item">
                     <?php 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
                         $aantalitems = 0;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                        $cookie_data = stripslashes($_COOKIE['shopping_cart']);
+                        $cart_data = json_decode($cookie_data, true);
+                        foreach ($cart_data as $key => $value){
+                            $aantalitems++;
+=======
+>>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
+=======
+
+>>>>>>> 751a7f2c5bf4f388457b65cdaddfd67ff6379d8c
+                        if(isset($_COOKIE['shopping_cart'])) {
+                            $cookie_data = stripslashes($_COOKIE['shopping_cart']);
+                            $cart_data = json_decode($cookie_data, true);
+                            if($cart_data == NULL) {
+                                $cart_data = [];
+                            }
+                            foreach ($cart_data as $key => $value){
+                                $aantalitems++;
+                            }
+                            if($aantalitems == 0){
+                                $aantalitems = 0;
+                            }
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 29ec776466f6f41afc6de58d74100749769cf443
+>>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
+=======
+
+>>>>>>> 751a7f2c5bf4f388457b65cdaddfd67ff6379d8c
+                        }
+
+                        print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
+                                Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
+                                </button></a>');
+<<<<<<< HEAD
+=======
+=======
+                        $aantalitems = 0;
+>>>>>>> parent of 751a7f2... For each voor de miniaturen fotos op product pagina TEST
                        $cookie_data = stripslashes($_COOKIE['shopping_cart']);
                        $cart_data = json_decode($cookie_data, true);
                        foreach ($cart_data as $key => $value){
@@ -58,6 +111,12 @@
                        print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
                                Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
                                </button></a>');
+<<<<<<< HEAD
+>>>>>>> 1721fa4df2c2363beee30f7bd6bf791d719ddc13
+=======
+>>>>>>> 751a7f2c5bf4f388457b65cdaddfd67ff6379d8c
+=======
+>>>>>>> parent of 751a7f2... For each voor de miniaturen fotos op product pagina TEST
                      ?>
                 </li>
                 <li>
