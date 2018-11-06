@@ -40,8 +40,8 @@
                     <br>
                     <h6 class="card-title">Categorie</h6><?php echo e($product->StockGroupName); ?>
 
-                    <br>
                     <p class="card-text" style="overflow: hidden; max-height: 3rem"><?php echo e($product->SearchDetails); ?></p>
+                    <br>
                     <a href="/product/<?php echo e($product->StockItemID); ?>" style="position: absolute; bottom:10px " class="btn btn-primary">Lees Meer</a>
                 </div>
             </div>

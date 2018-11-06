@@ -40,8 +40,8 @@
                     <h6 class="card-title">Prijs</h6>€{{$product->UnitPrice}}
                     <br>
                     <h6 class="card-title">Categorie</h6>{{$product->StockGroupName}}
-                    <br>
                     <p class="card-text" style="overflow: hidden; max-height: 3rem">{{$product->SearchDetails}}</p>
+                    <br>
                     <a href="/product/{{$product->StockItemID}}" style="position: absolute; bottom:10px " class="btn btn-primary">Lees Meer</a>
                 </div>
             </div>
