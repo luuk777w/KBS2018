@@ -8,7 +8,7 @@ class Products extends Model
 {
     public function getProducts()
     {
-        $data = $this->db->sql("SELECT * FROM stockitems");
+        $data = $this->db->sql("select * from stockitems Join stockitems_media using(stockitemID) where stockitems_media.Primary=1");
 
         return $data;
     }

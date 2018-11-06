@@ -102,11 +102,19 @@
             @else
                 <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             @endif
+        <?php
+            $count= 0;
 
-            <div class="smallImages firstSmallImage" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
-            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
-            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
-            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            ?>
+
+          @foreach($media as $key)
+                    <div class="smallImages" style="background-image: url('../../assets/img/{{$media[$count]->MediaUrl}}');"></div>
+        <?php
+                    $count++;
+              ?>
+              @endforeach
+
+
         </div>
         <div class="col-5" >
             <h1>€{{$productDetails->UnitPrice}}</h1>
