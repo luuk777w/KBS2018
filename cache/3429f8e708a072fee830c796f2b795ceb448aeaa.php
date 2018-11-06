@@ -46,6 +46,7 @@
                     <?php 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         $aantalitems = 0;
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -94,6 +95,9 @@
                                 </button></a>');
 <<<<<<< HEAD
 =======
+=======
+                        $aantalitems = 0;
+>>>>>>> parent of 751a7f2... For each voor de miniaturen fotos op product pagina TEST
                        $cookie_data = stripslashes($_COOKIE['shopping_cart']);
                        $cart_data = json_decode($cookie_data, true);
                        foreach ($cart_data as $key => $value){
@@ -107,9 +111,12 @@
                        print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
                                Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
                                </button></a>');
+<<<<<<< HEAD
 >>>>>>> 1721fa4df2c2363beee30f7bd6bf791d719ddc13
 =======
 >>>>>>> 751a7f2c5bf4f388457b65cdaddfd67ff6379d8c
+=======
+>>>>>>> parent of 751a7f2... For each voor de miniaturen fotos op product pagina TEST
                      ?>
                 </li>
                 <li>

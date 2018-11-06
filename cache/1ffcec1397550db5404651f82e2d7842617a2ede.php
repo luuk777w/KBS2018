@@ -100,19 +100,11 @@
             <?php else: ?>
                 <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             <?php endif; ?>
-        <?php
-            $count= 0;
 
-            ?>
-
-          <?php $__currentLoopData = $media; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="smallImages" style="background-image: url('../../assets/img/<?php echo e($media[$count]->MediaUrl); ?>');"></div>
-        <?php
-                    $count++;
-              ?>
-              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-
+            <div class="smallImages firstSmallImage" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
         </div>
         <div class="col-5" >
             <h1>€<?php echo e($productDetails->UnitPrice); ?></h1>
