@@ -4,7 +4,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Wide World Importers GANG</title>
 
-
     <style>
         
         /* In de Head section kan je allemaal tags plaatsen die daar moeten zoals een style tag, 
@@ -24,9 +23,10 @@
 
 <?php $__env->startSection('body'); ?>
 
-        <div style="margin: auto; width: 58rem; overflow: auto;">
-    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
+        <div style="margin: auto; width: 58rem; overflow: auto;">
+                <h1>Categorieën</h1>
+    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
             <div class="card" style="width: 18rem; height:25rem;float:left;margin:10px">
                 <?php if($category->PrimaryMediaURL !== NULL): ?>

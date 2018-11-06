@@ -24,7 +24,10 @@
 
 <?php $__env->startSection('body'); ?>
 
+
+
     <div style="margin: auto; width: 58rem; overflow: auto;">
+        <h1>Producten</h1>
         <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
             <?php 

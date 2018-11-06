@@ -26,7 +26,10 @@
 
 @section('body')
 
+
+
     <div style="margin: auto; width: 58rem; overflow: auto;">
+        <h1>Producten</h1>
         @foreach ($products as $product)
 
             @php

@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Wide World Importers GANG</title>
 
-
     <style>
         
         /* In de Head section kan je allemaal tags plaatsen die daar moeten zoals een style tag, 
@@ -26,9 +25,10 @@
 
 @section('body')
 
-        <div style="margin: auto; width: 58rem; overflow: auto;">
-    @foreach ($categories as $category)
 
+        <div style="margin: auto; width: 58rem; overflow: auto;">
+                <h1>Categorieën</h1>
+    @foreach ($categories as $category)
 
             <div class="card" style="width: 18rem; height:25rem;float:left;margin:10px">
                 @if($category->PrimaryMediaURL !== NULL)
