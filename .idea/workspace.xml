@@ -42,24 +42,60 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+<<<<<<< HEAD
           <entry key="php" value="29" />
+=======
+<<<<<<< HEAD
+          <entry key="php" value="21" />
+=======
+          <entry key="php" value="26" />
+>>>>>>> 7c2178be1622d849356d0fa89768597fa8b2499b
+>>>>>>> a73d5f622a31ead238701787863b51600d55abcc
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+<<<<<<< HEAD
           <entry key="Blade" value="16" />
           <entry key="PHP" value="13" />
+=======
+<<<<<<< HEAD
+          <entry key="Blade" value="12" />
+          <entry key="PHP" value="9" />
+=======
+          <entry key="Blade" value="15" />
+          <entry key="PHP" value="11" />
+>>>>>>> 7c2178be1622d849356d0fa89768597fa8b2499b
+>>>>>>> a73d5f622a31ead238701787863b51600d55abcc
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+<<<<<<< HEAD
           <entry key="php" value="621" />
+=======
+<<<<<<< HEAD
+          <entry key="php" value="506" />
+=======
+          <entry key="php" value="495" />
+>>>>>>> 7c2178be1622d849356d0fa89768597fa8b2499b
+>>>>>>> a73d5f622a31ead238701787863b51600d55abcc
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+<<<<<<< HEAD
           <entry key="Blade" value="171" />
           <entry key="PHP" value="450" />
+=======
+<<<<<<< HEAD
+          <entry key="Blade" value="174" />
+          <entry key="PHP" value="332" />
+=======
+          <entry key="Blade" value="126" />
+          <entry key="PHP" value="369" />
+>>>>>>> 7c2178be1622d849356d0fa89768597fa8b2499b
+>>>>>>> a73d5f622a31ead238701787863b51600d55abcc
         </counts>
       </usages-collector>
     </session>
@@ -141,8 +177,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="60">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/app.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+=======
             <state relative-caret-position="450">
+<<<<<<< HEAD
               <caret line="30" column="11" lean-forward="true" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+=======
+              <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+>>>>>>> 7c2178be1622d849356d0fa89768597fa8b2499b
+>>>>>>> a73d5f622a31ead238701787863b51600d55abcc
             </state>
           </provider>
         </entry>
@@ -170,7 +233,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/views/shoppingCart.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/CategoryController.php" />
         <option value="$PROJECT_DIR$/app/views/categories.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/ProductController.php" />
@@ -181,9 +243,13 @@
         <option value="$PROJECT_DIR$/app/views/products.blade.php" />
         <option value="$PROJECT_DIR$/app/models/Products.php" />
         <option value="$PROJECT_DIR$/app/views/home.blade.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/models/Categories.php" />
         <option value="$PROJECT_DIR$/app/controllers/ProductsCategoriesController.php" />
         <option value="$PROJECT_DIR$/app/views/product.blade.php" />
+=======
+        <option value="$PROJECT_DIR$/app/views/layouts/app.blade.php" />
+>>>>>>> a73d5f622a31ead238701787863b51600d55abcc
       </list>
     </option>
   </component>
@@ -213,11 +279,18 @@
       <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
     </include_path>
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds">
     <option name="x" value="21" />
     <option name="y" value="23" />
     <option name="width" value="1241" />
     <option name="height" value="807" />
+=======
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="721" />
+>>>>>>> a73d5f622a31ead238701787863b51600d55abcc
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -258,6 +331,7 @@
             <path>
               <item name="KBS2018" type="b2602c69:ProjectViewProjectNode" />
               <item name="KBS2018" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -265,6 +339,11 @@
               <item name="KBS2018" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="img" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+>>>>>>> a73d5f622a31ead238701787863b51600d55abcc
             </path>
           </expand>
           <select />
@@ -316,7 +395,15 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="11777000" />
+=======
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="10566000" />
+=======
+    <option name="totallyTimeSpent" value="10051000" />
+>>>>>>> 7c2178be1622d849356d0fa89768597fa8b2499b
+>>>>>>> a73d5f622a31ead238701787863b51600d55abcc
   </component>
   <component name="ToolWindowManager">
     <frame x="21" y="23" width="1241" height="807" extended-state="0" />
@@ -354,6 +441,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+<<<<<<< HEAD
+          <folding>
+            <element signature="e#35#49#0#PHP" expanded="true" />
+          </folding>
+=======
         </state>
       </provider>
     </entry>
@@ -361,6 +453,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="52" column="45" lean-forward="true" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
+>>>>>>> 7c2178be1622d849356d0fa89768597fa8b2499b
         </state>
       </provider>
     </entry>
@@ -421,7 +514,33 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/views/products.blade.php">
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/controllers/ProductsCategories.php" />
+    <entry file="file://$PROJECT_DIR$/app/models/ProductsCategories.php" />
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/models/Products.php">
+>>>>>>> a73d5f622a31ead238701787863b51600d55abcc
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="26" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="26" />
@@ -443,6 +562,7 @@
     <entry file="file://$PROJECT_DIR$/app/models/Products.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
+<<<<<<< HEAD
           <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
         </state>
       </provider>
@@ -451,6 +571,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+=======
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+>>>>>>> 7c2178be1622d849356d0fa89768597fa8b2499b
+>>>>>>> a73d5f622a31ead238701787863b51600d55abcc
         </state>
       </provider>
     </entry>
