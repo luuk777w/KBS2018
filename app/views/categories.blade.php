@@ -11,6 +11,14 @@
         
         /* In de Head section kan je allemaal tags plaatsen die daar moeten zoals een style tag, 
         of een linkje naar een style bestand.*/
+
+        .card-img-top{
+            width: 100%;
+            height: 15rem;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
     
     </style>
 
@@ -23,8 +31,11 @@
 
 
             <div class="card" style="width: 18rem; height:25rem;float:left;margin:10px">
-                <img class="card-img-top" src="https://res.cloudinary.com/teepublic/image/private/s--tM4JElmV--/t_Preview/b_rgb:191919,c_limit,f_auto,h_313,q_90,w_313/v1491250418/production/designs/1381795_1" class="img-thumbnail" alt="Card image cap">
-                <div class="card-body">
+                @if($category->PrimaryMediaURL !== NULL)
+                    <div class="card-img-top" style="background-image: url('/assets/img/{{$category->PrimaryMediaURL}}')"></div>
+                @else
+                    <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
+                @endif                <div class="card-body">
                     <h5 class="card-title">{{$category->StockGroupName}}</h5>
                     <a href="/categories/{{$category->StockGroupID}}" style="position: absolute; bottom:10px " class="btn btn-primary">Bekijk Meer</a>
 
