@@ -27,6 +27,11 @@
 
     <div style="margin: auto; width: 58rem; overflow: auto;">
         <h1>Producten</h1>
+
+        @if($products == NULL)
+            <h4 style="color: #DB3544">Er zijn geen producten gevonden</h4>
+        @endif
+
         @foreach ($products as $product)
 
             @php
