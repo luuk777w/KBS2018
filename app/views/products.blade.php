@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Wide World Importers GANG</title>
 
-
     <style>
         
         /* In de Head section kan je allemaal tags plaatsen die daar moeten zoals een style tag, 
@@ -25,8 +24,6 @@
 @endsection
 
 @section('body')
-
-
 
     <div style="margin: auto; width: 58rem; overflow: auto;">
         <h1>Producten</h1>
