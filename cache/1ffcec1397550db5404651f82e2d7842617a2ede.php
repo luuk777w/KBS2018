@@ -148,6 +148,10 @@
         <div class="col-7" >
             <h2>Productinformatie</h2>
             <p><?php echo e($productDetails->SearchDetails); ?></p>
+            <h2>Productinformatie</h2>
+
+
+
         </div>
         <div class="col-5" >
 
