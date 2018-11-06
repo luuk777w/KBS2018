@@ -9,6 +9,14 @@
         
         /* In de Head section kan je allemaal tags plaatsen die daar moeten zoals een style tag, 
         of een linkje naar een style bestand.*/
+
+        .card-img-top{
+            width: 100%;
+            height: 15rem;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
     
     </style>
 
@@ -23,13 +31,13 @@
                 $url = "/product/". $product->StockItemID ."/". str_replace(' ', '-', $product->StockItemName);
              ?>
 
-            <div class="card" style="width: 18rem; height:40rem;float:left;margin:10px">
+            <div class="card" style="width: 18rem; height:35rem;float:left;margin:10px">
 
                 <?php if($product->PrimaryMediaURL !== NULL): ?>
-                    <img class="card-img-top" src="/assets/img/<?php echo e($product->PrimaryMediaURL); ?>" class="img-thumbnail" alt="Card image cap">
+                    <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($product->PrimaryMediaURL); ?>')"></div>
+                    
                 <?php else: ?>
-                    <img class="card-img-top" src="/assets/img/img_placeholder.jpg" class="img-thumbnail" alt="Card image cap">
-
+                    <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
                 <?php endif; ?>
 
                 <div class="card-body">
