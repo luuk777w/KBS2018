@@ -1,7 +1,7 @@
 <?php $__env->startSection('head'); ?>
 
     <style>
-        
+
         .image{
             width: 35rem;
             height: 26.25rem;
@@ -80,7 +80,7 @@
             padding-right: 0.25rem;
             color: #24A647;
         }
-    
+
     </style>
 
 <?php $__env->stopSection(); ?>
@@ -150,7 +150,7 @@
             <p><?php echo e($productDetails->SearchDetails); ?></p>
         </div>
         <div class="col-5" >
-    
+
         </div>
     </div>
 
