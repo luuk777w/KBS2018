@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="989bc1db-a87e-4f34-85e7-10dc6d90eef2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products.blade.php" afterDir="false" />
@@ -36,6 +37,10 @@
       <change beforePath="$PROJECT_DIR$/cache/6f186ce4c2f1620f9fcf4b68b760a0c4084ee0da.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/6f186ce4c2f1620f9fcf4b68b760a0c4084ee0da.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cache/8e8dce1f6fc1d721e8b4c0c3e2eb0cea5405cc6f.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/8e8dce1f6fc1d721e8b4c0c3e2eb0cea5405cc6f.php" afterDir="false" />
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+    <list default="true" id="24805cbb-eca4-461b-85af-535b254ec8d8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/app.blade.php" afterDir="false" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
     </list>
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/inflector/" />
@@ -56,6 +61,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
 <<<<<<< HEAD
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
@@ -121,10 +127,24 @@
           <entry key="project.open.time.0" value="2" />
           <entry key="project.opened" value="2" />
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="DONT_SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-670341143">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="3" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           <entry key="php" value="2" />
@@ -138,10 +158,14 @@
 =======
           <entry key="php" value="6" />
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+          <entry key="php" value="6" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           <entry key="Blade" value="1" />
@@ -158,10 +182,14 @@
 =======
           <entry key="Blade" value="6" />
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+          <entry key="Blade" value="6" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           <entry key="php" value="2" />
@@ -210,10 +238,14 @@
 =======
           <entry key="php" value="88" />
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+          <entry key="php" value="88" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+<<<<<<< HEAD
 <<<<<<< HEAD
           <entry key="Blade" value="873" />
           <entry key="PHP" value="361" />
@@ -277,22 +309,44 @@
             <state relative-caret-position="1050">
               <caret line="70" column="18" lean-forward="true" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+          <entry key="Blade" value="88" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/app.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/controllers/PostalController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="86">
               <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+=======
+        <entry file="file://$PROJECT_DIR$/app/views/products.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/controllers/TestController.php">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -376,6 +430,20 @@
             <state relative-caret-position="-1820" />
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
           </provider>
+=======
+        <entry file="file://$PROJECT_DIR$/app/views/home.blade.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/login.blade.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/product.blade.php">
+          <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -399,6 +467,7 @@
         <entry file="file://$PROJECT_DIR$/app/views/shoppingCart.blade.php">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state relative-caret-position="90">
               <caret line="6" selection-start-line="6" selection-end-line="6" />
 >>>>>>> d3242052337b4daf19fb6d2d1ecbf8702dd38ff2
@@ -407,6 +476,10 @@
             <state relative-caret-position="28">
               <caret line="45" column="101" selection-start-line="45" selection-start-column="101" selection-end-line="45" selection-end-column="101" />
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+            <state relative-caret-position="675">
+              <caret line="45" column="101" selection-start-line="45" selection-start-column="101" selection-end-line="45" selection-end-column="101" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
             </state>
           </provider>
         </entry>
@@ -424,6 +497,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/views/product.php" />
@@ -466,6 +540,11 @@
         <option value="$PROJECT_DIR$/app/views/products.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/app.blade.php" />
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+        <option value="$PROJECT_DIR$/app/views/shoppingCart.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/products.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/layouts/app.blade.php" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
       </list>
     </option>
   </component>
@@ -494,6 +573,7 @@
   </component>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
@@ -517,12 +597,17 @@
 >>>>>>> d3242052337b4daf19fb6d2d1ecbf8702dd38ff2
 >>>>>>> 3168a30b59735d245ae316db24fdcd49cb716077
 =======
+=======
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
   <component name="ProjectFrameBounds">
     <option name="x" value="258" />
     <option name="y" value="23" />
     <option name="width" value="1241" />
     <option name="height" value="809" />
+<<<<<<< HEAD
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -546,6 +631,7 @@
               <item name="KBS2018" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
             </path>
             <path>
               <item name="KBS2018" type="b2602c69:ProjectViewProjectNode" />
@@ -553,24 +639,36 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="layouts" type="462c0819:PsiDirectoryNode" />
+=======
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
             </path>
 <<<<<<< HEAD
 =======
             <path>
               <item name="KBS2018" type="b2602c69:ProjectViewProjectNode" />
               <item name="KBS2018" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="assets" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
             </path>
             <path>
               <item name="KBS2018" type="b2602c69:ProjectViewProjectNode" />
               <item name="KBS2018" type="462c0819:PsiDirectoryNode" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
               <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KBS2018" type="b2602c69:ProjectViewProjectNode" />
               <item name="KBS2018" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -584,6 +682,9 @@
 =======
               <item name="cache" type="462c0819:PsiDirectoryNode" />
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+              <item name="cache" type="462c0819:PsiDirectoryNode" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
             </path>
 >>>>>>> 3168a30b59735d245ae316db24fdcd49cb716077
           </expand>
@@ -596,6 +697,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+<<<<<<< HEAD
 <<<<<<< HEAD
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -626,6 +728,8 @@
     </key>
 =======
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -644,6 +748,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
 <<<<<<< HEAD
       <changelist id="989bc1db-a87e-4f34-85e7-10dc6d90eef2" name="Default Changelist" comment="" />
       <created>1540982453059</created>
@@ -678,10 +783,21 @@
       <workItem from="1541329854826" duration="106000" />
       <workItem from="1541329962038" duration="1667000" />
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+      <changelist id="24805cbb-eca4-461b-85af-535b254ec8d8" name="Default Changelist" comment="" />
+      <created>1541329853603</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1541329853603</updated>
+      <workItem from="1541329854826" duration="106000" />
+      <workItem from="1541329962038" duration="1667000" />
+      <workItem from="1541402283528" duration="57000" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="18415000" />
@@ -717,6 +833,15 @@
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24937448" />
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+    <option name="totallyTimeSpent" value="1830000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="258" y="23" width="1241" height="809" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25354463" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -729,10 +854,14 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
 =======
       <window_info anchor="bottom" id="Version Control" order="9" />
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+      <window_info anchor="bottom" id="Version Control" order="9" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -748,6 +877,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/views/product.php" />
@@ -837,6 +967,27 @@
           <caret line="145" column="98" selection-start-line="145" selection-start-column="98" selection-end-line="145" selection-end-column="98" />
         </state>
       </provider>
+=======
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/products.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
     </entry>
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/core/controller.php">
@@ -851,6 +1002,7 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/product.blade.php">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1820" />
       </provider>
@@ -984,6 +1136,14 @@
         <state relative-caret-position="1050">
           <caret line="70" column="18" lean-forward="true" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
+=======
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/shoppingCart.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="101" selection-start-line="45" selection-start-column="101" selection-end-line="45" selection-end-column="101" />
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
         </state>
       </provider>
     </entry>

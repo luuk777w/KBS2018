@@ -3,8 +3,15 @@
     <br>
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	<h1>Deploy Test 4</h1>
+=======
+	<h1>Deploy Test 4</h1>
+=======
+	<h1>Deploy Test</h1>
+>>>>>>> parent of 11b64ce... Deploy Test
+>>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
 
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
     <div class="jumbotron">
