@@ -8,10 +8,7 @@ class Products extends Model
 {
     public function getProducts()
     {
-
-        $data = $this->db->sql("SELECT * FROM stockitems SI JOIN stockitemstockgroups SG on SI.StockItemID=SG.StockitemID JOIN stockgroups sgg on SG.stockgroupid=sgg.stockgroupid ");//No remove PLS is voor category naam
-
-        return $data;
+        return $this->db->sql("SELECT * FROM stockitems SI JOIN stockitemstockgroups SG on SI.StockItemID=SG.StockitemID JOIN stockgroups sgg on SG.stockgroupid=sgg.stockgroupid ");//No remove PLS is voor category naam
     }
 
     public function getProductById($id) 

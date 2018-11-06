@@ -32,7 +32,7 @@
 
                     <img class="card-img-top" src="../../assets/img/{{$product->MediaUrl}}" class="img-thumbnail" alt="Card image cap">
                 @else
-                    <img class="card-img-top" src="'../../assets/img/img_placeholder.jpg'" class="img-thumbnail" alt="Card image cap">
+                    <img class="card-img-top" src="/assets/img/img_placeholder.jpg" class="img-thumbnail" alt="Card image cap">
 
                 @endif
 
