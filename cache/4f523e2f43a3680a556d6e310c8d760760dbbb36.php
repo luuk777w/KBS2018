@@ -4,7 +4,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Wide World Importers GANG</title>
 
-
     <style>
         
         /* In de Head section kan je allemaal tags plaatsen die daar moeten zoals een style tag, 
@@ -16,11 +15,8 @@
 
 <?php $__env->startSection('body'); ?>
 
-        <div style="margin: auto; width: 58rem">
-    <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-
-
+    <div style="margin: auto; width: 58rem; overflow: auto;">
+        <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="card" style="width: 18rem; height:40rem;float:left;margin:10px">
                 <img class="card-img-top" src="https://res.cloudinary.com/teepublic/image/private/s--tM4JElmV--/t_Preview/b_rgb:191919,c_limit,f_auto,h_313,q_90,w_313/v1491250418/production/designs/1381795_1" class="img-thumbnail" alt="Card image cap">
                 <div class="card-body">
@@ -33,13 +29,10 @@
                     <br>
                     <p class="card-text" style="overflow: hidden; max-height: 3rem"><?php echo e($product->SearchDetails); ?></p>
                     <a href="/product/<?php echo e($product->StockItemID); ?>" style="position: absolute; bottom:10px " class="btn btn-primary">Lees Meer</a>
-
                 </div>
-
             </div>
-
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </div>
 <?php $__env->stopSection(); ?>
 
 
