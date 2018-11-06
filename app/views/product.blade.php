@@ -103,10 +103,10 @@
                 <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             @endif
 
-            <div class="smallImages firstSmallImage" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
-            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
-            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
-            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            @foreach($media as $picture)
+                <div class="smallImages" style="background-image: url('../../assets/img/{{$picture->MediaUrl}}');"></div>
+            @endforeach
+
         </div>
         <div class="col-5" >
             <h1>€{{$productDetails->UnitPrice}}</h1>

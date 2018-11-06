@@ -11,6 +11,7 @@ class ProductsCategoriesController extends Controller
 				
         $products = new Products();
         $products = $products->getProductsbyCategory($StockGroupID);
+        $media = $Categories->GetCategoryMedia();
 				
         return $this->view->render("productscategory", compact("products"));
     }
