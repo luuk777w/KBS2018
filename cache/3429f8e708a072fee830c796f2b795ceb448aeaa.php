@@ -47,6 +47,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 6c08b92... Merge branch 'master' of https://github.com/luuk777w/KBS2018
                         $aantalitems = 0;
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -61,9 +64,6 @@
 =======
 
 >>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
-=======
-
->>>>>>> 751a7f2c5bf4f388457b65cdaddfd67ff6379d8c
                         if(isset($_COOKIE['shopping_cart'])) {
                             $cookie_data = stripslashes($_COOKIE['shopping_cart']);
                             $cart_data = json_decode($cookie_data, true);
@@ -78,22 +78,17 @@
                             }
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
 >>>>>>> 29ec776466f6f41afc6de58d74100749769cf443
 >>>>>>> 4730f054e104e39820fadd0dc45170acbc469edd
 =======
 
 >>>>>>> af732c0b52abeed04d537fcb19131b206bb02a31
-=======
-
->>>>>>> 751a7f2c5bf4f388457b65cdaddfd67ff6379d8c
                         }
 
                         print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
                                 Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
                                 </button></a>');
-<<<<<<< HEAD
 =======
 =======
                         $aantalitems = 0;
@@ -113,10 +108,13 @@
                                </button></a>');
 <<<<<<< HEAD
 >>>>>>> 1721fa4df2c2363beee30f7bd6bf791d719ddc13
+<<<<<<< HEAD
 =======
 >>>>>>> 751a7f2c5bf4f388457b65cdaddfd67ff6379d8c
 =======
 >>>>>>> parent of 751a7f2... For each voor de miniaturen fotos op product pagina TEST
+=======
+>>>>>>> parent of 6c08b92... Merge branch 'master' of https://github.com/luuk777w/KBS2018
                      ?>
                 </li>
                 <li>
