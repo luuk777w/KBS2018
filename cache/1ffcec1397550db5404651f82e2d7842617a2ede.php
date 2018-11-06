@@ -100,22 +100,6 @@
             <?php else: ?>
                 <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             <?php endif; ?>
-<<<<<<< HEAD
-        <?php 
-            $count= <?php echo e($media[0]->MediaID); ?>;
-
-             ?>
-
-          <?php $__currentLoopData = $media; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="smallImages" style="background-image: url('../../assets/img/<?php echo e($media[$key]->MediaUrl); ?>');"></div>
-                <?php 
-
-                $count++;
-               ?>
-              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-=======
->>>>>>> 9a4bbd6f4e20e46a260defb73b2d73eef3321bf6
 
             <div class="smallImages firstSmallImage" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>

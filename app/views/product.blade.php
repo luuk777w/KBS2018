@@ -102,22 +102,6 @@
             @else
                 <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             @endif
-<<<<<<< HEAD
-        @php
-            $count= {{$media[0]->MediaID}};
-
-            @endphp
-
-          @foreach($media as $key => $value)
-                    <div class="smallImage s" style="background-image: url('../../assets/img/{{$media[$key]->MediaUrl}}');"></div>
-                @php
-
-                $count++;
-              @endphp
-              @endforeach
-
-=======
->>>>>>> 9a4bbd6f4e20e46a260defb73b2d73eef3321bf6
 
             <div class="smallImages firstSmallImage" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>

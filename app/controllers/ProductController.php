@@ -18,13 +18,13 @@ class ProductController extends Controller
 
 
 
-    public function productPageIndex($productId, $productsName)
+    public function productPageIndex($productId, $productName)
     {
         $product = new Products();
         $productDetails = $product->getProductById($productId);
         $media = $product->getMediaById($productId);
 
-        if($productsName !== str_replace(' ', '-', $productDetails->StockItemName))
+        if($productName !== str_replace(' ', '-', $productDetails->StockItemName))
         {
             return header("Location: /product/${productId}/". str_replace(' ', '-', $productDetails->StockItemName));
         }
