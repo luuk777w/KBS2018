@@ -18,7 +18,7 @@
 
 @section('body')
 
-        <div style="margin: auto; width: 58rem">
+        <div style="margin: auto; width: 58rem; overflow: auto;">
     @foreach ($categories as $category)
 
 
