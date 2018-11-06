@@ -25,9 +25,8 @@
 
             <div class="card" style="width: 18rem; height:40rem;float:left;margin:10px">
 
-                <?php if($product->MediaURL !== NULL): ?>
-
-                    <img class="card-img-top" src="../../assets/img/<?php echo e($product->MediaUrl); ?>" class="img-thumbnail" alt="Card image cap">
+                <?php if($product->PrimaryMediaURL !== NULL): ?>
+                    <img class="card-img-top" src="/assets/img/<?php echo e($product->PrimaryMediaURL); ?>" class="img-thumbnail" alt="Card image cap">
                 <?php else: ?>
                     <img class="card-img-top" src="/assets/img/img_placeholder.jpg" class="img-thumbnail" alt="Card image cap">
 

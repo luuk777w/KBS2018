@@ -27,9 +27,8 @@
 
             <div class="card" style="width: 18rem; height:40rem;float:left;margin:10px">
 
-                @if($product->MediaURL !== NULL)
-
-                    <img class="card-img-top" src="../../assets/img/{{$product->MediaUrl}}" class="img-thumbnail" alt="Card image cap">
+                @if($product->PrimaryMediaURL !== NULL)
+                    <img class="card-img-top" src="/assets/img/{{$product->PrimaryMediaURL}}" class="img-thumbnail" alt="Card image cap">
                 @else
                     <img class="card-img-top" src="/assets/img/img_placeholder.jpg" class="img-thumbnail" alt="Card image cap">
 
