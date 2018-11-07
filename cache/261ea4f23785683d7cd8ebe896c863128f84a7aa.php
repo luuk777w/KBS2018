@@ -88,9 +88,9 @@
 
                     <!-- Content -->
                     <h5 class="text-uppercase">Contactgegevens</h5>
-                    <p>Email: <br>
-                    Telefoon: <br>
-                    Adres: </p>
+                    <p>Email: contact@wide-world-importers.cf<br>
+                    Telefoon: 088 - 5762300<br>
+                    Adres: Campus 2, 8017 CA Zwolle</p>
 
                 </div>
                 <!-- Grid column -->
