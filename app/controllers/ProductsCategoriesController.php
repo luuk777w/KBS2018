@@ -4,16 +4,18 @@ namespace App\Controllers;
 
 use Core\Controller;
 use App\Models\Products;
+use App\Models\Categories;
 
 class ProductsCategoriesController extends Controller
 {
     public function index($StockGroupID){
 				
         $products = new Products();
+        $categories = new Categories();
         $products = $products->getProductsbyCategory($StockGroupID);
-        $media = $Categories->GetCategoryMedia();
+        $media = $categories->GetCategoryMedia();
 				
-        return $this->view->render("productscategory", compact("products"));
+        return $this->view->render("products", compact("products"));
     }
 	
 

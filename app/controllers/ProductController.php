@@ -2,21 +2,18 @@
 
 namespace App\Controllers;
 
-use Core\Auth;
 use Core\Controller;
 use App\Models\Products;
 
 class ProductController extends Controller
 {
-
-    public function index(){
+    public function index()
+    {
         $products = new Products();
         $products = $products->getProducts();
 
         return $this->view->render("products", compact("products"));
     }
-
-
 
     public function productPageIndex($productId, $productName)
     {
@@ -24,7 +21,7 @@ class ProductController extends Controller
         $productDetails = $product->getProductById($productId);
         $media = $product->getMediaById($productId);
 
-        if($productName !== str_replace(' ', '-', $productDetails->StockItemName))
+        if($productName !== str_replace('?', '', str_replace(' ', '-', $productDetails->StockItemName)))
         {
             return header("Location: /product/${productId}/". str_replace(' ', '-', $productDetails->StockItemName));
         }
@@ -35,6 +32,10 @@ class ProductController extends Controller
         //     $blob = base64_encode($this->setImageFromAPI($product->StockItemName));
         // }
 
+        if(!is_array($media)) {
+            $media = [$media];
+        }
+
         return $this->view->render("product", compact("productDetails", "media"));
     }
 
@@ -43,7 +44,7 @@ class ProductController extends Controller
         $product = new Products();
         $product = $product->getProductById($productId);
 
-        return header("Location: /product/${productId}/". str_replace(' ', '-', $product->StockItemName));
+        return header("Location: /product/${productId}/". str_replace('?', '', str_replace(' ', '-', $product->StockItemName)));
     }
 
     public function addToCart($productId)

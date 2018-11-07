@@ -8,10 +8,14 @@ class Products extends Model
 {
     public function getProducts()
     {
-
-        $data = $this->db->sql("SELECT * FROM stockitems SI JOIN stockitemstockgroups SG on SI.StockItemID=SG.StockitemID JOIN stockgroups sgg on SG.stockgroupid=sgg.stockgroupid ");//No remove PLS is voor category naam
-
-        return $data;
+        return $this->db->sql("SELECT * FROM stockitems SI
+        JOIN ( SELECT StockItemID AS ItemID, MIN(StockGroupId) AS StockGroupId
+                FROM  stockitemstockgroups
+                GROUP BY StockItemID) SG ON SI.StockItemID=SG.ItemID 
+        JOIN stockgroups sgg ON SG.stockgroupid=sgg.stockgroupid
+        LEFT JOIN ( SELECT StockItemID AS ItemID, MediaURL AS PrimaryMediaURL
+                    FROM stockitems_media sm 
+                    WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID");
     }
 
     public function getProductById($id) 
@@ -26,9 +30,13 @@ class Products extends Model
 	
 	public function getProductsbyCategory($id)
     {		
-        $data = $this->db->sql("SELECT * FROM stockitems SI JOIN stockitemstockgroups SG on SI.StockItemID=SG.StockitemID JOIN stockgroups sgg on SG.stockgroupid=sgg.stockgroupid WHERE SG.stockgroupid=${id}");
-
-        return $data;
+        return $this->db->sql("SELECT * FROM stockitems SI
+        JOIN stockitemstockgroups SG ON SI.StockItemID=SG.StockitemID 
+        JOIN stockgroups sgg ON SG.stockgroupid=sgg.stockgroupid 
+        LEFT JOIN ( SELECT StockItemID AS ItemID, MediaURL AS PrimaryMediaURL
+                    FROM stockitems_media sm 
+                    WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID
+        WHERE SG.stockgroupid=${id}");
     }
 
 

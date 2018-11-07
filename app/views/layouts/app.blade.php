@@ -28,7 +28,7 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="/">Wide World Importers</a>
+        <a class="navbar-brand" href="/"><img style="max-height: 3rem" src="/assets/img/WWI.PNG"></a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
 
@@ -88,9 +88,9 @@
 
                     <!-- Content -->
                     <h5 class="text-uppercase">Contactgegevens</h5>
-                    <p>Email: <br>
-                    Telefoon: <br>
-                    Adres: </p>
+                    <p>Email: contact@wide-world-importers.cf<br>
+                    Telefoon: 088 - 5762300<br>
+                    Adres: Campus 2, 8017 CA Zwolle</p>
 
                 </div>
                 <!-- Grid column -->

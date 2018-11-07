@@ -97,7 +97,7 @@
         <div class="col-7" >
         {{-- <img src="data:image/jpeg;base64,{{$blob}}" class="image"/> --}}
 
-            @if($media !== NULL)
+            @if(isset($media[0]))
                 <div class="image" style="background-image: url('../../assets/img/{{$media[0]->MediaUrl}}');"></div>
             @else
                 <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
@@ -149,7 +149,15 @@
 
         <div class="col-7" >
             <h2>Productinformatie</h2>
-            <p>{{$productDetails->SearchDetails}}</p>
+            <p>{{$productDetails->SearchDetails}}
+                <br>
+                <br>
+                Land van fabricatie: {{json_decode($productDetails->CustomFields)->CountryOfManufacture}}
+                @if(isset(json_decode($productDetails->CustomFields)->ShelfLife))
+                    <br>
+                    Houdbaarheid: {{json_decode($productDetails->CustomFields)->ShelfLife}}
+                @endif
+            </p>
         </div>
         <div class="col-5" >
 

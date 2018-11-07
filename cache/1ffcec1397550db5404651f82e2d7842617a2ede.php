@@ -147,7 +147,18 @@
 
         <div class="col-7" >
             <h2>Productinformatie</h2>
-            <p><?php echo e($productDetails->SearchDetails); ?></p>
+            <p><?php echo e($productDetails->SearchDetails); ?>
+
+                <br>
+                <br>
+                Land van fabricatie: <?php echo e(json_decode($productDetails->CustomFields)->CountryOfManufacture); ?>
+
+                <?php if(json_decode($productDetails->CustomFields)->ShelfLife !== NULL): ?>
+                    <br>
+                    Houdbaarheid: <?php echo e(json_decode($productDetails->CustomFields)->ShelfLife); ?>
+
+                <?php endif; ?>
+            </p>
         </div>
         <div class="col-5" >
 
