@@ -21,7 +21,7 @@ class ProductController extends Controller
         $productDetails = $product->getProductById($productId);
         $media = $product->getMediaById($productId);
 
-        if($productName !== str_replace(' ', '-', $productDetails->StockItemName))
+        if($productName !== str_replace('?', '', str_replace(' ', '-', $productDetails->StockItemName)))
         {
             return header("Location: /product/${productId}/". str_replace(' ', '-', $productDetails->StockItemName));
         }
@@ -44,7 +44,7 @@ class ProductController extends Controller
         $product = new Products();
         $product = $product->getProductById($productId);
 
-        return header("Location: /product/${productId}/". str_replace(' ', '-', $product->StockItemName));
+        return header("Location: /product/${productId}/". str_replace('?', '', str_replace(' ', '-', $product->StockItemName)));
     }
 
     public function addToCart($productId)
