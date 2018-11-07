@@ -30,7 +30,7 @@
 
         @if($products == NULL)
             <h4 style="color: #DB3544">Er zijn geen producten gevonden</h4>
-        @endif
+        @else
 
         @foreach ($products as $product)
 
@@ -58,6 +58,8 @@
                 </div>
             </div>
         @endforeach
+
+        @endif
     </div>
 
 @endsection

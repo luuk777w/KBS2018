@@ -28,7 +28,7 @@
 
         <?php if($products == NULL): ?>
             <h4 style="color: #DB3544">Er zijn geen producten gevonden</h4>
-        <?php endif; ?>
+        <?php else: ?>
 
         <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
@@ -58,6 +58,8 @@
                 </div>
             </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+        <?php endif; ?>
     </div>
 
 <?php $__env->stopSection(); ?>

@@ -1,7 +1,7 @@
 <?php $__env->startSection('head'); ?>
 
     <style>
-        
+
         .image{
             width: 35rem;
             height: 26.25rem;
@@ -80,7 +80,7 @@
             padding-right: 0.25rem;
             color: #24A647;
         }
-    
+
     </style>
 
 <?php $__env->stopSection(); ?>
@@ -101,10 +101,10 @@
                 <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
             <?php endif; ?>
 
-            <div class="smallImages firstSmallImage" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
-            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
-            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
-            <div class="smallImages" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <?php $__currentLoopData = $media; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $picture): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="smallImages" style="background-image: url('../../assets/img/<?php echo e($picture->MediaUrl); ?>');"></div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
         </div>
         <div class="col-5" >
             <h1>€<?php echo e($productDetails->UnitPrice); ?></h1>
@@ -147,10 +147,21 @@
 
         <div class="col-7" >
             <h2>Productinformatie</h2>
-            <p><?php echo e($productDetails->SearchDetails); ?></p>
+            <p><?php echo e($productDetails->SearchDetails); ?>
+
+                <br>
+                <br>
+                Land van fabricatie: <?php echo e(json_decode($productDetails->CustomFields)->CountryOfManufacture); ?>
+
+                <?php if(json_decode($productDetails->CustomFields)->ShelfLife !== NULL): ?>
+                    <br>
+                    Houdbaarheid: <?php echo e(json_decode($productDetails->CustomFields)->ShelfLife); ?>
+
+                <?php endif; ?>
+            </p>
         </div>
         <div class="col-5" >
-    
+
         </div>
     </div>
 
