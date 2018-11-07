@@ -42,7 +42,7 @@
         background-position: center;
 
         .Percypestmij{
-            margin: auto ;
+            text-align: center;
 
         }
     </style>
@@ -65,17 +65,23 @@
     </div>
     <br>
     <div class="Hoofdtitels">
-        <h3>Dit zijn de superaanbiedingen voor vandaag</h3>
+        <h3>Dit zijn de aanbiedingen voor vandaag</h3>
     </div>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="carousel-image" style="background-image: url('/assets/img/milka.jpg');" ></div>
-                <div class="Percypestmij">Een lekkere chocoladereep</div>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Milka</h5>
+                    <p>Een lekkere chocoladereep</p>
+                </div>
             </div>
             <div class="carousel-item">
                 <div class="carousel-image" style="background-image: url('/assets/img/usb_missle_launcher_green_1.jpg');" ></div>
-                <div class="Percypestmij"> Om je ergste vijanden mee af te handelen.</div>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Missle Launcher</h5>
+                    <p>Om je ergste vijanden mee af te handelen</p>
+                </div>
             </div>
             <div class="carousel-item">
                 <div class="carousel-image" style="background-image: url('/assets/img/mug.jpeg');" ></div>
