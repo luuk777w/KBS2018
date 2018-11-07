@@ -17,6 +17,11 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
+
+        .Percypestmij{
+            margin: auto ;
+
+        }
     }
 </style>
 <?php $__env->startSection('head'); ?>
@@ -26,7 +31,19 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('body'); ?>
-
+<div class="container">
+    <div class="row">
+        <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
+            Voor <b>22:00</b> besteld, morgen in huis
+        </div>
+        <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
+            Gratis verzending boven de <b>€20</b>
+        </div>
+        <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
+            <b>30</b> dagen niet goed, geld terug garantie
+        </div>
+    </div>
+</div>
 <br>
 <div class="Hoofdtitels">
     <h3>Dit zijn de superaanbiedingen voor vandaag</h3>
@@ -35,12 +52,18 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <div class="carousel-image" style="background-image: url('/assets/img/milka.jpg');" ></div>
+            <div class="Percypestmij">Een lekkere chocoladereep</div>
         </div>
         <div class="carousel-item">
             <div class="carousel-image" style="background-image: url('/assets/img/usb_missle_launcher_green_1.jpg');" ></div>
+            <div class="Percypestmij"> Om je ergste vijanden mee af te handelen.</div>
         </div>
         <div class="carousel-item">
             <div class="carousel-image" style="background-image: url('/assets/img/mug.jpeg');" ></div>
+            <div class="carousel-caption d-none d-md-block">
+                <h5>De Mok</h5>
+                <p>MokkaMok</p>
+            </div>
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -59,7 +82,8 @@
 <div class="image1" >
 
     <img src="/assets/img/usb_missle_launcher_gray_1.jpg">
-    <br>pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec,
+    <br>
+    pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec,
     vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
     Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
     Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
