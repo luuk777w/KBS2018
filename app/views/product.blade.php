@@ -153,7 +153,7 @@
                 <br>
                 <br>
                 Land van fabricatie: {{json_decode($productDetails->CustomFields)->CountryOfManufacture}}
-                @if(json_decode($productDetails->CustomFields)->ShelfLife !== NULL)
+                @if(isset(json_decode($productDetails->CustomFields)->ShelfLife))
                     <br>
                     Houdbaarheid: {{json_decode($productDetails->CustomFields)->ShelfLife}}
                 @endif
