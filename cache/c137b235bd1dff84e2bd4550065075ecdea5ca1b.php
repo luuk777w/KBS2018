@@ -153,7 +153,7 @@
                 <br>
                 Land van fabricatie: <?php echo e(json_decode($productDetails->CustomFields)->CountryOfManufacture); ?>
 
-                <?php if(json_decode($productDetails->CustomFields)->ShelfLife !== NULL): ?>
+                <?php if(isset(json_decode($productDetails->CustomFields)->ShelfLife)): ?>
                     <br>
                     Houdbaarheid: <?php echo e(json_decode($productDetails->CustomFields)->ShelfLife); ?>
 
