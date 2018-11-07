@@ -8,10 +8,10 @@
 
 
     <style>
-        
-        /* In de Head section kan je allemaal tags plaatsen die daar moeten zoals een style tag, 
+
+        /* In de Head section kan je allemaal tags plaatsen die daar moeten zoals een style tag,
         of een linkje naar een style bestand.*/
-    
+
     </style>
 
 @endsection
