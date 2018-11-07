@@ -1,20 +1,34 @@
 @extends('layouts.app')
 
-@section('body')
+@section('head')
 
+    <style>
+        .carousel-image{
+            width: 100%;
+            height: 25rem;
+            /*background-image: url("../../assets/img/milka.jpg");*/
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+
+@endsection
+
+@section('body')
 
     <br>
 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="../../assets/img/milka.jpg" alt="Foto een">
+                <div class="carousel-image" style="background-image: url('/assets/img/milka.jpg');" ></div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="../../assets/img/milka.jpg" alt="Foto twee">
+                <div class="carousel-image" style="background-image: url('/assets/img/milka.jpg');" ></div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="https://res.cloudinary.com/teepublic/image/private/s--tM4JElmV--/t_Preview/b_rgb:191919,c_limit,f_auto,h_313,q_90,w_313/v1491250418/production/designs/1381795_1" alt="Foto drie">
+                <div class="carousel-image" style="background-image: url('https://res.cloudinary.com/teepublic/image/private/s--tM4JElmV--/t_Preview/b_rgb:191919,c_limit,f_auto,h_313,q_90,w_313/v1491250418/production/designs/1381795_1');" ></div>
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

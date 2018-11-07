@@ -28,23 +28,15 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">Wide World Importers</a>
+        <a class="navbar-brand" href="/">Wide World Importers</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/categories">Categorieën</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/products">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                    <a class="nav-link" href="/products">Producten</a>
                 </li>
             </ul>
 
@@ -53,23 +45,19 @@
                 <li class="nav-item">
                     <?php 
                         $aantalitems = 0;
-                        if(isset($_COOKIE['shopping_cart'])) {
-                            $cookie_data = stripslashes($_COOKIE['shopping_cart']);
-                            $cart_data = json_decode($cookie_data, true);
-                            if($cart_data == NULL) {
-                                $cart_data = [];
-                            }
-                            foreach ($cart_data as $key => $value){
-                                $aantalitems++;
-                            }
-                            if($aantalitems == 0){
-                                $aantalitems = 0;
-                            }
-                        }
+                       $cookie_data = stripslashes($_COOKIE['shopping_cart']);
+                       $cart_data = json_decode($cookie_data, true);
+                       foreach ($cart_data as $key => $value){
+                           $aantalitems++;
+                       }
+                       if($aantalitems == 0){
+                           $aantalitems = 0;
 
-                        print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
-                                Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
-                                </button></a>');
+                       }
+
+                       print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
+                               Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
+                               </button></a>');
                      ?>
                 </li>
                 <li>
@@ -86,8 +74,7 @@
 
     <?php echo $__env->yieldContent('body'); ?>
 
-
-
+<?php echo $__env->yieldContent('footer'); ?>
     <footer  class="page-footer font-small blue pt-4">
 
         <!-- Footer Links -->
@@ -101,9 +88,9 @@
 
                     <!-- Content -->
                     <h5 class="text-uppercase">Contactgegevens</h5>
-                    <p>Email: <br>
-                    Telefoon: <br>
-                    Adres: </p>
+                    <p>Email: contact@wide-world-importers.cf<br>
+                    Telefoon: 088 - 5762300<br>
+                    Adres: Campus 2, 8017 CA Zwolle</p>
 
                 </div>
                 <!-- Grid column -->
