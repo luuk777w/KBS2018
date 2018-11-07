@@ -28,7 +28,7 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="/"><img style="max-height: 3rem" src="/assets/img/wwi.png"></a>
+        <a class="navbar-brand" href="/"><img style="max-height: 3rem" src="/assets/img/WWI.PNG"></a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
 
@@ -45,18 +45,15 @@
                 <li class="nav-item">
                     @php
                         $aantalitems = 0;
+                       $cookie_data = stripslashes($_COOKIE['shopping_cart']);
+                       $cart_data = json_decode($cookie_data, true);
+                       foreach ($cart_data as $key => $value){
+                           $aantalitems++;
+                       }
+                       if($aantalitems == 0){
+                           $aantalitems = 0;
 
-                        if(isset($_COOKIE['shopping_cart'])) {
-                            $cookie_data = stripslashes($_COOKIE['shopping_cart']);
-                            $cart_data = json_decode($cookie_data, true);
-                            foreach ($cart_data as $key => $value){
-                                $aantalitems++;
-                            }
-                        
-                            if($aantalitems == 0){
-                                $aantalitems = 0;
-                            }
-                        }
+                       }
 
                        print('<a href="/shoppingcart"><button type="button" class="btn btn-primary">
                                Winkelwagen <span class="badge badge-light">'.$aantalitems.'</span>
