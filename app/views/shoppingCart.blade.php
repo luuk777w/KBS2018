@@ -43,7 +43,7 @@
                         <input type=hidden value="{{$values["item_name"]}}" name="hidden_name">
 
                         <td>{{$values["item_name"]}}</td>
-                        <td><input type="number" min=1 name="quantity" value="{{$values["item_quantity"]}}" ><input class="btn btn-primary" type=submit name="update" value="bijwerken"></td>
+                        <td><input type="number" min=1 max=6000 name="quantity" value="{{$values["item_quantity"]}}" ><input class="btn btn-primary" type=submit name="update" value="bijwerken"></td>
                         <td>€ {{$values["item_price"]}}</td>
                         <td>€ {{number_format($values["item_quantity"] * $values["item_price"], 2)}}</td>
                         <td><a href="/shoppingcart/delete/{{$values["item_id"]}}"><span class="text-danger">Verwijder</span></a></td>
