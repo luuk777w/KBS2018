@@ -44,7 +44,7 @@ class ProductController extends Controller
         $product = new Products();
         $product = $product->getProductById($productId);
 
-        return header("Location: /product/${productId}/". str_replace('?', '', str_replace(' ', '-', $productDetails->StockItemName)));
+        return header("Location: /product/${productId}/". str_replace('?', '', str_replace(' ', '-', $product->StockItemName)));
     }
 
     public function addToCart($productId)
