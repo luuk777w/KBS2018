@@ -51,13 +51,13 @@
                         <a href="/product/{{$product->StockItemID}}" style="position: absolute; bottom:10px " class="btn btn-primary">Lees Meer</a>
                         </div>
                          </div>
-                        @else
+                        @elseif ($stockitemname != 0)
                             <p class="card-text" style="overflow: hidden; max-height: 3rem">{{$product->SearchDetails}}</p>
                             <br>
                             <a href="/product/{{$product->StockItemID}}" style="position: absolute; bottom:10px " class="btn btn-primary">Lees Meer</a>
                              </div>
                              </div>
-                            @endif
+                        @endif
                 @endif
             <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
                 <div class="card-body">
