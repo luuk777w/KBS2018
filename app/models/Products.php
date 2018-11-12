@@ -36,6 +36,7 @@ class Products extends Model
         LEFT JOIN ( SELECT StockItemID AS ItemID, MediaURL AS PrimaryMediaURL
                     FROM stockitems_media sm 
                     WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID
+                    order by stockitemname
         WHERE SG.stockgroupid=${id}");
     }
 
