@@ -51,7 +51,18 @@
                     <h5 class="card-title">{{$product->StockItemName}}</h5>
                     <h6 class="card-title">Prijs</h6>€{{$product->UnitPrice}}
                     <br>
-                    <h6 class="card-title">Categorie</h6>{{$product->StockGroupName}}
+                    <h6 class="card-title">Categorie</h6>
+                    @php
+                    foreach ($categories as $categorie){
+
+                    if($categorie->stockitemID == $product->StockItemID){
+                    print(" ".$categorie->stockgroupname."<br> ");
+                    }
+                    }
+                    print("<br>");
+
+                    @endphp
+
                     <p class="card-text" style="overflow: hidden; max-height: 3rem">{{$product->SearchDetails}}</p>
                     <br>
                     <a href="/product/{{$product->StockItemID}}" style="position: absolute; bottom:10px " class="btn btn-primary">Lees Meer</a>

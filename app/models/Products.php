@@ -18,6 +18,13 @@ class Products extends Model
                     WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID");
     }
 
+    public function getCategorynames()
+    {
+        return $this->db->sql("SELECT stockitemID, stockgroupname FROM stockitemstockgroups SI
+JOIN stockgroups sgg ON SI.stockgroupid=sgg.stockgroupid
+order by stockitemid");
+    }
+
     public function getProductById($id) 
     {
         return $this->db->sql("SELECT * FROM stockitems WHERE StockItemID = ${id}");

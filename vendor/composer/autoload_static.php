@@ -24,6 +24,7 @@ class ComposerStaticInit55ee30726ff61940a03b77345b102628
         ),
         'I' => 
         array (
+            'Ingenico\\Connect\\Sdk\\' => 21,
             'Illuminate\\View\\' => 16,
             'Illuminate\\Support\\' => 19,
             'Illuminate\\Filesystem\\' => 22,
@@ -57,6 +58,11 @@ class ComposerStaticInit55ee30726ff61940a03b77345b102628
         'Philo\\Blade\\' => 
         array (
             0 => __DIR__ . '/..' . '/philo/laravel-blade/src',
+        ),
+        'Ingenico\\Connect\\Sdk\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ingenico-epayments/connect-sdk-php/src/Ingenico/Connect/Sdk',
+            1 => __DIR__ . '/..' . '/ingenico-epayments/connect-sdk-php/lib/Ingenico/Connect/Sdk',
         ),
         'Illuminate\\View\\' => 
         array (
