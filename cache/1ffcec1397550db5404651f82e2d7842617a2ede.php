@@ -86,10 +86,10 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('body'); ?>
-
+    
     <br>
 
-    <h1><?php echo e($productDetails->StockItemName); ?></h1>
+    <h1><?php echo e($productDetails[0]->StockItemNames); ?></h1>
 
     <div class="row">
         <div class="col-7" >
@@ -107,7 +107,7 @@
 
         </div>
         <div class="col-5" >
-            <h1>€<?php echo e($productDetails->UnitPrice); ?></h1>
+            <h1>€<?php echo e($productDetails[0]->UnitPrice); ?></h1>
 
             <?php if(true): ?>
                 <p class="stock inStock">Op voorraad</p>
@@ -116,11 +116,11 @@
                 <p class="stock notInStock">Niet op voorraad</p>
             <?php endif; ?>
 
-            <?php if($productDetails->IsChillerStock): ?>
+            <?php if($productDetails[0]->IsChillerStock): ?>
                 <p class="cooledProduct"><i class="fas fa-snowflake cooledProduct-icon"></i>Let op! dit is een gekoeld product.</p>
             <?php endif; ?>
 
-            <form method="post" action="/product/addtocart/<?php echo e($productDetails->StockItemID); ?>">
+            <form method="post" action="/product/addtocart/<?php echo e($productDetails[0]->StockItemID); ?>">
                 <button class="btn btn-success cartWishList-button" style="margin-top: 0.5rem;">
                     <i class="fas fa-shopping-cart fa-2x cartWishList-icon"></i>
                     <span class="cartWishList-text">In winkelwagen</span>
@@ -147,32 +147,26 @@
 
         <div class="col-7" >
             <h2>Productinformatie</h2>
-            <p><?php echo e($productDetails->SearchDetails); ?>
+            <p><?php echo e($productDetails[0]->SearchDetails); ?>
 
                 <br>
-                <h3>Categorieën</h3>
-                <?php 
-                    foreach ($categories as $categorie){
-
-                    if($categorie->stockitemID == $productDetails->StockItemID){
-                    print(" ".$categorie->stockgroupname."<br> ");
-                    }
-                    }
-                    print("<br>");
-
-                 ?>
                 <br>
-                Land van fabricatie: <?php echo e(json_decode($productDetails->CustomFields)->CountryOfManufacture); ?>
+                Land van fabricatie: <?php echo e(json_decode($productDetails[0]->CustomFields)->CountryOfManufacture); ?>
 
-                <?php if(isset(json_decode($productDetails->CustomFields)->ShelfLife)): ?>
+                <?php if(isset(json_decode($productDetails[0]->CustomFields)->ShelfLife)): ?>
                     <br>
-                    Houdbaarheid: <?php echo e(json_decode($productDetails->CustomFields)->ShelfLife); ?>
+                    Houdbaarheid: <?php echo e(json_decode($productDetails[0]->CustomFields)->ShelfLife); ?>
 
                 <?php endif; ?>
-            </p>
+            </p>                
         </div>
         <div class="col-5" >
-
+            <h3>Categorieën</h3>
+            <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categorie): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php if($categorie->stockitemID == $productDetails[0]->StockItemID): ?>
+                    <?php echo e($categorie->stockgroupname); ?> <br>
+                <?php endif; ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
     </div>
 
