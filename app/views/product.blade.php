@@ -88,10 +88,10 @@
 @endsection
 
 @section('body')
-
+    
     <br>
 
-    <h1>{{$productDetails->StockItemName}}</h1>
+    <h1>{{$productDetails->StockItemNames}}</h1>
 
     <div class="row">
         <div class="col-7" >
