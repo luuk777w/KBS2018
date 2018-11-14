@@ -38,7 +38,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/products">Producten</a>
                         </li>
+
+                        <form method="get" class="form-inline my-2 my-lg-0" action="/products/">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Uw zoekopdracht" name="q" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
                     </ul>
+
 
                     <ul class="navbar-nav">
 

@@ -27,7 +27,11 @@
 @section('body')
 
     <div style="margin: auto; width: 58rem; overflow: auto;">
+        @if (isset($searchTerm))
+            <h1>zoekresultaten voor {{$searchTerm}}</h1>
+        @else
         <h1>Producten</h1>
+        @endif 
 
         /* Als er geen producten uit de database komen doe je dit*/
         @if($products == NULL)
@@ -46,7 +50,7 @@
              $url = "/product/". $product->StockItemID ."/". str_replace(' ', '-', $product->StockItemName);
             @endphp
 
-            <div class="card" style="width: 18rem; height:35rem;float:left;margin:10px">
+            <div class="card" style="width: 18rem; height:40rem;float:left;margin:10px">
 
                 /* Als er een Primaire foto is aangegeven in de database dan die je dit*/
             @if($product->PrimaryMediaURL !== NULL)

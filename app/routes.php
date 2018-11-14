@@ -31,7 +31,8 @@ Class Routes
         'GET:categories' => ['CategoryController', 'index'],
         'GET:categories/{StockGroupID}' => ['ProductsCategoriesController', 'index'],
         'GET:postcodecheck' => ['PostalController', 'index'],
-        'POST:postcodecheck/check' => ['PostalController', 'PostalCheck']
+        'POST:postcodecheck/check' => ['PostalController', 'PostalCheck'],
+        'GET:playground' => ['TestController', 'index']
 
     ];
 

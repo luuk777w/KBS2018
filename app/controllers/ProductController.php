@@ -4,40 +4,45 @@ namespace App\Controllers;
 
 use Core\Controller;
 use App\Models\Products;
+use App\Models\Categories;
+use App\Models\Media;
 
 class ProductController extends Controller
 {
+
     public function index()
     {
         $productsmodel = new Products();
-        $products = $productsmodel->getProducts();
-        $categories = $productsmodel->getCategorynames();
+        $categoriesmodel = new Categories();
 
-        return $this->view->render("products", compact("products", "categories"));
+        if(isset($_GET['q'])) {
+            $products = $productsmodel->getProductBySearchTerm($_GET['q']);
+            $searchTerm = $_GET['q'];
+        } else {
+            $products = $productsmodel->getProducts();
+        }
+
+        $categories = $categoriesmodel->getCategorynames();
+
+        return $this->view->render("products", compact("products", "categories", "searchTerm"));
     }
 
     public function productPageIndex($productId, $productName)
     {
         $product = new Products();
+        $categoriesmodel = new Categories();
+        $media = new Media();
+
         $productDetails = $product->getProductById($productId);
-        $media = $product->getMediaById($productId);
+        $media = $media->getProductMediaById($productId);
+        $categories = $categoriesmodel->getCategorynames();
 
-        if($productName !== str_replace('?', '', str_replace(' ', '-', $productDetails->StockItemName)))
+        if($productName !== str_replace('?', '', str_replace(' ', '-', $productDetails[0]->StockItemName)))
         {
-            return header("Location: /product/${productId}/". str_replace(' ', '-', $productDetails->StockItemName));
+            return header("Location: /product/${productId}/". str_replace(' ', '-', $productDetails[0]->StockItemName));
         }
 
-        // $blob;
-        // if($product->Photo == NULL) 
-        // {
-        //     $blob = base64_encode($this->setImageFromAPI($product->StockItemName));
-        // }
-
-        if(!is_array($media)) {
-            $media = [$media];
-        }
-
-        return $this->view->render("product", compact("productDetails", "media"));
+        return $this->view->render("product", compact("productDetails", "media", "categories"));
     }
 
     public function redirectToCorrectURL($productId)
@@ -45,7 +50,7 @@ class ProductController extends Controller
         $product = new Products();
         $product = $product->getProductById($productId);
 
-        return header("Location: /product/${productId}/". str_replace('?', '', str_replace(' ', '-', $product->StockItemName)));
+        return header("Location: /product/${productId}/". str_replace('?', '', str_replace(' ', '-', $product[0]->StockItemName)));
     }
 
     public function addToCart($productId)
@@ -62,21 +67,5 @@ class ProductController extends Controller
         $shoppingCartController->addToCart();
 
         return header("location:/product/".$product->StockItemID);
-    }
-
-    private function setImageFromAPI($term) 
-    {
-        $url = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
-        $apiKey = "6a0ac17a7ff64b71961312e3a1a25d63";
-
-        $options = ['http' => [
-                        'header' => "Ocp-Apim-Subscription-Key: $apiKey\r\n",
-                        'method' => 'GET' ]];
-        
-        $context = stream_context_create($options);
-        $result = json_decode(file_get_contents($url . "?q=" . urlencode($term), false, $context));
-        $blob = file_get_contents($result->value[0]->contentUrl);
-
-        return $blob;
     }
 }

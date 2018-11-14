@@ -40,7 +40,7 @@
                 $url = "/product/". $product->StockItemID ."/". str_replace(' ', '-', $product->StockItemName);
              ?>
 
-            <div class="card" style="width: 18rem; height:40rem;float:left;margin:10px">
+            <div class="card" style="width: 18rem; height:35rem;float:left;margin:10px">
 
                 <?php if($product->PrimaryMediaURL !== NULL): ?>
                     <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($product->PrimaryMediaURL); ?>')"></div>

@@ -41,7 +41,7 @@
                         <input type=hidden value="<?php echo e($values["item_name"]); ?>" name="hidden_name">
 
                         <td><?php echo e($values["item_name"]); ?></td>
-                        <td><input type="number" name="quantity" value="<?php echo e($values["item_quantity"]); ?>" ><input class="btn btn-primary" type=submit name="update" value="bijwerken"></td>
+                        <td><input type="number" min=1 max=6000 name="quantity" value="<?php echo e($values["item_quantity"]); ?>" ><input class="btn btn-primary" type=submit name="update" value="bijwerken"></td>
                         <td>€ <?php echo e($values["item_price"]); ?></td>
                         <td>€ <?php echo e(number_format($values["item_quantity"] * $values["item_price"], 2)); ?></td>
                         <td><a href="/shoppingcart/delete/<?php echo e($values["item_id"]); ?>"><span class="text-danger">Verwijder</span></a></td>
