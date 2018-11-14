@@ -27,6 +27,8 @@ class ProductController extends Controller
         $product = new Products();
         $productDetails = $product->getProductById($productId);
         $media = $product->getMediaById($productId);
+        $categories = $product->getCategorynames();
+
 
         if($productName !== str_replace('?', '', str_replace(' ', '-', $productDetails->StockItemName)))
         {
@@ -43,7 +45,7 @@ class ProductController extends Controller
             $media = [$media];
         }
 
-        return $this->view->render("product", compact("productDetails", "media"));
+        return $this->view->render("product", compact("productDetails", "media", "categories"));
     }
 
     public function redirectToCorrectURL($productId)

@@ -95,7 +95,7 @@
         <div class="col-7" >
         
 
-            <?php if($media !== NULL): ?>
+            <?php if(isset($media[0])): ?>
                 <div class="image" style="background-image: url('../../assets/img/<?php echo e($media[0]->MediaUrl); ?>');"></div>
             <?php else: ?>
                 <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
@@ -150,10 +150,21 @@
             <p><?php echo e($productDetails->SearchDetails); ?>
 
                 <br>
+                <h3>Categorieën</h3>
+                <?php 
+                    foreach ($categories as $categorie){
+
+                    if($categorie->stockitemID == $productDetails->StockItemID){
+                    print(" ".$categorie->stockgroupname."<br> ");
+                    }
+                    }
+                    print("<br>");
+
+                 ?>
                 <br>
                 Land van fabricatie: <?php echo e(json_decode($productDetails->CustomFields)->CountryOfManufacture); ?>
 
-                <?php if(json_decode($productDetails->CustomFields)->ShelfLife !== NULL): ?>
+                <?php if(isset(json_decode($productDetails->CustomFields)->ShelfLife)): ?>
                     <br>
                     Houdbaarheid: <?php echo e(json_decode($productDetails->CustomFields)->ShelfLife); ?>
 
