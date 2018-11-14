@@ -34,12 +34,17 @@ class PaymentController extends Controller
 
     public function hook()
     {
-        $payment = $this->mollie->payments->get($_POST["id"]);
+        try {
+            $payment = $this->mollie->payments->get($_POST["id"]);
 
-        if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
-            
-            return "ER IS BETAALT WOHOOO!!!!";
+            if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
+                
+                return "ER IS BETAALT WOHOOO!!!!";
 
+            }
+
+        } catch (\Mollie\Api\Exceptions\ApiException $e) {
+            return "API call failed: " . htmlspecialchars($e->getMessage());
         }
     }
 
