@@ -4,7 +4,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Wide World Importers GANG</title>
 
-
     <style>
         
         /* In de Head section kan je allemaal tags plaatsen die daar moeten zoals een style tag, 
@@ -24,10 +23,13 @@
 
 <?php $__env->startSection('body'); ?>
 
-
-
     <div style="margin: auto; width: 58rem; overflow: auto;">
         <h1>Producten</h1>
+
+        <?php if($products == NULL): ?>
+            <h4 style="color: #DB3544">Er zijn geen producten gevonden</h4>
+        <?php else: ?>
+
         <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
             <?php 
@@ -48,7 +50,17 @@
                     <h6 class="card-title">Prijs</h6>€<?php echo e($product->UnitPrice); ?>
 
                     <br>
-                    <h6 class="card-title">Categorie</h6><?php echo e($product->StockGroupName); ?>
+                    <h6 class="card-title">Categorie</h6>
+                    <?php 
+                    foreach ($categories as $categorie){
+
+                    if($categorie->stockitemID == $product->StockItemID){
+                    print(" ".$categorie->stockgroupname."<br> ");
+                    }
+                    }
+                    print("<br>");
+
+                     ?>
 
                     <p class="card-text" style="overflow: hidden; max-height: 3rem"><?php echo e($product->SearchDetails); ?></p>
                     <br>
@@ -56,6 +68,8 @@
                 </div>
             </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+        <?php endif; ?>
     </div>
 
 <?php $__env->stopSection(); ?>
