@@ -36,5 +36,4 @@ Class Routes
         'POST:mollie-webhook' => ['PaymentController', 'hook'],
         'GET:bedankt' => ['HomeController', 'index'],
     ];
-
 }
