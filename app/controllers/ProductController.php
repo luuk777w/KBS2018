@@ -10,7 +10,13 @@ class ProductController extends Controller
     public function index()
     {
         $productsmodel = new Products();
-        $products = $productsmodel->getProducts();
+
+        if(isset($_GET['q'])) {
+            $products = $productsmodel->searchProducts($_GET['q']);
+        } else {
+            $products = $productsmodel->getProducts();
+        }
+
         $categories = $productsmodel->getCategorynames();
 
         return $this->view->render("products", compact("products", "categories"));
@@ -79,4 +85,5 @@ class ProductController extends Controller
 
         return $blob;
     }
+
 }

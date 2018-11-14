@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Wide World Importers</title>
         <style>
             .footer_background {
@@ -32,11 +32,11 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mr-auto">
 
-                     <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                     <form method="get" class="form-inline my-2 my-lg-0" action="/products/">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Uw zoekopdracht" name="q" aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
-                    
+
                         <li class="nav-item">
                             <a class="nav-link" href="/categories">Categorieën</a>
                         </li>

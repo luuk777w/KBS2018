@@ -46,6 +46,18 @@ order by stockitemid");
         WHERE SG.stockgroupid=${id}");
     }
 
+    public function searchProducts($searchterm)
+    {
+        return $this->db->sql("SELECT * FROM stockitems SI
+        JOIN ( SELECT StockItemID AS ItemID, MIN(StockGroupId) AS StockGroupId
+                FROM  stockitemstockgroups
+                GROUP BY StockItemID) SG ON SI.StockItemID=SG.ItemID 
+        JOIN stockgroups sgg ON SG.stockgroupid=sgg.stockgroupid
+        LEFT JOIN ( SELECT StockItemID AS ItemID, MediaURL AS PrimaryMediaURL
+                    FROM stockitems_media sm 
+                    WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID
+    WHERE SI.StockItemName like '%$?%'", $searchterm);
+    }
 
 
 }

@@ -26,7 +26,11 @@
 @section('body')
 
     <div style="margin: auto; width: 58rem; overflow: auto;">
+        @if (isset($searchTerm))
+            <h1>zoekresultaten voor {{$searchTerm}}</h1>
+        @else
         <h1>Producten</h1>
+        @endif 
 
         @if($products == NULL)
             <h4 style="color: #DB3544">Er zijn geen producten gevonden</h4>
