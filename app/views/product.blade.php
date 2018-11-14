@@ -151,6 +151,17 @@
             <h2>Productinformatie</h2>
             <p>{{$productDetails->SearchDetails}}
                 <br>
+                <h3>Categorieën</h3>
+                @php
+                    foreach ($categories as $categorie){
+
+                    if($categorie->stockitemID == $productDetails->StockItemID){
+                    print(" ".$categorie->stockgroupname."<br> ");
+                    }
+                    }
+                    print("<br>");
+
+                @endphp
                 <br>
                 Land van fabricatie: {{json_decode($productDetails->CustomFields)->CountryOfManufacture}}
                 @if(isset(json_decode($productDetails->CustomFields)->ShelfLife))
