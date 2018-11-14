@@ -6,39 +6,77 @@ namespace App\Controllers;
 use Core\Auth;
 use Core\Controller;
 
-class PostalController
+class PostalController extends Controller
+
 {
 
- function PostalCheck($code, $num){
+    function index(){
+        return $this->view->render("postcodecheck");
+    }
 
-     $curl = curl_init();
+ function PostalCheck()
+ {
 
-     curl_setopt_array($curl, array(
-         CURLOPT_URL => "https://api.postcodeapi.nu/v2/addresses/?postcode=$code&number=$num",
-         CURLOPT_RETURNTRANSFER => true,
-         CURLOPT_ENCODING => "",
-         CURLOPT_MAXREDIRS => 10,
-         CURLOPT_TIMEOUT => 30,
-         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-         CURLOPT_CUSTOMREQUEST => "GET",
-         CURLOPT_HTTPHEADER => array(
-             "accept: application/hal+json",
-             "x-api-key: 70krf7hu8X2mR77IaFZBl6y1VvRoHl5G8BID0eHG"
-         ),
-     ));
+     $code = $_POST["code"];
+     $num = $_POST["num"];
+     $send = $_POST["send"];
 
-     $response = curl_exec($curl);
-     $err = curl_error($curl);
+     if ($send != NULL) {
 
-     curl_close($curl);
+         $curl = curl_init();
 
-     if ($err) {
-         return ("cURL Error #:" . $err);
+         curl_setopt_array($curl, array(
+             CURLOPT_URL => "https://api.postcodeapi.nu/v2/addresses/?postcode=$code&number=$num",
+             CURLOPT_RETURNTRANSFER => true,
+             CURLOPT_ENCODING => "",
+             CURLOPT_MAXREDIRS => 10,
+             CURLOPT_TIMEOUT => 30,
+             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+             CURLOPT_CUSTOMREQUEST => "GET",
+             CURLOPT_HTTPHEADER => array(
+                 "accept: application/hal+json",
+                 "x-api-key: 70krf7hu8X2mR77IaFZBl6y1VvRoHl5G8BID0eHG"
+             ),
+         ));
+
+         $response = curl_exec($curl);
+         $err = curl_error($curl);
+
+         curl_close($curl);
+
+         if ($err) {
+             $msg = "cURL Error #:" . $err;
+
+             return $this->view->render("postcodecheck", compact("msg"));
+
+         } elseif($response=='') {
+
+
+             $msg = "Het adres lijkt niet te bestaan, check uw gegevens en probeer het nog eens";
+             return $this->view->render("postcodecheck", compact("msg"));
+
+         }else{
+             $msg = "Het adres lijkt te bestaan!";
+             $data = new array();
+
+             array_push($data,'street', json_decode($response)->_embedded->addresses[0]->street);
+             array_push($data,'street', json_decode($response)->_embedded->addresses[0]->street);
+
+
+             return $this->view->render("postcodecheck", compact("msg", 'data'));
+
+         }
      } else {
-         var_dump(json_decode($response)->_embedded->addresses[0]);
+
+         return "Error geen input geleverd";
 
      }
+
+
  }
 
 
+
 }
+
+
