@@ -9,10 +9,11 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = new Products();
-        $products = $products->getProducts();
+        $productsmodel = new Products();
+        $products = $productsmodel->getProducts();
+        $categories = $productsmodel->getCategorynames();
 
-        return $this->view->render("products", compact("products"));
+        return $this->view->render("products", compact("products", "categories"));
     }
 
     public function productPageIndex($productId, $productName)

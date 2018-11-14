@@ -52,12 +52,13 @@
                     <br>
                     <h6 class="card-title">Categorie</h6>
                     <?php 
-                    foreach ($category as $categorie){
+                    foreach ($categories as $categorie){
 
-                    if($categorie->stockitemID==$product->StockItemID){
-                    print(" ".$categorie->stockgroupname." ");
+                    if($categorie->stockitemID == $product->StockItemID){
+                    print(" ".$categorie->stockgroupname."<br> ");
                     }
                     }
+                    print("<br>");
 
                      ?>
 
