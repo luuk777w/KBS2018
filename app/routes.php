@@ -29,7 +29,8 @@ Class Routes
         'GET:shoppingcart/clear' => ['ShoppingCartController', 'clearCart'],
         'POST:shoppingcart/update' => ['ShoppingCartController', 'update'],
         'GET:categories' => ['CategoryController', 'index'],
-        'GET:categories/{StockGroupID}' => ['ProductsCategoriesController', 'index']
+        'GET:categories/{StockGroupID}' => ['ProductsCategoriesController', 'index'],
+        'GET:playground' => ['TestController', 'index']
         ];
 
 }
