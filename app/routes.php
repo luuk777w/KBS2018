@@ -19,9 +19,9 @@ Class Routes
         'GET:home' => ['HomeController', 'index'],
         'GET:login' => ['LoginController', 'index'],
         'GET:products' => ['ProductController', 'index'],
-        'GET:product/{productId}' => ['ProductController', 'redirectToCorrectURL'],
-        'GET:product/{productId}/{productName}' => ['ProductController', 'productPageIndex'],
-        'POST:product/addtocart/{productId}' => ['ProductController', 'addToCart'],
+        'GET:product/{productId}' => ['ProductDetailsController', 'redirectToCorrectURL'],
+        'GET:product/{productId}/{productName}' => ['ProductDetailsController', 'index'],
+        'POST:product/addtocart/{productId}' => ['ProductDetailsController', 'addToCart'],
         'GET:shoppingcart' => ['ShoppingCartController', 'index'],
         'GET:shoppingcart/test' => ['ShoppingCartController', 'test'],
         'POST:shoppingcart/add' => ['ShoppingCartController', 'addToCart'],
@@ -29,8 +29,7 @@ Class Routes
         'GET:shoppingcart/clear' => ['ShoppingCartController', 'clearCart'],
         'POST:shoppingcart/update' => ['ShoppingCartController', 'update'],
         'GET:categories' => ['CategoryController', 'index'],
-        'GET:categories/{StockGroupID}' => ['ProductsCategoriesController', 'index'],
-        'GET:playground' => ['TestController', 'index']
+        'GET:categories/{StockGroupID}' => ['ProductController', 'ViewProductsByCategory'],
         ];
 
 }

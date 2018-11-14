@@ -10,6 +10,12 @@ class ShoppingCartController extends Controller
 {
     private $message;
 
+
+    /**
+     * Laat de winkelwagen pagina zien
+     *
+     * @return void
+     */
     public function index()
     {
         if(isset($_COOKIE["shopping_cart"]))
@@ -25,6 +31,11 @@ class ShoppingCartController extends Controller
         return $this->view->render("shoppingCart", compact("cart_data"));
     }
 
+    /**
+     * Voeg item toe aan de winkelwagen
+     *
+     * @return void
+     */
     public function addToCart()
     {
         if(isset($_COOKIE["shopping_cart"]))
@@ -67,6 +78,11 @@ class ShoppingCartController extends Controller
         return "Success";
     }
 
+    /**
+     * Update de winkelwagen
+     *
+     * @return void
+     */
     public function update()
     {
         if(isset($_COOKIE["shopping_cart"]))
@@ -114,16 +130,12 @@ class ShoppingCartController extends Controller
         return header("location:/shoppingcart");
     }
 
-    public function test()
-    {
-        $_POST["hidden_id"] = 1;
-        $_POST["hidden_name"] = "Test";
-        $_POST["hidden_price"] = 5;
-        $_POST["quantity"] = 3;
-        $this->addToCart();
-        return "Test";
-    }
-
+    /**
+     * Verwijder een product uit de winkelwagen
+     *
+     * @param [int] $id
+     * @return void
+     */
     public function removeFromCart($id)
     {
         $cookie_data = stripslashes($_COOKIE['shopping_cart']);
@@ -142,6 +154,11 @@ class ShoppingCartController extends Controller
         return header("location:/shoppingcart");
     }
 
+    /**
+     * Leeg de hele winkelwagen
+     *
+     * @return void
+     */
     public function clearCart()
     {
         setcookie("shopping_cart", "", time() - 3600, '/');
