@@ -18,11 +18,11 @@ class DB
         }
     }
 
-    public function sql($statement)
+    public function sql($statement, $value)
     {
         if(substr($statement, 0, 6) === 'SELECT') {
             $sql = $this->connection->prepare($statement);
-            $sql->execute();
+            $sql->execute([$value]);
             $data = $sql->fetchAll(\PDO::FETCH_OBJ);
             if(count($data) > 1) {
                 return $data;
@@ -30,7 +30,7 @@ class DB
                 if($data == NULL)
                     return NULL;
 
-                return $data[0];
+                return $data;
             }
         } else {
             $sql = $this->connection->prepare($statement);

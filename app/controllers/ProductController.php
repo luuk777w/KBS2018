@@ -9,10 +9,17 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = new Products();
-        $products = $products->getProducts();
+        $productsmodel = new Products();
 
-        return $this->view->render("products", compact("products"));
+        if(isset($_GET['q'])) {
+            $products = $productsmodel->searchProducts($_GET['q']);
+        } else {
+            $products = $productsmodel->getProducts();
+        }
+
+        $categories = $productsmodel->getCategorynames();
+
+        return $this->view->render("products", compact("products", "categories"));
     }
 
     public function productPageIndex($productId, $productName)
@@ -20,8 +27,10 @@ class ProductController extends Controller
         $product = new Products();
         $productDetails = $product->getProductById($productId);
         $media = $product->getMediaById($productId);
+        $categories = $product->getCategorynames();
 
-        if($productName !== str_replace(' ', '-', $productDetails->StockItemName))
+
+        if($productName !== str_replace('?', '', str_replace(' ', '-', $productDetails->StockItemName)))
         {
             return header("Location: /product/${productId}/". str_replace(' ', '-', $productDetails->StockItemName));
         }
@@ -36,7 +45,7 @@ class ProductController extends Controller
             $media = [$media];
         }
 
-        return $this->view->render("product", compact("productDetails", "media"));
+        return $this->view->render("product", compact("productDetails", "media", "categories"));
     }
 
     public function redirectToCorrectURL($productId)
@@ -44,7 +53,7 @@ class ProductController extends Controller
         $product = new Products();
         $product = $product->getProductById($productId);
 
-        return header("Location: /product/${productId}/". str_replace(' ', '-', $product->StockItemName));
+        return header("Location: /product/${productId}/". str_replace('?', '', str_replace(' ', '-', $product->StockItemName)));
     }
 
     public function addToCart($productId)
@@ -78,4 +87,5 @@ class ProductController extends Controller
 
         return $blob;
     }
+
 }

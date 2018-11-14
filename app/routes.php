@@ -30,6 +30,6 @@ Class Routes
         'POST:shoppingcart/update' => ['ShoppingCartController', 'update'],
         'GET:categories' => ['CategoryController', 'index'],
         'GET:categories/{StockGroupID}' => ['ProductsCategoriesController', 'index']
-    ];
+        ];
 
 }
