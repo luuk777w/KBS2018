@@ -20,6 +20,7 @@ class DB
 
     public function sql($statement, $params = NULL)
     {
+
         if(substr($statement, 0, 6) === 'SELECT') {
             $sql = $this->connection->prepare($statement);
             $sql->execute($params);
@@ -34,10 +35,6 @@ class DB
         }
     }
 
-    public function sanitizeSqlStatement($sql) 
-    {
-
-    }
 }
 
 

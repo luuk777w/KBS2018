@@ -17,13 +17,14 @@ class ProductController extends Controller
 
         if(isset($_GET['q'])) {
             $products = $productsmodel->getProductBySearchTerm($_GET['q']);
+            $searchTerm = $_GET['q'];
         } else {
             $products = $productsmodel->getProducts();
         }
 
         $categories = $categoriesmodel->getCategorynames();
 
-        return $this->view->render("products", compact("products", "categories"));
+        return $this->view->render("products", compact("products", "categories", "searchTerm"));
     }
 
     public function productPageIndex($productId, $productName)
