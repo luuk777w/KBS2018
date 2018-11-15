@@ -92,55 +92,25 @@
     <h1><?php echo e($productDetails[0]->StockItemNames); ?></h1>
 
     <div class="row">
+
+        
+
         <div class="col-7" >
         
 
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
+        <?php if(isset($media[0])): ?>
+            <div class="image" style="background-image: url('../../assets/img/<?php echo e($media[0]->MediaUrl); ?>');"></div>
+        <?php else: ?>
+            <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+        <?php endif; ?>
 
-                    <?php $__currentLoopData = $media; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $picture): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <?php echo e($count = 0); ?>
 
-
-                            <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo e($count); ?>" class="active"></li>
-
-                        <?php echo e($count++); ?>
-
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-
-                    <?php if(isset($media[0])): ?>
-                            <img class="d-block w-100" src="../../assets/img/<?php echo e($media[0]->MediaUrl); ?>" alt="First slide">
-                    <?php else: ?>
-                        <img class="d-block w-100" src="../../assets/img/img_placeholder.jpg" alt="First slide">
-
-                    <?php endif; ?>
-                        </div>
-                </div>
-                <?php $__currentLoopData = $media; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $picture): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="../../assets/img/<?php echo e($picture->MediaUrl); ?>" alt="Second slide">
-                    </div>
-
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
+    <?php $__currentLoopData = $media; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $picture): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <div class="smallImages" style="background-image: url('../../assets/img/<?php echo e($picture->MediaUrl); ?>');"></div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
 
-
-        </div>
         <div class="col-5" >
             <h1>€<?php echo e($productDetails[0]->UnitPrice); ?></h1>
 
@@ -175,8 +145,11 @@
                 <li class="services-list-item"><i class="fas fa-check services-check-icon"></i>Betaal veilig met <b>iDeal</b></li>
             </ul>
         </div>
+    </div>
+    </div>
 
-        <div class="col-12" >
+
+    <div class="col-12" >
             <hr>
         </div>
 
@@ -203,7 +176,7 @@
                 <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
-    </div>
+
 
 
 

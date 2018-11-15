@@ -94,53 +94,25 @@
     <h1>{{$productDetails[0]->StockItemNames}}</h1>
 
     <div class="row">
+
+        {{-- <img src="data:image/jpeg;base64,{{$blob}}" class="image"/> --}}
+
         <div class="col-7" >
         {{-- <img src="data:image/jpeg;base64,{{$blob}}" class="image"/> --}}
 
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
+        @if(isset($media[0]))
+            <div class="image" style="background-image: url('../../assets/img/{{$media[0]->MediaUrl}}');"></div>
+        @else
+            <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+        @endif
 
-                    @foreach($media as $picture)
-                        {{$count = 0}}
 
-                            <li data-target="#carouselExampleIndicators" data-slide-to="{{$count}}" class="active"></li>
-
-                        {{$count++}}
-                    @endforeach
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-
-                    @if(isset($media[0]))
-                            <img class="d-block w-100" src="../../assets/img/{{$media[0]->MediaUrl}}" alt="First slide">
-                    @else
-                        <img class="d-block w-100" src="../../assets/img/img_placeholder.jpg" alt="First slide">
-
-                    @endif
-                        </div>
-                </div>
-                @foreach($media as $picture)
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="../../assets/img/{{$picture->MediaUrl}}" alt="Second slide">
-                    </div>
-
-                @endforeach
-
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
+    @foreach($media as $picture)
+        <div class="smallImages" style="background-image: url('../../assets/img/{{$picture->MediaUrl}}');"></div>
+    @endforeach
 
 
 
-
-        </div>
         <div class="col-5" >
             <h1>€{{$productDetails[0]->UnitPrice}}</h1>
 
@@ -175,8 +147,11 @@
                 <li class="services-list-item"><i class="fas fa-check services-check-icon"></i>Betaal veilig met <b>iDeal</b></li>
             </ul>
         </div>
+    </div>
+    </div>
 
-        <div class="col-12" >
+
+    <div class="col-12" >
             <hr>
         </div>
 
@@ -200,7 +175,7 @@
                 @endif
             @endforeach
         </div>
-    </div>
+
 
 
 
