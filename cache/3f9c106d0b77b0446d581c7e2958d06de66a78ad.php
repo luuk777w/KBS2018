@@ -64,14 +64,13 @@ print($msg.'<br>');
     <tr><td>Achternaam</td><td><?php echo e($data['anaam']); ?></td></tr>
     <tr><td>Straat</td><td><?php echo e($data['street']); ?></td></tr>
     <tr><td>Huisnummer</td><td><?php echo e($data['huisnummer']); ?></td></tr>
+    <tr><td>Postcode</td><td><?php echo e($data['code']); ?></td></tr>
     <tr><td>Provincie</td><td><?php echo e($data['province']); ?></td></tr>
     <tr><td>Stad</td><td><?php echo e($data['city']); ?></td></tr>
 
 </table>
-    <h3>Als dit de juiste gegevens zijn kunt u op de <b>Verder</b>-knop klikken</h3>
 
-
-    <a href="#" class="btn btn-primary">Verder</a>
+    <a href="#" class="btn btn-primary">Bezorgmoment kiezen</a>
 
 
 

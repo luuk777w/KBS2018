@@ -32,8 +32,10 @@
         @else
         <h1>Producten</h1>
         @endif 
+        @endif
 
         /* Als er geen producten uit de database komen doe je dit*/
+            <--Als er geen producten uit de database komen doe je dit-->
         @if($products == NULL)
 
             /* Geef een header met de tekst Er zijn geen producten gevonden weer met een rooie kleur*/

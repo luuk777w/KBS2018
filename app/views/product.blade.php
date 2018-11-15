@@ -97,15 +97,48 @@
         <div class="col-7" >
         {{-- <img src="data:image/jpeg;base64,{{$blob}}" class="image"/> --}}
 
-            @if(isset($media[0]))
-                <div class="image" style="background-image: url('../../assets/img/{{$media[0]->MediaUrl}}');"></div>
-            @else
-                <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
-            @endif
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
 
-            @foreach($media as $picture)
-                <div class="smallImages" style="background-image: url('../../assets/img/{{$picture->MediaUrl}}');"></div>
-            @endforeach
+                    @foreach($media as $picture)
+                        {{$count = 0}}
+
+                            <li data-target="#carouselExampleIndicators" data-slide-to="{{$count}}" class="active"></li>
+
+                        {{$count++}}
+                    @endforeach
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+
+                    @if(isset($media[0]))
+                            <img class="d-block w-100" src="../../assets/img/{{$media[0]->MediaUrl}}" alt="First slide">
+                    @else
+                        <img class="d-block w-100" src="../../assets/img/img_placeholder.jpg" alt="First slide">
+
+                    @endif
+                        </div>
+                </div>
+                @foreach($media as $picture)
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="../../assets/img/{{$picture->MediaUrl}}" alt="Second slide">
+                    </div>
+
+                @endforeach
+
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+
+
 
         </div>
         <div class="col-5" >
