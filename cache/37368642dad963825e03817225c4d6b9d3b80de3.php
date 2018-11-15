@@ -1,11 +1,9 @@
-@extends('layouts.app')
-
-@section('head')
+<?php $__env->startSection('head'); ?>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('body')
+<?php $__env->startSection('body'); ?>
 
 <br>
 
@@ -106,4 +104,5 @@
     </div>
 </div>
     
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
