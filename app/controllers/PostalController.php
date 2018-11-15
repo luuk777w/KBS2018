@@ -80,6 +80,9 @@ class PostalController extends Controller
                  $data['province'] = json_decode($response)->_embedded->addresses[0]->province->label;
                  $data['city'] = json_decode($response)->_embedded->addresses[0]->city->label;
 
+                 session_start();
+
+                 $_SESSION['naw']=$data;
 
                  return $this->view->render("postcodecheck", compact("msg", 'data', 'response'));
 
