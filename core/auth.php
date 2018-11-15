@@ -17,6 +17,8 @@ class Auth
 
     public function isAuthorized() 
     {
+        session_start();
+
         if($this->isLoggedIn()) {
             return true;
 
@@ -47,5 +49,25 @@ class Auth
         $_SESSION["OneTimeAuthorization_${method}"] = TRUE;
 
         return true;
+    }
+
+    /**
+     * Not Authorized
+     *
+     * @return void
+     */
+    public function error401(){
+        $view = new View();
+        return $view->render("error.error401");
+    }
+
+    /**
+     * Forbidden
+     *
+     * @return void
+     */
+    public function error403(){
+        $view = new View();
+        return $view->render("error.error403");
     }
 }

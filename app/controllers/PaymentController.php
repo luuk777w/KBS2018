@@ -22,9 +22,12 @@ class PaymentController extends Controller
                 "value" => "10.00"
             ],
             "description" => "My first API payment",
-            "redirectUrl" => "https://wide-world-importers.cf/bedankt/",
+            "redirectUrl" => "http://localhost/bedankt/",
             "webhookUrl"  => "https://wide-world-importers.cf/mollie-webhook/",
         ]);
+
+        $auth = new Auth();
+        $auth->setOneTimeAuthorization("bedankPage");        
 
         return header("Location: " . $payment->getCheckoutUrl(), true, 303);
     }
@@ -39,9 +42,6 @@ class PaymentController extends Controller
 
             if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
 
-                $auth = new Auth();
-                $auth->setOneTimeAuthorization("bedankPage");
-                return "";
                 
             }
 
@@ -56,8 +56,7 @@ class PaymentController extends Controller
 
         if(!$auth->isAuthorized()) 
         {
-            $errorController = new ErrorController();
-            return $errorController->error401();
+            return $auth->error401();
         }
 
         return $this->view->render("bedankt");

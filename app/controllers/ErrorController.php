@@ -7,24 +7,6 @@ use Core\Controller;
 class ErrorController extends Controller
 {
     /**
-     * Not Authorized
-     *
-     * @return void
-     */
-    function error401(){
-        return $this->view->render("error.error401");
-    }
-
-    /**
-     * Forbidden
-     *
-     * @return void
-     */
-    function error403(){
-        return $this->view->render("error.error403");
-    }
-
-    /**
      * Not found
      *
      * @return void
