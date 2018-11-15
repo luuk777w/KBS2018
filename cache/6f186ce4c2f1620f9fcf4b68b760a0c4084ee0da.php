@@ -72,7 +72,7 @@
 
         </table>
 
-        <form action="naw" method="post">
+        <form action="/pay" method="post">
             <input type="submit" class="btn btn-primary" style="float:right" value="Afrekenen">
         </form>
 
