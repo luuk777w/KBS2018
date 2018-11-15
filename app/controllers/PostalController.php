@@ -22,6 +22,7 @@ class PostalController extends Controller
      $code = filter_input(INPUT_POST, "code");
      $num = filter_input(INPUT_POST, "num");
      $send = filter_input(INPUT_POST, "send");
+     $email = filter_input(INPUT_POST, "email");
 
      if ($num == 0) {
          //Geef het volgede bericht door aan de view
@@ -72,6 +73,8 @@ class PostalController extends Controller
                  $data['vnaam'] = $vnaam;
                  $data['tvnaam'] = $tvnaam;
                  $data['anaam'] = $anaam;
+                 $data['email'] = $email;
+                 $data['code'] = $code;
                  $data['street'] = json_decode($response)->_embedded->addresses[0]->street;
                  $data['huisnummer'] = $num;
                  $data['province'] = json_decode($response)->_embedded->addresses[0]->province->label;

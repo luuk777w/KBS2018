@@ -4,7 +4,9 @@
 
     <style>
 
-
+.red{
+    color: red;
+}
 
 
     </style>
@@ -16,9 +18,14 @@
 
 
 
+<br>
+<div style="alignment: center">
+    <a href="https://ikbenrapper.corgiorgy.com"><div class="progress" style="width: 30rem; height: 1.5rem;">
+        <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div></a>
 
-    <h5>Een voortgangsbalkie hier</h5>
-    <h2 class="text-center">Uw gegevens</h2>
+</div>
+
 
 
 @if (!empty($_POST["send"]))
@@ -43,58 +50,79 @@ print('<div class="alert alert-success" role="alert">'.$msg.'</div>');
 print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
 
 }
-print($msg.'<br>');
 
 @endphp
-<form method="post" action="/postcodecheck/check">
-    Voornaam: <input type="text" name="vnaam" required value="{{$vnaam}}"><br>
-    Tussenvoegsels: <input type="text" name='tvnaam'  value="{{$tvnaam}}"><br>
-    Achternaam: <input type="text" name="anaam" required value="{{$anaam}}"><br>
-    Postcode: <input type="text" name="code" required value="{{$code}}">
-    Huisnummer: <input type="number" name="num" required value="{{$num}}"><br>
-    Emailadres: <input type="text" name='email' required value="{{$email}}"><br>
 
+    <div class="row">
+
+        <div class="col-5">
+            <h2 class="text-center">Uw gegevens</h2>
+    <form method="post" action="/postcodecheck/check">
+        <div class="red">* Verplicht</div>
+        Voornaam: <input class="form-control" type="text" name="vnaam" required value="{{$vnaam}}"><br>
+    Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="{{$tvnaam}}"><br>
+        <div class="red">* Verplicht</div>
+        Achternaam: <input class="form-control" type="text" name="anaam" required value="{{$anaam}}"><br>
+        <div class="red">* Verplicht</div>
+        Postcode: <input class="form-control" type="text" name="code" required value="{{$code}}"><br>
+        <div class="red">* Verplicht</div>
+        Huisnummer: <input class="form-control" type="text" name="num" required value="{{$num}}"><br>
+        <div class="red">* Verplicht</div><br>
+    Emailadres: <input class="form-control" type="email" name='email' required value="{{$email}}"><br>
+    <br>
     <input type="submit" name="send" class="btn btn-primary" value="Postcode Check">
     <br>
 
 </form>
+        </div>
+        <div class="col-6" >
 
-    <h3>Uw ingevulde gegevens</h3>
+    <h3 class="text-center">Uw ingevulde gegevens</h3><br>
 <table>
     <tr><td>Voornaam</td><td>{{$data['vnaam']}}</td></tr>
     <tr><td>Tussenvoegsels</td><td>{{$data['tvnaam']}}</td></tr>
     <tr><td>Achternaam</td><td>{{$data['anaam']}}</td></tr>
     <tr><td>Straat</td><td>{{$data['street']}}</td></tr>
     <tr><td>Huisnummer</td><td>{{$data['huisnummer']}}</td></tr>
+    <tr><td>Postcode</td><td>{{$data['code']}}</td></tr>
     <tr><td>Provincie</td><td>{{$data['province']}}</td></tr>
     <tr><td>Stad</td><td>{{$data['city']}}</td></tr>
+    <tr><td>Email-adres</td><td>{{$data['email']}}</td></tr>
 
 </table>
-    <h3>Als dit de juiste gegevens zijn kunt u op de <b>Verder</b>-knop klikken</h3>
 
 
-    <a href="#" class="btn btn-primary">Verder</a>
+    @if($msg == "Het adres lijkt te bestaan!" && !empty($vnaam) && !empty($anaam) && !empty($email) )
 
+    <a href="#" class="btn btn-primary">Bezorgmoment kiezen</a>
+@endif
 
-
+        </div>
 @else
 
 
-
-
+            <div class="col-5">
+                <h2 class="text-center">Uw gegevens</h2>
 <form method="post" action="/postcodecheck/check">
-    Voornaam: <input type="text" name="vnaam" required value=""><br>
-    Tussenvoegsels: <input type="text" name='tvnaam'  value=""><br>
-    Achternaam: <input type="text" name="anaam" required value=""><br>
-    Postcode: <input type="text" name="code" required value="">
-    Huisnummer: <input type="text" name="num" required value=""><br>
-    Emailadres: <input type="text" name='email' required value=""><br>
+    <div class="red">* Verplicht</div>
+    Voornaam: <input class="form-control" type="text" name="vnaam" required value="" placeholder="Sjors"><br>
+    Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="" placeholder="Rapper"><br>
+    <div class="red">* Verplicht</div>
+    Achternaam: <input class="form-control" type="text" name="anaam" required value="" placeholder="Peters"><br>
+    <div class="red">* Verplicht</div>
+    Postcode: <input class="form-control" type="text" name="code" required value="" placeholder="1234AA"><br>
+    <div class="red">* Verplicht</div>
+    Huisnummer: <input class="form-control" type="text" name="num" required value="" placeholder="12A"><br>
+    <div class="red">* Verplicht</div>
+    Emailadres: <input class="form-control" type="email" name='email' required value="" placeholder="sjorsbekendvantv@gmail.com"><br>
+    <br>
     <input type="submit" name="send" class="btn btn-primary" value="Verzenden">
     <br>
 
 </form>
 
+            </div>
 @endif
-
+    </div>
 
 @endsection

@@ -91,23 +91,29 @@
     
     <br>
 
-    <h1>{{$productDetails[0]->StockItemName}}</h1>
+    <h1>{{$productDetails[0]->StockItemNames}}</h1>
 
     <div class="row">
+
+        {{-- <img src="data:image/jpeg;base64,{{$blob}}" class="image"/> --}}
+
         <div class="col-7" >
         {{-- <img src="data:image/jpeg;base64,{{$blob}}" class="image"/> --}}
 
-            @if(isset($media[0]))
-                <div class="image" style="background-image: url('../../assets/img/{{$media[0]->MediaUrl}}');"></div>
-            @else
-                <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
-            @endif
+        @if(isset($media[0]))
+            <div class="image" style="background-image: url('../../assets/img/{{$media[0]->MediaUrl}}');"></div>
+        @else
+            <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+        @endif
 
-            @foreach($media as $picture)
-                <div class="smallImages" style="background-image: url('../../assets/img/{{$picture->MediaUrl}}');"></div>
-            @endforeach
+
+    @foreach($media as $picture)
+        <div class="smallImages" style="background-image: url('../../assets/img/{{$picture->MediaUrl}}');"></div>
+    @endforeach
 
         </div>
+
+
         <div class="col-5" >
             <h1>€{{$productDetails[0]->UnitPrice}}</h1>
 
@@ -142,8 +148,10 @@
                 <li class="services-list-item"><i class="fas fa-check services-check-icon"></i>Betaal veilig met <b>iDeal</b></li>
             </ul>
         </div>
+    </div>
 
-        <div class="col-12" >
+
+    <div class="col-12" >
             <hr>
         </div>
 
@@ -167,7 +175,7 @@
                 @endif
             @endforeach
         </div>
-    </div>
+
 
 
 
