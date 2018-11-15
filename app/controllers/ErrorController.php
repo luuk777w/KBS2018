@@ -2,15 +2,26 @@
 
 namespace App\Controllers;
 
-class ErrorController
-{
+use Core\Controller;
 
+class ErrorController extends Controller
+{
+    /**
+     * Not found
+     *
+     * @return void
+     */
     function error404(){
-        return "Error 404 - Page not found";
+        return $this->view->render("error.error404");
     }
 
+    /**
+     * Method not allowed
+     *
+     * @return void
+     */
     function error405(){
-        return "Error 405 - Method not allowed";
+        return $this->view->render("error.error405");
     }
 
 }
