@@ -38,12 +38,13 @@ class PaymentController extends Controller
                 "value" => $formattedTotal
             ],
             "description" => "Bestelling bij de WWI",
-            "redirectUrl" => "http://localhost/bedankt/",
+            "redirectUrl" => "https://wide-world-importers.cf/bedankt",
             "webhookUrl"  => "https://wide-world-importers.cf/mollie-webhook/",
         ]);
 
         $auth = new Auth();
         $auth->setOneTimeAuthorization("bedankPage"); 
+        setcookie("shopping_cart", "", time() - 3600, '/');
 
         return header("Location: " . $payment->getCheckoutUrl(), true, 303);
     }
@@ -57,7 +58,6 @@ class PaymentController extends Controller
             $payment = $mollie->payments->get($_POST["id"]);
 
             if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
-                setcookie("shopping_cart", "", time() - 3600, '/');
 
             } elseif ($payment->isOpen()) {
                 /*
