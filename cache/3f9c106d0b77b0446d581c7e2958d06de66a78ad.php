@@ -50,8 +50,8 @@ print($msg.'<br>');
     Achternaam: <input type="text" name="anaam" required value="<?php echo e($anaam); ?>"><br>
     Postcode: <input type="text" name="code" required value="<?php echo e($code); ?>">
     Huisnummer: <input type="number" name="num" required value="<?php echo e($num); ?>"><br>
-    Emailadres: <input type="text" name='email' required value="<?php echo e($email); ?>"><br>
-
+    Emailadres: <input type="email" name='email' required value="<?php echo e($email); ?>"><br>
+    <br>
     <input type="submit" name="send" class="btn btn-primary" value="Postcode Check">
     <br>
 
@@ -70,8 +70,10 @@ print($msg.'<br>');
 
 </table>
 
-    <a href="#" class="btn btn-primary">Bezorgmoment kiezen</a>
+    <?php if($msg == "Het adres lijkt te bestaan!" && !empty($data['vnaam']) && !empty($data['anaam']) && !empty($data['email']) ): ?>
 
+    <a href="#" class="btn btn-primary">Bezorgmoment kiezen</a>
+<?php endif; ?>
 
 
 <?php else: ?>
@@ -83,9 +85,10 @@ print($msg.'<br>');
     Voornaam: <input type="text" name="vnaam" required value=""><br>
     Tussenvoegsels: <input type="text" name='tvnaam'  value=""><br>
     Achternaam: <input type="text" name="anaam" required value=""><br>
-    Postcode: <input type="text" name="code" required value="">
+    Postcode: <input type="text" name="code" required value="" placeholder="1234AA">
     Huisnummer: <input type="text" name="num" required value=""><br>
-    Emailadres: <input type="text" name='email' required value=""><br>
+    Emailadres: <input type="email" name='email' required value=""><br>
+    <br>
     <input type="submit" name="send" class="btn btn-primary" value="Verzenden">
     <br>
 

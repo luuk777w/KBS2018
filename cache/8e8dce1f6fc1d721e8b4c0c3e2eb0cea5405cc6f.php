@@ -31,7 +31,7 @@
         <h1>Producten</h1>
         <?php endif; ?>
 
-        
+
         
 
         <?php if($products == NULL): ?>
