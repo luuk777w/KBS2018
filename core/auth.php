@@ -4,57 +4,48 @@ namespace Core;
 
 class Auth
 {
-
-    public $salt = "sdf23*$#sdf2qFDSD123EDT#dsaGSWF#@#%F32DASF&*##@@#423423&Y4rFUE#WS*3";
+    private $salt = "sdf23*$#sdf2qFDSD123EDT#dsaGSWF#@#%F32DASF&*##@@#423423&Y4rFUE#WS*3";
 
     public function getHash($value)
     {
         return password_hash($value, PASSWORD_BCRYPT, ['salt' => $this->salt]);
     }
 
-    public function makeCookie($user, $role)
-    {
-        $hasheduser = password_hash($user, PASSWORD_BCRYPT, ['salt' => $this->salt]);
-        $hashedrole = password_hash($role, PASSWORD_BCRYPT, ['salt' => $this->salt]);
-
-        setcookie("user", $hasheduser, time() + (86400 * 30), "/");
-        setcookie("role", $hashedrole, time() + (86400 * 30), "/");
+    public function isLoggedIn() {
+        return false;
     }
 
-    public function delCookie()
+    public function isAuthorized() 
     {
-        setcookie("user", "", time() - 3600);
-        setcookie("role", "", time() - 3600);
-    }
+        if($this->isLoggedIn()) {
+            return true;
 
-    public static function User()
-    {
-        if(isset($_COOKIE['user'])){
+        } else {
 
-            $db = new DB();
+            $caller = debug_backtrace()[1]['function'];
 
-            $name = $db->read("users", "WHERE hash ='${_COOKIE['user']}'");
+            if(isset($_SESSION["OneTimeAuthorization_${caller}"])) {
 
-            if($name != [])
-            return $name[0]->username;
+                if($_SESSION["OneTimeAuthorization_${caller}"]) {
+                    unset($_SESSION["OneTimeAuthorization_${caller}"]);
+                    session_destroy();
+                    return true;
+                }
 
-        }
-
-        return "guest";
-    }
-
-    public static function Role()
-    {
-        if(isset($_COOKIE['role'])){
-
-            if(password_verify('user', $_COOKIE['role'])){
-                return "user";
-            } else if(password_verify('admin', $_COOKIE['role'])){
-                return "admin";
+            } else {
+                return false;
             }
 
         }
-        return "guest";
+
     }
 
+    public function setOneTimeAuthorization($method) 
+    {
+        session_start();
+        session_regenerate_id();
+        $_SESSION["OneTimeAuthorization_${method}"] = TRUE;
+
+        return true;
+    }
 }

@@ -3,23 +3,20 @@
 namespace App\Controllers;
 
 use Core\Controller;
+use Core\Auth;
 use App\Models\Categories;
+use App\Controllers\ErrorController;
 use Mollie\Api\MollieApiClient;
 
 class PaymentController extends Controller
 {
-    private $mollie;
-
-    function __construct()
-    {
-        $this->mollie = new MollieApiClient();
-        $this->mollie->setApiKey("test_RAnWWDeHWDMPhCzeEMvq9FtNyfgwDD");
-
-    }
 
     public function index(){
 
-        $payment = $this->mollie->payments->create([
+        $mollie = new MollieApiClient();
+        $mollie->setApiKey("test_RAnWWDeHWDMPhCzeEMvq9FtNyfgwDD");
+
+        $payment = $mollie->payments->create([
             "amount" => [
                 "currency" => "EUR",
                 "value" => "10.00"
@@ -35,17 +32,35 @@ class PaymentController extends Controller
     public function hook()
     {
         try {
-            $payment = $this->mollie->payments->get($_POST["id"]);
+            $mollie = new MollieApiClient();
+            $mollie->setApiKey("test_RAnWWDeHWDMPhCzeEMvq9FtNyfgwDD");
+
+            $payment = $mollie->payments->get($_POST["id"]);
 
             if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
-                
-                return "ER IS BETAALT WOHOOO!!!!";
 
+                $auth = new Auth();
+                $auth->setOneTimeAuthorization("bedankPage");
+                return "";
+                
             }
 
         } catch (\Mollie\Api\Exceptions\ApiException $e) {
             return "API call failed: " . htmlspecialchars($e->getMessage());
         }
+    }
+
+    public function bedankPage() 
+    {
+        $auth = new Auth();
+
+        if(!$auth->isAuthorized()) 
+        {
+            $errorController = new ErrorController();
+            return $errorController->error401();
+        }
+
+        return $this->view->render("bedankt");
     }
 
 }

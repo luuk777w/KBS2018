@@ -32,8 +32,8 @@ Class Routes
         'GET:categories/{StockGroupID}' => ['ProductController', 'ViewProductsByCategory'],
         'GET:postcodecheck' => ['PostalController', 'index'],
         'POST:postcodecheck/check' => ['PostalController', 'PostalCheck'],
-        'GET:payment' => ['PaymentController', 'index'],
+        'GET:pay' => ['PaymentController', 'index'],
         'GET:mollie-webhook' => ['PaymentController', 'hook'],
-        'GET:bedankt' => ['HomeController', 'index'],
+        'GET:bedankt' => ['PaymentController', 'bedankPage'],
     ];
 }

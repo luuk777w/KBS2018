@@ -79,8 +79,13 @@
 
         </table>
 
+        <form action="" method="get">
+            <input type="submit" class="btn btn-primary" style="float:right" value="Afrekenen">
+        </form>
 
-
+        <br>
+        <br>
+        <p style="text-align:right">Deze knop is tijdelijk en moet worden vervangen voor de knop met de link naar de NAW gegevens invul dinges</p>
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
