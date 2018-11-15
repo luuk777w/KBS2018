@@ -55,21 +55,14 @@
 
             <?php if(isset($values)): ?>
 
-
-
             <?php else: ?>
-
                 <?php 
                     $total = 0;
                  ?>
-
                 <tr>
                     <td colspan="5" align="center">Geen producten in winkelwagen.</td>
                 </tr>
-
             <?php endif; ?>
-
-
 
             <tr>
                 <td colspan="3" align="right">Totaal</td>
@@ -79,7 +72,7 @@
 
         </table>
 
-        <form action="" method="get">
+        <form action="/pay" method="post">
             <input type="submit" class="btn btn-primary" style="float:right" value="Afrekenen">
         </form>
 

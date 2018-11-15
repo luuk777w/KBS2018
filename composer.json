@@ -7,7 +7,6 @@
   },
   "require": {
     "philo/laravel-blade": "^3.1",
-    "ingenico-epayments/connect-sdk-php": "^5.29",
     "mollie/mollie-api-php": "2.0"
     
   }
