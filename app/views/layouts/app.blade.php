@@ -5,10 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Wide World Importers</title>
         <style>
-            .footer_background {
-                "background-color: yellow"
+            html, body{ height:100%; margin:0; }
 
+            body{ 
+                display:flex; 
+                flex-direction:column; 
             }
+
+            .page-footer{
+                margin-top:auto; 
+                width: 100%; 
+                display: block;
+                background-color: #f8f9fa!important;
+                padding-top: 0.5rem !important; 
+            }
+
+
         </style>
 
         @yield('head')
@@ -22,95 +34,89 @@
     </head>
     <body>
 
-        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height:80px; display:block;">
+                <div class="container">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"><img style="max-height: 3rem" src="/assets/img/WWI.PNG"></a>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mr-auto">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="navbar-brand" href="/"><img style="max-height: 3rem" src="/assets/img/WWI.PNG"></a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/categories">Categorieën</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/products">Producten</a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/categories">Categorieën</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/products">Producten</a>
-                        </li>
-
-                        <form method="get" class="form-inline my-2 my-lg-0" action="/products/">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Uw zoekopdracht" name="q" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
-                    </ul>
+                            <form method="get" class="form-inline my-2 my-lg-0" action="/products/">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Uw zoekopdracht" name="q" aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </ul>
 
 
-                    <ul class="navbar-nav">
+                        <ul class="navbar-nav">
 
-                        <li class="nav-item">
-                            @php
-                            $aantalitems = 0;
+                            <li class="nav-item">
+                                @php
+                                $aantalitems = 0;
 
-                            if(isset(($_COOKIE['shopping_cart']))) {
+                                if(isset(($_COOKIE['shopping_cart']))) {
 
-                                $cookie_data = stripslashes($_COOKIE['shopping_cart']);
-                                $cart_data = json_decode($cookie_data, true);
+                                    $cookie_data = stripslashes($_COOKIE['shopping_cart']);
+                                    $cart_data = json_decode($cookie_data, true);
 
-                                foreach ($cart_data as $key => $value){
-                                    $aantalitems++;
+                                    foreach ($cart_data as $key => $value){
+                                        $aantalitems++;
+                                    }
+
+                                    if($aantalitems == 0){
+                                        $aantalitems = 0;
+                                    }
                                 }
+                                @endphp
+                                <a href="/shoppingcart"><button type="button" class="btn btn-primary">
+                                    Winkelwagen <span class="badge badge-light">{{$aantalitems}}</span>
+                                </button></a>
+                            </li>
+                            <li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/register">Registreer</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">Login</a>
+                            </li>
 
-                                if($aantalitems == 0){
-                                    $aantalitems = 0;
-                                }
-                            }
-                            @endphp
-                            <a href="/shoppingcart"><button type="button" class="btn btn-primary">
-                                Winkelwagen <span class="badge badge-light">{{$aantalitems}}</span>
-                            </button></a>
-                        </li>
-                        <li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/register">Registreer</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/login">Login</a>
-                        </li>
-
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
             </nav>
 
+            <div class="container">
+
             @yield('body')
 
+            </div>
+
             @yield('footer')
-            <footer  class="page-footer font-small blue pt-4">
-
-                <!-- Footer Links -->
-                <div  class="container-fluid text-center text-md-left">
-
-                    <!-- Grid row -->
+            <br>
+            <footer class="page-footer font-small blue">
+                <div  class="container text-center text-md-left">
                     <div class="row ">
-
-                        <!-- Grid column -->
                         <div  class="col-md-6 mt-md-0 mt-3 bg-light">
 
-                            <!-- Content -->
                             <h5 class="text-uppercase">Contactgegevens</h5>
                             <p>Email: contact@wide-world-importers.cf<br>
                                 Telefoon: 088 - 5762300<br>
                                 Adres: Campus 2, 8017 CA Zwolle</p>
-
                         </div>
-                        <!-- Grid column -->
 
                         <hr class="clearfix w-100 d-md-none pb-3 bg-light">
 
-                        <!-- Grid column -->
                         <div class="col-md-3 mb-md-0 mb-3 bg-light">
 
-                            <!-- Links -->
                             <h5 class="text-uppercase">Links</h5>
 
                             <ul class="list-unstyled">
@@ -129,12 +135,8 @@
                             </ul>
 
                         </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
                         <div class="col-md-3 mb-md-0 mb-3 bg-light">
 
-                            <!-- Links -->
                             <h5 class="text-uppercase">Links</h5>
 
                             <ul class="list-unstyled">
@@ -151,24 +153,14 @@
                                     <a href="#!">Link 4</a>
                                 </li>
                             </ul>
-
                         </div>
-                        <!-- Grid column -->
-
                     </div>
-                    <!-- Grid row -->
-
                 </div>
-                <!-- Footer Links -->
 
-                <!-- Copyright -->
                 <div class="footer-copyright text-center py-3 bg-light">© 2018 Copyright:
                     <a style="text-decoration: none; color: black" href="https://www.youtube.com/watch?v=Frtax3pXPtg"> WWI</a>
                 </div>
-                <!-- Copyright -->
-
             </footer>
-        </div>
 
 
 
