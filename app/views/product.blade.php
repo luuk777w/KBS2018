@@ -91,7 +91,7 @@
     
     <br>
 
-    <h1>{{$productDetails[0]->StockItemNames}}</h1>
+    <h1>{{$productDetails[0]->StockItemName}}</h1>
 
     <div class="row">
 

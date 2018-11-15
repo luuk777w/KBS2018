@@ -89,23 +89,29 @@
     
     <br>
 
-    <h1><?php echo e($productDetails[0]->StockItemNames); ?></h1>
+    <h1><?php echo e($productDetails[0]->StockItemName); ?></h1>
 
     <div class="row">
+
+        
+
         <div class="col-7" >
         
 
-            <?php if(isset($media[0])): ?>
-                <div class="image" style="background-image: url('../../assets/img/<?php echo e($media[0]->MediaUrl); ?>');"></div>
-            <?php else: ?>
-                <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
-            <?php endif; ?>
+        <?php if(isset($media[0])): ?>
+            <div class="image" style="background-image: url('../../assets/img/<?php echo e($media[0]->MediaUrl); ?>');"></div>
+        <?php else: ?>
+            <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+        <?php endif; ?>
 
-            <?php $__currentLoopData = $media; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $picture): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <div class="smallImages" style="background-image: url('../../assets/img/<?php echo e($picture->MediaUrl); ?>');"></div>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+    <?php $__currentLoopData = $media; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $picture): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <div class="smallImages" style="background-image: url('../../assets/img/<?php echo e($picture->MediaUrl); ?>');"></div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
         </div>
+
+
         <div class="col-5" >
             <h1>€<?php echo e($productDetails[0]->UnitPrice); ?></h1>
 
@@ -140,8 +146,10 @@
                 <li class="services-list-item"><i class="fas fa-check services-check-icon"></i>Betaal veilig met <b>iDeal</b></li>
             </ul>
         </div>
+    </div>
 
-        <div class="col-12" >
+
+    <div class="col-12" >
             <hr>
         </div>
 
@@ -168,7 +176,7 @@
                 <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
-    </div>
+
 
 
 

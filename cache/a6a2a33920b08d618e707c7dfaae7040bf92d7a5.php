@@ -29,9 +29,11 @@
             <h1>zoekresultaten voor <?php echo e($searchTerm); ?></h1>
         <?php else: ?>
         <h1>Producten</h1>
-        <?php endif; ?> 
+        <?php endif; ?>
+
 
         
+
         <?php if($products == NULL): ?>
 
             
