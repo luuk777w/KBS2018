@@ -89,7 +89,7 @@
     
     <br>
 
-    <h1><?php echo e($productDetails[0]->StockItemName); ?></h1>
+    <h1><?php echo e($productDetails[0]->StockItemNames); ?></h1>
 
     <div class="row">
         <div class="col-7" >
