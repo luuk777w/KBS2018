@@ -111,6 +111,7 @@
         <div class="smallImages" style="background-image: url('../../assets/img/{{$picture->MediaUrl}}');"></div>
     @endforeach
 
+        </div>
 
 
         <div class="col-5" >
@@ -147,7 +148,6 @@
                 <li class="services-list-item"><i class="fas fa-check services-check-icon"></i>Betaal veilig met <b>iDeal</b></li>
             </ul>
         </div>
-    </div>
     </div>
 
 

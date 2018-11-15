@@ -109,6 +109,7 @@
         <div class="smallImages" style="background-image: url('../../assets/img/<?php echo e($picture->MediaUrl); ?>');"></div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
+        </div>
 
 
         <div class="col-5" >
@@ -145,7 +146,6 @@
                 <li class="services-list-item"><i class="fas fa-check services-check-icon"></i>Betaal veilig met <b>iDeal</b></li>
             </ul>
         </div>
-    </div>
     </div>
 
 
