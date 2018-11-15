@@ -31,10 +31,8 @@
             <h1>zoekresultaten voor {{$searchTerm}}</h1>
         @else
         <h1>Producten</h1>
-        @endif 
         @endif
 
-        /* Als er geen producten uit de database komen doe je dit*/
             <--Als er geen producten uit de database komen doe je dit-->
         @if($products == NULL)
 
