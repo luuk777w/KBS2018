@@ -1,11 +1,16 @@
 @extends('layouts.app')
+<?php
+session_start();
 
+$_SESSION['naw']=$data;
+?>
 @section('head')
 
     <style>
 
 .red{
     color: red;
+    display: inline;
 }
 
 
@@ -18,15 +23,16 @@
 
 
 
-<br>
-<div style="alignment: center">
-    <a href="https://ikbenrapper.corgiorgy.com"><div class="progress" style="width: 30rem; height: 1.5rem;">
-        <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-    </div></a>
-
-</div>
-
-
+        <svg width="740" height="50" style="display: block; margin: auto">
+            <rect x="50" y="20" rx="10" ry="10" width="150" height="10"
+                  style="fill:#107BFD;opacity:1" />
+            <rect x="210" y="20" rx="10" ry="10" width="150" height="10"
+                  style="fill:#6B747C;opacity:1" />
+            <rect x="370" y="20" rx="10" ry="10" width="150" height="10"
+                  style="fill:#6B747C;opacity:1" />
+            <rect x="530" y="20" rx="10" ry="10" width="150" height="10"
+                  style="fill:#6B747C;opacity:1" />
+        </svg>
 
 @if (!empty($_POST["send"]))
 
@@ -39,6 +45,7 @@ $email = filter_input(INPUT_POST, "email");
 
 
 $num = filter_input(INPUT_POST, "num");
+
 
 if($msg == "Het adres lijkt te bestaan!"){
 
@@ -58,68 +65,72 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
         <div class="col-5">
             <h2 class="text-center">Uw gegevens</h2>
     <form method="post" action="/postcodecheck/check">
-        <div class="red">* Verplicht</div>
+        <div class="red">*</div>
         Voornaam: <input class="form-control" type="text" name="vnaam" required value="{{$vnaam}}"><br>
     Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="{{$tvnaam}}"><br>
-        <div class="red">* Verplicht</div>
+        <div class="red">*</div>
         Achternaam: <input class="form-control" type="text" name="anaam" required value="{{$anaam}}"><br>
-        <div class="red">* Verplicht</div>
+        <div class="red">*</div>
         Postcode: <input class="form-control" type="text" name="code" required value="{{$code}}"><br>
-        <div class="red">* Verplicht</div>
+        <div class="red">*</div>
         Huisnummer: <input class="form-control" type="text" name="num" required value="{{$num}}"><br>
-        <div class="red">* Verplicht</div><br>
+        <div class="red">*</div>
     Emailadres: <input class="form-control" type="email" name='email' required value="{{$email}}"><br>
-    <br>
-    <input type="submit" name="send" class="btn btn-primary" value="Postcode Check">
+
+        <div class="red">* = Verplicht</div><br>
+        <input type="submit" name="send" class="btn btn-primary" value="Postcode Check">
     <br>
 
 </form>
         </div>
-        <div class="col-6" >
+        <div class="col-6">
 
     <h3 class="text-center">Uw ingevulde gegevens</h3><br>
-<table>
-    <tr><td>Voornaam</td><td>{{$data['vnaam']}}</td></tr>
-    <tr><td>Tussenvoegsels</td><td>{{$data['tvnaam']}}</td></tr>
-    <tr><td>Achternaam</td><td>{{$data['anaam']}}</td></tr>
-    <tr><td>Straat</td><td>{{$data['street']}}</td></tr>
-    <tr><td>Huisnummer</td><td>{{$data['huisnummer']}}</td></tr>
-    <tr><td>Postcode</td><td>{{$data['code']}}</td></tr>
-    <tr><td>Provincie</td><td>{{$data['province']}}</td></tr>
-    <tr><td>Stad</td><td>{{$data['city']}}</td></tr>
-    <tr><td>Email-adres</td><td>{{$data['email']}}</td></tr>
+<table style="margin-left: 10rem">
+    <tr><td>Voornaam</td><td>   </td><td>{{$data['vnaam']}}</td></tr>
+    <tr><td>Tussenvoegsels</td>   <td></td><td>{{$data['tvnaam']}}</td></tr>
+    <tr><td>Achternaam</td><td>   </td><td>{{$data['anaam']}}</td></tr>
+    <tr><td>Straat</td><td>   </td><td>{{$data['street']}}</td></tr>
+    <tr><td>Huisnummer</td>   <td></td><td>{{$data['huisnummer']}}</td></tr>
+    <tr><td>Postcode</td><td>   </td><td>{{$data['code']}}</td></tr>
+    <tr><td>Provincie</td><td>   </td><td>{{$data['province']}}</td></tr>
+    <tr><td>Stad</td><td></td>   <td>{{$data['city']}}</td></tr>
+    <tr><td>Email-adres</td><td>   </td><td>{{$data['email']}}</td></tr>
 
 </table>
 
 
     @if($msg == "Het adres lijkt te bestaan!" && !empty($vnaam) && !empty($anaam) && !empty($email) )
 
-    <a href="#" class="btn btn-primary">Bezorgmoment kiezen</a>
+    <a href="#" style="margin-left: 10rem" class="btn btn-primary">Bezorgmoment kiezen</a>
 @endif
 
         </div>
 @else
 
 
-            <div class="col-5">
+            <div class="col-5" >
                 <h2 class="text-center">Uw gegevens</h2>
 <form method="post" action="/postcodecheck/check">
-    <div class="red">* Verplicht</div>
+    <div class="red">*</div>
     Voornaam: <input class="form-control" type="text" name="vnaam" required value="" placeholder="Sjors"><br>
     Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="" placeholder="Rapper"><br>
-    <div class="red">* Verplicht</div>
+    <div class="red">*</div>
     Achternaam: <input class="form-control" type="text" name="anaam" required value="" placeholder="Peters"><br>
-    <div class="red">* Verplicht</div>
+    <div class="red">*</div>
     Postcode: <input class="form-control" type="text" name="code" required value="" placeholder="1234AA"><br>
-    <div class="red">* Verplicht</div>
+    <div class="red">*</div>
     Huisnummer: <input class="form-control" type="text" name="num" required value="" placeholder="12A"><br>
-    <div class="red">* Verplicht</div>
+    <div class="red">*</div>
     Emailadres: <input class="form-control" type="email" name='email' required value="" placeholder="sjorsbekendvantv@gmail.com"><br>
-    <br>
+    <div class="red">* = Verplicht</div><br>
+
+
     <input type="submit" name="send" class="btn btn-primary" value="Verzenden">
     <br>
 
 </form>
+
 
             </div>
 @endif
