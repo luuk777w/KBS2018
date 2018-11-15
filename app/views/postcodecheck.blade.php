@@ -72,7 +72,7 @@ print($msg.'<br>');
 
 </table>
 
-    @if($msg == "Het adres lijkt te bestaan!" && !empty($data['vnaam']) && !empty($data['anaam']) && !empty($data['email']) )
+    @if($msg == "Het adres lijkt te bestaan!" && !empty($vnaam) && !empty($anaam) && !empty($email) )
 
     <a href="#" class="btn btn-primary">Bezorgmoment kiezen</a>
 @endif

@@ -70,7 +70,7 @@ print($msg.'<br>');
 
 </table>
 
-    <?php if($msg == "Het adres lijkt te bestaan!" && !empty($data['vnaam']) && !empty($data['anaam']) && !empty($data['email']) ): ?>
+    <?php if($msg == "Het adres lijkt te bestaan!" && !empty($vnaam) && !empty($anaam) && !empty($email) ): ?>
 
     <a href="#" class="btn btn-primary">Bezorgmoment kiezen</a>
 <?php endif; ?>
