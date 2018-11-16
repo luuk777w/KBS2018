@@ -24,6 +24,18 @@ class PostalController extends Controller
      $send = filter_input(INPUT_POST, "send");
      $email = filter_input(INPUT_POST, "email");
 
+     $apikeys = [
+         0=>"ZvhZo0CPIrU7NGJIc32R6ylWtfaguTV5X2RMY2x3",
+1 => "8eWVmAyZ0c6Xxiz6tl9oz3QMeHPf9pPI8Ynvrxtj",
+2 => "FV23JYHSMqY0hNtMeaAF2tBAb65Atff3D7a0EfSh",
+3 => "58fLSDFCb456RtpZcxtc03vBqHtu4Lxo6d5VV6n1",
+4 => "GewGXSKsja96pmOZxuoN0auDeZ2jSCdI3pqliBK2",
+5 => "GUNxZfLHhu2uysTdQjwPZ8xwoksgHha01JvagppK",
+6 => "6uIvWUTWd96bfeWk3rke2a2aeJaWKfaQ1kwoi07I",
+         7 => "70krf7hu8X2mR77IaFZBl6y1VvRoHl5G8BID0eHG"
+     ];
+     
+
      if ($num == 0) {
          //Geef het volgede bericht door aan de view
          $msg = "Het huisnummer kan geen 0 zijn, check uw gegevens en probeer het nog eens";
@@ -45,7 +57,7 @@ class PostalController extends Controller
                  CURLOPT_CUSTOMREQUEST => "GET",
                  CURLOPT_HTTPHEADER => array(
                      "accept: application/hal+json",
-                     "x-api-key: 70krf7hu8X2mR77IaFZBl6y1VvRoHl5G8BID0eHG"
+                     "x-api-key: ".$apikeys[rand(0,7)]
                  ),
              ));
 
@@ -100,7 +112,7 @@ class PostalController extends Controller
                      $data['city']=json_decode($response)->_embedded->addresses[0]->city->label;
                  }else{$data['city']="";
                  };
-                 
+
                  session_start();
 
                  $_SESSION['naw']=$data;
