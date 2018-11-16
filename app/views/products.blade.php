@@ -18,7 +18,7 @@
             background-repeat: no-repeat;
             background-position: center;
         }
-    
+
     </style>
 
 @endsection
@@ -31,7 +31,12 @@
         @if($products == NULL)
             <h4 style="color: #DB3544">Er zijn geen producten gevonden</h4>
         @else
-
+            <form method="post" action="products.blade.php">
+                <select name="orderby">
+                    <option value="order by stockitemname">A-Z</option>
+                    <option value="order by stockitemname DESC">Z-A</option>
+                </select>
+            </form>
         @foreach ($products as $product)
 
             @php

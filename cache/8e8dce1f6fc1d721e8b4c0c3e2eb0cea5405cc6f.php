@@ -16,7 +16,7 @@
             background-repeat: no-repeat;
             background-position: center;
         }
-    
+
     </style>
 
 <?php $__env->stopSection(); ?>
@@ -29,7 +29,12 @@
         <?php if($products == NULL): ?>
             <h4 style="color: #DB3544">Er zijn geen producten gevonden</h4>
         <?php else: ?>
-
+            <form method="post" action="products.blade.php">
+                <select name="orderby">
+                    <option value="order by stockitemname">A-Z</option>
+                    <option value="order by stockitemname DESC">Z-A</option>
+                </select>
+            </form>
         <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
             <?php 
