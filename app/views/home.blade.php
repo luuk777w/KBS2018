@@ -50,6 +50,7 @@
     @endsection
 
     @section('body')
+
     <div class="container">
         <div class="row">
             <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
