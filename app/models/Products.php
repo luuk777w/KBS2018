@@ -37,6 +37,7 @@ class Products extends Model
                     FROM stockitems_media sm 
                     WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID
         WHERE SI.StockItemName like ?", ["%{$searchterm}%"]);
+
     }
 
 
