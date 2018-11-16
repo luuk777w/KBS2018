@@ -2,10 +2,9 @@
 
 namespace App\Controllers;
 
-use Core\Controller;
-use App\Models\Products;
 use App\Models\Categories;
-use App\Models\Media;
+use App\Models\Products;
+use Core\Controller;
 
 class ProductController extends Controller
 {
@@ -22,15 +21,15 @@ class ProductController extends Controller
         $categoriesmodel = new Categories();
 
         //Zoeken op een searchterm wanneer de GET waarde q bestaat, anders alle producten tonen
-        if(isset($_GET['q'])) {
+        if (isset($_GET['q'])) {
             //Krijg alle producten die "q" in de naam hebben staan
             $products = $productsmodel->getProductBySearchTerm($_GET['q']);
-            $searchTerm = $_GET['q'];
+            $searchTerm = filter_input(INPUT_GET, 'q', FILTER_SANITIZE_STRING);
         } else {
             //Krijg alle producten
             $products = $productsmodel->getProducts();
         }
-        
+
         //Krijg de alle categorienamen
         $categories = $categoriesmodel->getCategorynames();
 
@@ -45,8 +44,9 @@ class ProductController extends Controller
      * @param [id] $StockGroupID
      * @return void
      */
-    public function ViewProductsByCategory($StockGroupID){
-				
+    public function ViewProductsByCategory($StockGroupID)
+    {
+
         //Initialiseer het product, categorie model
         $productModel = new Products();
         $categoriesModel = new Categories();
@@ -57,7 +57,7 @@ class ProductController extends Controller
         //Krijg alle categorieen
         $categories = $categoriesModel->getCategorynames();
 
-        //Render de view en geef de producten en categorieen mee		
+        //Render de view en geef de producten en categorieen mee
         return $this->view->render("products", compact("products", "categories"));
     }
 }
