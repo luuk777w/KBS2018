@@ -6,7 +6,9 @@ class TestController {
 
 
     function index(){
-        return "TestController";
+
+        return "Hallo";
+
     }
 
     function cool($parameter1, $parameter2){

@@ -47,7 +47,13 @@ class Routing
                 }
             }
         }
-        return ["ErrorController", "error404"];
+
+        if($_SERVER['REQUEST_METHOD'] === explode(':', $route)[0]) {
+            return ["ErrorController", "error404"];
+        } else {
+            return ["ErrorController", "error405"];
+        }
+
     }
 
     /**

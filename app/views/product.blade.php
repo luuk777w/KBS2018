@@ -88,28 +88,34 @@
 @endsection
 
 @section('body')
-
+    
     <br>
 
-    <h1>{{$productDetails->StockItemName}}</h1>
+    <h1>{{$productDetails[0]->StockItemName}}</h1>
 
     <div class="row">
+
+        {{-- <img src="data:image/jpeg;base64,{{$blob}}" class="image"/> --}}
+
         <div class="col-7" >
         {{-- <img src="data:image/jpeg;base64,{{$blob}}" class="image"/> --}}
 
-            @if(isset($media[0]))
-                <div class="image" style="background-image: url('../../assets/img/{{$media[0]->MediaUrl}}');"></div>
-            @else
-                <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
-            @endif
+        @if(isset($media[0]))
+            <div class="image" style="background-image: url('../../assets/img/{{$media[0]->MediaUrl}}');"></div>
+        @else
+            <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+        @endif
 
-            @foreach($media as $picture)
-                <div class="smallImages" style="background-image: url('../../assets/img/{{$picture->MediaUrl}}');"></div>
-            @endforeach
+
+    @foreach($media as $picture)
+        <div class="smallImages" style="background-image: url('../../assets/img/{{$picture->MediaUrl}}');"></div>
+    @endforeach
 
         </div>
+
+
         <div class="col-5" >
-            <h1>€{{$productDetails->UnitPrice}}</h1>
+            <h1>€{{$productDetails[0]->UnitPrice}}</h1>
 
             @if (true)
                 <p class="stock inStock">Op voorraad</p>
@@ -118,11 +124,11 @@
                 <p class="stock notInStock">Niet op voorraad</p>
             @endif
 
-            @if ($productDetails->IsChillerStock)
+            @if ($productDetails[0]->IsChillerStock)
                 <p class="cooledProduct"><i class="fas fa-snowflake cooledProduct-icon"></i>Let op! dit is een gekoeld product.</p>
             @endif
 
-            <form method="post" action="/product/addtocart/{{$productDetails->StockItemID}}">
+            <form method="post" action="/product/addtocart/{{$productDetails[0]->StockItemID}}">
                 <button class="btn btn-success cartWishList-button" style="margin-top: 0.5rem;">
                     <i class="fas fa-shopping-cart fa-2x cartWishList-icon"></i>
                     <span class="cartWishList-text">In winkelwagen</span>
@@ -142,38 +148,34 @@
                 <li class="services-list-item"><i class="fas fa-check services-check-icon"></i>Betaal veilig met <b>iDeal</b></li>
             </ul>
         </div>
+    </div>
 
-        <div class="col-12" >
+
+    <div class="col-12" >
             <hr>
         </div>
 
         <div class="col-7" >
             <h2>Productinformatie</h2>
-            <p>{{$productDetails->SearchDetails}}
+            <p>{{$productDetails[0]->SearchDetails}}
                 <br>
-                <h3>Categorieën</h3>
-                @php
-                    foreach ($categories as $categorie){
-
-                    if($categorie->stockitemID == $productDetails->StockItemID){
-                    print(" ".$categorie->stockgroupname."<br> ");
-                    }
-                    }
-                    print("<br>");
-
-                @endphp
                 <br>
-                Land van fabricatie: {{json_decode($productDetails->CustomFields)->CountryOfManufacture}}
-                @if(isset(json_decode($productDetails->CustomFields)->ShelfLife))
+                Land van fabricatie: {{json_decode($productDetails[0]->CustomFields)->CountryOfManufacture}}
+                @if(isset(json_decode($productDetails[0]->CustomFields)->ShelfLife))
                     <br>
-                    Houdbaarheid: {{json_decode($productDetails->CustomFields)->ShelfLife}}
+                    Houdbaarheid: {{json_decode($productDetails[0]->CustomFields)->ShelfLife}}
                 @endif
-            </p>
+            </p>                
         </div>
         <div class="col-5" >
-
+            <h3>Categorieën</h3>
+            @foreach($categories as $categorie)
+                @if($categorie->stockitemID == $productDetails[0]->StockItemID)
+                    {{$categorie->stockgroupname}} <br>
+                @endif
+            @endforeach
         </div>
-    </div>
+
 
 
 

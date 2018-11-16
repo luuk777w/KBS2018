@@ -4,81 +4,60 @@ namespace App\Controllers;
 
 use Core\Controller;
 use App\Models\Products;
+use App\Models\Categories;
+use App\Models\Media;
 
 class ProductController extends Controller
 {
+    /**
+     * Producten index
+     * De pagina waar alle producten worden weergeven
+     *
+     * @return void
+     */
     public function index()
     {
+        //Initialiseer het product en categorie model
         $productsmodel = new Products();
-        $products = $productsmodel->getProducts();
-        $categories = $productsmodel->getCategorynames();
+        $categoriesmodel = new Categories();
 
-        return $this->view->render("products", compact("products", "categories"));
-    }
-
-    public function productPageIndex($productId, $productName)
-    {
-        $product = new Products();
-        $productDetails = $product->getProductById($productId);
-        $media = $product->getMediaById($productId);
-        $categories = $product->getCategorynames();
-
-
-        if($productName !== str_replace('?', '', str_replace(' ', '-', $productDetails->StockItemName)))
-        {
-            return header("Location: /product/${productId}/". str_replace(' ', '-', $productDetails->StockItemName));
+        //Zoeken op een searchterm wanneer de GET waarde q bestaat, anders alle producten tonen
+        if(isset($_GET['q'])) {
+            //Krijg alle producten die "q" in de naam hebben staan
+            $products = $productsmodel->getProductBySearchTerm($_GET['q']);
+            $searchTerm = $_GET['q'];
+        } else {
+            //Krijg alle producten
+            $products = $productsmodel->getProducts();
         }
-
-        // $blob;
-        // if($product->Photo == NULL) 
-        // {
-        //     $blob = base64_encode($this->setImageFromAPI($product->StockItemName));
-        // }
-
-        if(!is_array($media)) {
-            $media = [$media];
-        }
-
-        return $this->view->render("product", compact("productDetails", "media", "categories"));
-    }
-
-    public function redirectToCorrectURL($productId)
-    {
-        $product = new Products();
-        $product = $product->getProductById($productId);
-
-        return header("Location: /product/${productId}/". str_replace('?', '', str_replace(' ', '-', $product->StockItemName)));
-    }
-
-    public function addToCart($productId)
-    {
-        $product = new Products();
-        $shoppingCartController = new ShoppingCartController();
-        $product = $product->getProductById($productId);
-
-        $_POST["hidden_id"] = $product->StockItemID;
-        $_POST["hidden_name"] = $product->StockItemName;
-        $_POST["hidden_price"] = $product->UnitPrice;
-        $_POST["quantity"] = 1;
-
-        $shoppingCartController->addToCart();
-
-        return header("location:/product/".$product->StockItemID);
-    }
-
-    private function setImageFromAPI($term) 
-    {
-        $url = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
-        $apiKey = "6a0ac17a7ff64b71961312e3a1a25d63";
-
-        $options = ['http' => [
-                        'header' => "Ocp-Apim-Subscription-Key: $apiKey\r\n",
-                        'method' => 'GET' ]];
         
-        $context = stream_context_create($options);
-        $result = json_decode(file_get_contents($url . "?q=" . urlencode($term), false, $context));
-        $blob = file_get_contents($result->value[0]->contentUrl);
+        //Krijg de alle categorienamen
+        $categories = $categoriesmodel->getCategorynames();
 
-        return $blob;
+        //Render de products view en geef de products, categories en de searchTerm mee
+        return $this->view->render("products", compact("products", "categories", "searchTerm"));
+    }
+
+    /**
+     * Producten per categorie
+     * Laat alle producten per categorie zien
+     *
+     * @param [id] $StockGroupID
+     * @return void
+     */
+    public function ViewProductsByCategory($StockGroupID){
+				
+        //Initialiseer het product, categorie model
+        $productModel = new Products();
+        $categoriesModel = new Categories();
+
+        //Krijg alle producten bij Categorie ID
+        $products = $productModel->getProductsbyCategoryId($StockGroupID);
+
+        //Krijg alle categorieen
+        $categories = $categoriesModel->getCategorynames();
+
+        //Render de view en geef de producten en categorieen mee		
+        return $this->view->render("products", compact("products", "categories"));
     }
 }
