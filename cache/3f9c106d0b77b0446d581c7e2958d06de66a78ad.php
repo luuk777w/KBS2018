@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('head')
+<?php $__env->startSection('head'); ?>
 
     <style>
 
@@ -12,10 +10,10 @@
 
     </style>
 
-    @endsection
+    <?php $__env->stopSection(); ?>
 
 
-@section('body')
+<?php $__env->startSection('body'); ?>
 
 
 
@@ -40,9 +38,9 @@
 </svg>
 <br>
 
-@if (!empty($_POST["send"]))
+<?php if(!empty($_POST["send"])): ?>
 
-    @php
+    <?php 
 $code = filter_input(INPUT_POST, "code");
 $vnaam = filter_input(INPUT_POST, "vnaam");
 $anaam = filter_input(INPUT_POST, "anaam");
@@ -64,7 +62,7 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
 
 }
 
-@endphp
+ ?>
 
     <div class="row">
 
@@ -72,16 +70,16 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
             <h2 class="text-center">Uw gegevens</h2>
     <form method="post" action="/order/naw/check">
         <div class="red">*</div>
-        Voornaam: <input class="form-control" type="text" name="vnaam" required value="{{$vnaam}}"><br>
-    Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="{{$tvnaam}}"><br>
+        Voornaam: <input class="form-control" type="text" name="vnaam" required value="<?php echo e($vnaam); ?>"><br>
+    Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="<?php echo e($tvnaam); ?>"><br>
         <div class="red">*</div>
-        Achternaam: <input class="form-control" type="text" name="anaam" required value="{{$anaam}}"><br>
+        Achternaam: <input class="form-control" type="text" name="anaam" required value="<?php echo e($anaam); ?>"><br>
         <div class="red">*</div>
-        Postcode: <input class="form-control" type="text" name="code" required value="{{$code}}"><br>
+        Postcode: <input class="form-control" type="text" name="code" required value="<?php echo e($code); ?>"><br>
         <div class="red">*</div>
-        Huisnummer: <input class="form-control" type="text" name="num" required value="{{$num}}"><br>
+        Huisnummer: <input class="form-control" type="text" name="num" required value="<?php echo e($num); ?>"><br>
         <div class="red">*</div>
-    Emailadres: <input class="form-control" type="email" name='email' required value="{{$email}}"><br>
+    Emailadres: <input class="form-control" type="email" name='email' required value="<?php echo e($email); ?>"><br>
 
         <div class="red">* = Verplicht</div><br>
         <input type="submit" name="send" class="btn btn-primary" value="Postcode Check">
@@ -93,26 +91,26 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
 
     <h3 class="text-center">Uw ingevulde gegevens</h3><br>
 <table style="margin-left: 10rem">
-    <tr><td>Voornaam</td><td>   </td><td>{{$data['vnaam']}}</td></tr>
-    <tr><td>Tussenvoegsels</td>   <td></td><td>{{$data['tvnaam']}}</td></tr>
-    <tr><td>Achternaam</td><td>   </td><td>{{$data['anaam']}}</td></tr>
-    <tr><td>Straat</td><td>   </td><td>{{$data['street']}}</td></tr>
-    <tr><td>Huisnummer</td>   <td></td><td>{{$data['huisnummer']}}</td></tr>
-    <tr><td>Postcode</td><td>   </td><td>{{$data['code']}}</td></tr>
-    <tr><td>Provincie</td><td>   </td><td>{{$data['province']}}</td></tr>
-    <tr><td>Stad</td><td></td>   <td>{{$data['city']}}</td></tr>
-    <tr><td>Email-adres</td><td>   </td><td>{{$data['email']}}</td></tr>
+    <tr><td>Voornaam</td><td>   </td><td><?php echo e($data['vnaam']); ?></td></tr>
+    <tr><td>Tussenvoegsels</td>   <td></td><td><?php echo e($data['tvnaam']); ?></td></tr>
+    <tr><td>Achternaam</td><td>   </td><td><?php echo e($data['anaam']); ?></td></tr>
+    <tr><td>Straat</td><td>   </td><td><?php echo e($data['street']); ?></td></tr>
+    <tr><td>Huisnummer</td>   <td></td><td><?php echo e($data['huisnummer']); ?></td></tr>
+    <tr><td>Postcode</td><td>   </td><td><?php echo e($data['code']); ?></td></tr>
+    <tr><td>Provincie</td><td>   </td><td><?php echo e($data['province']); ?></td></tr>
+    <tr><td>Stad</td><td></td>   <td><?php echo e($data['city']); ?></td></tr>
+    <tr><td>Email-adres</td><td>   </td><td><?php echo e($data['email']); ?></td></tr>
 
 </table>
 
 
-    @if($msg == "Het adres lijkt te bestaan!" && !empty($vnaam) && !empty($anaam) && !empty($email) )
+    <?php if($msg == "Het adres lijkt te bestaan!" && !empty($vnaam) && !empty($anaam) && !empty($email) ): ?>
 
     <a href="/order/delivery" style="margin-left: 10rem" class="btn btn-primary">Bezorgmoment kiezen</a>
-@endif
+<?php endif; ?>
 
         </div>
-@else
+<?php else: ?>
 
 
             <div class="col-5" >
@@ -139,7 +137,8 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
 
 
             </div>
-@endif
+<?php endif; ?>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

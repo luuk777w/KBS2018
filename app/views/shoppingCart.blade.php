@@ -75,12 +75,8 @@
         </table>
     </div>
 
-        <form action="/pay" method="post">
+        <form action="/order/naw" method="get">
             <input type="submit" class="btn btn-primary" style="float:right" value="Afrekenen">
         </form>
-
-        <br>
-        <br>
-        <p style="text-align:right">Deze knop is tijdelijk en moet worden vervangen voor de knop met de link naar de NAW gegevens invul dinges</p>
 
 @endsection
