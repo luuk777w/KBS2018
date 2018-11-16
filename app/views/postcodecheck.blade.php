@@ -1,10 +1,5 @@
 @extends('layouts.app')
-<?php
-session_start();
 
-$_SESSION['naw']=$data;
-
-?>
 @section('head')
 
     <style>

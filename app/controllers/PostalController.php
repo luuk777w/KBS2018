@@ -63,6 +63,48 @@ class PostalController extends Controller
                  //Geef het volgede bericht door aan de view
                  $msg = "Het adres lijkt niet te bestaan, check uw gegevens en probeer het nog eens";
 
+                 $data = array();
+                 if(isset($vnaam)){
+                     $data['vnaam']=$vnaam;
+                 }else {
+                     $data['vnaam'] = "";
+                 };
+                 if(isset($tvnaam)){
+                     $data['tvnaam']=$tvnaam;
+
+                 }else{$data['tvnaam']="";};
+                 if(isset($anaam)){
+                     $data['anaam']=$anaam;
+                 }else{$data['anaam']="";};
+                 if(isset($email)){
+                     $data['email']=$email;
+                 }else{
+                     $data['email']="";};
+                 if(isset($code)){
+                     $data['code']=$vnaam;
+                 }else{$data['code']="";
+                 };
+                 if(isset($street)){
+                     $data['street']=json_decode($response)->_embedded->addresses[0]->street;
+                 }else{$data['street']="";
+                 };
+                 if(isset($huisnummer)){
+                     $data['huisnummer']=$num;
+                 }else{$data['huisnummer']="";
+                 };
+                 if(isset($province)){
+                     $data['province']=json_decode($response)->_embedded->addresses[0]->province->label;
+                 }else{$data['province']="";
+                 };
+                 if(isset($city)){
+                     $data['city']=json_decode($response)->_embedded->addresses[0]->city->label;
+                 }else{$data['city']="";
+                 };
+                 
+                 session_start();
+
+                 $_SESSION['naw']=$data;
+
                  //roep de view aan
                  return $this->view->render("postcodecheck", compact("msg"));
 
