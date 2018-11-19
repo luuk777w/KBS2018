@@ -43,17 +43,31 @@
 
             {{-- Als er wel producten uit de database komen doe je dit --}}
         @else
+                @php
+                    $orderby = $_POST['orderby'];
+                    if($orderby == "orderbyname"){
+                    $tekst = "A-Z";
+                    } elseif($orderby == "orderbynamedesc"){
+                    $tekst= "Z-A";
+                    } elseif($orderby == "orderbyprijs"){
+                    $tekst = "Prijs (Laag-Hoog)";
+                    } elseif($orderby == "orderbyprijsdesc"){
+                    $tekst = "Prijs(Hoog-Laag)";
+                    } else{
+                    $tekst = "sorteer op";
+                    }
+                @endphp
 
             <form method="post" action="/products/orderby">
                 <select name="orderby" onchange="this.form.submit()">
-                    <option value=""></option>
+                    <option value=<?php if(isset($_POST['orderby'])){ echo $_POST['orderby'];}?>><?php print($tekst); ?></option>
+                    <option value="default">Standaard</option>
                     <option value="orderbyname" >A-Z</option>
                     <option value="orderbynamedesc" >Z-A</option>
                     <option value="orderbyprijs" >Prijs(Laag-Hoog)</option>
                     <option value="orderbyprijsdesc" >Prijs(Hoog-Laag)</option>
                 </select>
             </form>
-
             {{-- Voor ieder product in de array uit de database die je dit --}}
         @foreach ($products as $product)
 

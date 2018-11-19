@@ -111,7 +111,6 @@
 
         </div>
 
-
         <div class="col-5" >
             <h1>€<?php echo e($productDetails[0]->UnitPrice); ?></h1>
 
