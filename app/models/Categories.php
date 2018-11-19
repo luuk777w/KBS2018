@@ -22,4 +22,12 @@ class Categories extends Model
         JOIN stockgroups sgg ON SI.stockgroupid=sgg.stockgroupid
         order by stockitemid");
     }
+
+    public function getCategoryByCategoryName($searchterm)
+    {
+        return $this->db->sql("SELECT stockitemID, stockgroupname FROM stockitemstockgroups SI
+        JOIN stockgroups sgg ON SI.stockgroupid=sgg.stockgroupid
+        order by stockitemid
+        WHERE SI.stockgroupname like ?", ["%{$searchterm}%"]);
+    }
 }

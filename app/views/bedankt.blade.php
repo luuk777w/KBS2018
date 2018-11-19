@@ -7,6 +7,7 @@
 
 @section('body')
 
-<h1>Bedankt</h1>
+<h1>Bedankt, yer mum gay!</h1>
+ <img src="/assets/img/bedank.gif">
 
 @endsection
