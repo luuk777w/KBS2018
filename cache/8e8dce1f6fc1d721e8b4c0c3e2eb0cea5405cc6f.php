@@ -42,7 +42,7 @@
             
         <?php else: ?>
 
-            <form method="post" action="products/orderby">
+            <form method="post" action="/products/orderby">
                 <select name="orderby" onchange="this.form.submit()">
                     <option value=""></option>
                     <option value="orderbyname" >A-Z</option>
