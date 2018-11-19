@@ -38,6 +38,33 @@ class Products extends Model
                     WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID
         WHERE SI.StockItemName like ?", ["%{$searchterm}%"]);
     }
+    public function orderbyname()
+    {
+        return $this->db->sql("SELECT * FROM stockitems SI
+        LEFT JOIN ( SELECT StockItemID AS ItemID, MediaURL AS PrimaryMediaURL
+                    FROM stockitems_media sm 
+                    WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID ORDER BY stockitemname");
+    }
+        public function orderbynamedesc()
+    {
+        return $this->db->sql("SELECT * FROM stockitems SI
+        LEFT JOIN ( SELECT StockItemID AS ItemID, MediaURL AS PrimaryMediaURL
+                    FROM stockitems_media sm 
+                    WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID ORDER BY stockitemname DESC");
+    }
+    public function orderbyprijs()
+    {
+        return $this->db->sql("SELECT * FROM stockitems SI
+        LEFT JOIN ( SELECT StockItemID AS ItemID, MediaURL AS PrimaryMediaURL
+                    FROM stockitems_media sm 
+                    WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID ORDER BY RecommendedRetailPrice");
+    }
+    public function orderbyprijsdesc()
 
-
+    {
+        return $this->db->sql("SELECT * FROM stockitems SI
+        LEFT JOIN ( SELECT StockItemID AS ItemID, MediaURL AS PrimaryMediaURL
+                    FROM stockitems_media sm 
+                    WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID ORDER BY RecommendedRetailPrice DESC");
+    }
 }
