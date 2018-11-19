@@ -43,18 +43,27 @@
             text-align: center;
 
         }
+
+        .carousel-caption
+        {
+            background: grey !important;
+            display: inline-block; 
+        
+        }
+
     </style>
 
     <?php $__env->stopSection(); ?>
 
     <?php $__env->startSection('body'); ?>
+
     <div class="container">
         <div class="row">
             <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
                 Voor <b>22:00</b> besteld, morgen in huis
             </div>
             <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
-                Gratis verzending boven de <b>€20</b>
+                Gratis verzending boven de <b>€NeeRico</b>
             </div>
             <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
                 <b>30</b> dagen niet goed, geld terug garantie
