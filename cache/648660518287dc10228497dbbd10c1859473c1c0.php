@@ -63,7 +63,7 @@
                 Voor <b>22:00</b> besteld, morgen in huis
             </div>
             <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
-                Gratis verzending boven de <b>€Kaas</b>
+                Gratis verzending boven de <b>€NeeRico</b>
             </div>
             <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
                 <b>30</b> dagen niet goed, geld terug garantie

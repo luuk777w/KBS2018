@@ -31,13 +31,13 @@ Class Routes
         'GET:categories' => ['CategoryController', 'index'],
         'GET:categories/{StockGroupID}' => ['ProductController', 'ViewProductsByCategory'],
         'GET:order/naw' => ['PostalController', 'index'],
-        'POST:order/naw/check' => ['PostalController', 'PostalCheck'],
+        'POST:order/naw' => ['PostalController', 'PostalCheck'],
         'POST:pay' => ['PaymentController', 'index'],
         'GET:mollie-webhook' => ['PaymentController', 'hook'],
         'GET:bedankt' => ['PaymentController', 'bedankPage'],
         'GET:order/delivery' => ['DeliveryController', 'index'],
         'POST:login/check' => ['LoginController', 'check'],
         'GET:logout' => ['LoginController', 'logout'],
-
+        'OrderBy:products' => ['ProductController', 'orderby']
     ];
 }

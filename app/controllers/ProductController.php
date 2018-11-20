@@ -60,4 +60,20 @@ class ProductController extends Controller
         //Render de view en geef de producten en categorieen mee
         return $this->view->render("products", compact("products", "categories"));
     }
+ public function orderby()
+    {
+        //Initialiseer het product en categorie model
+        $productsmodel = new Products();
+        $categoriesmodel = new Categories();
+            //Krijg alle producten
+            $order = filter_input(INPUT_POST, "orderby");
+            $products = $productsmodel->$order();
+
+        //Krijg de alle categorienamen
+        $categories = $categoriesmodel->getCategorynames();
+
+        //Render de products view en geef de products, categories en de searchTerm mee
+        return $this->view->render("products", compact("products", "categories", "searchTerm"));
+    }
+
 }
