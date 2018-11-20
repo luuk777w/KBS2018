@@ -82,12 +82,22 @@
                                 </button></a>
                             </li>
                             <li>
-                            <li class="nav-item">
+                            @php
+                            if (isset($_SESSION['token'])){
+
+                                print('<li class="nav-item"><a class="nav-link" href="/myaccount">Mijn Account</a></li><li class="nav-item"><a class="nav-link" href="/logout">Uitloggen</a></li>');
+                            }else{
+
+                                print('<li class="nav-item">
                                 <a class="nav-link" href="/register">Registreer</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/login">Login</a>
-                            </li>
+                            </li>');
+                            }
+
+                            @endphp
+
 
                         </ul>
                     </div>

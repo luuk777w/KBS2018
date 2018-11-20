@@ -92,7 +92,7 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
         <div class="col-6">
 
     <h3 class="text-center">Uw ingevulde gegevens</h3><br>
-<table style="margin-left: 10rem">
+<table style="margin-left: 10%">
     <tr><td>Voornaam</td><td>   </td><td>{{$data['vnaam']}}</td></tr>
     <tr><td>Tussenvoegsels</td>   <td></td><td>{{$data['tvnaam']}}</td></tr>
     <tr><td>Achternaam</td><td>   </td><td>{{$data['anaam']}}</td></tr>

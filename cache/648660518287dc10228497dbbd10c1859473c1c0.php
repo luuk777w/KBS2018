@@ -47,6 +47,7 @@
         .carousel-caption
         {
             background: grey !important;
+            display: inline-block; 
         
         }
 
