@@ -1,11 +1,9 @@
-@extends('layouts.app')
-
-@section('head')
+<?php $__env->startSection('head'); ?>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('body')
+<?php $__env->startSection('body'); ?>
 
 <br>
 
@@ -32,16 +30,17 @@
 
         <h4>Bezorgdatum:</h4>
 
-        @foreach($dates as $date)
+        <?php $__currentLoopData = $dates; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $date): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryDate" id="exampleRadios1" value="option1" @if($date == $dates[0]) checked @endif>
+            <input class="form-check-input" type="radio" name="deliveryDate" id="exampleRadios1" value="option1" <?php if($date == $dates[0]): ?> checked <?php endif; ?>>
             <label class="form-check-label" for="exampleRadios1">
-            {{$date}}
+            <?php echo e($date); ?>
+
             </label>
         </div>
 
-        @endforeach
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
     </div>
     <div class="col">
@@ -92,9 +91,9 @@
             <label class="form-check-label" for="exampleRadios2" style="display: flex">
                 <p style="flex: 0 0 10rem;">PostNL servicepoint</p>
                 <select class="form-control form-control-sm" style="flex: 1">
-                    @foreach($locations as $location)
-                        <option>{{$location->Name}} - {{$location->Address->Street}} {{$location->Address->HouseNr}}, {{$location->Address->City}}</option>
-                    @endforeach
+                    <?php $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option><?php echo e($location->Name); ?> - <?php echo e($location->Address->Street); ?> <?php echo e($location->Address->HouseNr); ?>, <?php echo e($location->Address->City); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </select>
             </label>
         </div>
@@ -104,4 +103,5 @@
     </div>
 </div>
     
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

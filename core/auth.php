@@ -29,8 +29,8 @@ class Auth
             if(isset($_SESSION["OneTimeAuthorization_${caller}"])) {
 
                 if($_SESSION["OneTimeAuthorization_${caller}"]) {
-                    unset($_SESSION["OneTimeAuthorization_${caller}"]);
-                    session_destroy();
+                    // unset($_SESSION["OneTimeAuthorization_${caller}"]);
+                    // session_destroy();
                     return true;
                 }
 
