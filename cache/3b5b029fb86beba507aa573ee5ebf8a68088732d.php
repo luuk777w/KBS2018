@@ -68,7 +68,7 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
 
         <div class="col-5">
             <h2 class="text-center">Uw gegevens</h2>
-    <form method="post" action="/order/naw/check">
+    <form method="post" action="/order/naw">
         <div class="red">*</div>
         Voornaam: <input class="form-control" type="text" name="vnaam" required value="<?php echo e($vnaam); ?>"><br>
     Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="<?php echo e($tvnaam); ?>"><br>
@@ -106,7 +106,7 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
 
     <?php if($msg == "Het adres lijkt te bestaan!" && !empty($vnaam) && !empty($anaam) && !empty($email) ): ?>
 
-    <a href="#" style="margin-left: 10rem" class="btn btn-primary">Bezorgmoment kiezen</a>
+    <a href="/order/delivery" style="margin-left: 10rem" class="btn btn-primary">Bezorgmoment kiezen</a>
 <?php endif; ?>
 
         </div>
@@ -115,7 +115,7 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
 
             <div class="col-5" >
                 <h2 class="text-center">Uw gegevens</h2>
-<form method="post" action="/order/naw/check">
+<form method="post" action="/order/naw">
     <div class="red">*</div>
     Voornaam: <input class="form-control" type="text" name="vnaam" required value="" placeholder="Sjors"><br>
     Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="" placeholder="Rapper"><br>
