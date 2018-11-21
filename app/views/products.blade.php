@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('head')
 
 
@@ -19,12 +20,26 @@
             background-repeat: no-repeat;
             background-position: center;
         }
+        .prijsl{
+            width: 4rem;
+            float: center;
+        }
+        .prijsr{
+            width: 4rem;
+            /*float: right;*/
+        }
+        .submit{
+            width: 4rem;
+            font-size: 10px;
+        }
 
-    </style>
+    </style>§
+
 
 @endsection
 
 @section('body')
+
 
     <div style="margin: auto; width: 58rem; overflow: auto;">
         @if (isset($searchTerm))
@@ -62,8 +77,7 @@
                     }
                 @endphp
 
-            <form method="post" action="/products">
-                <input type="hidden" name="X-method" value="OrderBy">
+            <form method="post" action="/products/orderby">
                 <select name="orderby" onchange="this.form.submit()">
                     <option value=<?php if(isset($_POST['orderby'])){ echo $_POST['orderby'];}?>><?php print($tekst); ?></option>
                     <option value="default">Standaard</option>
@@ -72,6 +86,13 @@
                     <option value="orderbyprijs" >Prijs(Laag-Hoog)</option>
                     <option value="orderbyprijsdesc" >Prijs(Hoog-Laag)</option>
                 </select>
+            </form>
+            <form method="post" action="/products/orderbyprice">
+                <br>Min.:
+                <input type="number" class="prijsl" name="minprijs">
+                Max.:<input type="number" class="prijsr" name="maxprijs">
+                <input name='sorteren' type="submit" value="sorteren" class="submit">
+                <br><br>
             </form>
             {{-- Voor ieder product in de array uit de database die je dit --}}
         @foreach ($products as $product)
@@ -104,7 +125,7 @@
                     <h5 class="card-title">{{$product->StockItemName}}</h5>
 
                     {{-- Laat de prijs van het product zien in de productcard --}}
-                    <h6 class="card-title">Prijs</h6>€{{$product->UnitPrice}}
+                    <h6 class="card-title">Prijs</h6>€{{$product->RecommendedRetailPrice}}
                     <br>
 
                     <h6 class="card-title">Categorie</h6>

@@ -114,7 +114,7 @@
         </div>
 
         <div class="col-5" >
-            <h1>€{{$productDetails[0]->UnitPrice}}</h1>
+            <h1>€{{$productDetails[0]->RecommendedRetailPrice}}</h1>
 
             @if (true)
                 <p class="stock inStock">Op voorraad</p>

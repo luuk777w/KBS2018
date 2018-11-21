@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\login;
 use Core\Controller;
+use Core\auth;
 
 class LoginController extends Controller
 {
@@ -24,8 +25,11 @@ class LoginController extends Controller
         $user = filter_input(INPUT_POST, "username");
         $pass = filter_input(INPUT_POST, "password");
 
+        //instatieer de authorisatie
+        $check = new auth();
+
         //Encrypt het wachtwoord
-        $pass = md5($pass);
+        $pass = $check->GetHash($pass);
 
         //instantieer de login check
         $checker = new login();
