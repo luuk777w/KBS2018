@@ -65,9 +65,16 @@ class ProductController extends Controller
         //Initialiseer het product en categorie model
         $productsmodel = new Products();
         $categoriesmodel = new Categories();
+        $send = filter_input(INPUT_POST, "sorteren");
+        if($send){
+            $minprijs = filter_input(INPUT_POST, "minprijs");
+            $maxprijs = filter_input(INPUT_POST, "maxprijs");
+            $products = $productsmodel->minmaxprijs($minprijs, $maxprijs);
+        } else {
             //Krijg alle producten
             $order = filter_input(INPUT_POST, "orderby");
             $products = $productsmodel->$order();
+        }
 
         //Krijg de alle categorienamen
         $categories = $categoriesmodel->getCategorynames();

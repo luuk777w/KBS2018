@@ -76,4 +76,11 @@ class Products extends Model
                     FROM stockitems_media sm 
                     WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID");
     }
+    public function minmaxprijs($minprijs, $maxprijs)
+    {
+        return $this->db->sql("SELECT * FROM stockitems SI
+        LEFT JOIN ( SELECT StockItemID AS ItemID, MediaURL AS PrimaryMediaURL
+                    FROM stockitems_media sm 
+                    WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID AND RecommendedRetailPrice >= ? AND RecommendedRetailPrice <= ?", [$minprijs], [$maxprijs]);
+    }
 }
