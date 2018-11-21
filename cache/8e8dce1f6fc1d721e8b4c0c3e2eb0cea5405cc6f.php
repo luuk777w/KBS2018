@@ -30,7 +30,7 @@
             font-size: 10px;
         }
 
-    </style>§
+    </style>
 
 
 <?php $__env->stopSection(); ?>
