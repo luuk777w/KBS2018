@@ -77,8 +77,7 @@
                     }
                 @endphp
 
-            <form method="post" action="/products">
-                <input type="hidden" name="X-method" value="OrderBy">
+            <form method="post" action="/products/orderby">
                 <select name="orderby" onchange="this.form.submit()">
                     <option value=<?php if(isset($_POST['orderby'])){ echo $_POST['orderby'];}?>><?php print($tekst); ?></option>
                     <option value="default">Standaard</option>
@@ -88,7 +87,7 @@
                     <option value="orderbyprijsdesc" >Prijs(Hoog-Laag)</option>
                 </select>
             </form>
-            <form method="post" action="/products/orderby">
+            <form method="post" action="/products/orderbyprice">
                 <br>Min.:
                 <input type="number" class="prijsl" name="minprijs">
                 Max.:<input type="number" class="prijsr" name="maxprijs">
@@ -126,7 +125,7 @@
                     <h5 class="card-title">{{$product->StockItemName}}</h5>
 
                     {{-- Laat de prijs van het product zien in de productcard --}}
-                    <h6 class="card-title">Prijs</h6>€{{$product->UnitPrice}}
+                    <h6 class="card-title">Prijs</h6>€{{$product->RecommendedRetailPrice}}
                     <br>
 
                     <h6 class="card-title">Categorie</h6>

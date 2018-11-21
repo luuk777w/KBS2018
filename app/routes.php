@@ -38,6 +38,7 @@ Class Routes
         'GET:order/delivery' => ['DeliveryController', 'index'],
         'POST:login/check' => ['LoginController', 'check'],
         'GET:logout' => ['LoginController', 'logout'],
-        'OrderBy:products' => ['ProductController', 'orderby']
+        'POST:products/orderby' => ['ProductController', 'orderby'],
+        'POST:products/orderbyprice' => ['ProductController', 'orderby']
     ];
 }
