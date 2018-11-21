@@ -20,7 +20,7 @@
     <h3>Order Details</h3>
     <div class="table-responsive">
         <div align="right">
-            <a href="/shoppingcart/clear"><b>Leeg Winkelmand</b></a>
+            <a href="/shoppingcart/clear"><b>Leeg Winkelwagen</b></a>
         </div>
         <table class="table table-bordered">
             <tr>

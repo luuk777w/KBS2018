@@ -15,7 +15,14 @@ class HomeController extends Controller
      * @return void
      */
     function index(){
-        return $this->view->render("home");
+
+        session_start();
+        $productsmodel = new Products();
+        $products = $productsmodel->getProducts();
+
+
+
+        return $this->view->render("home", compact("products"));
     }
 
     function bla(){

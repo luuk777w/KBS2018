@@ -9,7 +9,7 @@ class login extends Model
     public function login($username, $pass)
     {
 
-        return $this->db->sql("SELECT * FROM users 
+        return $this->db->sql("SELECT * FROM `X-customers` 
         WHERE username = ? and password = ?", [$username, $pass]);
     }
 }
