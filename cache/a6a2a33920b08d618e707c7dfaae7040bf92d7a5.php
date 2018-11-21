@@ -17,26 +17,12 @@
             background-repeat: no-repeat;
             background-position: center;
         }
-        .prijsl{
-            width: 4rem;
-            float: center;
-        }
-        .prijsr{
-            width: 4rem;
-            /*float: right;*/
-        }
-        .submit{
-            width: 4rem;
-            font-size: 10px;
-        }
 
-    </style>§
-
+    </style>
 
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('body'); ?>
-
 
     <div style="margin: auto; width: 58rem; overflow: auto;">
         <?php if(isset($searchTerm)): ?>
@@ -84,13 +70,6 @@
                     <option value="orderbyprijs" >Prijs(Laag-Hoog)</option>
                     <option value="orderbyprijsdesc" >Prijs(Hoog-Laag)</option>
                 </select>
-            </form>
-            <form method="post" action="/products/orderby">
-                <br>Min.:
-                <input type="number" class="prijsl" name="minprijs">
-                Max.:<input type="number" class="prijsr" name="maxprijs">
-                <input name='sorteren' type="submit" value="sorteren" class="submit">
-                <br><br>
             </form>
             
         <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

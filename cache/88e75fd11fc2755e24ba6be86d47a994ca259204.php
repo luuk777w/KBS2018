@@ -23,7 +23,7 @@
 
         </style>
 
-        @yield('head')
+        <?php echo $__env->yieldContent('head'); ?>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
@@ -60,7 +60,7 @@
                         <ul class="navbar-nav">
 
                             <li class="nav-item">
-                                @php
+                                <?php 
                                 $aantalitems = 0;
 
                                 if(isset(($_COOKIE['shopping_cart']))) {
@@ -76,28 +76,18 @@
                                         $aantalitems = 0;
                                     }
                                 }
-                                @endphp
+                                 ?>
                                 <a href="/shoppingcart"><button type="button" class="btn btn-primary">
-                                    Winkelwagen <span class="badge badge-light">{{$aantalitems}}</span>
+                                    Winkelwagen <span class="badge badge-light"><?php echo e($aantalitems); ?></span>
                                 </button></a>
                             </li>
                             <li>
-                            @php
-                            if (isset($_SESSION['token'])){
-
-                                print('<li class="nav-item"><a class="nav-link" href="/myaccount">Mijn Account</a></li><li class="nav-item"><a class="nav-link" href="/logout">Uitloggen</a></li>');
-                            }else{
-
-                                print('<li class="nav-item">
+                            <li class="nav-item">
                                 <a class="nav-link" href="/register">Registreer</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/login">Login</a>
-                            </li>');
-                            }
-
-                            @endphp
-
+                            </li>
 
                         </ul>
                     </div>
@@ -106,11 +96,11 @@
 
             <div class="container">
 
-            @yield('body')
+            <?php echo $__env->yieldContent('body'); ?>
 
             </div>
 
-            @yield('footer')
+            <?php echo $__env->yieldContent('footer'); ?>
             <br>
             <footer class="page-footer font-small blue">
                 <div  class="container text-center text-md-left">
@@ -174,7 +164,7 @@
 
 
 
-        @yield('scripts')
+        <?php echo $__env->yieldContent('scripts'); ?>
 
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" ></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>

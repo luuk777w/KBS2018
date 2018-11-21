@@ -30,54 +30,32 @@
 <div class="row">
     <div class="col">
 
-        <h4>Bezorgdatum:</h4>
+        <h4>Bezorgen:</h4>
+
+        @foreach($dates as $date)
 
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryDate" id="exampleRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="deliveryDate" id="exampleRadios1" value="option1" @if($date == $dates[0]) checked @endif>
             <label class="form-check-label" for="exampleRadios1">
-            Morgen, 16 - 11 - 2018
+            {{$date}}
             </label>
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryDate" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
-            Zaterdag, 17 - 11 - 2018
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryDate" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
-            Maandag, 19- 11 - 2018
-            </label>
-        </div>
+
+        @endforeach
+
     </div>
     <div class="col">
-        <h4>Bezorg methode:</h4>
+        <h4>Ophalen:</h4>
+
+        @foreach($locations as $location)
 
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryMethod" id="exampleRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="deliveryDate" id="exampleRadios1" value="option1" @if($date == $dates[0]) checked @endif>
             <label class="form-check-label" for="exampleRadios1">
-            PostNL - Gratis
-            </label>
+            {{$location->Name}} - {{$location->Address->Street}} {{$location->Address->HouseNr}}, {{$location->Address->City}}            </label>
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryMethod" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
-            DHL - Gratis
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryMethod" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
-            UPS - €7,95
-            </label>
-        </div>    
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryMethod" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
-            GLS - €4,50
-            </label>
-        </div>  
+
+        @endforeach
     </div>
 </div>
 
@@ -85,24 +63,10 @@
 
 <div class="row">
     <div class="col">
-
-        <h4>Bezorg locatie:</h4>
-
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryLocation" id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1">
-            Thuisbezorging
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryLocation" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
-            PostNL servicepoint
-            </label>
-        </div>
     </div>
 
     <div class="col">
+        <button class="btn btn-primary" style="float: right">Verder</button>
     </div>
 </div>
     

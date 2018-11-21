@@ -59,6 +59,10 @@
             {{-- Als er wel producten uit de database komen doe je dit --}}
         @else
                 @php
+                    if(!isset($_POST['orderby'])){
+                        $_POST['orderby'] = "";
+                    }
+
                     $orderby = $_POST['orderby'];
                     if($orderby == "orderbyname"){
                     $tekst = "A-Z";
@@ -73,7 +77,8 @@
                     }
                 @endphp
 
-            <form method="post" action="/products/orderby">
+            <form method="post" action="/products">
+                <input type="hidden" name="X-method" value="OrderBy">
                 <select name="orderby" onchange="this.form.submit()">
                     <option value=<?php if(isset($_POST['orderby'])){ echo $_POST['orderby'];}?>><?php print($tekst); ?></option>
                     <option value="default">Standaard</option>
