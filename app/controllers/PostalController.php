@@ -69,7 +69,7 @@ class PostalController extends Controller
              if ($err) {
                  $msg = "cURL Error #:" . $err;
 
-                 //check of er address gegevens zijn, als deze er niet zijn doe dan dit
+                 //check of er adres gegevens zijn, als deze er niet zijn doe dit dan
              } elseif (json_decode($response)->_embedded->addresses[0] == '') {
 
                  //Geef het volgede bericht door aan de view

@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('head')
+<?php $__env->startSection('head'); ?>
 
     <style>
 
@@ -85,49 +83,49 @@
 
     </style>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('body')
+<?php $__env->startSection('body'); ?>
     
     <br>
 
-    <h1>{{$productDetails[0]->StockItemName}}</h1>
+    <h1><?php echo e($productDetails[0]->StockItemName); ?></h1>
 
     <div class="row">
 
-        {{-- <img src="data:image/jpeg;base64,{{$blob}}" class="image"/> --}}
+        
 
         <div class="col-7" >
-        {{-- <img src="data:image/jpeg;base64,{{$blob}}" class="image"/> --}}
+        
 
-        @if(isset($media[0]))
-            <div class="image" style="background-image: url('../../assets/img/{{$media[0]->MediaUrl}}');"></div>
-        @else
+        <?php if(isset($media[0])): ?>
+            <div class="image" style="background-image: url('../../assets/img/<?php echo e($media[0]->MediaUrl); ?>');"></div>
+        <?php else: ?>
             <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
-        @endif
+        <?php endif; ?>
 
 
-    @foreach($media as $picture)
-        <div class="smallImages" style="background-image: url('../../assets/img/{{$picture->MediaUrl}}');"></div>
-    @endforeach
+    <?php $__currentLoopData = $media; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $picture): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <div class="smallImages" style="background-image: url('../../assets/img/<?php echo e($picture->MediaUrl); ?>');"></div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
         </div>
 
         <div class="col-5" >
-            <h1>€{{$productDetails[0]->UnitPrice}}</h1>
+            <h1>€<?php echo e($productDetails[0]->UnitPrice); ?></h1>
 
-            @if (true)
+            <?php if(true): ?>
                 <p class="stock inStock">Op voorraad</p>
                 <p class="deliveryTime">Voor 22:00 besteld, morgen in huis!</p>
-            @else
+            <?php else: ?>
                 <p class="stock notInStock">Niet op voorraad</p>
-            @endif
+            <?php endif; ?>
 
-            @if ($productDetails[0]->IsChillerStock)
+            <?php if($productDetails[0]->IsChillerStock): ?>
                 <p class="cooledProduct"><i class="fas fa-snowflake cooledProduct-icon"></i>Let op! dit is een gekoeld product.</p>
-            @endif
+            <?php endif; ?>
 
-            <form method="post" action="/product/addtocart/{{$productDetails[0]->StockItemID}}">
+            <form method="post" action="/product/addtocart/<?php echo e($productDetails[0]->StockItemID); ?>">
                 <button class="btn btn-success cartWishList-button" style="margin-top: 0.5rem;">
                     <i class="fas fa-shopping-cart fa-2x cartWishList-icon"></i>
                     <span class="cartWishList-text">In winkelwagen</span>
@@ -156,26 +154,30 @@
 
         <div class="col-7" >
             <h2>Productinformatie</h2>
-            <p>{{$productDetails[0]->SearchDetails}}
+            <p><?php echo e($productDetails[0]->SearchDetails); ?>
+
                 <br>
                 <br>
-                Land van fabricatie: {{json_decode($productDetails[0]->CustomFields)->CountryOfManufacture}}
-                @if(isset(json_decode($productDetails[0]->CustomFields)->ShelfLife))
+                Land van fabricatie: <?php echo e(json_decode($productDetails[0]->CustomFields)->CountryOfManufacture); ?>
+
+                <?php if(isset(json_decode($productDetails[0]->CustomFields)->ShelfLife)): ?>
                     <br>
-                    Houdbaarheid: {{json_decode($productDetails[0]->CustomFields)->ShelfLife}}
-                @endif
+                    Houdbaarheid: <?php echo e(json_decode($productDetails[0]->CustomFields)->ShelfLife); ?>
+
+                <?php endif; ?>
             </p>                
         </div>
         <div class="col-5" >
             <h3>Categorieën</h3>
-            @foreach($categories as $categorie)
-                @if($categorie->stockitemID == $productDetails[0]->StockItemID)
-                    {{$categorie->stockgroupname}} <br>
-                @endif
-            @endforeach
+            <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categorie): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php if($categorie->stockitemID == $productDetails[0]->StockItemID): ?>
+                    <?php echo e($categorie->stockgroupname); ?> <br>
+                <?php endif; ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
 
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

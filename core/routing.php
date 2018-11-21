@@ -41,7 +41,11 @@ class Routing
             if($newRoute == $compareRoute || $newRoute.'/' == $compareRoute ||
                 '/'.$newRoute == $compareRoute || '/'.$newRoute.'/' == $compareRoute){
 
-                if($_SERVER['REQUEST_METHOD'] === explode(':', $route)[0]) {
+                if(!isset($_POST["X-method"])) {
+                    $_POST["X-method"] = "";
+                }
+
+                if($_SERVER['REQUEST_METHOD'] == explode(':', $route)[0] || $_POST["X-method"] == explode(':', $route)[0] )  {
                     array_push($value, $this->parameters);
                     return $value;
                 }
