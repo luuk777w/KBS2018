@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('body')
+<?php $__env->startSection('body'); ?>
 
     <body id="LoginForm">
     <div class="container col-5">
@@ -11,9 +9,10 @@
                     <p>Vul hier uw gebruikersnaam en wachtwoord in</p>
                 </div>
 
-                @if(isset($msg))
-                    {{$msg}}
-                @endif
+                <?php if(isset($msg)): ?>
+                    <?php echo e($msg); ?>
+
+                <?php endif; ?>
 
                 <form id="Login" method="post" action="/login">
 
@@ -41,5 +40,7 @@
         </div>
     </div>
     </body>
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

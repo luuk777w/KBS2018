@@ -36,7 +36,7 @@ Class Routes
         'GET:mollie-webhook' => ['PaymentController', 'hook'],
         'GET:bedankt' => ['PaymentController', 'bedankPage'],
         'GET:order/delivery' => ['DeliveryController', 'index'],
-        'POST:login/check' => ['LoginController', 'check'],
+        'POST:login' => ['LoginController', 'check'],
         'GET:logout' => ['LoginController', 'logout'],
         'POST:products/orderby' => ['ProductController', 'orderby'],
         'POST:products/orderbyprice' => ['ProductController', 'orderby']

@@ -28,7 +28,7 @@
 <div class="row">
     <div class="col">
 
-        <h4>Bezorgdatum:</h4>
+        <h4>Bezorgen:</h4>
 
         <?php $__currentLoopData = $dates; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $date): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
@@ -44,32 +44,17 @@
 
     </div>
     <div class="col">
-        <h4>Bezorg methode:</h4>
+        <h4>Ophalen:</h4>
+
+        <?php $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryMethod" id="exampleRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="deliveryDate" id="exampleRadios1" value="option1" <?php if($date == $dates[0]): ?> checked <?php endif; ?>>
             <label class="form-check-label" for="exampleRadios1">
-            PostNL - Gratis
-            </label>
+            <?php echo e($location->Name); ?> - <?php echo e($location->Address->Street); ?> <?php echo e($location->Address->HouseNr); ?>, <?php echo e($location->Address->City); ?>            </label>
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryMethod" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
-            DHL - Gratis
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryMethod" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
-            UPS - €7,95
-            </label>
-        </div>    
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryMethod" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
-            GLS - €4,50
-            </label>
-        </div>  
+
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
 </div>
 
@@ -77,29 +62,10 @@
 
 <div class="row">
     <div class="col">
-
-        <h4>Bezorg locatie:</h4>
-
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryLocation" id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1">
-                Thuisbezorging
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryLocation" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2" style="display: flex">
-                <p style="flex: 0 0 10rem;">PostNL servicepoint</p>
-                <select class="form-control form-control-sm" style="flex: 1">
-                    <?php $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option><?php echo e($location->Name); ?> - <?php echo e($location->Address->Street); ?> <?php echo e($location->Address->HouseNr); ?>, <?php echo e($location->Address->City); ?></option>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </select>
-            </label>
-        </div>
     </div>
 
     <div class="col">
+        <button class="btn btn-primary" style="float: right">Verder</button>
     </div>
 </div>
     
