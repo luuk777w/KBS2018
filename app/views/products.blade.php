@@ -33,7 +33,7 @@
             font-size: 10px;
         }
 
-    </style>§
+    </style>
 
 
 @endsection
