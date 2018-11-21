@@ -81,6 +81,6 @@ class Products extends Model
         return $this->db->sql("SELECT * FROM stockitems SI
         LEFT JOIN ( SELECT StockItemID AS ItemID, MediaURL AS PrimaryMediaURL
                     FROM stockitems_media sm 
-                    WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID WHERE RecommendedRetailPrice > ? AND RecommendedRetailPrice < ? ORDER BY RecommendedRetailPrice DESC", [$minprijs, $maxprijs]);
+                    WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID WHERE RecommendedRetailPrice > ? AND RecommendedRetailPrice < ? ORDER BY RecommendedRetailPrice", [$minprijs, $maxprijs]);
     }
 }
