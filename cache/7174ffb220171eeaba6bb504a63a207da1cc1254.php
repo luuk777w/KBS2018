@@ -11,6 +11,8 @@
                 <?php
                     //Print een eventuele msg uit de controller
                 print($msg);
+                print_r($pass);
+
                 ?>
 
                 <form id="Login" method="post" action="/login/check">

@@ -1,129 +1,192 @@
 <?php $__env->startSection('head'); ?>
 
 <style>
+  .WWIHEADER
+{
+    color: Lightblue;
+}
+.carousel-caption 
+{
+ background: rgba(0, 0, 20, 0.45); 
+  
+}
 
-    .img{
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-    .services-check-icon{
-        padding-right: 0.25rem;
-        color: #24A647;
-    }
+.Product1
+{
+    border: 1px solid grey; width: 25%;
+    word-wrap: break-word;
+    border: 1px solid #000000s;
+    height:15rem;
+}
 
-    .carousel-control-next-icon{
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%707070' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
-    }
-
-    .carousel-control-prev-icon{
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%707070' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
-    }
+.carousel-item
+{
+  height:40rem; 
+  max-width: 70rem;
+  
+}
 
 
-    .Loucasoutisme{
-        text-align: left;
+.productimag
+{
+max-width: 15rem;
 
 
-    }
+}
 
-    .Hoofdtitels{
-        text-align: center;
-        color:grey;
-    }
-    .carousel-image{
-        width: 100%;
-        height: 25rem;
-        /*background-image: url("../../assets/img/milka.jpg");*/
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-
-        .Percypestmij{
-            text-align: center;
-
+        .card-img-top{
+            width: 100%;
+            height: 15rem;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
-        .carousel-caption
-        {
-            background: grey !important;
-            display: inline-block; 
-        
+        .card{
+          height: 30rem;
+          padding-top:10px;
         }
 
-    </style>
+        .knopje{
+          position: absolute; 
+          bottom:10px;
+        }
 
-    <?php $__env->stopSection(); ?>
+</style>
 
-    <?php $__env->startSection('body'); ?>
+<?php $__env->stopSection(); ?>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
-                Voor <b>22:00</b> besteld, morgen in huis
-            </div>
-            <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
-                Gratis verzending boven de <b>€NeeRico</b>
-            </div>
-            <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
-                <b>30</b> dagen niet goed, geld terug garantie
-            </div>
+<?php $__env->startSection('body'); ?>
+<div>
+  <h1 class="WWIHEADER">
+    Welkom bij World Wide Importers.
+  </h1>
+</div>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Cookie Waarschuwing</strong> <br> Voor het werken van onze websites zijn koekies nodig. Door de website te
+  gebruiken gaat u hiermee akkoord.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
+      Voor <b>22:00</b> besteld, morgen in huis
+    </div>
+    <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
+      Gratis verzending boven de <b>€20</b>
+    </div>
+    <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
+      <b>30</b> dagen niet goed, geld terug garantie
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<form>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active" heigh>
+        <img class="d-block w-100" src="../../assets/img/clothing.jpeg" alt="First slide" height="100%" margin="Auto ">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Wat moet ik zeggen, t zijn maar kleren.</h5>
+          <p>Ik heb het nu niet meer zo koud - een dakloos persoon</p>
         </div>
-    </div>
-    <br>
-    <div class="Hoofdtitels">
-        <h3>Dit zijn de aanbiedingen voor vandaag</h3>
-    </div>
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="carousel-image" style="background-image: url('/assets/img/milka.jpg');" ></div>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Milka</h5>
-                    <p>Een lekkere chocoladereep</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="carousel-image" style="background-image: url('/assets/img/usb_missle_launcher_green_1.jpg');" ></div>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Missle Launcher</h5>
-                    <p>Om je ergste vijanden mee af te handelen</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="carousel-image" style="background-image: url('/assets/img/mug.jpeg');" ></div>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>De Mok</h5>
-                    <p>MokkaMok</p>
-                </div>
-            </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="../../assets/img/clothing.jpeg" alt="Second slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Wat moet ik zeggen, t zijn maar kleren.</h5>
+          <p>Ik heb het nu niet meer zo koud - een dakloos persoon</p>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="../../assets/img/milka.jpg" alt="Third slide">
+      </div>
     </div>
-    <div class="Loucasoutisme">
-        <h2>Actieartikelen</h2>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</form>
+<br>
+<br>
+
+  <div class="row">
+    <div class="col-3">
+      <div class="card" style="width: 18rem;">
+        <?php if($products[0]->PrimaryMediaURL !== NULL): ?>
+          <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[0]->PrimaryMediaURL); ?>')"></div>
+
+        <?php else: ?>
+          <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
+        <?php endif; ?>
+        <div class="card-body">
+          <h5 class="card-title"><?php echo e($products[0]->StockItemName); ?></h5>
+          <p class="card-text"><?php echo e($products[0]->SearchDetails); ?></p>
+          <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
+        </div>
+      </div>
     </div>
-    <br>
-    <div class="image1" >
+    <div class="col-3">
+<div class="card" style="width: 18rem;">
+        <?php if($products[1]->PrimaryMediaURL !== NULL): ?>
+          <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[1]->PrimaryMediaURL); ?>')"></div>
 
-        <img src="/assets/img/usb_missle_launcher_gray_1.jpg">
-
-        <br>
-        Een geweldig wapen dat je kan gebruiken om
-        <br>
-        je ergste vijanden mee te vernietigen
-        <br>
-        (En misschien ook L<b>ou</b>ca)
-        <br>
-
+        <?php else: ?>
+          <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
+        <?php endif; ?>
+        <div class="card-body">
+          <h5 class="card-title"><?php echo e($products[1]->StockItemName); ?></h5>
+          <p class="card-text"><?php echo e($products[1]->SearchDetails); ?></p>
+          <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
+        </div>
+      </div>
     </div>
+    <div class="col-3">
+<div class="card" style="width: 18rem;">
+        <?php if($products[2]->PrimaryMediaURL !== NULL): ?>
+          <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[2]->PrimaryMediaURL); ?>')"></div>
 
+        <?php else: ?>
+          <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
+        <?php endif; ?>
+        <div class="card-body">
+          <h5 class="card-title"><?php echo e($products[2]->StockItemName); ?></h5>
+          <p class="card-text"><?php echo e($products[2]->SearchDetails); ?></p>
+          <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+<div class="card" style="width: 18rem;">
+        <?php if($products[3]->PrimaryMediaURL !== NULL): ?>
+          <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[3]->PrimaryMediaURL); ?>')"></div>
+
+        <?php else: ?>
+          <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
+        <?php endif; ?>
+        <div class="card-body">
+          <h5 class="card-title"><?php echo e($products[3]->StockItemName); ?></h5>
+          <p class="card-text"><?php echo e($products[3]->SearchDetails); ?></p>
+          <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
+        </div>
+      </div>
+    </div>
+    </div>
     <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

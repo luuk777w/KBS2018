@@ -30,7 +30,7 @@
             font-size: 10px;
         }
 
-    </style>§
+    </style>
 
 
 <?php $__env->stopSection(); ?>
@@ -86,8 +86,8 @@
             </form>
             <form method="post" action="/products/orderbyprice">
                 <br>Min.:
-                <input type="number" class="prijsl" name="minprijs">
-                Max.:<input type="number" class="prijsr" name="maxprijs">
+                <input type="number" min="0" class="prijsl" name="minprijs">
+                Max.:<input type="number" min="0" max="90000" class="prijsr" name="maxprijs">
                 <input name='sorteren' type="submit" value="sorteren" class="submit">
                 <br><br>
             </form>

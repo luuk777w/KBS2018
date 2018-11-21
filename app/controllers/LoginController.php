@@ -62,7 +62,7 @@ class LoginController extends Controller
             $msg = "Je gegevens lijken niet te klopppen check deze";
 
             //ga terug naar de login form en geeft het msg bericht mee
-            return $this->view->render('login', compact("msg"));
+            return $this->view->render('login', compact("msg","pass"));
         }
 
     }
