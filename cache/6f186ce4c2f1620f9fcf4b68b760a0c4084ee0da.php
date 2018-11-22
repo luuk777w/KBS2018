@@ -18,7 +18,7 @@
     <h3>Order Details</h3>
     <div class="table-responsive">
         <div align="right">
-            <a href="/shoppingcart/clear"><b>Leeg Winkelmand</b></a>
+            <a href="/shoppingcart/clear"><b>Leeg Winkelwagen</b></a>
         </div>
         <table class="table table-bordered">
             <tr>
@@ -73,13 +73,9 @@
         </table>
     </div>
 
-        <form action="/pay" method="post">
+        <form action="/order/naw" method="get">
             <input type="submit" class="btn btn-primary" style="float:right" value="Afrekenen">
         </form>
-
-        <br>
-        <br>
-        <p style="text-align:right">Deze knop is tijdelijk en moet worden vervangen voor de knop met de link naar de NAW gegevens invul dinges</p>
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

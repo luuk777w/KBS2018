@@ -32,6 +32,8 @@ class Routing
 
         $explodedOriginal = explode('/', $original);
 
+        $routeExists = false;
+
         foreach ($routes as $route => $value){
 
             $explodedRoute = explode('/', explode(':', $route)[1]);
@@ -45,18 +47,23 @@ class Routing
                     $_POST["X-method"] = "";
                 }
 
+                $routeExists = true;
+
                 if($_SERVER['REQUEST_METHOD'] == explode(':', $route)[0] || $_POST["X-method"] == explode(':', $route)[0] )  {
                     array_push($value, $this->parameters);
                     return $value;
+                } else {
                 }
             }
         }
 
-        if($_SERVER['REQUEST_METHOD'] === explode(':', $route)[0]) {
-            return ["ErrorController", "error404"];
-        } else {
+        if($routeExists) {
             return ["ErrorController", "error405"];
+        } else {
+            return ["ErrorController", "error404"];
         }
+
+
 
     }
 

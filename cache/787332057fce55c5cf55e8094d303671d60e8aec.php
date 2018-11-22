@@ -118,11 +118,8 @@
         <div class="col-5" >
             <h1>€<?php echo e($productDetails[0]->RecommendedRetailPrice); ?></h1>
 
-            <?php if($productDetails[0]->QuantityOnHand <= 100): ?>
-                <p class="stock inStock">Nog maar <b><?php echo e($productDetails[0]->QuantityOnHand); ?></b> op voorraad</p>
-                <p class="deliveryTime">Voor 22:00 besteld, morgen in huis!</p>
-            <?php elseif($productDetails[0]->QuantityOnHand >= 100 ): ?>
-                <p class="stock inStock">Meer dan <b>100</b> op voorraad</p>
+            <?php if(true): ?>
+                <p class="stock inStock">Op voorraad</p>
                 <p class="deliveryTime">Voor 22:00 besteld, morgen in huis!</p>
             <?php else: ?>
                 <p class="stock notInStock">Niet op voorraad</p>

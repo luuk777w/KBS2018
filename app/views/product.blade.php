@@ -106,10 +106,14 @@
             <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
         @endif
 
+        @if(isset($media[0]))
 
-    @foreach($media as $picture)
-        <div class="smallImages" style="background-image: url('../../assets/img/{{$picture->MediaUrl}}');"></div>
-    @endforeach
+            @foreach($media as $picture)
+                <div class="smallImages" style="background-image: url('../../assets/img/{{$picture->MediaUrl}}');"></div>
+            @endforeach
+
+        @endif
+
 
         </div>
 

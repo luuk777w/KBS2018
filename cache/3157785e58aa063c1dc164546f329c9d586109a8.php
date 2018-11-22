@@ -81,7 +81,7 @@
                     <h5 class="card-title"><?php echo e($product->StockItemName); ?></h5>
 
                     
-                    <h6 class="card-title">Prijs</h6>€<?php echo e($product->UnitPrice); ?>
+                    <h6 class="card-title">Prijs</h6>€<?php echo e($product->RecommendedRetailPrice); ?>
 
                     <br>
 

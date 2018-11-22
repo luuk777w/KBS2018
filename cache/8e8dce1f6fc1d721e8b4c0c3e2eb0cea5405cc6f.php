@@ -74,7 +74,7 @@
                     }
                  ?>
 
-            <form method="post" action="/products/orderby">
+            <form method="post" action="/products">
                 <select name="orderby" onchange="this.form.submit()">
                     <option value=<?php if(isset($_POST['orderby'])){ echo $_POST['orderby'];}?>><?php print($tekst); ?></option>
                     <option value="default">Standaard</option>
@@ -84,7 +84,7 @@
                     <option value="orderbyprijsdesc" >Prijs(Hoog-Laag)</option>
                 </select>
             </form>
-            <form method="post" action="/products/orderbyprice">
+            <form method="post" action="/products">
                 <br>Min.:
                 <input type="number" min="0" class="prijsl" name="minprijs">
                 Max.:<input type="number" min="0" max="90000" class="prijsr" name="maxprijs">

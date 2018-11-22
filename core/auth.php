@@ -11,8 +11,35 @@ class Auth
         return password_hash($value, PASSWORD_BCRYPT, ['salt' => $this->salt]);
     }
 
-    public function isLoggedIn() {
-        return false;
+    public function login($userId) 
+    {
+        session_start();
+        $_SESSION["UserId"] = $userId;
+    }
+
+    public function logout()
+    {
+        session_start();
+        unset($_SESSION["UserId"]);
+    }
+
+    public function isLoggedIn() 
+    {
+        session_start();
+        if(isset($_SESSION["UserId"])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function getId()
+    {
+        if(isset($_SESSION["UserId"])) {
+            return $_SESSION["UserId"];
+        } else{
+            return NULL;
+        }
     }
 
     public function isAuthorized() 

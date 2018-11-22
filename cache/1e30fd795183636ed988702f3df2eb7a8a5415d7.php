@@ -17,12 +17,26 @@
             background-repeat: no-repeat;
             background-position: center;
         }
+        .prijsl{
+            width: 4rem;
+            float: center;
+        }
+        .prijsr{
+            width: 4rem;
+            /*float: right;*/
+        }
+        .submit{
+            width: 4rem;
+            font-size: 10px;
+        }
 
     </style>
+
 
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('body'); ?>
+
 
     <div style="margin: auto; width: 58rem; overflow: auto;">
         <?php if(isset($searchTerm)): ?>
@@ -60,8 +74,7 @@
                     }
                  ?>
 
-            <form method="post" action="/products">
-                <input type="hidden" name="X-method" value="OrderBy">
+            <form method="post" action="/products/orderby">
                 <select name="orderby" onchange="this.form.submit()">
                     <option value=<?php if(isset($_POST['orderby'])){ echo $_POST['orderby'];}?>><?php print($tekst); ?></option>
                     <option value="default">Standaard</option>
@@ -70,6 +83,13 @@
                     <option value="orderbyprijs" >Prijs(Laag-Hoog)</option>
                     <option value="orderbyprijsdesc" >Prijs(Hoog-Laag)</option>
                 </select>
+            </form>
+            <form method="post" action="/products/orderbyprice">
+                <br>Min.:
+                <input type="number" class="prijsl" name="minprijs">
+                Max.:<input type="number" class="prijsr" name="maxprijs">
+                <input name='sorteren' type="submit" value="sorteren" class="submit">
+                <br><br>
             </form>
             
         <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -102,7 +122,7 @@
                     <h5 class="card-title"><?php echo e($product->StockItemName); ?></h5>
 
                     
-                    <h6 class="card-title">Prijs</h6>€<?php echo e($product->UnitPrice); ?>
+                    <h6 class="card-title">Prijs</h6>€<?php echo e($product->RecommendedRetailPrice); ?>
 
                     <br>
 

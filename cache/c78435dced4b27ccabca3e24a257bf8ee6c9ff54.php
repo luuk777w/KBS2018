@@ -34,41 +34,29 @@ max-width: 15rem;
 
 }
 
-        .card-img-top{
-            width: 100%;
-            height: 15rem;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
+.card-img-top{
+    width: 100%;
+    height: 15rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
-        .card{
-          height: 30rem;
-          padding-top:10px;
-        }
+.card{
+  height: 30rem;
+  padding-top:10px;
+}
 
-        .knopje{
-          position: absolute; 
-          bottom:10px;
-        }
+.knopje{
+  position: absolute; 
+  bottom:10px;
+}
 
 </style>
 
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('body'); ?>
-<div>
-  <h1 class="WWIHEADER">
-    Welkom bij World Wide Importers.
-  </h1>
-</div>
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Cookie Waarschuwing</strong> <br> Voor het werken van onze websites zijn koekies nodig. Door de website te
-  gebruiken gaat u hiermee akkoord.
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
 <div class="container">
   <div class="row">
     <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
@@ -82,6 +70,20 @@ max-width: 15rem;
     </div>
   </div>
 </div>
+<div>
+  <h1 class="WWIHEADER">
+    Welkom bij World Wide Importers.
+  </h1>
+</div>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Cookie Waarschuwing</strong> <br> Voor het werken van onze websites zijn koekies nodig. Door de website te
+  gebruiken gaat u hiermee akkoord.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
 
 
 
@@ -125,63 +127,72 @@ max-width: 15rem;
 <br>
 <br>
 
+
+<?php
+$a1 = rand(1,150);
+$a2 = rand(1,150);
+$a3 = rand(1,150);
+$a4 = rand(1,150);
+?>
+
+
   <div class="row">
     <div class="col-3">
       <div class="card" style="width: 18rem;">
-        <?php if($products[0]->PrimaryMediaURL !== NULL): ?>
-          <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[0]->PrimaryMediaURL); ?>')"></div>
+        <?php if($products[$a1]->PrimaryMediaURL !== NULL): ?>
+          <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[$a1]->PrimaryMediaURL); ?>')"></div>
 
         <?php else: ?>
-          <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
+          <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
         <?php endif; ?>
         <div class="card-body">
-          <h5 class="card-title"><?php echo e($products[0]->StockItemName); ?></h5>
-          <p class="card-text"><?php echo e($products[0]->SearchDetails); ?></p>
+          <h5 class="card-title"><?php echo e($products[$a1]->StockItemName); ?></h5>
+          <p class="card-text"><?php echo e($products[$a1]->SearchDetails); ?></p>
           <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
         </div>
       </div>
     </div>
     <div class="col-3">
 <div class="card" style="width: 18rem;">
-        <?php if($products[1]->PrimaryMediaURL !== NULL): ?>
-          <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[1]->PrimaryMediaURL); ?>')"></div>
+        <?php if($products[$a2]->PrimaryMediaURL !== NULL): ?>
+          <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[$a2]->PrimaryMediaURL); ?>')"></div>
 
         <?php else: ?>
-          <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
+          <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
         <?php endif; ?>
         <div class="card-body">
-          <h5 class="card-title"><?php echo e($products[1]->StockItemName); ?></h5>
-          <p class="card-text"><?php echo e($products[1]->SearchDetails); ?></p>
+          <h5 class="card-title"><?php echo e($products[$a2]->StockItemName); ?></h5>
+          <p class="card-text"><?php echo e($products[$a2]->SearchDetails); ?></p>
           <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
         </div>
       </div>
     </div>
     <div class="col-3">
 <div class="card" style="width: 18rem;">
-        <?php if($products[2]->PrimaryMediaURL !== NULL): ?>
-          <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[2]->PrimaryMediaURL); ?>')"></div>
+        <?php if($products[$a3]->PrimaryMediaURL !== NULL): ?>
+          <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[$a3]->PrimaryMediaURL); ?>')"></div>
 
         <?php else: ?>
-          <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
+          <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
         <?php endif; ?>
         <div class="card-body">
-          <h5 class="card-title"><?php echo e($products[2]->StockItemName); ?></h5>
-          <p class="card-text"><?php echo e($products[2]->SearchDetails); ?></p>
+          <h5 class="card-title"><?php echo e($products[$a3]->StockItemName); ?></h5>
+          <p class="card-text"><?php echo e($products[$a3]->SearchDetails); ?></p>
           <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
         </div>
       </div>
     </div>
     <div class="col-3">
 <div class="card" style="width: 18rem;">
-        <?php if($products[3]->PrimaryMediaURL !== NULL): ?>
-          <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[3]->PrimaryMediaURL); ?>')"></div>
+        <?php if($products[$a4]->PrimaryMediaURL !== NULL): ?>
+          <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[$a4]->PrimaryMediaURL); ?>')"></div>
 
         <?php else: ?>
-          <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
+          <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
         <?php endif; ?>
         <div class="card-body">
-          <h5 class="card-title"><?php echo e($products[3]->StockItemName); ?></h5>
-          <p class="card-text"><?php echo e($products[3]->SearchDetails); ?></p>
+          <h5 class="card-title"><?php echo e($products[$a4]->StockItemName); ?></h5>
+          <p class="card-text"><?php echo e($products[$a4  ]->SearchDetails); ?></p>
           <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
         </div>
       </div>
