@@ -11,12 +11,12 @@ class Products extends Model
         return $this->db->sql("SELECT * FROM stockitems SI
         LEFT JOIN ( SELECT StockItemID AS ItemID, MediaURL AS PrimaryMediaURL
                     FROM stockitems_media sm 
-                    WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID");
+                    WHERE sm.Primary = 1) m ON SI.StockItemID = m.ItemID order by recommendedretailprice DESC");
     }
 
     public function getProductById($id) 
     {
-        return $this->db->sql("SELECT * FROM stockitems WHERE StockItemID = ?", [$id]);
+        return $this->db->sql("SELECT * FROM stockitems JOIN stockitemholdings using(stockitemid) WHERE StockItemID = ?", [$id]);
     }
 
 	public function getProductsbyCategoryId($id)
