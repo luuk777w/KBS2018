@@ -9,7 +9,7 @@
 
     @else 
 
-    not found anythig blyat
+        Er is iets fout gegaan, probeer opnieuw in te loggen. Als het probleem zich blijft voordoen neem dan contact met ons op.
 
     @endif
 
