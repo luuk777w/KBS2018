@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('head')
+<style>
+
+
+
+.h1{
+vertical-align: center;
+align: center;
+}
+
+</style>
 
 
 @endsection
