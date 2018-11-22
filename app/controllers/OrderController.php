@@ -57,18 +57,19 @@ class OrderController extends Controller
             "PostNLTT" => "XXX",
         ];
 
-        $orderLines = json_decode(stripslashes($_COOKIE["shopping_cart"]));
+        $cartData = json_decode(stripslashes($_COOKIE["shopping_cart"]));
+        $orderLines = [];
 
         $total = 0;
 
         $productsModel = new Products();
 
-        foreach ($orderLines as $orderLine) {
+        foreach ($cartData as $orderLine) {
+            array_push($orderLines, $orderLine);
             $total += $productsModel->getProductById($orderLine->item_id)[0]->RecommendedRetailPrice * $orderLine->item_quantity;
         }
-
         if($total < 20) {
-            array_push($orderLines, json_decode(json_encode(["item_name" => "verzendkosten", "item_price" => 2.95, "item_id" => NULL, "item_quantity" => 1])));
+            array_push($orderLines, json_decode(json_encode(["item_name" => "Verzendkosten", "item_price" => 2.95, "item_id" => NULL, "item_quantity" => 1])));
             $total += 2.95;
         }
 
