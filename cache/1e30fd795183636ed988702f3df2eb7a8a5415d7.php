@@ -77,6 +77,7 @@
             <form method="post" action="/products">
                 <select name="orderby" onchange="this.form.submit()">
                     <option value=<?php if(isset($_POST['orderby'])){ echo $_POST['orderby'];}?>><?php print($tekst); ?></option>
+                    <option value="default">Standaard</option>
                     <option value="orderbyname" >A-Z</option>
                     <option value="orderbynamedesc" >Z-A</option>
                     <option value="orderbyprijs" >Prijs(Laag-Hoog)</option>
