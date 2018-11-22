@@ -7,7 +7,7 @@
 
 @section('body')
 
-<h1>Bedankt, yer mum gay!</h1>
- <img src="/assets/img/bedank.gif">
+<h1>Bedankt voor het bestellen van Wide World Importers. We zien je graag weer terug</h1>
+ <img src="/assets/img/bedankt.jpg">
 
 @endsection

@@ -46,6 +46,7 @@ $vnaam = filter_input(INPUT_POST, "vnaam");
 $anaam = filter_input(INPUT_POST, "anaam");
 $tvnaam = filter_input(INPUT_POST, "tvnaam");
 $email = filter_input(INPUT_POST, "email");
+$telefoonNr = filter_input(INPUT_POST, "telefoonNr");
 
 
 $num = filter_input(INPUT_POST, "num");
@@ -68,7 +69,7 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
 
         <div class="col-5">
             <h2 class="text-center">Uw gegevens</h2>
-    <form method="post" action="/order/naw/check">
+    <form method="post" action="/order/naw">
         <div class="red">*</div>
         Voornaam: <input class="form-control" type="text" name="vnaam" required value="<?php echo e($vnaam); ?>"><br>
     Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="<?php echo e($tvnaam); ?>"><br>
@@ -80,6 +81,8 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
         Huisnummer: <input class="form-control" type="text" name="num" required value="<?php echo e($num); ?>"><br>
         <div class="red">*</div>
     Emailadres: <input class="form-control" type="email" name='email' required value="<?php echo e($email); ?>"><br>
+        <div class="red">*</div>
+    TelefoonNr: <input class="form-control" type="text" name='telefoonNr' required value="<?php echo e($telefoonNr); ?>"><br>
 
         <div class="red">* = Verplicht</div><br>
         <input type="submit" name="send" class="btn btn-primary" value="Postcode Check">
@@ -90,7 +93,7 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
         <div class="col-6">
 
     <h3 class="text-center">Uw ingevulde gegevens</h3><br>
-<table style="margin-left: 10rem">
+<table style="margin-left: 10%">
     <tr><td>Voornaam</td><td>   </td><td><?php echo e($data['vnaam']); ?></td></tr>
     <tr><td>Tussenvoegsels</td>   <td></td><td><?php echo e($data['tvnaam']); ?></td></tr>
     <tr><td>Achternaam</td><td>   </td><td><?php echo e($data['anaam']); ?></td></tr>
@@ -100,6 +103,7 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
     <tr><td>Provincie</td><td>   </td><td><?php echo e($data['province']); ?></td></tr>
     <tr><td>Stad</td><td></td>   <td><?php echo e($data['city']); ?></td></tr>
     <tr><td>Email-adres</td><td>   </td><td><?php echo e($data['email']); ?></td></tr>
+    <tr><td>TelefoonNr</td><td>   </td><td><?php echo e($data['telefoonNr']); ?></td></tr>
 
 </table>
 
@@ -115,7 +119,7 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
 
             <div class="col-5" >
                 <h2 class="text-center">Uw gegevens</h2>
-<form method="post" action="/order/naw/check">
+<form method="post" action="/order/naw">
     <div class="red">*</div>
     Voornaam: <input class="form-control" type="text" name="vnaam" required value="" placeholder="Sjors"><br>
     Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="" placeholder="Rapper"><br>
@@ -127,6 +131,8 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
     Huisnummer: <input class="form-control" type="text" name="num" required value="" placeholder="12A"><br>
     <div class="red">*</div>
     Emailadres: <input class="form-control" type="email" name='email' required value="" placeholder="sjorsbekendvantv@gmail.com"><br>
+    <div class="red">*</div>
+    TelefoonNr: <input class="form-control" type="text" name='telefoonNr' required value="" placeholder="0612345678"><br>
     <div class="red">* = Verplicht</div><br>
 
 
