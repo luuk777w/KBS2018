@@ -7,7 +7,7 @@
 
 @section('body')
 
-<h1>Bedankt voor het bestellen van Wide World Importers. We zien je graag weer terug</h1>
+<h1>Bedankt voor het bestellen bij Wide World Importers. We zien je graag weer terug</h1>
  <img src="/assets/img/bedankt.jpg">
 
 @endsection
