@@ -128,63 +128,72 @@ max-width: 15rem;
 <br>
 <br>
 
+
+<?php
+$a1 = rand(1,150);
+$a2 = rand(1,150);
+$a3 = rand(1,150);
+$a4 = rand(1,150);
+?>
+
+
   <div class="row">
     <div class="col-3">
       <div class="card" style="width: 18rem;">
-        @if($products[0]->PrimaryMediaURL !== NULL)
-          <div class="card-img-top" style="background-image: url('/assets/img/{{$products[0]->PrimaryMediaURL}}')"></div>
+        @if($products[$a1]->PrimaryMediaURL !== NULL)
+          <div class="card-img-top" style="background-image: url('/assets/img/{{$products[$a1]->PrimaryMediaURL}}')"></div>
 
         @else
           <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
         @endif
         <div class="card-body">
-          <h5 class="card-title">{{$products[0]->StockItemName}}</h5>
-          <p class="card-text">{{$products[0]->SearchDetails}}</p>
+          <h5 class="card-title">{{$products[$a1]->StockItemName}}</h5>
+          <p class="card-text">{{$products[$a1]->SearchDetails}}</p>
           <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
         </div>
       </div>
     </div>
     <div class="col-3">
 <div class="card" style="width: 18rem;">
-        @if($products[1]->PrimaryMediaURL !== NULL)
-          <div class="card-img-top" style="background-image: url('/assets/img/{{$products[1]->PrimaryMediaURL}}')"></div>
+        @if($products[$a2]->PrimaryMediaURL !== NULL)
+          <div class="card-img-top" style="background-image: url('/assets/img/{{$products[$a2]->PrimaryMediaURL}}')"></div>
 
         @else
           <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
         @endif
         <div class="card-body">
-          <h5 class="card-title">{{$products[1]->StockItemName}}</h5>
-          <p class="card-text">{{$products[1]->SearchDetails}}</p>
+          <h5 class="card-title">{{$products[$a2]->StockItemName}}</h5>
+          <p class="card-text">{{$products[$a2]->SearchDetails}}</p>
           <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
         </div>
       </div>
     </div>
     <div class="col-3">
 <div class="card" style="width: 18rem;">
-        @if($products[2]->PrimaryMediaURL !== NULL)
-          <div class="card-img-top" style="background-image: url('/assets/img/{{$products[2]->PrimaryMediaURL}}')"></div>
+        @if($products[$a3]->PrimaryMediaURL !== NULL)
+          <div class="card-img-top" style="background-image: url('/assets/img/{{$products[$a3]->PrimaryMediaURL}}')"></div>
 
         @else
           <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
         @endif
         <div class="card-body">
-          <h5 class="card-title">{{$products[2]->StockItemName}}</h5>
-          <p class="card-text">{{$products[2]->SearchDetails}}</p>
+          <h5 class="card-title">{{$products[$a3]->StockItemName}}</h5>
+          <p class="card-text">{{$products[$a3]->SearchDetails}}</p>
           <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
         </div>
       </div>
     </div>
     <div class="col-3">
 <div class="card" style="width: 18rem;">
-        @if($products[3]->PrimaryMediaURL !== NULL)
-          <div class="card-img-top" style="background-image: url('/assets/img/{{$products[3]->PrimaryMediaURL}}')"></div>
+        @if($products[$a4]->PrimaryMediaURL !== NULL)
+          <div class="card-img-top" style="background-image: url('/assets/img/{{$products[$a4]->PrimaryMediaURL}}')"></div>
 
         @else
           <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
         @endif
         <div class="card-body">
-          <h5 class="card-title">{{$products[3]->StockItemName}}</h5>
-          <p class="card-text">{{$products[3]->SearchDetails}}</p>
+          <h5 class="card-title">{{$products[$a4]->StockItemName}}</h5>
+          <p class="card-text">{{$products[$a4  ]->SearchDetails}}</p>
           <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
         </div>
       </div>
