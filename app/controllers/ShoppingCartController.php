@@ -22,6 +22,7 @@ class ShoppingCartController extends Controller
         {
             $cookie_data = stripslashes($_COOKIE['shopping_cart']);
             $cart_data = json_decode($cookie_data, true);
+
         }
         else
         {
@@ -73,7 +74,7 @@ class ShoppingCartController extends Controller
         }
 
         $item_data = json_encode($cart_data);
-        setcookie('shopping_cart', $item_data, time() + (86400 * 30), '/');
+        setcookie('shopping_cart', $item_data, time() + (86400), '/');
 
         return "Success";
     }
@@ -126,7 +127,7 @@ class ShoppingCartController extends Controller
         }
 
         $item_data = json_encode($cart_data);
-        setcookie('shopping_cart', $item_data, time() + (86400 * 30), '/');
+        setcookie('shopping_cart', $item_data, time() + (86400), '/');
         return header("location:/shoppingcart");
     }
 
@@ -147,7 +148,7 @@ class ShoppingCartController extends Controller
             {
                 unset($cart_data[$keys]);
                 $item_data = json_encode($cart_data);
-                setcookie("shopping_cart", $item_data,time() + (86400 * 30), '/');
+                setcookie("shopping_cart", $item_data,time() + (86400), '/');
             }
         }
 
