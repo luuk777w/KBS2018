@@ -31,7 +31,7 @@
         <h3>Aflever adres</h3>
         Naam: <?php echo e($customer["Firstname"]); ?> <?php echo e($customer["Lastname"]); ?> <br>
         <?php if($address["IsPostNLServicePoint"] == 1): ?> <span style="color:#EC8B27">PostNL Service point</span> <br> <?php endif; ?>
-        Straat: <?php echo e($address["Street"]); ?> <?php echo e($address["HouseNumber"]); ?> <br>
+        Straat: <?php echo e($address["Street"]); ?> <?php echo e($address["HouseNr"]); ?> <br>
         Postcode: <?php echo e($address["PostalCode"]); ?> <br>
         Stad: <?php echo e($address["City"]); ?>
 

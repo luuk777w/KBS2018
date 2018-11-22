@@ -36,7 +36,7 @@ class OrderController extends Controller
                 "IsDeliveryAddress" => 1,
                 "IsPostNLServicePoint" => 1,
                 "Street" => $_SESSION["delivery"]["deliveryAddress"][0],
-                "HouseNumber" => $_SESSION["delivery"]["deliveryAddress"][1],
+                "HouseNr" => $_SESSION["delivery"]["deliveryAddress"][1],
                 "PostalCode" => $_SESSION["delivery"]["deliveryAddress"][2],
                 "City" => $_SESSION["delivery"]["deliveryAddress"][3],
                 "Country" => "Netherlands"

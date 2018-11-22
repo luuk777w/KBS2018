@@ -33,7 +33,7 @@
         <h3>Aflever adres</h3>
         Naam: {{$customer["Firstname"]}} {{$customer["Lastname"]}} <br>
         @if($address["IsPostNLServicePoint"] == 1) <span style="color:#EC8B27">PostNL Service point</span> <br> @endif
-        Straat: {{$address["Street"]}} {{$address["HouseNumber"]}} <br>
+        Straat: {{$address["Street"]}} {{$address["HouseNr"]}} <br>
         Postcode: {{$address["PostalCode"]}} <br>
         Stad: {{$address["City"]}}
     </div>
