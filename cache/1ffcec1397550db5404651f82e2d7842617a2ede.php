@@ -104,10 +104,14 @@
             <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
         <?php endif; ?>
 
+        <?php if(isset($media[0])): ?>
 
-    <?php $__currentLoopData = $media; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $picture): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="smallImages" style="background-image: url('../../assets/img/<?php echo e($picture->MediaUrl); ?>');"></div>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php $__currentLoopData = $media; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $picture): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="smallImages" style="background-image: url('../../assets/img/<?php echo e($picture->MediaUrl); ?>');"></div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+        <?php endif; ?>
+
 
         </div>
 

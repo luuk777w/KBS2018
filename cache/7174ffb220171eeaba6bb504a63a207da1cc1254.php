@@ -8,14 +8,13 @@
                 <div class="panel">
                     <p>Vul hier uw gebruikersnaam en wachtwoord in</p>
                 </div>
-                <?php
-                    //Print een eventuele msg uit de controller
-                print($msg);
-                print_r($pass);
 
-                ?>
+                <?php if(isset($msg)): ?>
+                    <?php echo e($msg); ?>
 
-                <form id="Login" method="post" action="/login/check">
+                <?php endif; ?>
+
+                <form id="Login" method="post" action="/login">
 
                     <div class="form-group">
 

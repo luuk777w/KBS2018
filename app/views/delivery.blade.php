@@ -34,8 +34,10 @@
     <div class="col">
 
         <h4>Bezorgen:</h4>
+        Laat uw pakket door PostNL bezorgen wanneer het u uitkomt! Kosten zijn: <br> €2.95 als uw bestelling onder de €20,00- is, daarboven is het gratis!.<br>
 
-        @foreach($dates as $date)
+<br>
+    @foreach($dates as $date)
 
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="deliveryDate" value="HOME:{{$date->Date}}" @if($date->Date == $dates[0]->Date) checked @endif>
@@ -50,7 +52,8 @@
     </div>
     <div class="col">
         <h4>Ophalen:</h4>
-
+        Haal uw pakket op bij een PostNL service punt wanneer het u uitkomt! Kosten zijn: <br>€2.95 als uw bestelling onder de €20,00- is, daarboven is het gratis!<br>
+        <br>
         @foreach($locations as $location)
 
         <div class="form-check">
