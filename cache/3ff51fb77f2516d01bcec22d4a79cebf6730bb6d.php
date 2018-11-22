@@ -1,15 +1,19 @@
 <?php $__env->startSection('body'); ?>
 
+    <?php if(!empty($data)): ?>
+
     <h2>Welkom <?php echo e($data[0]->Firstname); ?></h2>
-    <?php
 
-if(!empty($data)){
-    print_r($data);
+    <?php echo e(print_r($data)); ?>
 
-}else{
-    print("not found anythig blyat");
-}
-    ?>
+
+    <?php else: ?> 
+
+    not found anythig blyat
+
+    <?php endif; ?>
+
+
 <?php $__env->stopSection(); ?>
 
 

@@ -10,12 +10,12 @@
                 <div class="panel">
                     <p>Vul hier uw gebruikersnaam en wachtwoord in</p>
                 </div>
-                <?php
-                    //Print een eventuele msg uit de controller
-                print($msg);
-                ?>
 
-                <form id="Login" method="post" action="/login/check">
+                @if(isset($msg))
+                    {{$msg}}
+                @endif
+
+                <form id="Login" method="post" action="/login">
 
                     <div class="form-group">
 

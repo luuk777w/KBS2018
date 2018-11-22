@@ -13,24 +13,17 @@ class PaymentController extends Controller
 
     public function index(){
 
-        if(!isset($_COOKIE["shopping_cart"])) {
+        session_start();
+
+        if(!isset($_SESSION["orderTotal"])) {
             return "Winkelwagen leeg";
         }
 
         $mollie = new MollieApiClient();
         $mollie->setApiKey("test_RAnWWDeHWDMPhCzeEMvq9FtNyfgwDD");
 
-        $product = new Products();
-        $totalAmount = 0;
 
-        $shopping_cart = stripslashes($_COOKIE["shopping_cart"]);
-        $cart_data = json_decode($shopping_cart, true);
-
-        foreach ($cart_data as $item) {
-            $totalAmount += $product->getProductById($item["item_id"])[0]->UnitPrice * $item["item_quantity"];
-        }
-
-        $formattedTotal = number_format(round($totalAmount, 2), 2);
+        $formattedTotal = number_format(round($_SESSION["orderTotal"], 2), 2);
 
         $payment = $mollie->payments->create([
             "amount" => [
@@ -58,6 +51,8 @@ class PaymentController extends Controller
             $payment = $mollie->payments->get($_POST["id"]);
 
             if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
+
+                
 
             } elseif ($payment->isOpen()) {
                 /*

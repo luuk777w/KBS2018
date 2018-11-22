@@ -27,32 +27,39 @@
     <text fill="#6B747C" font-size="15" font-family="Arial" x="580" y="25">Betalen</text>
 </svg>
 <br>
+
+<form action="/order/delivery" method="post">
+
 <div class="row">
     <div class="col">
 
         <h4>Bezorgen:</h4>
+        Laat uw pakket door PostNL bezorgen wanneer het u uitkomt! Kosten zijn: <br> €2.95 als uw bestelling onder de €20,00- is, daarboven is het gratis!.<br>
 
-        @foreach($dates as $date)
+<br>
+    @foreach($dates as $date)
 
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryDate" id="exampleRadios1" value="option1" @if($date == $dates[0]) checked @endif>
-            <label class="form-check-label" for="exampleRadios1">
-            {{$date}}
-            </label>
-        </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="deliveryDate" value="HOME:{{$date->Date}}" @if($date->Date == $dates[0]->Date) checked @endif>
+                <label class="form-check-label" for="exampleRadios1">
+                <b>{{$date->Date}}</b>
+                Tussen <b>{{$date->Timeframes->TimeframeTimeFrame->From}}</b> en <b>{{$date->Timeframes->TimeframeTimeFrame->To}}</b>
+                </label>
+            </div>
 
         @endforeach
 
     </div>
     <div class="col">
         <h4>Ophalen:</h4>
-
+        Haal uw pakket op bij een PostNL service punt wanneer het u uitkomt! Kosten zijn: <br>€2.95 als uw bestelling onder de €20,00- is, daarboven is het gratis!<br>
+        <br>
         @foreach($locations as $location)
 
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryDate" id="exampleRadios1" value="option1" @if($date == $dates[0]) checked @endif>
+        <input class="form-check-input" type="radio" name="deliveryDate" value="POSTNLSERVICEPOINT:{{$location->Address->Street}}|+|{{$location->Address->HouseNr}}|+|{{$location->Address->Zipcode}}|+|{{$location->Address->City}}">
             <label class="form-check-label" for="exampleRadios1">
-            {{$location->Name}} - {{$location->Address->Street}} {{$location->Address->HouseNr}}, {{$location->Address->City}}            </label>
+            {{$location->Name}} - {{$location->Address->Street}} {{$location->Address->HouseNr}}, {{$location->Address->City}}</label>
         </div>
 
         @endforeach
@@ -66,8 +73,10 @@
     </div>
 
     <div class="col">
-        <button class="btn btn-primary" style="float: right">Verder</button>
+        <input type="submit" class="btn btn-primary" style="float: right" value="Verder">
     </div>
 </div>
+
+</form>
     
 @endsection
