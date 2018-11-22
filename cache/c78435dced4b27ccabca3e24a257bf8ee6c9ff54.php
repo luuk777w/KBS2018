@@ -129,10 +129,10 @@ max-width: 15rem;
 
 
 <?php
-$a1 = rand(1,150);
-$a2 = rand(1,150);
-$a3 = rand(1,150);
-$a4 = rand(1,150);
+$a1 = rand(1,5);
+$a2 = rand(5, 10);
+$a3 = rand(10, 15);
+$a4 = rand(15, 20);
 ?>
 
 
