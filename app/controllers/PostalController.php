@@ -23,6 +23,7 @@ class PostalController extends Controller
      $num = filter_input(INPUT_POST, "num");
      $send = filter_input(INPUT_POST, "send");
      $email = filter_input(INPUT_POST, "email");
+     $telefoonNr = filter_input(INPUT_POST, "telefoonNr");
 
      $apikeys = [
          0=>"ZvhZo0CPIrU7NGJIc32R6ylWtfaguTV5X2RMY2x3",
@@ -92,6 +93,10 @@ class PostalController extends Controller
                      $data['email']=$email;
                  }else{
                      $data['email']="";};
+                 if(isset($telefoonNr)){
+                     $data['telefoonNr']=$telefoonNr;
+                 }else{
+                     $data['telefoonNr']="";};
                  if(isset($code)){
                      $data['code']=$vnaam;
                  }else{$data['code']="";
@@ -128,6 +133,7 @@ class PostalController extends Controller
                  $data['tvnaam'] = $tvnaam;
                  $data['anaam'] = $anaam;
                  $data['email'] = $email;
+                 $data['telefoonNr'] = $telefoonNr;
                  $data['code'] = $code;
                  $data['street'] = json_decode($response)->_embedded->addresses[0]->street;
                  $data['huisnummer'] = $num;

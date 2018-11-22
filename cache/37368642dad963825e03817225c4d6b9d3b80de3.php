@@ -25,6 +25,9 @@
     <text fill="#6B747C" font-size="15" font-family="Arial" x="580" y="25">Betalen</text>
 </svg>
 <br>
+
+<form action="/order/delivery" method="post">
+
 <div class="row">
     <div class="col">
 
@@ -32,13 +35,13 @@
 
         <?php $__currentLoopData = $dates; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $date): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryDate" id="exampleRadios1" value="option1" <?php if($date == $dates[0]): ?> checked <?php endif; ?>>
-            <label class="form-check-label" for="exampleRadios1">
-            <?php echo e($date); ?>
-
-            </label>
-        </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="deliveryDate" value="HOME:<?php echo e($date->Date); ?>" <?php if($date->Date == $dates[0]->Date): ?> checked <?php endif; ?>>
+                <label class="form-check-label" for="exampleRadios1">
+                <b><?php echo e($date->Date); ?></b>
+                Tussen <b><?php echo e($date->Timeframes->TimeframeTimeFrame->From); ?></b> en <b><?php echo e($date->Timeframes->TimeframeTimeFrame->To); ?></b>
+                </label>
+            </div>
 
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
@@ -49,9 +52,9 @@
         <?php $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="deliveryDate" id="exampleRadios1" value="option1" <?php if($date == $dates[0]): ?> checked <?php endif; ?>>
+        <input class="form-check-input" type="radio" name="deliveryDate" value="POSTNLSERVICEPOINT:<?php echo e($location->Address->Street); ?>|+|<?php echo e($location->Address->HouseNr); ?>|+|<?php echo e($location->Address->Zipcode); ?>|+|<?php echo e($location->Address->City); ?>">
             <label class="form-check-label" for="exampleRadios1">
-            <?php echo e($location->Name); ?> - <?php echo e($location->Address->Street); ?> <?php echo e($location->Address->HouseNr); ?>, <?php echo e($location->Address->City); ?>            </label>
+            <?php echo e($location->Name); ?> - <?php echo e($location->Address->Street); ?> <?php echo e($location->Address->HouseNr); ?>, <?php echo e($location->Address->City); ?></label>
         </div>
 
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -65,9 +68,11 @@
     </div>
 
     <div class="col">
-        <button class="btn btn-primary" style="float: right">Verder</button>
+        <input type="submit" class="btn btn-primary" style="float: right" value="Verder">
     </div>
 </div>
+
+</form>
     
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

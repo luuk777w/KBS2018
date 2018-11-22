@@ -81,7 +81,7 @@ class ProductDetailsController extends Controller
         //Zet de benodigde POST waarden
         $_POST["hidden_id"] = $product[0]->StockItemID;
         $_POST["hidden_name"] = $product[0]->StockItemName;
-        $_POST["hidden_price"] = $product[0]->UnitPrice;
+        $_POST["hidden_price"] = $product[0]->RecommendedRetailPrice;
         $_POST["quantity"] = 1;
 
         //Voeg het Item toe aan de winkelwagen

@@ -32,13 +32,15 @@ Class Routes
         'GET:categories/{StockGroupID}' => ['ProductController', 'ViewProductsByCategory'],
         'GET:order/naw' => ['PostalController', 'index'],
         'POST:order/naw' => ['PostalController', 'PostalCheck'],
-        'POST:pay' => ['PaymentController', 'index'],
+        'GET:order/delivery' => ['DeliveryController', 'index'],
+        'POST:order/delivery' => ['DeliveryController', 'saveDeliveryPreference'],
+        'GET:order/check' => ['OrderController', 'index'],
+        'POST:order/pay' => ['PaymentController', 'index'],
         'GET:mollie-webhook' => ['PaymentController', 'hook'],
         'GET:bedankt' => ['PaymentController', 'bedankPage'],
-        'GET:order/delivery' => ['DeliveryController', 'index'],
         'POST:login' => ['LoginController', 'check'],
         'GET:logout' => ['LoginController', 'logout'],
-        'POST:products/orderby' => ['ProductController', 'orderby'],
-        'POST:products/orderbyprice' => ['ProductController', 'orderby']
+        'POST:products' => ['ProductController', 'orderby'],
+        'GET:account' => ['AccountController', 'index'],
     ];
 }

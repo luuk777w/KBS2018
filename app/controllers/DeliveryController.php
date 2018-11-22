@@ -17,30 +17,62 @@ class DeliveryController extends Controller
             return $auth->error401();
         }
 
-        $dates = [];
+        $startDate;
+        $endDate;
 
-        if(date("w", strtotime(' +1 day')) != 0) {
-            array_push($dates, "Morgen, ".date("d-m-Y", strtotime(' +1 day')));
+        if(new \DateTime() > new \DateTime("22:00:00")) {
+            $startDate = date("d-m-Y", strtotime(' +2 day'));
+            $endDate = date("d-m-Y", strtotime(' +9 day'));
         } else {
-            array_push($dates, $this->getDayName(date("w", strtotime(' +2 day'))).", ".date("d-m-Y", strtotime(' +2 day')));
+            $startDate = date("d-m-Y", strtotime(' +1 day'));
+            $endDate = date("d-m-Y", strtotime(' +8 day'));
         }
 
-        if(date("w", strtotime(' +2 day')) != 0) {
-            array_push($dates, $this->getDayName(date("w", strtotime(' +2 day'))).", ".date("d-m-Y", strtotime(' +2 day')));
-        } else {
-            array_push($dates, $this->getDayName(date("w", strtotime(' +3 day'))).", ".date("d-m-Y", strtotime(' +3 day')));
+        $datesResponse = $this->apiCall("https://api-sandbox.postnl.nl/shipment/v2_1/calculate/timeframes?AllowSundaySorting=true&StartDate=${startDate}&EndDate=${endDate}&PostalCode=".$_SESSION["naw"]["code"]."&HouseNumber=".$_SESSION["naw"]["huisnummer"]."&CountryCode=NL&Options=Daytime");
+        $dates = json_decode($datesResponse)->Timeframes->Timeframe;
+
+        $locationsResponse = $this->apiCall("https://api-sandbox.postnl.nl/shipment/v2_1/locations/nearest?CountryCode=NL&PostalCode=".$_SESSION["naw"]["code"]);
+        $locations = json_decode($locationsResponse)->GetLocationsResult->ResponseLocation;
+
+        return $this->view->render("delivery", compact("dates", "locations"));
+
+    }
+
+    public function saveDeliveryPreference() {
+        session_start();
+
+        $deliveryDate = filter_input(INPUT_POST, "deliveryDate");
+        $explodedDeliveryDate = explode(":", $deliveryDate);
+
+        $method = $explodedDeliveryDate[0];
+
+        if($method == "HOME") {
+
+            $_SESSION["delivery"] = [
+                "method" => $explodedDeliveryDate[0],
+                "deliveryAddress" => NULL,
+                "date" => $explodedDeliveryDate[1]
+            ];
+            
+        } else if($method == "POSTNLSERVICEPOINT") {
+
+            $_SESSION["delivery"] = [
+                "method" => $explodedDeliveryDate[0],
+                "deliveryAddress" => explode("|+|",$explodedDeliveryDate[1]),
+                "date" => NULL
+            ];
+
         }
 
-        if(date("w", strtotime(' +3 day')) != 0) {
-            array_push($dates, $this->getDayName(date("w", strtotime(' +3 day'))).", ".date("d-m-Y", strtotime(' +3 day')));
-        } else {
-            array_push($dates, $this->getDayName(date("w", strtotime(' +4 day'))).", ".date("d-m-Y", strtotime(' +4 day')));
-        }
+        return header("Location: /order/check");
 
+    }
+
+    private function apiCall($url) {
         $curl = curl_init();
 
         curl_setopt_array($curl, [
-            CURLOPT_URL => "https://api-sandbox.postnl.nl/shipment/v2_1/locations/nearest?CountryCode=NL&PostalCode=".$_SESSION["naw"]["code"],
+            CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 30,
@@ -61,41 +93,7 @@ class DeliveryController extends Controller
             return "cURL Error:" . $error;
         }
 
-        $locations = json_decode($response)->GetLocationsResult->ResponseLocation;
-
-        return $this->view->render("delivery", compact("dates", "locations"));
-
-    }
-
-    private function getDayName($dayNr) {
-
-        switch ($dayNr) {
-            case 0:
-                return "Zondag";
-                break;
-            case 1:
-                return "Maandag";
-                break;
-            case 2:
-                return "Dinsdag";
-                break;
-            case 3:
-                return "Woensdag";
-                break;
-            case 4:
-                return "Donderdag";
-                break;
-            case 5:
-                return "Vrijdag";
-                break;
-            case 6:
-                return "Zaterdag";
-                break;
-            
-            default:
-                # code...
-                break;
-        }
+        return $response;
 
     }
 

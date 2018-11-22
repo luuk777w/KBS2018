@@ -36,41 +36,29 @@ max-width: 15rem;
 
 }
 
-        .card-img-top{
-            width: 100%;
-            height: 15rem;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
+.card-img-top{
+    width: 100%;
+    height: 15rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
-        .card{
-          height: 30rem;
-          padding-top:10px;
-        }
+.card{
+  height: 30rem;
+  padding-top:10px;
+}
 
-        .knopje{
-          position: absolute; 
-          bottom:10px;
-        }
+.knopje{
+  position: absolute; 
+  bottom:10px;
+}
 
 </style>
 
 @endsection
 
 @section('body')
-<div>
-  <h1 class="WWIHEADER">
-    Welkom bij World Wide Importers.
-  </h1>
-</div>
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Cookie Waarschuwing</strong> <br> Voor het werken van onze websites zijn koekies nodig. Door de website te
-  gebruiken gaat u hiermee akkoord.
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
 <div class="container">
   <div class="row">
     <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
@@ -84,6 +72,19 @@ max-width: 15rem;
     </div>
   </div>
 </div>
+<div>
+  <h1 class="WWIHEADER">
+    Welkom bij World Wide Importers.
+  </h1>
+</div>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Cookie Waarschuwing</strong> <br> Voor het werken van onze websites zijn koekies nodig. Door de website te
+  gebruiken gaat u hiermee akkoord.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 
 
 
