@@ -57,6 +57,11 @@
             color: #DB3544;
             width: 9rem;
         }
+        .almostoutStock{
+            border: solid #ff9900 1px;
+            color: #ff9900;
+            width: 7rem;
+        }
 
         .deliveryTime{
             margin-bottom: 5px;
@@ -118,13 +123,16 @@
         <div class="col-5" >
             <h1>€<?php echo e($productDetails[0]->RecommendedRetailPrice); ?></h1>
 
-            <?php if($productDetails[0]->QuantityOnHand <= 100): ?>
-                <p class="stock inStock">Nog maar <b><?php echo e($productDetails[0]->QuantityOnHand); ?></b> op voorraad</p>
+            <?php if($productDetails[0]->QuantityOnHand <= 100 AND $productDetails[0]->QuantityOnHand > 5): ?>
+                <p class="almostoutStock">Nog maar <b><?php echo e($productDetails[0]->QuantityOnHand); ?></b> op voorraad</p>
                 <p class="deliveryTime">Voor 22:00 besteld, morgen in huis!</p>
-            <?php elseif($productDetails[0]->QuantityOnHand >= 100 ): ?>
+            <?php elseif($productDetails[0]->QuantityOnHand >= 100 AND $productDetails[0]->QuantityOnHand > 5): ?>
                 <p class="stock inStock">Meer dan <b>100</b> op voorraad</p>
                 <p class="deliveryTime">Voor 22:00 besteld, morgen in huis!</p>
-            <?php else: ?>
+            <?php elseif($productDetails[0]->QuantityOnHand <= 5 AND $productDetails[0]->QuantityOnHand > 0): ?>
+                <p class="stock notInStock">Nog maar <b><?php echo e($productDetails[0]->QuantityOnHand); ?></b> op voorraad</p>
+                <p class="deliveryTime">Voor 22:00 besteld, morgen in huis!</p>
+            <?php elseif($productDetails[0]->QuantityOnHand == 0): ?>
                 <p class="stock notInStock">Niet op voorraad</p>
             <?php endif; ?>
 
