@@ -34,9 +34,9 @@ class ProductDetailsController extends Controller
         $categories = $categoriesModel->getCategorynames();
 
         //Check of het ID en de naam in de URL overeen komen, zo niet, vervang die dan voor de juiste URL
-        if($productName !== str_replace('?', '', str_replace(' ', '-', $productDetails[0]->StockItemName)))
+        if($productName !== str_replace('?', '', str_replace(' ', '-',  str_replace('/', ' ', $productDetails[0]->StockItemName))))
         {
-            return header("Location: /product/${productId}/". str_replace(' ', '-', $productDetails[0]->StockItemName));
+            return header("Location: /product/${productId}/". str_replace(' ', '-', str_replace('/', ' ', $productDetails[0]->StockItemName)));
         }
 
         //Render de view en geef de ProductDetails, media en categorieen mee
@@ -60,7 +60,7 @@ class ProductDetailsController extends Controller
         $product = $product->getProductById($productId);
 
         //Redirect naar de juiste URL
-        return header("Location: /product/${productId}/". str_replace('?', '', str_replace(' ', '-', $product[0]->StockItemName)));
+        return header("Location: /product/${productId}/". str_replace('?', '', str_replace(' ', '-', str_replace('/', ' ', $product[0]->StockItemName))));
     }
 
     /**

@@ -66,7 +66,7 @@ class ShoppingCartController extends Controller
         {
             $item_array = array(
                 'item_id'			=>	$_POST["hidden_id"],
-                'item_name'			=>	$_POST["hidden_name"],
+                'item_name'			=>	htmlspecialchars($_POST["hidden_name"]),
                 'item_price'		=>	$_POST["hidden_price"],
                 'item_quantity'		=>	$_POST["quantity"],
             );
@@ -118,7 +118,7 @@ class ShoppingCartController extends Controller
         {
             $item_array = array(
                 'item_id'			=>	$_POST["hidden_id"],
-                'item_name'			=>	$_POST["hidden_name"],
+                'item_name'			=>	htmlspecialchars($_POST["hidden_name"]),
                 'item_price'		=>	$_POST["hidden_price"],
                 'item_quantity'		=>	$_POST["quantity"]
             );
