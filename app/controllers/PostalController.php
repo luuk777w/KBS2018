@@ -8,14 +8,15 @@ use Core\Controller;
 
 class PostalController extends Controller
 {
-
+    //Laat de check pagina zien zonder dat iets is ingevuld
     public function index(){
         return $this->view->render("postcodecheck");
     }
 
-
+//Check de ingevulde gegevens
  function PostalCheck()
  {
+     //Filter alle formulier input
      $vnaam = filter_input(INPUT_POST, "vnaam");
      $anaam = filter_input(INPUT_POST, "anaam");
      $tvnaam = filter_input(INPUT_POST, "tvnaam");
@@ -25,6 +26,7 @@ class PostalController extends Controller
      $email = filter_input(INPUT_POST, "email");
      $telefoonNr = filter_input(INPUT_POST, "telefoonNr");
 
+     //de verschillende API keys voor de postcode API, hierdoor kan Rico het minder snel slopen. Om dit te doen gebruiken we iedere keer een andere API key in de request d.m.v. Random
      $apikeys = [
          0=>"ZvhZo0CPIrU7NGJIc32R6ylWtfaguTV5X2RMY2x3",
 1 => "8eWVmAyZ0c6Xxiz6tl9oz3QMeHPf9pPI8Ynvrxtj",
@@ -35,8 +37,8 @@ class PostalController extends Controller
 6 => "6uIvWUTWd96bfeWk3rke2a2aeJaWKfaQ1kwoi07I",
          7 => "70krf7hu8X2mR77IaFZBl6y1VvRoHl5G8BID0eHG"
      ];
-     
 
+    //Als het huisnummer 0 is doe dan dit. Als het namelijk 0 is laat de API alle addressen zien die dat Postcode hebben.
      if ($num == 0) {
          //Geef het volgede bericht door aan de view
          $msg = "Het huisnummer kan geen 0 zijn, check uw gegevens en probeer het nog eens";
@@ -44,10 +46,14 @@ class PostalController extends Controller
          //roep de view aan
          return $this->view->render("postcodecheck", compact("msg"));
      } else {
+
+         //Als het formulier verzonden is d.m.v. de knop doe dan dit
          if ($send != NULL) {
 
+             //Geef aan dat we een request willen doen
              $curl = curl_init();
 
+             //Dit zijn de instellingen van de request
              curl_setopt_array($curl, array(
                  CURLOPT_URL => "https://api.postcodeapi.nu/v2/addresses/?postcode=$code&number=$num",
                  CURLOPT_RETURNTRANSFER => true,
@@ -62,11 +68,16 @@ class PostalController extends Controller
                  ),
              ));
 
+             //Maak de request en geef de resultaten terug
              $response = curl_exec($curl);
+
+             //als er een error is geef dit dan aan
              $err = curl_error($curl);
 
+             //sluit de connectie af
              curl_close($curl);
 
+             //Als er een error is doe dan dit
              if ($err) {
                  $msg = "cURL Error #:" . $err;
 
@@ -76,6 +87,7 @@ class PostalController extends Controller
                  //Geef het volgede bericht door aan de view
                  $msg = "Het adres lijkt niet te bestaan, check uw gegevens en probeer het nog eens";
 
+                 //Sla alle gegevens die zijn ingevuld op in de Data array
                  $data = array();
                  if(isset($vnaam)){
                      $data['vnaam']=$vnaam;
@@ -118,16 +130,19 @@ class PostalController extends Controller
                  }else{$data['city']="";
                  };
 
+                 //Start de sessie en sla de Data array op in de sessie voor later gebruik
                  session_start();
-
                  $_SESSION['naw']=$data;
 
                  //roep de view aan
                  return $this->view->render("postcodecheck", compact("msg"));
 
              } else {
+
+
                  $msg = "Het adres lijkt te bestaan!";
 
+                 //Sla alle gegevens die zijn ingevuld op in de Data array
                  $data = array();
                  $data['vnaam'] = $vnaam;
                  $data['tvnaam'] = $tvnaam;
@@ -140,10 +155,11 @@ class PostalController extends Controller
                  $data['province'] = json_decode($response)->_embedded->addresses[0]->province->label;
                  $data['city'] = json_decode($response)->_embedded->addresses[0]->city->label;
 
+                 //Start de sessie en sla de Data array op in de sessie voor later gebruik
                  session_start();
-
                  $_SESSION['naw']=$data;
 
+                 //roep de view aan
                  return $this->view->render("postcodecheck", compact("msg", 'data', 'response'));
 
              }
