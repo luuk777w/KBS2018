@@ -168,7 +168,7 @@ $a4 = rand(15, 20);
       <div class="card-body">
         <h5 class="card-title">{{$products[$a1]->StockItemName}}</h5>
         <p class="card-text">{{$products[$a1]->SearchDetails}}</p>
-        <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
+      <a href="/product/{{$products[$a1]->StockItemID}}" class="btn btn-primary knopje">Ga naar het product</a>
       </div>
     </div>
   </div>
@@ -183,7 +183,7 @@ $a4 = rand(15, 20);
       <div class="card-body">
         <h5 class="card-title">{{$products[$a2]->StockItemName}}</h5>
         <p class="card-text">{{$products[$a2]->SearchDetails}}</p>
-        <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
+        <a href="/product/{{$products[$a2]->StockItemID}}" class="btn btn-primary knopje">Ga naar het product</a>
       </div>
     </div>
   </div>
@@ -198,7 +198,7 @@ $a4 = rand(15, 20);
       <div class="card-body">
         <h5 class="card-title">{{$products[$a3]->StockItemName}}</h5>
         <p class="card-text">{{$products[$a3]->SearchDetails}}</p>
-        <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
+        <a href="/product/{{$products[$a3]->StockItemID}}" class="btn btn-primary knopje">Ga naar het product</a>
       </div>
     </div>
   </div>
@@ -213,7 +213,7 @@ $a4 = rand(15, 20);
       <div class="card-body">
         <h5 class="card-title">{{$products[$a4]->StockItemName}}</h5>
         <p class="card-text">{{$products[$a4 ]->SearchDetails}}</p>
-        <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
+        <a href="/product/{{$products[$a4]->StockItemID}}" class="btn btn-primary knopje">Ga naar het product</a>
       </div>
     </div>
   </div>
