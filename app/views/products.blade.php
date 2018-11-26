@@ -7,6 +7,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Wide World Importers GANG</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js">
 
     <style>
         
@@ -27,10 +29,6 @@
         .prijsr{
             width: 4rem;
             /*float: right;*/
-        }
-        .submit{
-            width: 4rem;
-            font-size: 10px;
         }
 
     </style>
@@ -78,9 +76,9 @@
                 @endphp
 
             <form method="post" action="/products">
-                <select name="orderby" onchange="this.form.submit()">
+                    <select name="orderby" class="custom-select mr-sm-2" id="inlineFormCustomSelect" onchange="this.form.submit()" style="width: 20rem">
                     <option value=<?php if(isset($_POST['orderby'])){ echo $_POST['orderby'];}?>><?php print($tekst); ?></option>
-                    <option value="default">Standaard</option>
+                    {{--<option value="default">Standaard</option>--}}
                     <option value="orderbyname" >A-Z</option>
                     <option value="orderbynamedesc" >Z-A</option>
                     <option value="orderbyprijs" >Prijs(Laag-Hoog)</option>
@@ -88,10 +86,10 @@
                 </select>
             </form>
             <form method="post" action="/products">
-                <br>Min.:
+                <br>Min. Prijs:
                 <input type="number" min="0" class="prijsl" name="minprijs">
-                Max.:<input type="number" min="0" max="90000" class="prijsr" name="maxprijs">
-                <input name='sorteren' type="submit" value="sorteren" class="submit">
+                Max. Prijs:<input type="number" min="0" max="90000" class="prijsr" name="maxprijs">
+                <input name='sorteren' type="submit" value="sorteren" class="btn btn-outline-primary">
                 <br><br>
             </form>
             {{-- Voor ieder product in de array uit de database die je dit --}}
