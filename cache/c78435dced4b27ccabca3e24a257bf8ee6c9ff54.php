@@ -34,6 +34,12 @@ max-width: 15rem;
 
 }
 
+
+.rowdistance{
+margin: 0px !important; 
+  
+}
+
 .card-img-top{
     width: 100%;
     height: 15rem;
@@ -104,14 +110,18 @@ max-width: 15rem;
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="../../assets/img/clothing.jpeg" alt="Second slide">
+        <img class="d-block w-100" src="../../assets/img/nietgevonden.jpg" alt="Second slide">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Wat moet ik zeggen, t zijn maar kleren.</h5>
-          <p>Ik heb het nu niet meer zo koud - een dakloos persoon</p>
+          <h5>Dit product is helaas niet gevonden</h5>
+          <p>Error 404 - De browser</p>
         </div>
       </div>
       <div class="carousel-item">
         <img class="d-block w-100" src="../../assets/img/milka.jpg" alt="Third slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>De lekkerste chocolade USB stick.</h5>
+          <p>Ik kan hier al mijn skrillex midi's in opslaan - een echte autist</p>
+        </div>
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -129,74 +139,82 @@ max-width: 15rem;
 
 
 <?php
-$a1 = rand(1,150);
-$a2 = rand(1,150);
-$a3 = rand(1,150);
-$a4 = rand(1,150);
+$a1 = rand(1,5);
+$a2 = rand(5, 10);
+$a3 = rand(10, 15);
+$a4 = rand(15, 20);
 ?>
+<div class="SecundSubTitleUnderCarousel">
+  <h5>
 
+    Onze aanbevelingen voor u
+    <br>
+    <br>
 
-  <div class="row">
-    <div class="col-3">
-      <div class="card" style="width: 18rem;">
-        <?php if($products[$a1]->PrimaryMediaURL !== NULL): ?>
-          <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[$a1]->PrimaryMediaURL); ?>')"></div>
+  </h5>
+</div>
 
-        <?php else: ?>
-          <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
-        <?php endif; ?>
-        <div class="card-body">
-          <h5 class="card-title"><?php echo e($products[$a1]->StockItemName); ?></h5>
-          <p class="card-text"><?php echo e($products[$a1]->SearchDetails); ?></p>
-          <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
-        </div>
+<div class="row ">
+  <div class="col-3 rowdistance">
+    <div class="card " style="width: 18rem;">
+      <?php if($products[$a1]->PrimaryMediaURL !== NULL): ?>
+      <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[$a1]->PrimaryMediaURL); ?>')"></div>
+
+      <?php else: ?>
+      <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
+      <?php endif; ?>
+      <div class="card-body">
+        <h5 class="card-title"><?php echo e($products[$a1]->StockItemName); ?></h5>
+        <p class="card-text"><?php echo e($products[$a1]->SearchDetails); ?></p>
+        <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
       </div>
     </div>
-    <div class="col-3">
-<div class="card" style="width: 18rem;">
-        <?php if($products[$a2]->PrimaryMediaURL !== NULL): ?>
-          <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[$a2]->PrimaryMediaURL); ?>')"></div>
+  </div>
+  <div class="col-3 rowdistance">
+    <div class="card" style="width: 18rem;">
+      <?php if($products[$a2]->PrimaryMediaURL !== NULL): ?>
+      <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[$a2]->PrimaryMediaURL); ?>')"></div>
 
-        <?php else: ?>
-          <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
-        <?php endif; ?>
-        <div class="card-body">
-          <h5 class="card-title"><?php echo e($products[$a2]->StockItemName); ?></h5>
-          <p class="card-text"><?php echo e($products[$a2]->SearchDetails); ?></p>
-          <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
-        </div>
+      <?php else: ?>
+      <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
+      <?php endif; ?>
+      <div class="card-body">
+        <h5 class="card-title"><?php echo e($products[$a2]->StockItemName); ?></h5>
+        <p class="card-text"><?php echo e($products[$a2]->SearchDetails); ?></p>
+        <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
       </div>
     </div>
-    <div class="col-3">
-<div class="card" style="width: 18rem;">
-        <?php if($products[$a3]->PrimaryMediaURL !== NULL): ?>
-          <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[$a3]->PrimaryMediaURL); ?>')"></div>
+  </div>
+  <div class="col-3 rowdistance">
+    <div class="card" style="width: 18rem;">
+      <?php if($products[$a3]->PrimaryMediaURL !== NULL): ?>
+      <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[$a3]->PrimaryMediaURL); ?>')"></div>
 
-        <?php else: ?>
-          <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
-        <?php endif; ?>
-        <div class="card-body">
-          <h5 class="card-title"><?php echo e($products[$a3]->StockItemName); ?></h5>
-          <p class="card-text"><?php echo e($products[$a3]->SearchDetails); ?></p>
-          <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
-        </div>
+      <?php else: ?>
+      <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
+      <?php endif; ?>
+      <div class="card-body">
+        <h5 class="card-title"><?php echo e($products[$a3]->StockItemName); ?></h5>
+        <p class="card-text"><?php echo e($products[$a3]->SearchDetails); ?></p>
+        <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
       </div>
     </div>
-    <div class="col-3">
-<div class="card" style="width: 18rem;">
-        <?php if($products[$a4]->PrimaryMediaURL !== NULL): ?>
-          <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[$a4]->PrimaryMediaURL); ?>')"></div>
+  </div>
+  <div class="col-3 rowdistance">
+    <div class="card" style="width: 18rem;">
+      <?php if($products[$a4]->PrimaryMediaURL !== NULL): ?>
+      <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[$a4]->PrimaryMediaURL); ?>')"></div>
 
-        <?php else: ?>
-          <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
-        <?php endif; ?>
-        <div class="card-body">
-          <h5 class="card-title"><?php echo e($products[$a4]->StockItemName); ?></h5>
-          <p class="card-text"><?php echo e($products[$a4  ]->SearchDetails); ?></p>
-          <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
-        </div>
+      <?php else: ?>
+      <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
+      <?php endif; ?>
+      <div class="card-body">
+        <h5 class="card-title"><?php echo e($products[$a4]->StockItemName); ?></h5>
+        <p class="card-text"><?php echo e($products[$a4 ]->SearchDetails); ?></p>
+        <a href="#" class="btn btn-primary knopje">Ga naar het product</a>
       </div>
     </div>
-    </div>
-    <?php $__env->stopSection(); ?>
+  </div>
+</div>
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
