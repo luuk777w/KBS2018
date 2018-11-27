@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 namespace App\Controllers;
 
@@ -71,13 +71,6 @@ class ProductDetailsController extends Controller
      */
     public function addToCart($productId)
     {
-
-        Print("<div class='alert alert-warning alert-dismissible fade show' role='alert'>
-        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-        <button type='button' class='lose' data-dismiss='alert' aria-label='Close'>
-          <span aria-hidden='true'>&times;</span>
-        </button>
-      </div>");
         //Initialiseer het productmodel en de shoppingCartController
         $product = new Products();
         $shoppingCartController = new ShoppingCartController();
@@ -94,6 +87,7 @@ class ProductDetailsController extends Controller
         //Voeg het Item toe aan de winkelwagen
         $shoppingCartController->addToCart();
 
+        
         //Redirect naar de productDetail pagina
         return header("location:/product/".$product[0]->StockItemID);
     }
