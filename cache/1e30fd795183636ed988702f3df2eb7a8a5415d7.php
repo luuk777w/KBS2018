@@ -1,14 +1,9 @@
-@extends('layouts.app')
-
-
-@section('head')
+<?php $__env->startSection('head'); ?>
 
 
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Wide World Importers GANG</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js">
 
     <style>
         
@@ -30,33 +25,37 @@
             width: 4rem;
             /*float: right;*/
         }
+        .submit{
+            width: 4rem;
+            font-size: 10px;
+        }
 
     </style>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('body')
+<?php $__env->startSection('body'); ?>
 
 
     <div style="margin: auto; width: 58rem; overflow: auto;">
-        @if (isset($searchTerm))
-            <h1>zoekresultaten voor {{$searchTerm}}</h1>
-        @else
+        <?php if(isset($searchTerm)): ?>
+            <h1>zoekresultaten voor <?php echo e($searchTerm); ?></h1>
+        <?php else: ?>
         <h1>Producten</h1>
-        @endif
+        <?php endif; ?>
 
 
-        {{-- Als er geen producten uit de database komen doe je dit --}}
+        
 
-        @if($products == NULL)
+        <?php if($products == NULL): ?>
 
-            {{-- Geef een header met de tekst Er zijn geen producten gevonden weer met een rooie kleur --}}
+            
             <h4 style="color: #DB3544">Er zijn geen producten gevonden</h4>
 
-            {{-- Als er wel producten uit de database komen doe je dit --}}
-        @else
-                @php
+            
+        <?php else: ?>
+                <?php 
                     if(!isset($_POST['orderby'])){
                         $_POST['orderby'] = "";
                     }
@@ -73,12 +72,12 @@
                     } else{
                     $tekst = "sorteer op";
                     }
-                @endphp
+                 ?>
 
             <form method="post" action="/products">
-                    <select name="orderby" class="custom-select mr-sm-2" id="inlineFormCustomSelect" onchange="this.form.submit()" style="width: 20rem">
+                <select name="orderby" onchange="this.form.submit()">
                     <option value=<?php if(isset($_POST['orderby'])){ echo $_POST['orderby'];}?>><?php print($tekst); ?></option>
-                    {{--<option value="default">Standaard</option>--}}
+                    <option value="default">Standaard</option>
                     <option value="orderbyname" >A-Z</option>
                     <option value="orderbynamedesc" >Z-A</option>
                     <option value="orderbyprijs" >Prijs(Laag-Hoog)</option>
@@ -86,48 +85,49 @@
                 </select>
             </form>
             <form method="post" action="/products">
-                <br>Min. Prijs:
+                <br>Min.:
                 <input type="number" min="0" class="prijsl" name="minprijs">
-                Max. Prijs:<input type="number" min="0" max="90000" class="prijsr" name="maxprijs">
-                <input name='sorteren' type="submit" value="sorteren" class="btn btn-outline-primary">
+                Max.:<input type="number" min="0" max="90000" class="prijsr" name="maxprijs">
+                <input name='sorteren' type="submit" value="sorteren" class="submit">
                 <br><br>
             </form>
-            {{-- Voor ieder product in de array uit de database die je dit --}}
-        @foreach ($products as $product)
+            
+        <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-            @php
+            <?php 
                 // Update de URL naar het volgende: /product/Het product id/de productnaam
              $url = "/product/". $product->StockItemID ."/". str_replace(' ', '-', $product->StockItemName);
-            @endphp
+             ?>
 
             <div class="card" style="width: 18rem; height:40rem;float:left;margin:10px">
 
-                 {{-- Als er een Primaire foto is aangegeven in de database dan die je dit --}}
-            @if($product->PrimaryMediaURL !== NULL)
+                 
+            <?php if($product->PrimaryMediaURL !== NULL): ?>
 
-                    {{-- Laat de primaire foto zien in de productcard --}}
-                    <div class="card-img-top" style="background-image: url('/assets/img/{{$product->PrimaryMediaURL}}')"></div>
-                    {{-- <img class="card-img-top" src="/assets/img/{{$product->PrimaryMediaURL}}" class="img-thumbnail" alt="Card image cap"> --}}
+                    
+                    <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($product->PrimaryMediaURL); ?>')"></div>
+                    
 
-                    {{-- Als er geen Primaire foto is aangegeven in de database dan die je dit --}}
-                @else
+                    
+                <?php else: ?>
 
-                    {{-- Aan de bovenkant van de productcard laat je de placeholder zien --}}
+                    
                     <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
-                @endif
+                <?php endif; ?>
 
-                {{-- Dit is de body van de productcard --}}
+                
                 <div class="card-body">
 
-                    {{-- Laat de productnaam in H5 zien --}}
-                    <h5 class="card-title">{{$product->StockItemName}}</h5>
+                    
+                    <h5 class="card-title"><?php echo e($product->StockItemName); ?></h5>
 
-                    {{-- Laat de prijs van het product zien in de productcard --}}
-                    <h6 class="card-title">Prijs</h6>€{{$product->RecommendedRetailPrice}}
+                    
+                    <h6 class="card-title">Prijs</h6>€<?php echo e($product->RecommendedRetailPrice); ?>
+
                     <br>
 
                     <h6 class="card-title">Categorie</h6>
-                    @php
+                    <?php 
                         // voor iedere gekoppelde categorie print de categorie
                     foreach ($categories as $categorie){
 
@@ -139,20 +139,22 @@
                     }
                     print("<br>");
 
-                    @endphp
+                     ?>
 
-                    {{-- Laat de descriptie van het product zien in de productcard --}}
-                    <p class="card-text" style="overflow: hidden; max-height: 3rem">{{$product->SearchDetails}}</p>
+                    
+                    <p class="card-text" style="overflow: hidden; max-height: 3rem"><?php echo e($product->SearchDetails); ?></p>
                     <br>
 
-                    {{-- Laat een knop naar de productpagina van het product zien in de productcard --}}
-                    <a href="/product/{{$product->StockItemID}}" style="position: absolute; bottom:10px " class="btn btn-primary">Lees Meer</a>
+                    
+                    <a href="/product/<?php echo e($product->StockItemID); ?>" style="position: absolute; bottom:10px " class="btn btn-primary">Lees Meer</a>
                 </div>
             </div>
-        @endforeach
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-        @endif
+        <?php endif; ?>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

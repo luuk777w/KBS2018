@@ -39,6 +39,7 @@ class ShoppingCartController extends Controller
      */
     public function addToCart()
     {
+              
         if(isset($_COOKIE["shopping_cart"]))
         {
             $cookie_data = stripslashes($_COOKIE['shopping_cart']);
@@ -66,7 +67,7 @@ class ShoppingCartController extends Controller
         {
             $item_array = array(
                 'item_id'			=>	$_POST["hidden_id"],
-                'item_name'			=>	$_POST["hidden_name"],
+                'item_name'			=>	htmlspecialchars($_POST["hidden_name"]),
                 'item_price'		=>	$_POST["hidden_price"],
                 'item_quantity'		=>	$_POST["quantity"],
             );
@@ -118,7 +119,7 @@ class ShoppingCartController extends Controller
         {
             $item_array = array(
                 'item_id'			=>	$_POST["hidden_id"],
-                'item_name'			=>	$_POST["hidden_name"],
+                'item_name'			=>	htmlspecialchars($_POST["hidden_name"]),
                 'item_price'		=>	$_POST["hidden_price"],
                 'item_quantity'		=>	$_POST["quantity"]
             );
