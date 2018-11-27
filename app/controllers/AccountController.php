@@ -32,15 +32,15 @@ class AccountController extends Controller
         $check = new Auth();
 
         //Filter alle formulier input
-        $vnaam = filter_input(INPUT_POST, "vnaam");
-        $anaam = filter_input(INPUT_POST, "anaam");
-        $tvnaam = filter_input(INPUT_POST, "tvnaam");
-        $send = filter_input(INPUT_POST, "send");
-        $email = filter_input(INPUT_POST, "email");
-        $telefoonNr = filter_input(INPUT_POST, "telefoonNr");
-        $username = filter_input(INPUT_POST, "username");
-        $pass1 = $check->GetHash(filter_input(INPUT_POST, "ww1"));
-        $pass2 = $check->GetHash(filter_input(INPUT_POST, "ww2"));
+        $vnaam = filter_var (filter_input(INPUT_POST, "vnaam"),FILTER_SANITIZE_STRING);
+        $anaam = filter_var(filter_input(INPUT_POST, "anaam"),FILTER_SANITIZE_STRING);
+        $tvnaam = filter_var(filter_input(INPUT_POST, "tvnaam"),FILTER_SANITIZE_STRING);
+        $send = filter_var(filter_input(INPUT_POST, "send"),FILTER_SANITIZE_STRING);
+        $email = filter_var(filter_input(INPUT_POST, "email"),FILTER_SANITIZE_STRING);
+        $telefoonNr = filter_var(filter_input(INPUT_POST, "telefoonNr"),FILTER_SANITIZE_STRING);
+        $username = filter_var(filter_input(INPUT_POST, "username"),FILTER_SANITIZE_STRING);
+        $pass1 = $check->GetHash(filter_var(filter_input(INPUT_POST, "ww1")),FILTER_SANITIZE_STRING);
+        $pass2 = $check->GetHash(filter_var(filter_input(INPUT_POST, "ww2")),FILTER_SANITIZE_STRING);
 
         $data = array();
         if(isset($vnaam)){
