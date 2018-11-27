@@ -2,6 +2,14 @@
 
 @section('head')
 
+<script>
+
+    function showMSG(){
+        alert("Product toegevoegd aan uw winkelmand")
+
+    }
+</script>
+
     <style>
 
         .image{
@@ -94,6 +102,8 @@
 
 @section('body')
     
+
+
     <br>
 
     <h1>{{$productDetails[0]->StockItemName}}</h1>
@@ -143,7 +153,7 @@
             @endif
 
             <form method="post" action="/product/addtocart/{{$productDetails[0]->StockItemID}}">
-                <button class="btn btn-success cartWishList-button" style="margin-top: 0.5rem;">
+                <button class="btn btn-success cartWishList-button" style="margin-top: 0.5rem;" onclick="showMSG()">
                     <i class="fas fa-shopping-cart fa-2x cartWishList-icon"></i>
                     <span class="cartWishList-text">In winkelwagen</span>
                 </button>

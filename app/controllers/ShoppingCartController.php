@@ -39,6 +39,7 @@ class ShoppingCartController extends Controller
      */
     public function addToCart()
     {
+              
         if(isset($_COOKIE["shopping_cart"]))
         {
             $cookie_data = stripslashes($_COOKIE['shopping_cart']);
