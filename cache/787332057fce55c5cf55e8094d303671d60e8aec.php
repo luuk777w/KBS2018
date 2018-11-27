@@ -1,5 +1,13 @@
 <?php $__env->startSection('head'); ?>
 
+<script>
+
+    function showMSG(){
+        alert("Product toegevoegd aan uw winkelmand")
+
+    }
+</script>
+
     <style>
 
         .image{
@@ -92,6 +100,8 @@
 
 <?php $__env->startSection('body'); ?>
     
+
+
     <br>
 
     <h1><?php echo e($productDetails[0]->StockItemName); ?></h1>
@@ -141,7 +151,7 @@
             <?php endif; ?>
 
             <form method="post" action="/product/addtocart/<?php echo e($productDetails[0]->StockItemID); ?>">
-                <button class="btn btn-success cartWishList-button" style="margin-top: 0.5rem;">
+                <button class="btn btn-success cartWishList-button" style="margin-top: 0.5rem;" onclick="showMSG()">
                     <i class="fas fa-shopping-cart fa-2x cartWishList-icon"></i>
                     <span class="cartWishList-text">In winkelwagen</span>
                 </button>
