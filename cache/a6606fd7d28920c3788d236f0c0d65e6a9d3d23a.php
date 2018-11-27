@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('head')
+<?php $__env->startSection('head'); ?>
 
     <style>
 
@@ -12,15 +10,15 @@
 
     </style>
 
-    @endsection
+    <?php $__env->stopSection(); ?>
 
 
-@section('body')
+<?php $__env->startSection('body'); ?>
 
 
-@if (isset($data["send"]))
+<?php if(isset($data["send"])): ?>
 
-    @php
+    <?php 
 
         $vnaam = $data["vnaam"];
         $anaam = $data["anaam"];
@@ -43,7 +41,7 @@
     }
         }
 
-    @endphp
+     ?>
 
     <div class="row">
 
@@ -51,16 +49,16 @@
             <h2 class="text-center">Uw gegevens</h2>
     <form method="post" action="register">
         <div class="red">*</div>
-        Voornaam: <input class="form-control" type="text" name="vnaam" required value="{{$vnaam}}"><br>
-    Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="{{$tvnaam}}"><br>
+        Voornaam: <input class="form-control" type="text" name="vnaam" required value="<?php echo e($vnaam); ?>"><br>
+    Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="<?php echo e($tvnaam); ?>"><br>
         <div class="red">*</div>
-        Achternaam: <input class="form-control" type="text" name="anaam" required value="{{$anaam}}"><br>
+        Achternaam: <input class="form-control" type="text" name="anaam" required value="<?php echo e($anaam); ?>"><br>
         <div class="red">*</div>
-    Emailadres: <input class="form-control" type="email" name='email' required value="{{$email}}"><br>
+    Emailadres: <input class="form-control" type="email" name='email' required value="<?php echo e($email); ?>"><br>
         <div class="red">*</div>
-    TelefoonNr: <input class="form-control" type="text" name='telefoonNr' required value="{{$telefoonNr}}"><br>
+    TelefoonNr: <input class="form-control" type="text" name='telefoonNr' required value="<?php echo e($telefoonNr); ?>"><br>
         <div class="red">*</div>
-        Gebruikersnaam: <input class="form-control" type="text" name='username' required value="{{$username}}" placeholder=""><br>
+        Gebruikersnaam: <input class="form-control" type="text" name='username' required value="<?php echo e($username); ?>" placeholder=""><br>
         <div class="red">*</div>
         Wachtwoord: <input class="form-control" type="password" name="ww1" required><br>
         <div class="red">*</div>
@@ -71,7 +69,7 @@
 
 </form>
         </div>
-@else
+<?php else: ?>
 
 
             <div class="col-5" >
@@ -100,7 +98,8 @@
 
 
             </div>
-@endif
+<?php endif; ?>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
