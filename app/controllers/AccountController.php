@@ -105,8 +105,13 @@ class AccountController extends Controller
                 //Create account
                 $newaccount = new Account();
 
-                $newaccount->CreateAccount($data);
 
+                if(!empty($newaccount->exists($username))) {
+                $msg = "De gebruikersnaam is al in gebruik, probeer het met een ander gebruikernaam.";
+
+                    return $this->view->render("register", compact("msg"));
+                }
+                $newaccount->CreateAccount($data);
                 $usid = $newaccount->login($username,$pass1);
 
                 $id = $usid[0]->CustomerID;

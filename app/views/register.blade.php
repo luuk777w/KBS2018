@@ -17,6 +17,21 @@
 
 @section('body')
 
+    @php
+    if(isset($msg)){
+    if($msg == "Het adres lijkt te bestaan!"){
+
+    print('<div class="alert alert-success" role="alert">'.$msg.'</div>');
+
+
+
+    }else{
+
+    print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
+
+    }
+    }
+    @endphp
 
 @if (isset($data["send"]))
 
@@ -31,24 +46,13 @@
         $telefoonNr = $data["telefoonNr"];
 
 
-    if(isset($msg)){
-    if($msg == "Het adres lijkt te bestaan!"){
-
-    print('<div class="alert alert-success" role="alert">'.$msg.'</div>');
-
-
-    }else{
-
-    print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
-
-    }
-        }
 
     @endphp
 
     <div class="row">
-
-        <div class="col-5">
+        <div class="col-3">
+        </div>
+        <div class="col-6">
             <h2 class="text-center">Uw gegevens</h2>
     <form method="post" action="register">
         <div class="red">*</div>
@@ -71,6 +75,9 @@
     <br>
 
 </form>
+
+        </div>
+        <div class="col-3">
         </div>
 @else
 

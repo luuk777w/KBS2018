@@ -18,6 +18,12 @@ class Account extends Model
         WHERE CustomerID = ?", [$id]);
     }
 
+    public function exists($totest)
+    {
+        return $this->db->sql("SELECT username FROM `X-customers`
+        WHERE username = ?", [$totest]);
+    }
+
     public function CreateAccount($array)
     {
         $vnaam = $array['vnaam'];
