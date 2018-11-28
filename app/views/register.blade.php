@@ -80,9 +80,9 @@
         <div class="col-3">
         </div>
 @else
-
-
-            <div class="col-5" >
+            <div class="col-3">
+            </div>
+            <div class="col-6">
                 <h2 class="text-center">Uw gegevens</h2>
             <form method="post" action="register">
     <div class="red">*</div>
@@ -107,6 +107,8 @@
 </form>
 
 
+            </div>
+            <div class="col-3">
             </div>
 @endif
     </div>
