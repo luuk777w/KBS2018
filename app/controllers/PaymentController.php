@@ -45,6 +45,10 @@ class PaymentController extends Controller
 
     public function hook()
     {
+        $order = new Orders();
+        $order->test();
+
+
         try {
             $mollie = new MollieApiClient();
             $mollie->setApiKey("test_RAnWWDeHWDMPhCzeEMvq9FtNyfgwDD");
