@@ -36,6 +36,9 @@ class PaymentController extends Controller
             "webhookUrl"  => "https://wide-world-importers.cf/mollie-webhook/",
         ]);
 
+        $order = new Orders();
+        $order->test();
+
         $auth = new Auth();
         $auth->setOneTimeAuthorization("bedankPage"); 
         setcookie("shopping_cart", "", time() - 3600, '/');
@@ -45,9 +48,6 @@ class PaymentController extends Controller
 
     public function hook()
     {
-        $order = new Orders();
-        $order->test();
-
 
         try {
             $mollie = new MollieApiClient();

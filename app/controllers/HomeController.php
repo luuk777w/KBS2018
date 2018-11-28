@@ -5,6 +5,7 @@ namespace App\Controllers;
 use Core\Auth;
 use Core\Controller;
 use App\Models\Products;
+use App\Models\Orders;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,7 @@ class HomeController extends Controller
     }
 
     function bla(){
+
         return "blaHome";
     }
 
