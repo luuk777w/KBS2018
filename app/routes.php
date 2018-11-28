@@ -2,7 +2,7 @@
 
 namespace App;
 
-Class Routes
+class Routes
 {
 
     /**
@@ -36,14 +36,13 @@ Class Routes
         'POST:order/delivery' => ['DeliveryController', 'saveDeliveryPreference'],
         'GET:order/check' => ['OrderController', 'index'],
         'POST:order/pay' => ['PaymentController', 'index'],
-        'GET:mollie-webhook' => ['PaymentController', 'hook'],
+        'POST:mollie-webhook' => ['PaymentController', 'hook'],
         'GET:bedankt' => ['PaymentController', 'bedankPage'],
         'POST:login' => ['LoginController', 'check'],
         'GET:logout' => ['LoginController', 'logout'],
         'POST:products' => ['ProductController', 'orderby'],
         'GET:account' => ['AccountController', 'index'],
         'GET:register' => ['AccountController', 'register'],
-        'POST:register' => ['AccountController', 'register']
-
+        'POST:register' => ['AccountController', 'register'],
     ];
 }

@@ -8,7 +8,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Wide World Importers GANG</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js">
 
     <style>
         
@@ -89,7 +88,7 @@
                 <br>Min. Prijs:
                 <input type="number" min="0" class="prijsl" name="minprijs">
                 Max. Prijs:<input type="number" min="0" max="90000" class="prijsr" name="maxprijs">
-                <input name='sorteren' type="submit" value="sorteren" class="btn btn-outline-primary">
+                <input name='sorteren' type="submit" value="sorteren" class="btn btn-outline-primary" style="height: 2rem">
                 <br><br>
             </form>
             {{-- Voor ieder product in de array uit de database die je dit --}}
