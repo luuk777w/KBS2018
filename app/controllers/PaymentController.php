@@ -7,6 +7,7 @@ use Core\Auth;
 use App\Models\Categories;
 use App\Models\Products;
 use Mollie\Api\MollieApiClient;
+use App\Models\Orders;
 
 class PaymentController extends Controller
 {
@@ -52,7 +53,8 @@ class PaymentController extends Controller
 
             if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
 
-                
+                $order = new Orders();
+                $order->test();
 
             } elseif ($payment->isOpen()) {
                 /*

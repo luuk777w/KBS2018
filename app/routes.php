@@ -42,5 +42,8 @@ Class Routes
         'GET:logout' => ['LoginController', 'logout'],
         'POST:products' => ['ProductController', 'orderby'],
         'GET:account' => ['AccountController', 'index'],
+        'GET:register' => ['AccountController', 'register'],
+        'POST:register' => ['AccountController', 'register']
+
     ];
 }

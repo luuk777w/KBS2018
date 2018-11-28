@@ -63,6 +63,7 @@ class LoginController extends Controller
 
     }
 
+
     public function logout(){
 
         //unset de Token zodat de gebruiker opnieuw in moet loggen, en verwijder de sessie

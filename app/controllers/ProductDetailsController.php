@@ -87,6 +87,7 @@ class ProductDetailsController extends Controller
         //Voeg het Item toe aan de winkelwagen
         $shoppingCartController->addToCart();
 
+        
         //Redirect naar de productDetail pagina
         return header("location:/product/".$product[0]->StockItemID);
     }

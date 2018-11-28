@@ -4,15 +4,11 @@
 
     <h2>Welkom <?php echo e($data[0]->Firstname); ?></h2>
 
-    <?php echo e(print_r($data)); ?>
-
-
     <?php else: ?> 
 
-    not found anythig blyat
+        Er is iets fout gegaan, probeer opnieuw in te loggen. Als het probleem zich blijft voordoen neem dan contact met ons op.
 
     <?php endif; ?>
-
 
 <?php $__env->stopSection(); ?>
 

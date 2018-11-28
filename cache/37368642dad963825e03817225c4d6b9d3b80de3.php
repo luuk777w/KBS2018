@@ -32,8 +32,10 @@
     <div class="col">
 
         <h4>Bezorgen:</h4>
+        Laat uw pakket door PostNL bezorgen wanneer het u uitkomt! Kosten zijn: <br> €2.95 als uw bestelling onder de €20,00- is, daarboven is het gratis!.<br>
 
-        <?php $__currentLoopData = $dates; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $date): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<br>
+    <?php $__currentLoopData = $dates; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $date): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="deliveryDate" value="HOME:<?php echo e($date->Date); ?>" <?php if($date->Date == $dates[0]->Date): ?> checked <?php endif; ?>>
@@ -48,7 +50,8 @@
     </div>
     <div class="col">
         <h4>Ophalen:</h4>
-
+        Haal uw pakket op bij een PostNL service punt wanneer het u uitkomt! Kosten zijn: <br>€2.95 als uw bestelling onder de €20,00- is, daarboven is het gratis!<br>
+        <br>
         <?php $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
         <div class="form-check">

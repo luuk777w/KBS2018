@@ -31,7 +31,7 @@ class DB
             return $data;
         } else {
             $sql = $this->connection->prepare($statement);
-            return $sql->execute();
+            return $sql->execute($params);
         }
     }
 
