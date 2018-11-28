@@ -1,21 +1,8 @@
 <?php $__env->startSection('body'); ?>
 
-
     <?php if(!empty($data)): ?>
 
     <h2>Welkom <?php echo e($data[0]->Firstname); ?></h2>
-
-    <ul class="nav nav-pills">
-        <li class="nav-item">
-            <a class="nav-link active" href="/account">Mijn account</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/account/naw">NAW-Gegevens</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/account/orders">Mijn Orders</a>
-        </li>
-    </ul>
 
     <?php else: ?> 
 

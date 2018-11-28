@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use Core\Auth;
 use Core\Controller;
+use app\Controllers\logincontroller;
+
 use App\Models\Account;
 
 class AccountController extends Controller
@@ -84,8 +86,6 @@ class AccountController extends Controller
             $data['send']=0;
         };
 
-        var_dump($data);
-
         if ($data['send']==1) {
 
             if($pass1 != $pass2){
@@ -103,15 +103,20 @@ class AccountController extends Controller
 
 
                 //Create account
-                $auth = new Auth();
-                $account = new Account();
+                $newaccount = new Account();
 
-                $account->CreateAccount($data);
+                $newaccount->CreateAccount($data);
 
-                //roep de view aan
-                $data = $account->getAccount($auth->getId());
+                $usid = $newaccount->login($username,$pass1);
 
-                return $this->view->render("account", compact("data"));
+                $id = $usid[0]->CustomerID;
+
+
+                //voer de check uit met de vorige gecleande gegevens
+                $check->login($id);
+
+                    return header("Location: /account");
+
 
 
             }else{
