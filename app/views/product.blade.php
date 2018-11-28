@@ -97,6 +97,15 @@
     <br>
 
     <h1>{{$productDetails[0]->StockItemName}}</h1>
+    @if($productDetails[0]->QuantityOnHand <= 5 AND $productDetails[0]->QuantityOnHand > 0)
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>!Let op!</strong> <br> Let op, de er zijn nog maar enkele exmplaren op voorraad van dit product
+            {{--<button type="button" class="close" data-dismiss="alert" aria-label="Close">--}}
+                {{--<span aria-hidden="true">&times;</span>--}}
+            </button>
+        </div>
+
+    @endif
 
     <div class="row">
 
