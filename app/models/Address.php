@@ -24,11 +24,11 @@ class Address extends Model
                                 WHERE CustomerID = ?", [$userid]);
     }
 
-    public function updateNAW($adresid, $input)
+    public function updateNAW($CustomerID, $IsDeliveryAddress, $Street, $HouseNr, $PostalCode, $City, $Country)
     {
         return $this->db->sql("Update `X-address`
-                                set ?
-                                WHERE AdressID = ?", [$input,$adresid]);
+                                set  IsDeliveryAddress = ?, Street = ?, HouseNr = ? , PostalCode = ?, City = ?, Country = ?
+                                WHERE CustomerID = ?", [$IsDeliveryAddress, $Street, $HouseNr, $PostalCode, $City, $Country,$CustomerID]);
     }
 
 }
