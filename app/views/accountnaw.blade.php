@@ -38,7 +38,7 @@
             @endphp
 
             <div class="container col-5">
-                U kunt ze hier ook aanpassen door de nieuwe gegenvens hieronder intevullen en te klikken op Opslaan<br>
+                U kunt ze hier ook aanpassen door de nieuwe gegevens hieronder intevullen en te klikken op Opslaan<br>
 
                 <form action="/account/naw" method="post">
                     Huisnummer:<br>
