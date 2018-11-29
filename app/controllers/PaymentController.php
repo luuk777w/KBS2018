@@ -39,6 +39,8 @@ class PaymentController extends Controller
         $auth->setOneTimeAuthorization("bedankPage");
         setcookie("shopping_cart", "", time() - 3600, '/');
 
+
+
         return header("Location: " . $payment->getCheckoutUrl(), true, 303);
     }
 
@@ -53,14 +55,13 @@ class PaymentController extends Controller
 
             if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
 
-                //TODO: Check if user is logged in en dan de rest van de logica #EngelsEnNederlansDoorElkaar #swag
-
-                $order = new Orders();
-                $account = new Account();
+                //TODO: Check of de bestelling wel daadwerkelijk is gelukt
 
                 session_start();
 
-                $account->addCustomer($_SESSION["customer"]["Firstname"], $_SESSION["customer"]["Lastname"], $_SESSION["customer"]["Preposition"], $_SESSION["customer"]["Firstname"], $_SESSION["customer"]["Email"], $_SESSION["customer"]["PhoneNr"]);
+                $account = new Account();
+                $account->addCustomer($_SESSION["customer"]["Firstname"], $_SESSION["customer"]["Lastname"], $_SESSION["customer"]["Preposition"], $_SESSION["customer"]["Email"], $_SESSION["customer"]["PhoneNr"]);
+        
 
             } elseif ($payment->isOpen()) {
                 /*
