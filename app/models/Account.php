@@ -41,7 +41,7 @@ class Account extends Model
     public function addCustomer($firstname, $lastname, $preposition, $email, $phonenr)
     {
         return $this->db->sql("INSERT INTO `X-customers`(Firstname, Lastname, Preposition, Email, PhoneNr)
-                                VALUES (?, ?, ?, ?, ?", [$firstname, $lastname, $preposition, $email, $phonenr]);
+                                VALUES (?, ?, ?, ?, ?)", [$firstname, $lastname, $preposition, $email, $phonenr]);
     }
 
     public function getCustomerByEmail($email)
