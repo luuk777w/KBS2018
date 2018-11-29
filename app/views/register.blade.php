@@ -25,10 +25,6 @@
 
 
 
-    }else{
-
-    print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
-
     }
     }
     @endphp
@@ -44,6 +40,11 @@
         $email = $data["email"];
         $username = $data["username"];
         $telefoonNr = $data["telefoonNr"];
+
+
+
+    print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
+
 
 
 
@@ -63,7 +64,7 @@
         <div class="red">*</div>
     Emailadres: <input class="form-control" type="email" name='email' required value="{{$email}}"><br>
         <div class="red">*</div>
-    TelefoonNr: <input class="form-control" type="text" name='telefoonNr' required value="{{$telefoonNr}}"><br>
+    TelefoonNr: <input class="form-control" type="number" minlength="6" name='telefoonNr' required value="{{$telefoonNr}}"><br>
         <div class="red">*</div>
         Gebruikersnaam: <input class="form-control" type="text" name='username' required value="{{$username}}" placeholder=""><br>
         <div class="red">*</div>
@@ -93,7 +94,7 @@
     <div class="red">*</div>
     Emailadres: <input class="form-control" type="email" name='email' required value="" placeholder="sjorsbekendvantv@gmail.com"><br>
     <div class="red">*</div>
-    TelefoonNr: <input class="form-control" type="text" name='telefoonNr' required value="" placeholder="0612345678"><br>
+    TelefoonNr: <input class="form-control" type="number" minlength="6" name='telefoonNr' required value="" placeholder="0612345678"><br>
     <div class="red">*</div>
     Gebruikersnaam: <input class="form-control" type="text" name='username' required value="" placeholder=""><br>
     <div class="red">*</div>

@@ -86,7 +86,7 @@ class AccountController extends Controller
             $data['send']=0;
         };
 
-        if ($data['send']==1) {
+        if (isset($data['send'])) {
 
             if($pass1 != $pass2){
 
@@ -123,17 +123,6 @@ class AccountController extends Controller
                     return header("Location: /account");
 
 
-
-            }else{
-
-                //Start de sessie en sla de Data array op in de sessie voor later gebruik
-                session_start();
-                $_SESSION['naw'] = $data;
-
-                $msg = "Niet alle gegevens zijn ingevuld, probeer het nog een keer";
-
-                //roep de view aan
-                return $this->view->render("register", compact("msg", "data"));
 
             }
 

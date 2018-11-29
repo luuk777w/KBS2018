@@ -23,10 +23,6 @@
 
 
 
-    }else{
-
-    print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
-
     }
     }
      ?>
@@ -42,6 +38,11 @@
         $email = $data["email"];
         $username = $data["username"];
         $telefoonNr = $data["telefoonNr"];
+
+
+
+    print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
+
 
 
 
@@ -61,7 +62,7 @@
         <div class="red">*</div>
     Emailadres: <input class="form-control" type="email" name='email' required value="<?php echo e($email); ?>"><br>
         <div class="red">*</div>
-    TelefoonNr: <input class="form-control" type="text" name='telefoonNr' required value="<?php echo e($telefoonNr); ?>"><br>
+    TelefoonNr: <input class="form-control" type="number" minlength="6" name='telefoonNr' required value="<?php echo e($telefoonNr); ?>"><br>
         <div class="red">*</div>
         Gebruikersnaam: <input class="form-control" type="text" name='username' required value="<?php echo e($username); ?>" placeholder=""><br>
         <div class="red">*</div>
@@ -78,9 +79,9 @@
         <div class="col-3">
         </div>
 <?php else: ?>
-
-
-            <div class="col-5" >
+            <div class="col-3">
+            </div>
+            <div class="col-6">
                 <h2 class="text-center">Uw gegevens</h2>
             <form method="post" action="register">
     <div class="red">*</div>
@@ -91,7 +92,7 @@
     <div class="red">*</div>
     Emailadres: <input class="form-control" type="email" name='email' required value="" placeholder="sjorsbekendvantv@gmail.com"><br>
     <div class="red">*</div>
-    TelefoonNr: <input class="form-control" type="text" name='telefoonNr' required value="" placeholder="0612345678"><br>
+    TelefoonNr: <input class="form-control" type="number" minlength="6" name='telefoonNr' required value="" placeholder="0612345678"><br>
     <div class="red">*</div>
     Gebruikersnaam: <input class="form-control" type="text" name='username' required value="" placeholder=""><br>
     <div class="red">*</div>
@@ -105,6 +106,8 @@
 </form>
 
 
+            </div>
+            <div class="col-3">
             </div>
 <?php endif; ?>
     </div>
