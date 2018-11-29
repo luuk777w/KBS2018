@@ -82,8 +82,6 @@ class AccountController extends Controller
         };
         if(isset($send)){
             $data['send']= 1;
-        }else{
-            $data['send']=0;
         };
 
         if (isset($data['send'])) {
