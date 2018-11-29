@@ -4,7 +4,8 @@ namespace App\Controllers;
 
 use Core\Auth;
 use Core\Controller;
-use app\Controllers\logincontroller;
+use App\Models\Address;
+use App\Models\Orders;
 
 use App\Models\Account;
 
@@ -41,8 +42,8 @@ class AccountController extends Controller
         $email = filter_var(filter_input(INPUT_POST, "email"),FILTER_SANITIZE_STRING);
         $telefoonNr = filter_var(filter_input(INPUT_POST, "telefoonNr"),FILTER_SANITIZE_STRING);
         $username = filter_var(filter_input(INPUT_POST, "username"),FILTER_SANITIZE_STRING);
-        $pass1 = $check->GetHash(filter_var(filter_input(INPUT_POST, "ww1")),FILTER_SANITIZE_STRING);
-        $pass2 = $check->GetHash(filter_var(filter_input(INPUT_POST, "ww2")),FILTER_SANITIZE_STRING);
+        $pass1 = $check->GetHash(filter_var(filter_input(INPUT_POST, "ww1"),FILTER_SANITIZE_STRING));
+        $pass2 = $check->GetHash(filter_var(filter_input(INPUT_POST, "ww2"),FILTER_SANITIZE_STRING));
 
         $data = array();
         if(isset($vnaam)){
@@ -84,7 +85,7 @@ class AccountController extends Controller
             $data['send']= 1;
         };
 
-        if (isset($data['send'])) {
+        if ($data['send']==1) {
 
             if($pass1 != $pass2){
 
@@ -109,6 +110,7 @@ class AccountController extends Controller
 
                     return $this->view->render("register", compact("msg"));
                 }
+
                 $newaccount->CreateAccount($data);
                 $usid = $newaccount->login($username,$pass1);
 
@@ -130,6 +132,76 @@ class AccountController extends Controller
 
         }
     }
+
+    public function NAW()
+    {
+
+        $auth = new Auth();
+        if(!$auth->isLoggedIn()){
+            return $auth->error401();
+        }
+
+        $account = new Account();
+
+        $uid = $account->getAccount($auth->getId());
+
+        $address = new Address();
+
+        $data = $address->getAddressByUID($uid);
+
+        if($data[0]!=""){
+
+
+            return $this->view->render("account/naw",compact('data'));
+
+        }else{
+
+            $newNAW = true;
+
+            return $this->view->render("account/naw",compact('newNAW'));
+
+
+        }
+
+    }
+    public function showorders(){
+
+        $auth = new Auth();
+        if(!$auth->isLoggedIn()){
+            return $auth->error401();
+        }
+        $account = new Account();
+
+        $uid = $account->getAccount($auth->getId());
+
+        $orders = new Orders();
+        $allorders = $orders->showorders($uid);
+
+        var_dump($allorders);
+
+
+        $userdata = $account->getAccount($auth->getId());
+
+        return $this->view->render("accountorders",compact('allorders', "userdata"));
+
+
+    }
+
+    public function addNAW(){
+
+        $auth = new Auth();
+        $account = new Account();
+
+        $uid = $account->getAccount($auth->getId());
+
+        $address = new Address();
+
+        $data = $address->getAddressByUID($uid);
+
+    }
+
+
+
 
 
 }

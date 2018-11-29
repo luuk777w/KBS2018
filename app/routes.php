@@ -44,5 +44,8 @@ class Routes
         'GET:account' => ['AccountController', 'index'],
         'GET:register' => ['AccountController', 'register'],
         'POST:register' => ['AccountController', 'register'],
+        'GET:account/naw' => ['AccountController', 'naw'],
+        'GET:account/orders' => ['AccountController', 'showorders'],
+
     ];
 }

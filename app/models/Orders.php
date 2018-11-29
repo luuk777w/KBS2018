@@ -33,4 +33,12 @@ class Orders extends Model
                                 AND OrderID NOT IN (SELECT OrderID 
                                                     FROM `X-orderlines`)", [$customerID]);
     }
+
+    public function showorders($customerID)
+    {
+        return $this->db->sql("Select * from `X-orders` O
+join `X-orderlines` using(OrderID)
+Join stockitems using(StockitemID)
+WHERE O.customerID = ?", ["{$customerID}"]);
+    }
 }

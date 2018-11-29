@@ -18,4 +18,17 @@ class Address extends Model
                                 WHERE Postalcode = ? AND HouseNr = ?", [$PostalCode, $HouseNr]);
     }
 
+    public function getAddressByUID($userid)
+    {
+        return $this->db->sql("SELECT * FROM `X-address`
+                                WHERE CustomerID = ?", [$userid]);
+    }
+
+    public function updateNAW($adresid, $input)
+    {
+        return $this->db->sql("Update `X-address`
+                                set ?
+                                WHERE AdressID = ?", [$input,$adresid]);
+    }
+
 }
