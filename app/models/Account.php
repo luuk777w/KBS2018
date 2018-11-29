@@ -37,4 +37,16 @@ class Account extends Model
         return $this->db->sql("Insert into `X-customers`(Firstname, Lastname, Preposition, Email, PhoneNr, Username, Password)
         Values (?, ?, ?, ?, ?, ?, ?)", [$vnaam, $anaam, $tvnaam, $email, $phone, $user, $pass]);
     }
+
+    public function addCustomer($firstname, $lastname, $preposition, $email, $phonenr)
+    {
+        return $this->db->sql("INSERT INTO `X-customers`(Firstname, Lastname, Preposition, Email, PhoneNr)
+                                VALUES (?, ?, ?, ?, ?", [$firstname, $lastname, $preposition, $email, $phonenr]);
+    }
+
+    public function getCustomerByEmail($email)
+    {
+        return $this->db->sql("SELECT * FROM `X-customers`
+                                WHERE Email = ?", [$email]);
+    }
 }

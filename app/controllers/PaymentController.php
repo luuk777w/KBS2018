@@ -6,6 +6,7 @@ use App\Models\Orders;
 use Core\Auth;
 use Core\Controller;
 use Mollie\Api\MollieApiClient;
+use App\Models\Account;
 
 class PaymentController extends Controller
 {
@@ -52,10 +53,14 @@ class PaymentController extends Controller
 
             if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
 
-                return header("Location: /products");
+                //TODO: Check if user is logged in en dan de rest van de logica #EngelsEnNederlansDoorElkaar #swag
 
                 $order = new Orders();
-                $order->test();
+                $account = new Account();
+
+                session_start();
+
+                $account->addCustomer($_SESSION["customer"]["Firstname"], $_SESSION["customer"]["Lastname"], $_SESSION["customer"]["Preposition"], $_SESSION["customer"]["Firstname"], $_SESSION["customer"]["Email"], $_SESSION["customer"]["PhoneNr"]);
 
             } elseif ($payment->isOpen()) {
                 /*
