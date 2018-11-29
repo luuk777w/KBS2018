@@ -66,8 +66,10 @@
                 <td align="left"><b>€ {{$total}}</b></td>
             </tr>
         </table>
+
         <br>
         <form action="/order/pay" method="post">
+            <input type="checkbox" required value=""> Ik ga akoord met de <a href="/assets/Algemene_Voorwaarden/Algemene%20Voorwaarden.pdf" target="_blank">Algemene Voorwaarden</a>
             <input type="submit" class="btn btn-primary" style="float: right" value="Betalen met iDeal">
         </form>
     </div>
