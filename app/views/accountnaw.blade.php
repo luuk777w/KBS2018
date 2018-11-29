@@ -25,7 +25,7 @@
 
         @if(!isset($data))
 
-            <h2>Er zijn nog geen NAW gegevens van u bekent</h2>
+            <h2>Er zijn nog geen NAW gegevens van u bekend</h2>
             Vul deze hieronder in en klik op Opslaan<br>
 
             @php
@@ -40,7 +40,7 @@
             <div class="container col-5">
                 U kunt ze hier ook aanpassen door de nieuwe gegenvens hieronder intevullen en te klikken op Opslaan<br>
 
-                <form action="/account/naw-update" method="post">
+                <form action="/account/naw" method="post">
                     Huisnummer:<br>
                     <input type="text"  name="num" placeholder="13"><br>
                     Postcode: <br>
