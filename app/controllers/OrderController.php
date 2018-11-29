@@ -51,9 +51,11 @@ class OrderController extends Controller
             "PhoneNr" => $_SESSION["naw"]["telefoonNr"],
         ];
 
+        $date = new \DateTime();
+
         $order = [
             "CustomerID" => $auth->getId(),
-            "OrderDate" => new \DateTime(),
+            "OrderDate" => $date->format('d-m-Y H:i:s'),
             "PostNLTT" => "XXX",
         ];
 

@@ -14,8 +14,8 @@ class Orders extends Model
 
     public function addOrderLine($OrderID, $StockItemID, $Quantity, $Price, $TaxRate)
     {
-        return $this->db->sql("Insert into `X-orderlines`(OrderID, StockItemID, Quantity, Price, TaxRate)
-        Values (?, ?, ?, ?, ?)", [$OrderID, $StockItemID, $Quantity, $Price, $TaxRate]);
+        return $this->db->sql("INSERT INTO `X-orderlines`(OrderID, StockItemID, Quantity, Price, TaxRate)
+        VALUES (?, ?, ?, ?, ?)", [$OrderID, $StockItemID, $Quantity, $Price, $TaxRate]);
     }
 
     public function getEmptyOrderByCustomerID($customerID)
