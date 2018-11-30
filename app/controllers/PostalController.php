@@ -33,15 +33,13 @@ class PostalController extends Controller
             $data['street'] = $userdata[0]->Street;
             $data['huisnummer'] = $userdata[0]->HouseNr;
             $data['city'] = $userdata[0]->City;
-            
+
             //Start de sessie en sla de Data array op in de sessie voor later gebruik
             session_start();
             $_SESSION['naw']=$data;
 
             $loggedin = true;
-
-            var_dump($userdata);
-
+            
 
             return $this->view->render("postcodecheck" , compact("userdata", "loggedin"));
 
