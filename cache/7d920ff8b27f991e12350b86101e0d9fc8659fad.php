@@ -63,6 +63,7 @@ margin: 0px !important;
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('body'); ?>
+
 <div class="container">
   <div class="row">
     <div class="col-sm"><i class="fas fa-check services-check-icon"></i>
@@ -161,7 +162,7 @@ $a4 = rand(15, 20);
       <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[$a1]->PrimaryMediaURL); ?>')"></div>
 
       <?php else: ?>
-      <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
+      <div class="card-img-top" style="background-image: url('/assets/img/placeholder.jpg')"></div>
       <?php endif; ?>
       <div class="card-body">
         <h5 class="card-title"><?php echo e($products[$a1]->StockItemName); ?></h5>
@@ -176,7 +177,7 @@ $a4 = rand(15, 20);
       <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[$a2]->PrimaryMediaURL); ?>')"></div>
 
       <?php else: ?>
-      <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
+      <div class="card-img-top" style="background-image: url('/assets/img/placeholder.jpg')"></div>
       <?php endif; ?>
       <div class="card-body">
         <h5 class="card-title"><?php echo e($products[$a2]->StockItemName); ?></h5>
@@ -191,7 +192,7 @@ $a4 = rand(15, 20);
       <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[$a3]->PrimaryMediaURL); ?>')"></div>
 
       <?php else: ?>
-      <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
+      <div class="card-img-top" style="background-image: url('/assets/img/placeholder.jpg')"></div>
       <?php endif; ?>
       <div class="card-body">
         <h5 class="card-title"><?php echo e($products[$a3]->StockItemName); ?></h5>
@@ -206,7 +207,7 @@ $a4 = rand(15, 20);
       <div class="card-img-top" style="background-image: url('/assets/img/<?php echo e($products[$a4]->PrimaryMediaURL); ?>')"></div>
 
       <?php else: ?>
-      <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
+      <div class="card-img-top" style="background-image: url('/assets/img/placeholder.jpg')"></div>
       <?php endif; ?>
       <div class="card-body">
         <h5 class="card-title"><?php echo e($products[$a4]->StockItemName); ?></h5>
