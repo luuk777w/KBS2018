@@ -159,6 +159,7 @@
 
             @if ($productDetails[0]->IsChillerStock)
                 <p class="cooledProduct"><i class="fas fa-snowflake cooledProduct-icon"></i>Let op! dit is een gekoeld product.</p>
+                De huidige temperatuur is {{$temp}} °C.
             @endif
 
             <form method="post" action="/product/addtocart/{{$productDetails[0]->StockItemID}}">

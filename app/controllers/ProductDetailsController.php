@@ -6,6 +6,7 @@ use Core\Controller;
 use App\Models\Products;
 use App\Models\Categories;
 use App\Models\Media;
+use App\Models\Temp;
 
 class ProductDetailsController extends Controller
 {
@@ -33,14 +34,26 @@ class ProductDetailsController extends Controller
         //Krijg alle categorieen.
         $categories = $categoriesModel->getCategorynames();
 
+
+
         //Check of het ID en de naam in de URL overeen komen, zo niet, vervang die dan voor de juiste URL
         if($productName !== str_replace('?', '', str_replace(' ', '-',  str_replace('/', ' ', $productDetails[0]->StockItemName))))
         {
             return header("Location: /product/${productId}/". str_replace(' ', '-', str_replace('/', ' ', $productDetails[0]->StockItemName)));
         }
 
+        $temp = 0;
+
+        if($productDetails['IsChillerStock'] == 1){
+
+            $gettemp = new Temp();
+            $dbtemp = $gettemp->get();
+            $temp = $dbtemp;
+
+        }
+        var_dump($productDetails->IsChillerStock);
         //Render de view en geef de ProductDetails, media en categorieen mee
-        return $this->view->render("product", compact("productDetails", "media", "categories"));
+        return $this->view->render("product", compact("productDetails", "media", "categories", "temp"));
     }
 
     /**
