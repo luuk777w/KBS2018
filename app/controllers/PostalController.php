@@ -5,11 +5,32 @@ namespace App\Controllers;
 
 use Core\Auth;
 use Core\Controller;
+use App\Models\Account;
+
 
 class PostalController extends Controller
 {
     //Laat de check pagina zien zonder dat iets is ingevuld
     public function index(){
+
+        $check = new Auth();
+
+        if($check->isLoggedIn()){
+
+            $account = new Account();
+
+            $id = $check->getId();
+            $userdata = $account->Getaddres($id);
+
+            $loggedin = true;
+
+            var_dump($userdata);
+
+
+            return $this->view->render("postcodecheck" , compact("userdata", "loggedin"));
+
+        }
+
         return $this->view->render("postcodecheck");
     }
 
