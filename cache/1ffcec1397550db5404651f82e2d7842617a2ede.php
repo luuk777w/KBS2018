@@ -107,7 +107,7 @@
     <h1><?php echo e($productDetails[0]->StockItemName); ?></h1>
     <?php if($productDetails[0]->QuantityOnHand <= 25 AND $productDetails[0]->QuantityOnHand > 0): ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>!Let op!</strong> <br> Let op, de er zijn nog maar enkele exmplaren op voorraad van dit product
+            <strong>!Let op!</strong> <br> Let op, er zijn nog maar enkele exmplaren op voorraad van dit product.
             
                 
             
@@ -157,7 +157,7 @@
 
             <?php if($productDetails[0]->IsChillerStock): ?>
                 <p class="cooledProduct"><i class="fas fa-snowflake cooledProduct-icon"></i>Let op! dit is een gekoeld product.</p>
-                De huidige temperatuur is <?php echo e($temp); ?> °C.
+                De huidige temperatuur is  <p class="cooledProduct"><?php echo e($temp[0]->Temp); ?> °C.</p>
             <?php endif; ?>
 
             <form method="post" action="/product/addtocart/<?php echo e($productDetails[0]->StockItemID); ?>">

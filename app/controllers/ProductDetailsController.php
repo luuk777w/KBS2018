@@ -42,16 +42,12 @@ class ProductDetailsController extends Controller
             return header("Location: /product/${productId}/". str_replace(' ', '-', str_replace('/', ' ', $productDetails[0]->StockItemName)));
         }
 
-        $temp = 0;
 
-        if($productDetails['IsChillerStock'] == 1){
 
             $gettemp = new Temp();
             $dbtemp = $gettemp->get();
             $temp = $dbtemp;
 
-        }
-        var_dump($productDetails->IsChillerStock);
         //Render de view en geef de ProductDetails, media en categorieen mee
         return $this->view->render("product", compact("productDetails", "media", "categories", "temp"));
     }

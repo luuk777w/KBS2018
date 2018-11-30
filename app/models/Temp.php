@@ -8,7 +8,7 @@ class Temp extends Model
 {
     public function get()
     {
-        return $this->db->sql("SELECT avg(Temperature) from `coldroomtemperatures`");
+        return $this->db->sql("SELECT avg(Temperature) Temp FROM coldroomtemperatures");
     }
 
     public function update($username, $pass)
