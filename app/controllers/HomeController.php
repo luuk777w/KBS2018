@@ -20,8 +20,6 @@ class HomeController extends Controller
         $productsmodel = new Products();
         $products = $productsmodel->getProducts();
 
-        print(com_create_guid());
-
         return $this->view->render("home", compact("products"));
     }
 
