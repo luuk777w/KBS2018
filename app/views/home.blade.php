@@ -141,7 +141,7 @@ margin: 0px !important;
 
 
 <?php
-$a1 = rand(0,2);
+$a1 = 1;
 $a2 = rand(5, 10);
 $a3 = rand(10, 15);
 $a4 = rand(15, 20);
