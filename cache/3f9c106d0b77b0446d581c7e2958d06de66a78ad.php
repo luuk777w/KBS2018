@@ -12,7 +12,6 @@
 
     <?php $__env->stopSection(); ?>
 
-
 <?php $__env->startSection('body'); ?>
 
 
@@ -38,6 +37,53 @@
 </svg>
 <br>
 
+
+<?php if(!empty($userdata)&&$loggedin == true): ?>
+
+    <div class="row">
+
+        <div class="col-5">
+            <h2 class="text-center">Uw gegevens</h2>
+            <form method="post" action="/order/naw">
+                <div class="red">*</div>
+                Voornaam: <input class="form-control" type="text" name="vnaam" required value="<?php echo e($userdata[0]->Firstname); ?>"><br>
+                Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="<?php echo e($userdata[0]->Prepositions); ?>"><br>
+                <div class="red">*</div>
+                Achternaam: <input class="form-control" type="text" name="anaam" required value="<?php echo e($userdata[0]->Lastname); ?>"><br>
+                <div class="red">*</div>
+                Postcode: <input class="form-control" type="text" name="code" required value="<?php echo e($userdata[0]->Postalcode); ?>"><br>
+                <div class="red">*</div>
+                Huisnummer: <input class="form-control" type="text" name="num" required value="<?php echo e($userdata[0]->HouseNr); ?>"><br>
+                <div class="red">*</div>
+                Emailadres: <input class="form-control" type="email" name='email' required value="<?php echo e($userdata[0]->Email); ?>"><br>
+                <div class="red">*</div>
+                TelefoonNr: <input class="form-control" type="text" name='telefoonNr' required value="<?php echo e($userdata[0]->PhoneNr); ?>"><br>
+
+                <div class="red">* = Verplicht</div><br>
+                <input type="submit" name="send" class="btn btn-primary" value="Postcode Check">
+                <br>
+
+            </form>
+        </div>
+        <div class="col-6">
+
+            <h3 class="text-center">Uw ingevulde gegevens</h3><br>
+            <table style="margin-left: 10%">
+                <tr><td>Voornaam</td><td>   </td><td><?php echo e($userdata[0]->Firstname); ?></td></tr>
+                <tr><td>Achternaam</td><td>   </td><td><?php echo e($userdata[0]->Lastname); ?></td></tr>
+                <tr><td>Straat</td><td>   </td><td><?php echo e($userdata[0]->Street); ?></td></tr>
+                <tr><td>Huisnummer</td>   <td></td><td><?php echo e($userdata[0]->HouseNr); ?></td></tr>
+                <tr><td>Postcode</td><td>   </td><td><?php echo e($userdata[0]->Postalcode); ?></td></tr>
+                <tr><td>Provincie</td><td>   </td><td><?php echo e($userdata[0]); ?></td></tr>
+                <tr><td>Stad</td><td></td>   <td><?php echo e($userdata[0]->City); ?></td></tr>
+                <tr><td>Email-adres</td><td>   </td><td><?php echo e($userdata[0]->Email); ?></td></tr>
+                <tr><td>TelefoonNr</td><td>   </td><td><?php echo e($userdadta[0]->PhoneNr); ?></td></tr>
+
+            </table>
+
+    <a href="/order/delivery" style="margin-left: 10rem" class="btn btn-primary">Bezorgmoment kiezen</a>
+
+<?php endif; ?>
 <?php if(!empty($_POST["send"])): ?>
 
     <?php 
@@ -114,7 +160,8 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
 <?php endif; ?>
 
         </div>
-<?php else: ?>
+<?php endif; ?>
+        <?php if($loggedin == false): ?>
 
 
             <div class="col-5" >
