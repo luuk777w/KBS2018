@@ -9,31 +9,33 @@ class TempController extends Controller
 {
 
 
-    public function UpdateTemp(){
+    public function updateTemp(){
 
-//Make sure that it is a POST request.
-if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') != 0){
-    throw new Exception('Request method must be POST!');
-}
+        print ("X");
 
-//Make sure that the content type of the POST request has been set to application/json
-$contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
-if(strcasecmp($contentType, 'application/json') != 0){
-    throw new Exception('Content type must be: application/json');
-}
-
-//Receive the RAW post data.
-$content = trim(file_get_contents("php://input"));
-
-//Attempt to decode the incoming RAW post data from JSON.
-$decoded = json_decode($content, true);
-
-//If json_decode failed, the JSON is invalid.
-if(!is_array($decoded)){
-    throw new Exception('Received content contained invalid JSON!');
-}
 
 //Process the JSON.
+
+       // $temp = $_SERVER['HEADER_temp'];
+       // $time = $_SERVER['HEADER_time'];
+
+
+//         $clean1 = filter_var($time,FILTER_SANITIZE_STRING );
+//                $time = $clean1;
+//
+//                $clean2 = filter_var($temp, FILTER_SANITIZE_STRING);
+//                $temp = $clean2;
+//
+//
+//
+//
+//
+//        $dbtemp = new Temp();
+//
+//    $dbtemp->update($time, $temp);
+
+        //var_dump($temp, $time);
+
     }
 
 

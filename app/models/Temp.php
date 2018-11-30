@@ -11,10 +11,10 @@ class Temp extends Model
         return $this->db->sql("SELECT avg(Temperature) from `coldroomtemperatures`");
     }
 
-    public function update($username, $pass)
+    public function update($time, $temp)
     {
-        return $this->db->sql("SELECT * FROM `X-customers` 
-        WHERE username = ? and password = ?", [$username, $pass]);
+        return $this->db->sql("INSERT into `coldroomtemperatures` (ColdRoomSensorNumber, RecordedWhen, Temperature, ValidFrom, ValidTo)
+        VALUES (1, ?, ? , ? , '9999-12-31 23:59:59')", [$time, $temp, $time]);
     }
 
 }
