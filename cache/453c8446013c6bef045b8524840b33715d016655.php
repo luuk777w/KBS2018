@@ -31,7 +31,6 @@
                 <th width="15%">Totaal</th>
             </tr>
             <?php 
-            print_r($allorders);
                 $total = 0;
              ?>
             <?php $__currentLoopData = $allorders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $keys => $values): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

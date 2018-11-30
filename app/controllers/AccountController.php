@@ -179,10 +179,8 @@ class AccountController extends Controller
         $orders = new Orders();
         $allorders = $orders->showorders($uid);
 
-        var_dump($allorders, $uid);
 
-
-        $userdata = $account->getAccount($auth->getId());
+        $userdata = $account->getAccount($uid);
 
         return $this->view->render("accountorders",compact('allorders', "userdata"));
 
@@ -212,8 +210,9 @@ class AccountController extends Controller
 
         $account = new Account();
         $auth = new Auth();
+        $userid = $auth->getId();
 
-        $userdata = $account->getAccount($auth->getId());
+        $userdata = $account->getAccount($userid);
 
 
         //Filter alle formulier input

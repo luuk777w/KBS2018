@@ -34,7 +34,6 @@
                 <th width="15%">Totaal</th>
             </tr>
             @php
-            print_r($allorders);
                 $total = 0;
             @endphp
             @foreach($allorders as $keys => $values)
