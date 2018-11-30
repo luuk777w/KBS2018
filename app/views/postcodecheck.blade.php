@@ -76,7 +76,6 @@
                 <tr><td>Straat</td><td>   </td><td>{{$userdata[0]->Street}}</td></tr>
                 <tr><td>Huisnummer</td>   <td></td><td>{{$userdata[0]->HouseNr}}</td></tr>
                 <tr><td>Postcode</td><td>   </td><td>{{$userdata[0]->Postalcode}}</td></tr>
-                <tr><td>Provincie</td><td>   </td><td>{{$userdata[0]}}</td></tr>
                 <tr><td>Stad</td><td></td>   <td>{{$userdata[0]->City}}</td></tr>
                 <tr><td>Email-adres</td><td>   </td><td>{{$userdata[0]->Email}}</td></tr>
                 <tr><td>TelefoonNr</td><td>   </td><td>{{$userdadta[0]->PhoneNr}}</td></tr>

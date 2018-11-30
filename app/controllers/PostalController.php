@@ -22,6 +22,22 @@ class PostalController extends Controller
             $id = $check->getId();
             $userdata = $account->Getaddres($id);
 
+            //Sla alle gegevens die zijn ingevuld op in de Data array
+            $data = array();
+            $data['vnaam'] = $userdata[0]->Firstname;
+            $data['tvnaam'] = $userdata[0]->Preposistions;
+            $data['anaam'] = $userdata[0]->Lastname;
+            $data['email'] = $userdata[0]->email;
+            $data['telefoonNr'] = $telefoonNr;
+            $data['code'] = $userdata[0]->Postalcode;
+            $data['street'] = $userdata[0]->Street;
+            $data['huisnummer'] = $userdata[0]->HouseNr;
+            $data['city'] = $userdata[0]->City;
+            
+            //Start de sessie en sla de Data array op in de sessie voor later gebruik
+            session_start();
+            $_SESSION['naw']=$data;
+
             $loggedin = true;
 
             var_dump($userdata);
