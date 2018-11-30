@@ -105,12 +105,12 @@
     <br>
 
     <h1><?php echo e($productDetails[0]->StockItemName); ?></h1>
-    <?php if($productDetails[0]->QuantityOnHand <= 5 AND $productDetails[0]->QuantityOnHand > 0): ?>
+    <?php if($productDetails[0]->QuantityOnHand <= 25 AND $productDetails[0]->QuantityOnHand > 0): ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>!Let op!</strong> <br> Let op, de er zijn nog maar enkele exmplaren op voorraad van dit product
             
                 
-            </button>
+            
         </div>
 
     <?php endif; ?>
@@ -142,14 +142,14 @@
         <div class="col-5" >
             <h1>€<?php echo e($productDetails[0]->RecommendedRetailPrice); ?></h1>
 
-            <?php if($productDetails[0]->QuantityOnHand <= 100 AND $productDetails[0]->QuantityOnHand > 5): ?>
+            <?php if($productDetails[0]->QuantityOnHand <= 100 AND $productDetails[0]->QuantityOnHand > 25): ?>
                 <p class="almostoutStock">Nog maar <b><?php echo e($productDetails[0]->QuantityOnHand); ?></b> op voorraad</p>
                 <p class="deliveryTime">Voor 22:00 besteld, morgen in huis!</p>
-            <?php elseif($productDetails[0]->QuantityOnHand >= 100 AND $productDetails[0]->QuantityOnHand > 5): ?>
+            <?php elseif($productDetails[0]->QuantityOnHand >= 100 AND $productDetails[0]->QuantityOnHand > 25): ?>
                 <p class="stock inStock">Meer dan <b>100</b> op voorraad</p>
                 <p class="deliveryTime">Voor 22:00 besteld, morgen in huis!</p>
-            <?php elseif($productDetails[0]->QuantityOnHand <= 5 AND $productDetails[0]->QuantityOnHand > 0): ?>
-                <p class="stock notInStock">Nog maar <b><?php echo e($productDetails[0]->QuantityOnHand); ?></b> op voorraad</p>
+            <?php elseif($productDetails[0]->QuantityOnHand <= 25 AND $productDetails[0]->QuantityOnHand > 0): ?>
+                <p class="stock notInStock">Nog maar <b>enkele</b> op voorraad</p>
                 <p class="deliveryTime">Voor 22:00 besteld, morgen in huis!</p>
             <?php elseif($productDetails[0]->QuantityOnHand == 0): ?>
                 <p class="stock notInStock">Niet op voorraad</p>

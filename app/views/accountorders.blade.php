@@ -22,7 +22,6 @@
 
     <div style="clear:both"></div>
     <br />
-
     <div class="table-responsive">
         <table class="table table-bordered">
             <tr>

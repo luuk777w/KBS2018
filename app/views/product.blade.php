@@ -107,12 +107,12 @@
     <br>
 
     <h1>{{$productDetails[0]->StockItemName}}</h1>
-    @if($productDetails[0]->QuantityOnHand <= 5 AND $productDetails[0]->QuantityOnHand > 0)
+    @if($productDetails[0]->QuantityOnHand <= 25 AND $productDetails[0]->QuantityOnHand > 0)
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>!Let op!</strong> <br> Let op, de er zijn nog maar enkele exmplaren op voorraad van dit product
+            <strong>!Let op!</strong> <br> Let op, er zijn nog maar enkele exmplaren op voorraad van dit product.
             {{--<button type="button" class="close" data-dismiss="alert" aria-label="Close">--}}
                 {{--<span aria-hidden="true">&times;</span>--}}
-            </button>
+            {{--</button>--}}
         </div>
 
     @endif
@@ -144,14 +144,14 @@
         <div class="col-5" >
             <h1>€{{$productDetails[0]->RecommendedRetailPrice}}</h1>
 
-            @if ($productDetails[0]->QuantityOnHand <= 100 AND $productDetails[0]->QuantityOnHand > 5)
+            @if ($productDetails[0]->QuantityOnHand <= 100 AND $productDetails[0]->QuantityOnHand > 25)
                 <p class="almostoutStock">Nog maar <b>{{$productDetails[0]->QuantityOnHand}}</b> op voorraad</p>
                 <p class="deliveryTime">Voor 22:00 besteld, morgen in huis!</p>
-            @elseif($productDetails[0]->QuantityOnHand >= 100 AND $productDetails[0]->QuantityOnHand > 5)
+            @elseif($productDetails[0]->QuantityOnHand >= 100 AND $productDetails[0]->QuantityOnHand > 25)
                 <p class="stock inStock">Meer dan <b>100</b> op voorraad</p>
                 <p class="deliveryTime">Voor 22:00 besteld, morgen in huis!</p>
-            @elseif($productDetails[0]->QuantityOnHand <= 5 AND $productDetails[0]->QuantityOnHand > 0)
-                <p class="stock notInStock">Nog maar <b>{{$productDetails[0]->QuantityOnHand}}</b> op voorraad</p>
+            @elseif($productDetails[0]->QuantityOnHand <= 25 AND $productDetails[0]->QuantityOnHand > 0)
+                <p class="stock notInStock">Nog maar <b>enkele</b> op voorraad</p>
                 <p class="deliveryTime">Voor 22:00 besteld, morgen in huis!</p>
             @elseif($productDetails[0]->QuantityOnHand == 0)
                 <p class="stock notInStock">Niet op voorraad</p>

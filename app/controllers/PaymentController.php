@@ -105,6 +105,7 @@ class PaymentController extends Controller
              * The payment is pending.
              */
             } elseif ($payment->isFailed()) {
+              
                 /*
              * The payment has failed.
              */
