@@ -157,7 +157,7 @@
 
             <?php if($productDetails[0]->IsChillerStock): ?>
                 <p class="cooledProduct"><i class="fas fa-snowflake cooledProduct-icon"></i>Let op! dit is een gekoeld product.</p>
-                De huidige temperatuur is <?php echo e($temp); ?> °C.
+                De huidige temperatuur is  <p class="cooledProduct"><?php echo e($temp[0]->Temp); ?> °C.</p>
             <?php endif; ?>
 
             <form method="post" action="/product/addtocart/<?php echo e($productDetails[0]->StockItemID); ?>">
