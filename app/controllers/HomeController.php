@@ -2,10 +2,8 @@
 
 namespace App\Controllers;
 
-use Core\Auth;
-use Core\Controller;
 use App\Models\Products;
-use App\Models\Orders;
+use Core\Controller;
 
 class HomeController extends Controller
 {
@@ -15,16 +13,20 @@ class HomeController extends Controller
      *
      * @return void
      */
-    function index(){
+    public function index()
+    {
 
         session_start();
         $productsmodel = new Products();
         $products = $productsmodel->getProducts();
 
+        print(com_create_guid());
+
         return $this->view->render("home", compact("products"));
     }
 
-    function bla(){
+    public function bla()
+    {
 
         return "blaHome";
     }

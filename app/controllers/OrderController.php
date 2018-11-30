@@ -43,13 +43,11 @@ class OrderController extends Controller
             ];
         }
 
-        var_dump($_SESSION["naw"]);
-
         $customer = [
             "Firstname" => $_SESSION["naw"]["vnaam"],
             "Lastname" => $_SESSION["naw"]["anaam"],
             "Preposition" => $_SESSION["naw"]["tvnaam"],
-            "Email" => $_SESSION["naw"]["email"],
+            "Email" => $_SESSION["naw"]["Email"],
             "PhoneNr" => $_SESSION["naw"]["telefoonNr"],
         ];
 
