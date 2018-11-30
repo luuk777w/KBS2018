@@ -105,6 +105,9 @@ class PaymentController extends Controller
              * The payment is pending.
              */
             } elseif ($payment->isFailed()) {
+                
+                create([ "redirectUrl" => "https://wide-world-importers.cf/eentest"]);
+                
                 /*
              * The payment has failed.
              */
