@@ -34,11 +34,13 @@ class Orders extends Model
                                                     FROM `X-orderlines`)", [$customerID]);
     }
 
-    public function showorders($customerID)
+    public function showorders($uid)
     {
-        return $this->db->sql("Select * from `X-orders` O
+        return $this->db->sql("SELECT * FROM `X-orders` as main
 join `X-orderlines` using(OrderID)
 Join stockitems using(StockitemID)
-WHERE O.customerID = ?", [$customerID]);
+WHERE main.customerID = ?", [$uid]);
     }
+
+
 }

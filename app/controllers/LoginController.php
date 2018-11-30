@@ -71,8 +71,7 @@ class LoginController extends Controller
         $auth->logout();
 
         //ga terug naar de homepage
-        return $this->view->render('home');
-
+        return header("Location: /");
     }
 
 

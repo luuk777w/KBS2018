@@ -18,6 +18,13 @@ class Account extends Model
         WHERE CustomerID = ?", [$id]);
     }
 
+    public function Getaddres($id)
+    {
+        return $this->db->sql("SELECT * FROM `X-customers`
+Join `X-address` using(Customerid)
+        WHERE CustomerID = ? ", [$id]);
+    }
+
     public function exists($totest)
     {
         return $this->db->sql("SELECT username FROM `X-customers`

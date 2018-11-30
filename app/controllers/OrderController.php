@@ -2,25 +2,25 @@
 
 namespace App\Controllers;
 
+use App\Models\Products;
 use Core\Auth;
 use Core\Controller;
-use App\Models\Categories;
-use App\Models\Products;
 
 class OrderController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         session_start();
 
         $auth = new Auth();
 
-        if(!isset($_SESSION["naw"]) || !isset($_SESSION["delivery"]) || !isset($_COOKIE["shopping_cart"])) {
+        if (!isset($_SESSION["naw"]) && !isset($_SESSION["delivery"]) && !isset($_COOKIE["shopping_cart"])) {
             $auth->error401();
         }
 
         $address;
 
-        if($_SESSION["delivery"]["method"] == "HOME") {
+        if ($_SESSION["delivery"]["method"] == "HOME") {
             $address = [
                 "CustomerID" => $auth->getId(),
                 "IsDeliveryAddress" => 1,
@@ -29,7 +29,7 @@ class OrderController extends Controller
                 "HouseNr" => $_SESSION["naw"]["huisnummer"],
                 "PostalCode" => $_SESSION["naw"]["code"],
                 "City" => $_SESSION["naw"]["city"],
-                "Country" => "Netherlands"
+                "Country" => "Netherlands",
             ];
         } else {
             $address = [
@@ -39,9 +39,11 @@ class OrderController extends Controller
                 "HouseNr" => $_SESSION["delivery"]["deliveryAddress"][1],
                 "PostalCode" => $_SESSION["delivery"]["deliveryAddress"][2],
                 "City" => $_SESSION["delivery"]["deliveryAddress"][3],
-                "Country" => "Netherlands"
+                "Country" => "Netherlands",
             ];
         }
+
+        var_dump($_SESSION["naw"]);
 
         $customer = [
             "Firstname" => $_SESSION["naw"]["vnaam"],
@@ -70,8 +72,8 @@ class OrderController extends Controller
             array_push($orderLines, $orderLine);
             $total += $productsModel->getProductById($orderLine->item_id)[0]->RecommendedRetailPrice * $orderLine->item_quantity;
         }
-        if($total < 20) {
-            array_push($orderLines, json_decode(json_encode(["item_name" => "Verzendkosten", "item_price" => 2.95, "item_id" => NULL, "item_quantity" => 1])));
+        if ($total < 20) {
+            array_push($orderLines, json_decode(json_encode(["item_name" => "Verzendkosten", "item_price" => 2.95, "item_id" => null, "item_quantity" => 1])));
             $total += 2.95;
         }
 

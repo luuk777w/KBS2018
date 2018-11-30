@@ -84,7 +84,7 @@ margin: 0px !important;
   </h1>
 </div>
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Cookie Waarschuwing</strong> <br> Voor het werken van onze websites zijn koekies nodig. Door de website te
+  <strong>Cookie Waarschuwing</strong> <br> Voor het werken van onze websites zijn cookies nodig. Door de website te
   gebruiken gaat u hiermee akkoord.
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>

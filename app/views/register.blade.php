@@ -21,7 +21,7 @@
         if(isset($msg)){
         if($msg == "Het adres lijkt te bestaan!"){
 
-        print('<div class="alert alert-success" role="alert">'.$msg.'</div>');
+    print("<div class='alert alert-success' role='alert'>'.$msg.'</div>'");
 
 
 

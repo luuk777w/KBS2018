@@ -33,18 +33,20 @@
                 <th width="15%">Totaal</th>
             </tr>
             @php
-            print($allorders);
                 $total = 0;
             @endphp
-            @foreach($allorders as $keys => $values)
+            @foreach($allorders as $values)
                     <tr>
-                        <td>{{$values["item_name"]}}</td>
-                        <td>{{$values["quantity"]}}</td>
-                        <td>€ {{$values["price"]}}</td>
+
+
+                        <td>{{$values->StockItemName}}</td>
+                        <td>{{$values->Quantity}}</td>
+                        <td>€ {{$values->RecommendedRetailPrice}}</td>
+                        <td>{{$values->OrderDate}}</td>
+                        <td>€ {{$values->Price}}</td>
+
                     </tr>
-                @php
-                    $total += ($values["item_quantity"] * $values["item_price"]);
-                @endphp
+
 
             @endforeach
 
@@ -59,10 +61,6 @@
                 </tr>
             @endif
 
-            <tr>
-                <td colspan="4" align="right">Totaal</td>
-                <td align="left">€ {{number_format($total, 2)}}</td>
-            </tr>
 
         </table>
     </div>

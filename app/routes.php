@@ -42,9 +42,11 @@ class Routes
         'GET:logout' => ['LoginController', 'logout'],
         'POST:products' => ['ProductController', 'orderby'],
         'GET:account' => ['AccountController', 'index'],
-        'GET:register' => ['AccountController', 'register'],
-        'POST:register' => ['AccountController', 'register'],
+        'GET:register' => ['RegisterController', 'index'],
+        'POST:register' => ['RegisterController', 'register'],
         'GET:account/naw' => ['AccountController', 'naw'],
+        'POST:account/naw' => ['AccountController', 'checkNAW'],
+        'POST:account/naw-update' => ['AccountController', 'updateNAW'],
         'GET:account/orders' => ['AccountController', 'showorders'],
     ];
 }
