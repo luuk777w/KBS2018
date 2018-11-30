@@ -178,7 +178,7 @@ $a4 = rand(15, 20);
       <div class="card-img-top" style="background-image: url('/assets/img/{{$products[$a2]->PrimaryMediaURL}}')"></div>
 
       @else
-      <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
+      <div class="card-img-top" style="background-image: url('/assets/img/placeholder.jpg')"></div>
       @endif
       <div class="card-body">
         <h5 class="card-title">{{$products[$a2]->StockItemName}}</h5>
@@ -193,7 +193,7 @@ $a4 = rand(15, 20);
       <div class="card-img-top" style="background-image: url('/assets/img/{{$products[$a3]->PrimaryMediaURL}}')"></div>
 
       @else
-      <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
+      <div class="card-img-top" style="background-image: url('/assets/img/placeholder.jpg')"></div>
       @endif
       <div class="card-body">
         <h5 class="card-title">{{$products[$a3]->StockItemName}}</h5>
@@ -208,7 +208,7 @@ $a4 = rand(15, 20);
       <div class="card-img-top" style="background-image: url('/assets/img/{{$products[$a4]->PrimaryMediaURL}}')"></div>
 
       @else
-      <div class="card-img-top" style="background-image: url('/assets/img/nietgevonden.jpg')"></div>
+      <div class="card-img-top" style="background-image: url('/assets/img/placeholder.jpg')"></div>
       @endif
       <div class="card-body">
         <h5 class="card-title">{{$products[$a4]->StockItemName}}</h5>
