@@ -39,6 +39,6 @@ class Orders extends Model
         return $this->db->sql("Select * from `X-orders` O
 join `X-orderlines` using(OrderID)
 Join stockitems using(StockitemID)
-WHERE O.customerID = ?", ["{$customerID}"]);
+WHERE O.customerID = ?", [$customerID]);
     }
 }

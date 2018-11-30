@@ -19,7 +19,6 @@
 
     <div style="clear:both"></div>
     <br />
-
     <div class="table-responsive">
         <table class="table table-bordered">
             <tr>
@@ -31,13 +30,11 @@
                 <th width="15%">Totaal</th>
             </tr>
             <?php 
-            print_r($allorders);
+            print($allorders);
                 $total = 0;
              ?>
             <?php $__currentLoopData = $allorders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $keys => $values): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-
-
                         <td><?php echo e($values["item_name"]); ?></td>
                         <td><?php echo e($values["quantity"]); ?></td>
                         <td>€ <?php echo e($values["price"]); ?></td>

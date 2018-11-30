@@ -22,7 +22,6 @@
 
     <div style="clear:both"></div>
     <br />
-
     <div class="table-responsive">
         <table class="table table-bordered">
             <tr>
@@ -34,13 +33,11 @@
                 <th width="15%">Totaal</th>
             </tr>
             @php
-            print_r($allorders);
+            print($allorders);
                 $total = 0;
             @endphp
             @foreach($allorders as $keys => $values)
                     <tr>
-
-
                         <td>{{$values["item_name"]}}</td>
                         <td>{{$values["quantity"]}}</td>
                         <td>€ {{$values["price"]}}</td>
