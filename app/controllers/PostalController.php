@@ -39,9 +39,6 @@ class PostalController extends Controller
 
             $loggedin = true;
 
-            var_dump($userdata[0]);
-            var_dump($userdata[0]->Email);
-
             return $this->view->render("postcodecheck", compact("userdata", "loggedin"));
 
         }
