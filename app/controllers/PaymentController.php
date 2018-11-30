@@ -52,8 +52,6 @@ class PaymentController extends Controller
 
             if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
 
-                return header("Location: /products");
-
                 $order = new Orders();
                 $order->test();
 
