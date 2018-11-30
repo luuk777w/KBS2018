@@ -33,17 +33,18 @@
             <?php 
                 $total = 0;
              ?>
-            <?php $__currentLoopData = $allorders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $keys => $values): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php $__currentLoopData = $allorders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $values): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
 
 
-                        <td><?php echo e($values["item_name"]); ?></td>
-                        <td><?php echo e($values["quantity"]); ?></td>
-                        <td>€ <?php echo e($values["price"]); ?></td>
+                        <td><?php echo e($values->StockItemName); ?></td>
+                        <td><?php echo e($values->Quantity); ?></td>
+                        <td>€ <?php echo e($values->RecommendedRetailPrice); ?></td>
+                        <td><?php echo e($values->OrderDate); ?></td>
+                        <td>€ <?php echo e($values->Price); ?></td>
+
                     </tr>
-                <?php 
-                    $total += ($values["item_quantity"] * $values["item_price"]);
-                 ?>
+
 
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
@@ -58,10 +59,6 @@
                 </tr>
             <?php endif; ?>
 
-            <tr>
-                <td colspan="4" align="right">Totaal</td>
-                <td align="left">€ <?php echo e(number_format($total, 2)); ?></td>
-            </tr>
 
         </table>
     </div>

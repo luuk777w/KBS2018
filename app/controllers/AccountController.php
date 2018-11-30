@@ -70,9 +70,9 @@ class AccountController extends Controller
 
         $uid = $auth->getId();
 
+
         $orders = new Orders();
         $allorders = $orders->showorders($uid);
-
 
         $userdata = $account->getAccount($uid);
 
