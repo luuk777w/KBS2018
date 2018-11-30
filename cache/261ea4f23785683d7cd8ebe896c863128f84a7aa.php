@@ -23,6 +23,9 @@
 
         </style>
 
+        <?php
+        session_start();
+        ?>
         <?php echo $__env->yieldContent('head'); ?>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">

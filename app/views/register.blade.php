@@ -21,13 +21,9 @@
     if(isset($msg)){
     if($msg == "Het adres lijkt te bestaan!"){
 
-    print('<div class="alert alert-success" role="alert">'.$msg.'</div>');
+    print("<div class='alert alert-success' role='alert'>'.$msg.'</div>'");
 
 
-
-    }else{
-
-    print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
 
     }
     }
@@ -47,6 +43,11 @@
 
 
 
+    print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
+
+
+
+
     @endphp
 
     <div class="row">
@@ -63,7 +64,7 @@
         <div class="red">*</div>
     Emailadres: <input class="form-control" type="email" name='email' required value="{{$email}}"><br>
         <div class="red">*</div>
-    TelefoonNr: <input class="form-control" type="text" name='telefoonNr' required value="{{$telefoonNr}}"><br>
+    TelefoonNr: <input class="form-control" type="number" minlength="6" name='telefoonNr' required value="{{$telefoonNr}}"><br>
         <div class="red">*</div>
         Gebruikersnaam: <input class="form-control" type="text" name='username' required value="{{$username}}" placeholder=""><br>
         <div class="red">*</div>
@@ -79,10 +80,13 @@
         </div>
         <div class="col-3">
         </div>
+    </div>
 @else
 
-
-            <div class="col-5" >
+    <div class="row">
+        <div class="col-3">
+            </div>
+            <div class="col-6">
                 <h2 class="text-center">Uw gegevens</h2>
             <form method="post" action="register">
     <div class="red">*</div>
@@ -93,7 +97,7 @@
     <div class="red">*</div>
     Emailadres: <input class="form-control" type="email" name='email' required value="" placeholder="sjorsbekendvantv@gmail.com"><br>
     <div class="red">*</div>
-    TelefoonNr: <input class="form-control" type="text" name='telefoonNr' required value="" placeholder="0612345678"><br>
+    TelefoonNr: <input class="form-control" type="number" minlength="6" name='telefoonNr' required value="" placeholder="0612345678"><br>
     <div class="red">*</div>
     Gebruikersnaam: <input class="form-control" type="text" name='username' required value="" placeholder=""><br>
     <div class="red">*</div>
@@ -108,7 +112,9 @@
 
 
             </div>
-@endif
-    </div>
+            <div class="col-3">
+            </div>
 
+    </div>
+    @endif
 @endsection

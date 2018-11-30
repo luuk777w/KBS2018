@@ -1,11 +1,9 @@
-@extends('layouts.app')
-
-@section('head')
+<?php $__env->startSection('head'); ?>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('body')
+<?php $__env->startSection('body'); ?>
 
 <br>
 
@@ -31,11 +29,12 @@
 <div class="row">
     <div class="col">
         <h3>Aflever adres</h3>
-        Naam: {{$customer["Firstname"]}} {{$customer["Lastname"]}} <br>
-        @if($address["IsPostNLServicePoint"] == 1) <span style="color:#EC8B27">PostNL Service point</span> <br> @endif
-        Straat: {{$address["Street"]}} {{$address["HouseNr"]}} <br>
-        Postcode: {{$address["PostalCode"]}} <br>
-        Stad: {{$address["City"]}}
+        Naam: <?php echo e($customer["Firstname"]); ?> <?php echo e($customer["Lastname"]); ?> <br>
+        <?php if($address["IsPostNLServicePoint"] == 1): ?> <span style="color:#EC8B27">PostNL Service point</span> <br> <?php endif; ?>
+        Straat: <?php echo e($address["Street"]); ?> <?php echo e($address["HouseNr"]); ?> <br>
+        Postcode: <?php echo e($address["PostalCode"]); ?> <br>
+        Stad: <?php echo e($address["City"]); ?>
+
         <br>
         <br>
 
@@ -53,17 +52,17 @@
                 <th width="20%">Prijs</th>
                 <th width="15%">Totaal</th>
             </tr>
-            @foreach($orderLines as $orderLine)
+            <?php $__currentLoopData = $orderLines; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $orderLine): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <td>{{$orderLine->item_name}}</td>
-                    <td>{{$orderLine->item_quantity}}</td>
-                    <td>€{{$orderLine->item_price}}</td>
-                    <td>€{{$orderLine->item_price * $orderLine->item_quantity}}</td>
+                    <td><?php echo e($orderLine->item_name); ?></td>
+                    <td><?php echo e($orderLine->item_quantity); ?></td>
+                    <td>€<?php echo e($orderLine->item_price); ?></td>
+                    <td>€<?php echo e($orderLine->item_price * $orderLine->item_quantity); ?></td>
                 </tr>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <tr>
                 <td colspan="3" align="right">Totaal</td>
-                <td align="left"><b>€ {{$total}}</b></td>
+                <td align="left"><b>€ <?php echo e($total); ?></b></td>
             </tr>
         </table>
 
@@ -77,6 +76,8 @@
 </div>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

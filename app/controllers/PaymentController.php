@@ -2,10 +2,13 @@
 
 namespace App\Controllers;
 
-use App\Models\Orders;
 use Core\Auth;
 use Core\Controller;
 use Mollie\Api\MollieApiClient;
+use App\Models\Account;
+use App\Models\Address;
+use App\Models\Orders;
+use App\Models\Products;
 
 class PaymentController extends Controller
 {
@@ -17,6 +20,47 @@ class PaymentController extends Controller
 
         if (!isset($_SESSION["orderTotal"])) {
             return "Winkelwagen leeg";
+        }
+
+        $customer = $_SESSION["customer"];
+        $address = $_SESSION["address"];
+        $order = $_SESSION["order"];
+        $orderLines = $_SESSION["orderLines"];
+
+        $accountModel = new Account();
+        $addressModel = new Address();
+        $orderModel = new Orders();
+        $productsModel = new Products();
+
+        if(empty($accountModel->getCustomerByEmail($customer["Email"])[0])) {
+
+            $accountModel->addCustomer($customer["Firstname"], $customer["Lastname"], $customer["Preposition"], $customer["Email"], $customer["PhoneNr"]);
+        } 
+
+        $customerID = $accountModel->getCustomerByEmail($customer["Email"])[0]->CustomerID;
+
+        if(empty($addressModel->getAddressByPostalCodeAndHouseNr($address["PostalCode"], $address["HouseNr"])[0])) {
+
+            $addressModel->addAddress($customerID, $address["IsDeliveryAddress"], $address["IsPostNLServicePoint"], $address["Street"], 
+                                        $address["HouseNr"], $address["PostalCode"], $address["City"], $address["Country"]);
+        }
+
+        $addressID = $addressModel->getAddressByPostalCodeAndHouseNr($address["PostalCode"], $address["HouseNr"])[0]->AddressID;
+
+        $orderModel->removeAllEmptyOrdersByCustomerID($customerID);
+
+        $orderModel->addOrder($customerID, $order["OrderDate"], $addressID, $order["PostNLTT"]);
+        $orderID = $orderModel->getEmptyOrderByCustomerID($customerID)[0]->OrderID;
+
+        foreach ($orderLines as $orderline) {
+
+            if($orderline->item_name == "Verzendkosten") {
+                $orderModel->addOrderLine($orderID, NULL, 1, $orderline->item_price, NULL);
+            } else {
+
+                $product = $productsModel->getProductById($orderline->item_id)[0];
+                $orderModel->addOrderLine($orderID, $orderline->item_id, $orderline->item_quantity, $product->RecommendedRetailPrice, $product->TaxRate);  
+            }
         }
 
         $mollie = new MollieApiClient();
@@ -51,9 +95,6 @@ class PaymentController extends Controller
             $payment = $mollie->payments->get($_POST["id"]);
 
             if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
-
-                $order = new Orders();
-                $order->test();
 
             } elseif ($payment->isOpen()) {
                 /*

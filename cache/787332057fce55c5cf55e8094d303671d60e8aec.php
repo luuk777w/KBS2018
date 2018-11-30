@@ -105,6 +105,15 @@
     <br>
 
     <h1><?php echo e($productDetails[0]->StockItemName); ?></h1>
+    <?php if($productDetails[0]->QuantityOnHand <= 5 AND $productDetails[0]->QuantityOnHand > 0): ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>!Let op!</strong> <br> Let op, de er zijn nog maar enkele exmplaren op voorraad van dit product
+            
+                
+            </button>
+        </div>
+
+    <?php endif; ?>
 
     <div class="row">
 
