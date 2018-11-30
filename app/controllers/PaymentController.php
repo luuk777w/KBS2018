@@ -96,8 +96,6 @@ class PaymentController extends Controller
 
             if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
 
-                //TODO: Check of de bestelling wel daadwerkelijk is gelukt
-
             } elseif ($payment->isOpen()) {
                 /*
              * The payment is open.
