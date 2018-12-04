@@ -3,14 +3,13 @@
 
 @section('body')
 
-
     @if(!empty($data))
 
     <h2>Welkom {{$data[0]->Firstname}}</h2>
 
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link active" href="/account">Mijn account</a>
+            <a class="nav-link" href="/account">Mijn account</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/account/naw">NAW-Gegevens</a>
@@ -20,7 +19,7 @@
         </li>
         @if($data[0]->Role == "ADMINISTRATOR")
         <li class="nav-item">
-            <a class="nav-link" href="/adminpanel">Admin paneel</a>
+            <a class="nav-link active" href="/adminpanel">Admin paneel</a>
         </li>
         @endif
     </ul>

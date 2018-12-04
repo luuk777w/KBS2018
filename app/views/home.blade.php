@@ -53,6 +53,7 @@ margin: 0px !important;
 .card{
   height: 30rem;
   padding-top:10px;
+  margin-right: 1rem;
 }
 
 .knopje{
@@ -94,7 +95,11 @@ margin: 0px !important;
 
 
 
+@php
 
+  $inCarousel = [];
+
+@endphp
 
 
 <form>
@@ -105,27 +110,28 @@ margin: 0px !important;
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-      <div class="carousel-item active" heigh>
-        <img class="d-block w-100" src="../../assets/img/clothing.jpeg" alt="First slide" height="100%" margin="Auto ">
+
+      @foreach($carouselItems as $item)
+
+      <div class="carousel-item @if($carouselItems[0]->StockItemID == $item->StockItemID) active @endif">
+          @if($item->PrimaryMediaURL !== NULL)
+            <img class="d-block w-100" src="/assets/img/{{$item->PrimaryMediaURL}}" alt="First slide" height="100%" margin="Auto ">
+          @else 
+            <img class="d-block w-100" src="/assets/img/placeholder.jpg" alt="First slide" height="100%" margin="Auto ">
+          @endif
         <div class="carousel-caption d-none d-md-block">
-          <h5>Wat moet ik zeggen, t zijn maar kleren.</h5>
-          <p>Ik heb het nu niet meer zo koud - een dakloos persoon</p>
+          <h5>{{$item->StockItemName}}</h5>
+          <p>{{$item->SearchDetails}}</p>
         </div>
       </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="../../assets/img/nietgevonden.jpg" alt="Second slide">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Dit product is helaas niet gevonden</h5>
-          <p>Error 404 - De browser</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="../../assets/img/milka.jpg" alt="Third slide">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>De lekkerste chocolade USB stick.</h5>
-          <p>Ik kan hier al mijn skrillex midi's in opslaan - een echte autist</p>
-        </div>
-      </div>
+
+      @php
+        array_push($inCarousel, $item->StockItemID);
+      @endphp
+
+      @endforeach
+      
+
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -140,13 +146,6 @@ margin: 0px !important;
 <br>
 <br>
 
-
-<?php
-$a1 = rand(1,5);
-$a2 = rand(5, 10);
-$a3 = rand(10, 15);
-$a4 = rand(15, 20);
-?>
 <div class="SecundSubTitleUnderCarousel">
   <h5>
 
@@ -157,66 +156,56 @@ $a4 = rand(15, 20);
   </h5>
 </div>
 
-<div class="row ">
-  <div class="col-3 rowdistance">
-    <div class="card " style="width: 18rem;">
-      @if($products[$a1]->PrimaryMediaURL !== NULL)
-      <div class="card-img-top" style="background-image: url('/assets/img/{{$products[$a1]->PrimaryMediaURL}}')"></div>
+@foreach($products as $product)
 
-      @else
-      <div class="card-img-top" style="background-image: url('/assets/img/placeholder.jpg')"></div>
-      @endif
-      <div class="card-body">
-        <h5 class="card-title">{{$products[$a1]->StockItemName}}</h5>
-        <p class="card-text">{{$products[$a1]->SearchDetails}}</p>
-      <a href="/product/{{$products[$a1]->StockItemID}}" class="btn btn-primary knopje">Ga naar het product</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-3 rowdistance">
-    <div class="card" style="width: 18rem;">
-      @if($products[$a2]->PrimaryMediaURL !== NULL)
-      <div class="card-img-top" style="background-image: url('/assets/img/{{$products[$a2]->PrimaryMediaURL}}')"></div>
+      <div class="card" style="width: 17.5rem; float: left">
+        @if($product->PrimaryMediaURL !== NULL)
+        <div class="card-img-top" style="background-image: url('/assets/img/{{$product->PrimaryMediaURL}}')"></div>
 
-      @else
-      <div class="card-img-top" style="background-image: url('/assets/img/placeholder.jpg')"></div>
-      @endif
-      <div class="card-body">
-        <h5 class="card-title">{{$products[$a2]->StockItemName}}</h5>
-        <p class="card-text">{{$products[$a2]->SearchDetails}}</p>
-        <a href="/product/{{$products[$a2]->StockItemID}}" class="btn btn-primary knopje">Ga naar het product</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-3 rowdistance">
-    <div class="card" style="width: 18rem;">
-      @if($products[$a3]->PrimaryMediaURL !== NULL)
-      <div class="card-img-top" style="background-image: url('/assets/img/{{$products[$a3]->PrimaryMediaURL}}')"></div>
+        @else
+        <div class="card-img-top" style="background-image: url('/assets/img/placeholder.jpg')"></div>
+        @endif
+        <div class="card-body">
+          <h5 class="card-title">{{$product->StockItemName}}</h5>
+          <p class="card-text">{{$product->SearchDetails}}</p>
 
-      @else
-      <div class="card-img-top" style="background-image: url('/assets/img/placeholder.jpg')"></div>
-      @endif
-      <div class="card-body">
-        <h5 class="card-title">{{$products[$a3]->StockItemName}}</h5>
-        <p class="card-text">{{$products[$a3]->SearchDetails}}</p>
-        <a href="/product/{{$products[$a3]->StockItemID}}" class="btn btn-primary knopje">Ga naar het product</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-3 rowdistance">
-    <div class="card" style="width: 18rem;">
-      @if($products[$a4]->PrimaryMediaURL !== NULL)
-      <div class="card-img-top" style="background-image: url('/assets/img/{{$products[$a4]->PrimaryMediaURL}}')"></div>
+          @if($isAdmin)
 
-      @else
-      <div class="card-img-top" style="background-image: url('/assets/img/placeholder.jpg')"></div>
-      @endif
-      <div class="card-body">
-        <h5 class="card-title">{{$products[$a4]->StockItemName}}</h5>
-        <p class="card-text">{{$products[$a4 ]->SearchDetails}}</p>
-        <a href="/product/{{$products[$a4]->StockItemID}}" class="btn btn-primary knopje">Ga naar het product</a>
+          <div class="btn-group" style="position: absolute; bottom:10px ">
+              <a href="/product/{{$product->StockItemID}}" class="btn btn-primary">Ga naar het product</a>
+              <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <div class="dropdown-menu">
+                  @if(isset($product->RecommendedProductID))
+                      <form action="/admin/spotlight/removeRecommendedProduct/{{$product->StockItemID}}" method="post">
+                          <input type="submit" style="cursor:pointer" class="dropdown-item" value="Verwijder als aanbeveling"/>
+                      </form>
+                  @else
+                      <form action="/admin/spotlight/addRecommendedProduct/{{$product->StockItemID}}" method="post">
+                          <input type="submit" style="cursor:pointer" class="dropdown-item" value="Zet als aanbeveling"/>
+                      </form>
+                  @endif
+
+                  @if(in_array($product->StockItemID, $inCarousel))
+                      <form action="/admin/spotlight/removeCarouselProduct/{{$product->StockItemID}}" method="post">
+                          <input type="submit" style="cursor:pointer" class="dropdown-item" value="Verwijder van de carousel"/>
+                      </form>
+                  @else
+                      <form action="/admin/spotlight/addCarouselProduct/{{$product->StockItemID}}" method="post">
+                          <input type="submit" style="cursor:pointer" class="dropdown-item" value="Voeg aan carousel toe"/>
+                      </form>
+                  @endif
+              </div>
+            </div>
+
+          @else
+            <a href="/product/{{$product->StockItemID}}" class="btn btn-primary knopje">Ga naar het product</a>
+          @endif
+
+
+        </div>
       </div>
-    </div>
-  </div>
-</div>
+
+  @endforeach
 @endsection
