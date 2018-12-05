@@ -108,12 +108,11 @@ margin: 0px !important;
       @php 
         $i = 0;
       @endphp
-        <li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}" class="active"></li>
       @foreach($carouselItems as $item)
         @php 
           $i++;
         @endphp
-        <li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}"@if($i == 1) class="active" @endif></li>
       @endforeach
     </ol>
     <div class="carousel-inner">
