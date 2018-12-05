@@ -88,12 +88,12 @@
 @if (!empty($_POST["send"]))
 
     @php
-$code = filter_input(INPUT_POST, "code");
-$vnaam = filter_input(INPUT_POST, "vnaam");
-$anaam = filter_input(INPUT_POST, "anaam");
-$tvnaam = filter_input(INPUT_POST, "tvnaam");
-$email = filter_input(INPUT_POST, "email");
-$telefoonNr = filter_input(INPUT_POST, "telefoonNr");
+$code = filter_input(INPUT_POST, "code", FILTER_SANITIZE_STRING);
+$vnaam = filter_input(INPUT_POST, "vnaam", FILTER_SANITIZE_STRING);
+$anaam = filter_input(INPUT_POST, "anaam", FILTER_SANITIZE_STRING);
+$tvnaam = filter_input(INPUT_POST, "tvnaam", FILTER_SANITIZE_STRING);
+$email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_STRING);
+$telefoonNr = filter_input(INPUT_POST, "telefoonNr", FILTER_SANITIZE_STRING );
 
 
 $num = filter_input(INPUT_POST, "num");

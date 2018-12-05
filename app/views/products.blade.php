@@ -88,7 +88,7 @@
                 <br>Min. Prijs:
                 <input type="number" min="0" class="prijsl" name="minprijs">
                 Max. Prijs:<input type="number" min="0" max="90000" class="prijsr" name="maxprijs">
-                <input name='sorteren' type="submit" value="sorteren" class="btn btn-outline-primary" style="height: 2rem">
+                <input name='sorteren' type="submit" value="filteren" class="btn btn-outline-primary" style="height: 2rem; line-height: 1rem; margin-bottom: 0.3rem;">
                 <br><br>
             </form>
             {{-- Voor ieder product in de array uit de database die je dit --}}
@@ -112,7 +112,7 @@
                 @else
 
                     {{-- Aan de bovenkant van de productcard laat je de placeholder zien --}}
-                    <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
+                    <div class="card-img-top" style="background-image: url('/assets/img/placeholder.jpg')"></div>
                 @endif
 
                 {{-- Dit is de body van de productcard --}}
@@ -145,7 +145,42 @@
                     <br>
 
                     {{-- Laat een knop naar de productpagina van het product zien in de productcard --}}
-                    <a href="/product/{{$product->StockItemID}}" style="position: absolute; bottom:10px " class="btn btn-primary">Lees Meer</a>
+
+                    @if($isAdmin)
+
+                    <div class="btn-group" style="position: absolute; bottom:10px ">
+                        <a href="/product/{{$product->StockItemID}}" class="btn btn-primary">Lees Meer</a>
+                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            @if(isset($product->RecommendedProductID))
+                                <form action="/admin/spotlight/removeRecommendedProduct/{{$product->StockItemID}}" method="post">
+                                    <input type="submit" style="cursor:pointer" class="dropdown-item" value="Verwijder als aanbeveling"/>
+                                </form>
+                            @else
+                                <form action="/admin/spotlight/addRecommendedProduct/{{$product->StockItemID}}" method="post">
+                                    <input type="submit" style="cursor:pointer" class="dropdown-item" value="Zet als aanbeveling"/>
+                                </form>
+                            @endif
+
+                            @if(isset($product->CarouselProductID))
+                                <form action="/admin/spotlight/removeCarouselProduct/{{$product->StockItemID}}" method="post">
+                                    <input type="submit" style="cursor:pointer" class="dropdown-item" value="Verwijder van de carousel"/>
+                                </form>
+                            @else
+                                <form action="/admin/spotlight/addCarouselProduct/{{$product->StockItemID}}" method="post">
+                                    <input type="submit" style="cursor:pointer" class="dropdown-item" value="Voeg aan carousel toe"/>
+                                </form>
+                            @endif
+                        </div>
+                      </div>
+
+                    @else
+
+                        <a href="/product/{{$product->StockItemID}}" style="position: absolute; bottom:10px " class="btn btn-primary">Lees Meer</a>
+
+                    @endif
                 </div>
             </div>
         @endforeach

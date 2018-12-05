@@ -74,7 +74,7 @@ class RegisterController extends Controller
             $data['send']= 1;
         }
 
-        if (!empty($vnaam) && !empty($anaam) && !empty($tvnaam) && !empty($email) && !empty($telefoonNr) && !empty($username)) {
+        if (!empty($vnaam) && !empty($anaam) && !empty($email) && !empty($telefoonNr) && !empty($username) && !empty($pass1) ) {
             //Start de sessie en sla de Data array op in de sessie voor later gebruik
             session_start();
 

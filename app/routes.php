@@ -49,5 +49,7 @@ class Routes
         'POST:account/naw-update' => ['AccountController', 'updateNAW'],
         'POST:temp' => ['TempController', 'updateTemp'],
         'GET:account/orders' => ['AccountController', 'showorders'],
+        'GET:adminpanel' => ['AdminController', 'index'],
+        'POST:admin/spotlight/{action}/{id}' => ['AdminController', 'spotlight'],
     ];
 }
