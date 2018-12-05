@@ -125,7 +125,7 @@
         <?php if(isset($media[0])): ?>
             <div class="image" style="background-image: url('../../assets/img/<?php echo e($media[0]->MediaUrl); ?>');"></div>
         <?php else: ?>
-            <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <div class="image" style="background-image: url('../../assets/img/placeholder.jpg');"></div>
         <?php endif; ?>
 
         <?php if(isset($media[0])): ?>

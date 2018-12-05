@@ -180,6 +180,7 @@ class PostalController extends Controller
                     $data['tvnaam'] = $tvnaam;
                     $data['anaam'] = $anaam;
                     $data['email'] = $email;
+                    $data['send'] = $send;
                     $data['telefoonNr'] = $telefoonNr;
                     $data['code'] = $code;
                     $data['street'] = json_decode($response)->_embedded->addresses[0]->street;
