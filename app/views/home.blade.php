@@ -106,13 +106,14 @@ margin: 0px !important;
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       @php 
-        $i = 1;
+        $i = 0;
       @endphp
+        <li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}" class="active"></li>
       @foreach($carouselItems as $item)
         @php 
           $i++;
         @endphp
-        <li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}"></li>
       @endforeach
     </ol>
     <div class="carousel-inner">
