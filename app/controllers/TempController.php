@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Temp;
 use Core\Controller;
 
 class TempController extends Controller
@@ -9,29 +10,21 @@ class TempController extends Controller
 
     public function updateTemp()
     {
+         $data = json_decode($_POST);
 
-        print("X");
+         $temp = $data->temp;
+        $time = $data->time;
 
-//Process the JSON.
+//        $tempin = $_POST['temp'];
+//         print_r($tempin);
+//         $temp = intval($tempin);
+//         $time = $_POST['time'];
 
-        // $temp = $_SERVER['HEADER_temp'];
-        // $time = $_SERVER['HEADER_time'];
+                $dbtemp = new Temp();
 
-//         $clean1 = filter_var($time,FILTER_SANITIZE_STRING );
-        //                $time = $clean1;
-        //
-        //                $clean2 = filter_var($temp, FILTER_SANITIZE_STRING);
-        //                $temp = $clean2;
-        //
-        //
-        //
-        //
-        //
-        //        $dbtemp = new Temp();
-        //
-        //    $dbtemp->update($time, $temp);
+            $dbtemp->update($time, $temp);
 
-        //var_dump($temp, $time);
+        var_dump($temp, $time);
 
     }
 

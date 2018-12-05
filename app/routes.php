@@ -47,7 +47,7 @@ class Routes
         'GET:account/naw' => ['AccountController', 'naw'],
         'POST:account/naw' => ['AccountController', 'checkNAW'],
         'POST:account/naw-update' => ['AccountController', 'updateNAW'],
-        'GET:temp' => ['TempController', 'updateTemp'],
+        'POST:temp' => ['TempController', 'updateTemp'],
         'GET:account/orders' => ['AccountController', 'showorders'],
     ];
 }

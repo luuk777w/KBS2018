@@ -7,7 +7,7 @@
 
 @section('body')
 
-<h1>401</h1>
-<h3>Jammer joh... Niet geautoriseerd</h3>
+<h1>Oeps er ging iets fout</h1>
+<h3>Het lijkt erop dat u niet bent geautoriseerd, Probeer opniew in te loggen of neem contact met ons op als je ingelogd was.</h3>
 
 @endsection

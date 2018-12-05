@@ -86,7 +86,7 @@
                     <div class="col-3">
                     </div>
                     <div class="col-6">
-                        <h2s class="text-center">Uw gegevens</h2s>
+                        <h2 class="text-center">Uw gegevens</h2>
                         <form method="post" action="register">
                             <div class="red">*</div>
                             Voornaam: <input class="form-control" type="text" name="vnaam" required value="" placeholder="Sjors"><br>
