@@ -169,16 +169,16 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
                 <h2 class="text-center">Uw gegevens</h2>
 <form method="post" action="/order/naw">
     <div class="red">*</div>
-    Voornaam: <input class="form-control" type="text" name="vnaam" required value="" placeholder="Sjors"><br>
-    Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="" placeholder="Rapper"><br>
+    Voornaam: <input class="form-control" type="text" name="vnaam" required value="" placeholder="Pieter"><br>
+    Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="" placeholder="Van"><br>
     <div class="red">*</div>
-    Achternaam: <input class="form-control" type="text" name="anaam" required value="" placeholder="Peters"><br>
+    Achternaam: <input class="form-control" type="text" name="anaam" required value="" placeholder="Dam"><br>
     <div class="red">*</div>
     Postcode: <input class="form-control" type="text" name="code" required value="" placeholder="1234AA"><br>
     <div class="red">*</div>
     Huisnummer: <input class="form-control" type="text" name="num" required value="" placeholder="12A"><br>
     <div class="red">*</div>
-    Emailadres: <input class="form-control" type="email" name='email' required value="" placeholder="sjorsbekendvantv@gmail.com"><br>
+    Emailadres: <input class="form-control" type="email" name='email' required value="" placeholder="pieter@gmail.com"><br>
     <div class="red">*</div>
     TelefoonNr: <input class="form-control" type="text" name='telefoonNr' required value="" placeholder="0612345678"><br>
     <div class="red">* = Verplicht</div><br>

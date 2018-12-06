@@ -10,21 +10,21 @@ class TempController extends Controller
 
     public function updateTemp()
     {
-         $data = json_decode($_POST);
-
-         $temp = $data->temp;
+        $in = file_get_contents("php://input");
+        $data = json_decode($in);
+        $tempin = $data->temp;
         $time = $data->time;
 
+        $temp = number_format($tempin);
 //        $tempin = $_POST['temp'];
 //         print_r($tempin);
-//         $temp = intval($tempin);
 //         $time = $_POST['time'];
 
                 $dbtemp = new Temp();
 
-            $dbtemp->update($time, $temp);
+            var_dump($dbtemp->update($time, $temp));
 
-        var_dump($temp, $time);
+        var_dump($data,$temp,$time);
 
     }
 
