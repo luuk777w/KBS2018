@@ -1,11 +1,8 @@
-@extends('layouts.app')
+<?php $__env->startSection('body'); ?>
 
+    <?php if(!empty($data)): ?>
 
-@section('body')
-
-    @if(!empty($data))
-
-    <h2>Welkom {{$data[0]->Firstname}}</h2>
+    <h2>Welkom <?php echo e($data[0]->Firstname); ?></h2>
 
     <ul class="nav nav-pills">
         <li class="nav-item">
@@ -17,11 +14,11 @@
         <li class="nav-item">
             <a class="nav-link" href="/account/orders">Mijn Orders</a>
         </li>
-        @if($data[0]->Role == "ADMINISTRATOR")
+        <?php if($data[0]->Role == "ADMINISTRATOR"): ?>
         <li class="nav-item">
             <a class="nav-link active" href="/adminpanel">Admin paneel</a>
         </li>
-        @endif
+        <?php endif; ?>
     </ul>
 
     <div class="row">
@@ -37,18 +34,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @php $i = 1; @endphp
-                    @foreach ($carouselItems as $item)
+                    <?php  $i = 1;  ?>
+                    <?php $__currentLoopData = $carouselItems; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <th scope="row">{{$i++}}</th>
-                            <td>{{$item->StockItemName}}</td>
+                            <th scope="row"><?php echo e($i++); ?></th>
+                            <td><?php echo e($item->StockItemName); ?></td>
                             <td>
-                                <form action="/admin/spotlight/removeCarouselProduct/{{$item->StockItemID}}" method="post" style="float: right;">
+                                <form action="/admin/spotlight/removeCarouselProduct/<?php echo e($item->StockItemID); ?>" method="post" style="float: right;">
                                     <button class="btn btn-danger"><i class="fas fa-times"></i></button>
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
             </table>
 
@@ -65,28 +62,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @php $j = 1; @endphp
-                    @foreach ($products as $product)
+                    <?php  $j = 1;  ?>
+                    <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <th scope="row">{{$j++}}</th>
-                            <td>{{$product->StockItemName}}</td>
+                            <th scope="row"><?php echo e($j++); ?></th>
+                            <td><?php echo e($product->StockItemName); ?></td>
                             <td>
-                                <form action="/admin/spotlight/removeCarouselProduct/{{$product->StockItemID}}" method="post" style="float: right;">
+                                <form action="/admin/spotlight/removeCarouselProduct/<?php echo e($product->StockItemID); ?>" method="post" style="float: right;">
                                     <button class="btn btn-danger"><i class="fas fa-times"></i></button>
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
             </table>
         </div>
     </div>
 
-    @else 
+    <?php else: ?> 
 
         Er is iets fout gegaan, probeer opnieuw in te loggen. Als het probleem zich blijft voordoen neem dan contact met ons op.
 
-    @endif
+    <?php endif; ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
