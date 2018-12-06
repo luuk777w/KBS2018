@@ -127,7 +127,7 @@
         @if(isset($media[0]))
             <div class="image" style="background-image: url('../../assets/img/{{$media[0]->MediaUrl}}');"></div>
         @else
-            <div class="image" style="background-image: url('../../assets/img/img_placeholder.jpg');"></div>
+            <div class="image" style="background-image: url('../../assets/img/placeholder.jpg');"></div>
         @endif
 
         @if(isset($media[0]))
@@ -159,7 +159,7 @@
 
             @if ($productDetails[0]->IsChillerStock)
                 <p class="cooledProduct"><i class="fas fa-snowflake cooledProduct-icon"></i>Let op! dit is een gekoeld product.</p>
-                De huidige temperatuur is  <p class="cooledProduct">{{$temp[0]->Temp}} °C.</p>
+                De huidige temperatuur is {{$temp[0]->Temp}} °C.
             @endif
 
             <form method="post" action="/product/addtocart/{{$productDetails[0]->StockItemID}}">
