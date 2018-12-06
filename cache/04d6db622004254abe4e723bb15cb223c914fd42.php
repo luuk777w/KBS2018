@@ -1,12 +1,9 @@
-@extends('layouts.app')
+<?php $__env->startSection('body'); ?>
 
 
-@section('body')
+    <?php if(!empty($userdata)): ?>
 
-
-    @if(!empty($userdata))
-
-    <h2>Welkom {{$userdata[0]->Firstname}}</h2>
+    <h2>Welkom <?php echo e($userdata[0]->Firstname); ?></h2>
 
     <ul class="nav nav-pills">
         <li class="nav-item">
@@ -18,29 +15,29 @@
         <li class="nav-item">
             <a class="nav-link" href="/account/orders">Mijn Orders</a>
         </li>
-        @if($userdata[0]->Role == "ADMINISTRATOR")
+        <?php if($userdata[0]->Role == "ADMINISTRATOR"): ?>
         <li class="nav-item">
             <a class="nav-link" href="/adminpanel">Admin paneel</a>
         </li>
-        @endif
+        <?php endif; ?>
     </ul>
 
     <div style="clear:both"></div>
     <br />
 
-        @if(!isset($data))
+        <?php if(!isset($data)): ?>
 
             <h2>Er zijn nog geen NAW gegevens van u bekend</h2>
             Vul deze hieronder in en klik op Opslaan<br>
 
-            @php
+            <?php 
             if(isset($msg)){
 
 
 
             }
 
-            @endphp
+             ?>
 
             <div class="container col-5">
                 U kunt ze hier ook aanpassen door de nieuwe gegevens hieronder intevullen en te klikken op Opslaan<br>
@@ -58,7 +55,7 @@
 
 
 
-        @else
+        <?php else: ?>
 
 
             <h2>Dit zijn uw NAW gegevens</h2>
@@ -74,7 +71,8 @@
                     Straat:
                 </td>
                 <td>
-                    {{$data[0]->Street}}
+                    <?php echo e($data[0]->Street); ?>
+
                 </td>
             </tr>
             <tr>
@@ -82,7 +80,8 @@
                     Huisnummer:
                 </td>
                 <td>
-                    {{$data[0]->HouseNr}}
+                    <?php echo e($data[0]->HouseNr); ?>
+
                 </td>
             </tr>
             <tr>
@@ -90,7 +89,8 @@
                     Stad:
                 </td>
                 <td>
-                    {{$data[0]->City}}
+                    <?php echo e($data[0]->City); ?>
+
                 </td>
             </tr>
             <tr>
@@ -98,7 +98,8 @@
                     Land:
                 </td>
                 <td>
-                    {{$data[0]->Country}}
+                    <?php echo e($data[0]->Country); ?>
+
                 </td>
             </tr>
         </table>
@@ -118,16 +119,18 @@
             </div>
 
 </div>
-    @endif
+    <?php endif; ?>
 
 
 
 
-    @else
+    <?php else: ?>
 
         Er is iets fout gegaan, probeer opnieuw in te loggen. Als het probleem zich blijft voordoen neem dan contact met ons op.
 
-    @endif
+    <?php endif; ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

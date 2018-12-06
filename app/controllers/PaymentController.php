@@ -87,7 +87,6 @@ class PaymentController extends Controller
 
     public function hook()
     {
-
         try {
             $mollie = new MollieApiClient();
             $mollie->setApiKey("test_RAnWWDeHWDMPhCzeEMvq9FtNyfgwDD");
@@ -95,6 +94,8 @@ class PaymentController extends Controller
             $payment = $mollie->payments->get($_POST["id"]);
 
             if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
+
+
 
             } elseif ($payment->isOpen()) {
                 /*

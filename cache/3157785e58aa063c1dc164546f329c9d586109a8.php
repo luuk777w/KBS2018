@@ -85,7 +85,7 @@
                 <br>Min. Prijs:
                 <input type="number" min="0" class="prijsl" name="minprijs">
                 Max. Prijs:<input type="number" min="0" max="90000" class="prijsr" name="maxprijs">
-                <input name='sorteren' type="submit" value="sorteren" class="btn btn-outline-primary" style="height: 2rem">
+                <input name='sorteren' type="submit" value="filteren" class="btn btn-outline-primary" style="height: 2rem; line-height: 1rem; margin-bottom: 0.3rem;">
                 <br><br>
             </form>
             
@@ -109,7 +109,7 @@
                 <?php else: ?>
 
                     
-                    <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
+                    <div class="card-img-top" style="background-image: url('/assets/img/placeholder.jpg')"></div>
                 <?php endif; ?>
 
                 
@@ -143,7 +143,42 @@
                     <br>
 
                     
-                    <a href="/product/<?php echo e($product->StockItemID); ?>" style="position: absolute; bottom:10px " class="btn btn-primary">Lees Meer</a>
+
+                    <?php if($isAdmin): ?>
+
+                    <div class="btn-group" style="position: absolute; bottom:10px ">
+                        <a href="/product/<?php echo e($product->StockItemID); ?>" class="btn btn-primary">Lees Meer</a>
+                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <?php if(isset($product->RecommendedProductID)): ?>
+                                <form action="/admin/spotlight/removeRecommendedProduct/<?php echo e($product->StockItemID); ?>" method="post">
+                                    <input type="submit" style="cursor:pointer" class="dropdown-item" value="Verwijder als aanbeveling"/>
+                                </form>
+                            <?php else: ?>
+                                <form action="/admin/spotlight/addRecommendedProduct/<?php echo e($product->StockItemID); ?>" method="post">
+                                    <input type="submit" style="cursor:pointer" class="dropdown-item" value="Zet als aanbeveling"/>
+                                </form>
+                            <?php endif; ?>
+
+                            <?php if(isset($product->CarouselProductID)): ?>
+                                <form action="/admin/spotlight/removeCarouselProduct/<?php echo e($product->StockItemID); ?>" method="post">
+                                    <input type="submit" style="cursor:pointer" class="dropdown-item" value="Verwijder van de carousel"/>
+                                </form>
+                            <?php else: ?>
+                                <form action="/admin/spotlight/addCarouselProduct/<?php echo e($product->StockItemID); ?>" method="post">
+                                    <input type="submit" style="cursor:pointer" class="dropdown-item" value="Voeg aan carousel toe"/>
+                                </form>
+                            <?php endif; ?>
+                        </div>
+                      </div>
+
+                    <?php else: ?>
+
+                        <a href="/product/<?php echo e($product->StockItemID); ?>" style="position: absolute; bottom:10px " class="btn btn-primary">Lees Meer</a>
+
+                    <?php endif; ?>
                 </div>
             </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

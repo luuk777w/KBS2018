@@ -40,7 +40,7 @@
 <br>
 
 
-@if(!empty($userdata)&&$loggedin == true)
+@if(!empty($userdata) && $loggedin == true)
 
     <div class="row">
 
@@ -88,12 +88,12 @@
 @if (!empty($_POST["send"]))
 
     @php
-$code = filter_input(INPUT_POST, "code");
-$vnaam = filter_input(INPUT_POST, "vnaam");
-$anaam = filter_input(INPUT_POST, "anaam");
-$tvnaam = filter_input(INPUT_POST, "tvnaam");
-$email = filter_input(INPUT_POST, "email");
-$telefoonNr = filter_input(INPUT_POST, "telefoonNr");
+$code = filter_input(INPUT_POST, "code", FILTER_SANITIZE_STRING);
+$vnaam = filter_input(INPUT_POST, "vnaam", FILTER_SANITIZE_STRING);
+$anaam = filter_input(INPUT_POST, "anaam", FILTER_SANITIZE_STRING);
+$tvnaam = filter_input(INPUT_POST, "tvnaam", FILTER_SANITIZE_STRING);
+$email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_STRING);
+$telefoonNr = filter_input(INPUT_POST, "telefoonNr", FILTER_SANITIZE_STRING );
 
 
 $num = filter_input(INPUT_POST, "num");
@@ -162,23 +162,23 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
 
         </div>
 @endif
-        @if($loggedin == false)
+        @if($loggedin == false && !isset($userdata[0]->Send))
 
 
             <div class="col-5" >
                 <h2 class="text-center">Uw gegevens</h2>
 <form method="post" action="/order/naw">
     <div class="red">*</div>
-    Voornaam: <input class="form-control" type="text" name="vnaam" required value="" placeholder="Sjors"><br>
-    Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="" placeholder="Rapper"><br>
+    Voornaam: <input class="form-control" type="text" name="vnaam" required value="" placeholder="Pieter"><br>
+    Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="" placeholder="Van"><br>
     <div class="red">*</div>
-    Achternaam: <input class="form-control" type="text" name="anaam" required value="" placeholder="Peters"><br>
+    Achternaam: <input class="form-control" type="text" name="anaam" required value="" placeholder="Dam"><br>
     <div class="red">*</div>
     Postcode: <input class="form-control" type="text" name="code" required value="" placeholder="1234AA"><br>
     <div class="red">*</div>
     Huisnummer: <input class="form-control" type="text" name="num" required value="" placeholder="12A"><br>
     <div class="red">*</div>
-    Emailadres: <input class="form-control" type="email" name='email' required value="" placeholder="sjorsbekendvantv@gmail.com"><br>
+    Emailadres: <input class="form-control" type="email" name='email' required value="" placeholder="pieter@gmail.com"><br>
     <div class="red">*</div>
     TelefoonNr: <input class="form-control" type="text" name='telefoonNr' required value="" placeholder="0612345678"><br>
     <div class="red">* = Verplicht</div><br>

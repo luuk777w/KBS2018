@@ -1,12 +1,9 @@
-@extends('layouts.app')
+<?php $__env->startSection('body'); ?>
 
 
-@section('body')
+    <?php if(!empty($userdata)): ?>
 
-
-    @if(!empty($userdata))
-
-    <h2>Welkom {{$userdata[0]->Firstname}}</h2>
+    <h2>Welkom <?php echo e($userdata[0]->Firstname); ?></h2>
 
     <ul class="nav nav-pills">
         <li class="nav-item">
@@ -18,11 +15,11 @@
         <li class="nav-item">
             <a class="nav-link active" href="/account/orders">Mijn Orders</a>
         </li>
-        @if($userdata[0]->Role == "ADMINISTRATOR")
+        <?php if($userdata[0]->Role == "ADMINISTRATOR"): ?>
         <li class="nav-item">
             <a class="nav-link" href="/adminpanel">Admin paneel</a>
         </li>
-        @endif
+        <?php endif; ?>
     </ul>
 
     <div style="clear:both"></div>
@@ -37,34 +34,34 @@
                 <th width="5%">Datum</th>
                 <th width="15%">Totaal</th>
             </tr>
-            @php
+            <?php 
                 $total = 0;
-            @endphp
-            @foreach($allorders as $values)
+             ?>
+            <?php $__currentLoopData = $allorders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $values): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
 
 
-                        <td>{{$values->StockItemName}}</td>
-                        <td>{{$values->Quantity}}</td>
-                        <td>€ {{$values->RecommendedRetailPrice}}</td>
-                        <td>{{$values->OrderDate}}</td>
-                        <td>€ {{$values->Price}}</td>
+                        <td><?php echo e($values->StockItemName); ?></td>
+                        <td><?php echo e($values->Quantity); ?></td>
+                        <td>€ <?php echo e($values->RecommendedRetailPrice); ?></td>
+                        <td><?php echo e($values->OrderDate); ?></td>
+                        <td>€ <?php echo e($values->Price); ?></td>
 
                     </tr>
 
 
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-            @if(isset($values))
+            <?php if(isset($values)): ?>
 
-            @else
-                @php
+            <?php else: ?>
+                <?php 
                     $total = 0;
-                @endphp
+                 ?>
                 <tr>
                     <td colspan="5" align="center">Geen orders gevonden.</td>
                 </tr>
-            @endif
+            <?php endif; ?>
 
 
         </table>
@@ -72,11 +69,13 @@
 
 
 
-    @else 
+    <?php else: ?> 
 
         Er is iets fout gegaan, probeer opnieuw in te loggen. Als het probleem zich blijft voordoen neem dan contact met ons op.
 
-    @endif
+    <?php endif; ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

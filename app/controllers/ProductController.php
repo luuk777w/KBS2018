@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\Categories;
 use App\Models\Products;
 use Core\Controller;
+use App\Models\Account;
+use Core\Auth;
 
 class ProductController extends Controller
 {
@@ -33,8 +35,20 @@ class ProductController extends Controller
         //Krijg de alle categorienamen
         $categories = $categoriesmodel->getCategorynames();
 
+        $isAdmin = false;
+
+        $auth = new Auth();
+        if($auth->isLoggedIn()){
+            $account = new Account();
+            $userdata = $account->getAccount($auth->getId());
+
+            if($userdata[0]->Role == "ADMINISTRATOR") {
+                $isAdmin = true;
+            }
+        }
+
         //Render de products view en geef de products, categories en de searchTerm mee
-        return $this->view->render("products", compact("products", "categories", "searchTerm"));
+        return $this->view->render("products", compact("products", "categories", "searchTerm", "isAdmin"));
     }
 
     /**
@@ -57,8 +71,20 @@ class ProductController extends Controller
         //Krijg alle categorieen
         $categories = $categoriesModel->getCategorynames();
 
+        $isAdmin = false;
+
+        $auth = new Auth();
+        if($auth->isLoggedIn()){
+            $account = new Account();
+            $userdata = $account->getAccount($auth->getId());
+
+            if($userdata[0]->Role == "ADMINISTRATOR") {
+                $isAdmin = true;
+            }
+        }
+
         //Render de view en geef de producten en categorieen mee
-        return $this->view->render("products", compact("products", "categories"));
+        return $this->view->render("products", compact("products", "categories", "isAdmin"));
     }
  public function orderby()
     {
@@ -79,8 +105,20 @@ class ProductController extends Controller
         //Krijg de alle categorienamen
         $categories = $categoriesmodel->getCategorynames();
 
+        $isAdmin = false;
+
+        $auth = new Auth();
+        if($auth->isLoggedIn()){
+            $account = new Account();
+            $userdata = $account->getAccount($auth->getId());
+
+            if($userdata[0]->Role == "ADMINISTRATOR") {
+                $isAdmin = true;
+            }
+        }
+
         //Render de products view en geef de products, categories en de searchTerm mee
-        return $this->view->render("products", compact("products", "categories", "searchTerm"));
+        return $this->view->render("products", compact("products", "categories", "searchTerm", "isAdmin"));
     }
 
 }

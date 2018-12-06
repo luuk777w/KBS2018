@@ -76,7 +76,7 @@
                 <tr><td>Postcode</td><td>   </td><td><?php echo e($userdata[0]->Postalcode); ?></td></tr>
                 <tr><td>Stad</td><td></td>   <td><?php echo e($userdata[0]->City); ?></td></tr>
                 <tr><td>Email-adres</td><td>   </td><td><?php echo e($userdata[0]->Email); ?></td></tr>
-                <tr><td>TelefoonNr</td><td>   </td><td><?php echo e($userdadta[0]->PhoneNr); ?></td></tr>
+                <tr><td>TelefoonNr</td><td>   </td><td><?php echo e($userdata[0]->PhoneNr); ?></td></tr>
 
             </table>
 

@@ -18,6 +18,11 @@
         <li class="nav-item">
             <a class="nav-link" href="/account/orders">Mijn Orders</a>
         </li>
+        @if($data[0]->Role == "ADMINISTRATOR")
+        <li class="nav-item">
+            <a class="nav-link" href="/adminpanel">Admin paneel</a>
+        </li>
+        @endif
     </ul>
 
     @else 
