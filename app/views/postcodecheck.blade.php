@@ -162,7 +162,7 @@ print('<div class="alert alert-danger" role="alert">'.$msg.'</div>');
 
         </div>
 @endif
-        @if($loggedin == false && isset($userdata[0]->Send))
+        @if($loggedin == false && !isset($userdata[0]->Send))
 
 
             <div class="col-5" >
