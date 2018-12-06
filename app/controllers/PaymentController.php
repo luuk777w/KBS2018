@@ -2,13 +2,13 @@
 
 namespace App\Controllers;
 
-use Core\Auth;
-use Core\Controller;
-use Mollie\Api\MollieApiClient;
 use App\Models\Account;
 use App\Models\Address;
 use App\Models\Orders;
 use App\Models\Products;
+use Core\Auth;
+use Core\Controller;
+use Mollie\Api\MollieApiClient;
 
 class PaymentController extends Controller
 {
@@ -32,17 +32,17 @@ class PaymentController extends Controller
         $orderModel = new Orders();
         $productsModel = new Products();
 
-        if(empty($accountModel->getCustomerByEmail($customer["Email"])[0])) {
+        if (empty($accountModel->getCustomerByEmail($customer["Email"])[0])) {
 
             $accountModel->addCustomer($customer["Firstname"], $customer["Lastname"], $customer["Preposition"], $customer["Email"], $customer["PhoneNr"]);
-        } 
+        }
 
         $customerID = $accountModel->getCustomerByEmail($customer["Email"])[0]->CustomerID;
 
-        if(empty($addressModel->getAddressByPostalCodeAndHouseNr($address["PostalCode"], $address["HouseNr"])[0])) {
+        if (empty($addressModel->getAddressByPostalCodeAndHouseNr($address["PostalCode"], $address["HouseNr"])[0])) {
 
-            $addressModel->addAddress($customerID, $address["IsDeliveryAddress"], $address["IsPostNLServicePoint"], $address["Street"], 
-                                        $address["HouseNr"], $address["PostalCode"], $address["City"], $address["Country"]);
+            $addressModel->addAddress($customerID, $address["IsDeliveryAddress"], $address["IsPostNLServicePoint"], $address["Street"],
+                $address["HouseNr"], $address["PostalCode"], $address["City"], $address["Country"]);
         }
 
         $addressID = $addressModel->getAddressByPostalCodeAndHouseNr($address["PostalCode"], $address["HouseNr"])[0]->AddressID;
@@ -54,14 +54,20 @@ class PaymentController extends Controller
 
         foreach ($orderLines as $orderline) {
 
-            if($orderline->item_name == "Verzendkosten") {
-                $orderModel->addOrderLine($orderID, NULL, 1, $orderline->item_price, NULL);
+            if ($orderline->item_name == "Verzendkosten") {
+                $orderModel->addOrderLine($orderID, null, 1, $orderline->item_price, null);
             } else {
 
                 $product = $productsModel->getProductById($orderline->item_id)[0];
-                $orderModel->addOrderLine($orderID, $orderline->item_id, $orderline->item_quantity, $product->RecommendedRetailPrice, $product->TaxRate);  
+                $orderModel->addOrderLine($orderID, $orderline->item_id, $orderline->item_quantity, $product->RecommendedRetailPrice, $product->TaxRate);
             }
         }
+
+        $to = $customer["Email"];
+        $subject = "Bedankt voor uw aankoop bij WWI!";
+        $message = "Hallo, <br> bedankt voor uw aankoop bij WWI. <br> <br> DOEI!";
+
+        mail($to, $subject, $message);
 
         $mollie = new MollieApiClient();
         $mollie->setApiKey("test_RAnWWDeHWDMPhCzeEMvq9FtNyfgwDD");
@@ -95,8 +101,6 @@ class PaymentController extends Controller
 
             if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
 
-
-
             } elseif ($payment->isOpen()) {
                 /*
              * The payment is open.
@@ -106,7 +110,7 @@ class PaymentController extends Controller
              * The payment is pending.
              */
             } elseif ($payment->isFailed()) {
-              
+
                 /*
              * The payment has failed.
              */
