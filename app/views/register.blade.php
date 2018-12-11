@@ -90,12 +90,12 @@
                         <h2 class="text-center">Uw gegevens</h2>
                         <form method="post" action="/register">
                             <div class="red">*</div>
-                            Voornaam: <input class="form-control" type="text" name="vnaam" required value="" placeholder="Sjors"><br>
-                            Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="" placeholder="Rapper"><br>
+                            Voornaam: <input class="form-control" type="text" name="vnaam" required value="" placeholder="Voornaam"><br>
+                            Tussenvoegsels: <input class="form-control" type="text" name='tvnaam'  value="" placeholder="Tussenvoegsel"><br>
                             <div class="red">*</div>
-                            Achternaam: <input class="form-control" type="text" name="anaam" required value="" placeholder="Peters"><br>
+                            Achternaam: <input class="form-control" type="text" name="anaam" required value="" placeholder="Achternaam"><br>
                             <div class="red">*</div>
-                            Emailadres: <input class="form-control" type="email" name='email' required value="" placeholder="sjorsbekendvantv@gmail.com"><br>
+                            Emailadres: <input class="form-control" type="email" name='email' required value="" placeholder="email@gmail.com"><br>
                             <div class="red">*</div>
                             TelefoonNr: <input class="form-control" type="number" minlength="6" name='telefoonNr' required value="" placeholder="0612345678"><br>
                             <div class="red">*</div>
