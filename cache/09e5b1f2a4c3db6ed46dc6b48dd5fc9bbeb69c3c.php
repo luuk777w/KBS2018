@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('head')
+<?php $__env->startSection('head'); ?>
 <style>
 
 
@@ -21,9 +19,9 @@ h1{
 </style>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('body')
+<?php $__env->startSection('body'); ?>
 
 <br>
 
@@ -34,4 +32,5 @@ h1{
 <h1>Bedankt voor uw bestelling bij WWI.</h1>
  
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
