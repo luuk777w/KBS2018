@@ -32,6 +32,7 @@
 
             <div class="card" style="width: 18rem; height:25rem;float:left;margin:10px">
                 @if($category->PrimaryMediaURL !== NULL)
+
                     <div class="card-img-top" style="background-image: url('/assets/img/{{$category->PrimaryMediaURL}}')"></div>
                 @else
                     <div class="card-img-top" style="background-image: url('/assets/img/img_placeholder.jpg')"></div>
