@@ -143,9 +143,9 @@ class PaymentController extends Controller
     {
         $auth = new Auth();
 
-        if (!$auth->isAuthorized()) {
-            return $auth->error401();
-        }
+        // if (!$auth->isAuthorized()) {
+        //     return $auth->error401();
+        // }
 
         return $this->view->render("bedankt");
     }

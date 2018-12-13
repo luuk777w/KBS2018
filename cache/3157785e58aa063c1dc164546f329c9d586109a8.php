@@ -81,11 +81,13 @@
                     <option value="orderbyprijsdesc" >Prijs(Hoog-Laag)</option>
                 </select>
             </form>
+            <br>
             <form method="post" action="/products">
-                <br>Min. Prijs:
+                <b>Prijs:</b>
+                €
                 <input type="number" min="0" class="prijsl" name="minprijs">
-                Max. Prijs:<input type="number" min="0" max="90000" class="prijsr" name="maxprijs">
-                <input name='sorteren' type="submit" value="filteren" class="btn btn-outline-primary" style="height: 2rem; line-height: 1rem; margin-bottom: 0.3rem;">
+                tot<input type="number" min="0" max="90000" class="prijsr" name="maxprijs">
+                <input name='sorteren' type="submit" value="filteren" class="btn btn-primary" style="height: 2rem; line-height: 1rem; margin-bottom: 0.3rem;">
                 <br><br>
             </form>
             
